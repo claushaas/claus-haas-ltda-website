@@ -14,7 +14,7 @@ export function loader({ context }: Route.LoaderArgs) {
 export default function Home({ loaderData }: Route.ComponentProps) {
 	return (
 		<main>
-			<h1>Claus Haas</h1>
+			<h1 className="font-sans">Claus Haas</h1>
 		</main>
 	);
 }
