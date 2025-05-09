@@ -50,7 +50,12 @@
 			"react": "all"
 		},
 		"enabled": true,
-		"rules": { "recommended": true }
+		"rules": {
+			"nursery": {
+				"useSortedClasses": "error"
+			},
+			"recommended": true
+		}
 	},
 	"vcs": {
 		"clientKind": "git",
