@@ -24,6 +24,7 @@
 	"private": true,
 	"scripts": {
 		"biome:check": "biome check --write",
+		"biome:fix:unsafe": "biome check --write --unsafe",
 		"build": "react-router build",
 		"cf-typegen": "wrangler types",
 		"deploy": "npm run build && wrangler deploy",
