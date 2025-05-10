@@ -1,15 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 @import "tailwindcss" source(".");
+@import "tailwindcss-radix-colors/dist/all.css"; 
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+  --font-sans: "Fira Code", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
-
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-sans;
+  @apply text-sky-12 dark:text-skydark-12;
+}
+
+p {
+  @apply font-sans;
+  @apply text-sky-11 dark:text-skydark-11;
 }
