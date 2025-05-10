@@ -1,6 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap'); */
 @import "tailwindcss" source(".");
-@import "tailwindcss-radix-colors/dist/all.css"; 
+@import "tailwindcss-radix-colors/dist/all.css";
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('./public/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
+}
 
 @theme {
   --font-sans: "Fira Code", ui-sans-serif, system-ui, sans-serif,
