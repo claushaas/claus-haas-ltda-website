@@ -12,23 +12,23 @@ import './app.css';
 
 export const links: Route.LinksFunction = () => [
 	{
+		href: '/apple-touch-icon.png',
 		rel: 'apple-touch-icon',
 		sizes: '180x180',
-		href: '/apple-touch-icon.png',
 	},
 	{
-		rel: 'icon',
-		type: 'image/png',
-		sizes: '32x32',
 		href: '/favicon-32x32.png',
+		rel: 'icon',
+		sizes: '32x32',
+		type: 'image/png',
 	},
 	{
-		rel: 'icon',
-		type: 'image/png',
-		sizes: '16x16',
 		href: '/favicon-16x16.png',
+		rel: 'icon',
+		sizes: '16x16',
+		type: 'image/png',
 	},
-	{ rel: 'manifest', href: '/site.webmanifest' },
+	{ href: '/site.webmanifest', rel: 'manifest' },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -40,7 +40,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Meta />
 				<Links />
 			</head>
-			<body className="h-full">
+			<body className="m-auto h-full max-w-4xl space-y-16 px-4 py-8">
 				{children}
 				<ScrollRestoration />
 				<Scripts />
