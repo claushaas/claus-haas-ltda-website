@@ -1,4 +1,4 @@
-import Face from '../../public/images/face.svg?react';
+import Face from '~/assets/images/face.svg?react';
 
 export function meta() {
 	return [
@@ -17,7 +17,7 @@ export default function Home() {
 				</div>
 				<div className="flex w-full flex-col justify-between">
 					<div className="flex flex-col items-end">
-						<h1 className="text-9xl text-shadow-md text-shadow-sky-12 dark:text-shadow-skydark-12">
+						<h1 className="font-default text-9xl text-shadow-md text-shadow-sky-12 dark:text-shadow-skydark-12">
 							Claus
 						</h1>
 						<h1 className="text-9xl text-shadow-md text-shadow-sky-12 dark:text-shadow-skydark-12">

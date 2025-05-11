@@ -1,16 +1,16 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap'); */
 @import "tailwindcss" source(".");
 @import "tailwindcss-radix-colors/dist/all.css";
 
 @font-face {
-  font-family: 'Fira Code';
-  src: url('./public/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
+  font-family: "Fira Code";
+  font-weight: 300 700;
+  font-style: normal;
+  src: url('./assets/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
   font-display: swap;
 }
 
 @theme {
-  --font-sans: "Fira Code", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-default: "Fira Code", sans-serif;
 }
 
 html,
@@ -21,11 +21,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-sans;
+  @apply font-default;
   @apply text-sky-12 dark:text-skydark-12;
 }
 
 p {
-  @apply font-sans;
+  @apply font-default;
   @apply text-sky-11 dark:text-skydark-11;
 }
