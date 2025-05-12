@@ -1,0 +1,28 @@
+// Arquivo gerado a partir de yoga-em-movimento.md
+export const project = {
+	description:
+		'Breve descrição do projeto exemplo, tecnologias utilizadas, desafios e resultados.',
+	highlights: ['Destaque 1', 'Destaque 2'],
+	link: 'https://yogaemmovimento.com',
+	technologies: [
+		'React',
+		'Ract Router',
+		'Docker',
+		'Docker compose',
+		'Mautic',
+		'Postgres',
+		'Prisma ORM',
+		'Typescript',
+		'Github Actions',
+		'Tailwind',
+		'Biome',
+		'Vite',
+		'AWS Cognito',
+		'AWS SES',
+		'Radix Colors',
+		'Radix Primitives',
+		'Joi',
+		'Motion',
+	],
+	title: 'Yoga em Movimento',
+};
