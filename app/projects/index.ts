@@ -1,8 +1,14 @@
-import * as budgetPal from './budgetPal';
+import * as budgetPal from './budgetPal-app';
+import * as bdWebsite from './budgetPal-website';
 import * as claus from './portfolio';
 import * as yem from './yem';
 
-const TSProjects = [budgetPal.project, yem.project, claus.project];
+const TSProjects = [
+	budgetPal.project,
+	yem.project,
+	claus.project,
+	bdWebsite.project,
+];
 
 type Project = {
 	content?: string;
