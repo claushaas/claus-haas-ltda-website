@@ -1,28 +1,22 @@
-import fs from 'fs';
-import matter from 'gray-matter';
-import path from 'path';
+// Importa todos os arquivos .ts de projetos
+import * as yogaEmMovimento from './yoga-em-movimento';
 
-const projectsDir = path.join(process.cwd(), 'app/projects');
+const projetosTS = [yogaEmMovimento.yogaEmMovimento];
 
 type Projeto = {
-	content: string;
+	content?: string;
 	slug: string;
 	title?: string;
 	link?: string;
+	tecnologias?: string[];
+	descricao?: string;
+	destaques?: string[];
 };
 
 export function getAllProjects(): Projeto[] {
-	const files = fs.readdirSync(projectsDir);
-	return files
-		.filter((file) => file.endsWith('.md'))
-		.map((file) => {
-			const filePath = path.join(projectsDir, file);
-			const fileContents = fs.readFileSync(filePath, 'utf8');
-			const { data, content } = matter(fileContents);
-			return {
-				...data,
-				content,
-				slug: file.replace(/\.md$/, ''),
-			};
-		});
+	// Retorna os projetos definidos em arquivos .ts
+	return projetosTS.map((projeto) => ({
+		...projeto,
+		slug: projeto.title?.toLowerCase().replace(/\s+/g, '-') || '',
+	}));
 }
