@@ -1,21 +1,21 @@
 // Importa todos os arquivos .ts de projetos
-import * as yogaEmMovimento from './yoga-em-movimento';
+import * as yem from './yem';
 
-const projetosTS = [yogaEmMovimento.yogaEmMovimento];
+const TSProjects = [yem.project];
 
-type Projeto = {
+type Project = {
 	content?: string;
 	slug: string;
 	title?: string;
 	link?: string;
-	tecnologias?: string[];
-	descricao?: string;
-	destaques?: string[];
+	technologies?: string[];
+	description?: string;
+	highlights?: string[];
 };
 
-export function getAllProjects(): Projeto[] {
+export function getAllProjects(): Project[] {
 	// Retorna os projetos definidos em arquivos .ts
-	return projetosTS.map((projeto) => ({
+	return TSProjects.map((projeto) => ({
 		...projeto,
 		slug: projeto.title?.toLowerCase().replace(/\s+/g, '-') || '',
 	}));

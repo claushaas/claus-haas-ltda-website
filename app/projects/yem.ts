@@ -1,7 +1,10 @@
 // Arquivo gerado a partir de yoga-em-movimento.md
-export const yogaEmMovimento = {
-	title: 'Yoga em Movimento',
-	tecnologias: [
+export const project = {
+	description:
+		'Breve descrição do projeto exemplo, tecnologias utilizadas, desafios e resultados.',
+	highlights: ['Destaque 1', 'Destaque 2'],
+	link: 'https://yogaemmovimento.com',
+	tecnologies: [
 		'React',
 		'Ract Router',
 		'Docker',
@@ -21,8 +24,5 @@ export const yogaEmMovimento = {
 		'Joi',
 		'Motion',
 	],
-	link: 'https://yogaemmovimento.com',
-	descricao:
-		'Breve descrição do projeto exemplo, tecnologias utilizadas, desafios e resultados.',
-	destaques: ['Destaque 1', 'Destaque 2'],
+	title: 'Yoga em Movimento',
 };

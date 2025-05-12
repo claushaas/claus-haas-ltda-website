@@ -4,23 +4,14 @@
 		"composite": true,
 		"esModuleInterop": true,
 		"jsx": "react-jsx",
-		"lib": [
-			"DOM",
-			"DOM.Iterable",
-			"ES2022"
-		],
+		"lib": ["DOM", "DOM.Iterable", "ES2022"],
 		"module": "ES2022",
 		"moduleResolution": "bundler",
 		"paths": {
-			"~/*": [
-				"./app/*"
-			]
+			"~/*": ["./app/*"]
 		},
 		"resolveJsonModule": true,
-		"rootDirs": [
-			".",
-			"./.react-router/types"
-		],
+		"rootDirs": [".", "./.react-router/types"],
 		"strict": true,
 		"target": "ES2022",
 		"types": [
