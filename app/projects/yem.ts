@@ -4,7 +4,7 @@ export const project = {
 		'Breve descrição do projeto exemplo, tecnologias utilizadas, desafios e resultados.',
 	highlights: ['Destaque 1', 'Destaque 2'],
 	link: 'https://yogaemmovimento.com',
-	tecnologies: [
+	technologies: [
 		'React',
 		'Ract Router',
 		'Docker',
