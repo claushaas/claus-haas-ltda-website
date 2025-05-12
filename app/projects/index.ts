@@ -1,7 +1,8 @@
-// Importa todos os arquivos .ts de projetos
+import * as budgetPal from './budgetPal';
+import * as claus from './portfolio';
 import * as yem from './yem';
 
-const TSProjects = [yem.project];
+const TSProjects = [budgetPal.project, yem.project, claus.project];
 
 type Project = {
 	content?: string;

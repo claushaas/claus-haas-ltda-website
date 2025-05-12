@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import Face from '~/assets/images/face.svg?react';
-import ProjetosSection from './ProjetosSection';
+import ProjectGallery from '../ui/layouts/projects-gallery';
 
 export function meta() {
 	return [
@@ -86,7 +86,7 @@ export default function Home() {
 				</section>
 
 				{/* Projetos */}
-				<ProjetosSection />
+				<ProjectGallery />
 
 				{/* Certificações & Prêmios */}
 				<section>
