@@ -13,5 +13,8 @@
 	"observability": {
 		"enabled": true
 	},
-	"assets": { "directory": "./public/", "binding": "ASSETS" }
+	"assets": {
+		"directory": "./public/",
+		"binding": "ASSETS"
+	}
 }
