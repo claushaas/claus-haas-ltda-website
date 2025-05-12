@@ -8,7 +8,7 @@ export default function ProjetosSection() {
 			<div className="grid grid-cols-1 gap-4 md:grid-cols-2">
 				{projetos.map((project) => (
 					<div
-						className="rounded-lg border border-sky-4 bg-sky-2 p-4 shadow dark:border-skydark-4 dark:bg-skydark-2"
+						className="rounded-3xl bg-sky-2 p-4 shadow-slate-8 shadow-xs dark:bg-skydark-2 dark:shadow-slatedark-8"
 						key={project.slug}
 					>
 						<h3 className="mb-1 font-semibold text-xl">{project.title}</h3>

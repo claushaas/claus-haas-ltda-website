@@ -76,7 +76,7 @@ export default function Home() {
 							'Biome',
 						].map((skill) => (
 							<span
-								className="rounded bg-sky-3 px-3 py-1 font-medium text-sky-12 text-sm dark:bg-skydark-3 dark:text-skydark-12"
+								className="rounded-md bg-sky-3 px-3 py-1 font-medium text-sky-12 text-sm shadow-slate-8 shadow-xs dark:bg-skydark-3 dark:text-skydark-12 dark:shadow-slate-8"
 								key={skill}
 							>
 								{skill}
