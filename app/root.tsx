@@ -9,6 +9,7 @@ import {
 
 import type { Route } from './+types/root';
 import './app.css';
+import { useIsBot } from './hooks/use-is-bot';
 
 export const links: Route.LinksFunction = () => [
 	{
@@ -32,6 +33,8 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+	const isBot = useIsBot();
+
 	return (
 		<html className="h-full" lang="en">
 			<head>
@@ -43,7 +46,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 			<body className="m-auto h-full max-w-4xl space-y-16 px-4 py-8">
 				{children}
 				<ScrollRestoration />
-				<Scripts />
+				{isBot ? null : <Scripts />}
 			</body>
 		</html>
 	);
