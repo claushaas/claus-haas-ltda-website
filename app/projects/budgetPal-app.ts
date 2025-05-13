@@ -13,6 +13,7 @@ export const project = {
 		'Typescript',
 		'Biome',
 		'Radix Colors',
+		'Legend State',
 		'Zod',
 		'React Native Reanimated',
 	],
