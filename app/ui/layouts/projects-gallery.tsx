@@ -1,5 +1,5 @@
-import { type HTMLMotionProps, motion, useScroll } from 'motion/react';
-import { useEffect, useRef, useState } from 'react';
+import { motion } from 'motion/react';
+import { useState } from 'react';
 import { getAllProjects } from '~/projects';
 
 export default function ProjetosSection() {
@@ -20,7 +20,7 @@ export default function ProjetosSection() {
 		<section>
 			<h2 className="mb-2 font-bold text-3xl">Projetos</h2>
 			<div className="relative flex items-center">
-				<div className="absolute top-0 right-0 bottom-0 w-[1px] shadow-2xl shadow-red-10" />
+				<div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-24 bg-gradient-to-l from-slate-1 to-transparent dark:from-slatedark-1" />
 				<ul className="flex w-full gap-4 overflow-hidden py-4">
 					{orderOfProjects.map((projectOrder) => {
 						const project = projectsList[projectOrder];
@@ -76,10 +76,9 @@ export default function ProjetosSection() {
 						);
 					})}
 				</ul>
-
 				<button
 					type="button"
-					className="-translate-y-1/2 absolute top-1/2 right-0 z-10 rounded-full bg-sky-3 px-2 py-1 text-sky-12 shadow hover:bg-sky-4 dark:bg-skydark-3 dark:text-skydark-12 dark:hover:bg-skydark-4"
+					className="-translate-y-1/2 absolute top-1/2 right-0 z-20 rounded-full bg-sky-3 px-2 py-1 text-sky-12 shadow hover:bg-sky-4 dark:bg-skydark-3 dark:text-skydark-12 dark:hover:bg-skydark-4"
 					onClick={next}
 					aria-label="Next"
 				>
