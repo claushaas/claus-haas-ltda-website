@@ -1,4 +1,3 @@
-// Arquivo gerado a partir de yoga-em-movimento.md
 export const project = {
 	description:
 		'Breve descrição do projeto exemplo, tecnologias utilizadas, desafios e resultados.',
