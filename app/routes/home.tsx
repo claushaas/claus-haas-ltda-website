@@ -12,7 +12,7 @@ export function meta() {
 export default function Home() {
 	return (
 		<>
-			<header className="flex flex-wrap gap-4 md:h-96 md:flex-nowrap">
+			<header className="my-16 flex flex-wrap gap-4 md:h-96 md:flex-nowrap">
 				<div className="flex w-full justify-center md:justify-start">
 					<Face className="h-full w-fit fill-sky-12 stroke-2 stroke-sky-11 dark:fill-skydark-11 dark:stroke-skydark-10" />
 				</div>
@@ -73,6 +73,7 @@ export default function Home() {
 							'Thrive Themes',
 							'Elementor',
 							'Motion',
+							'Zapier',
 							'Biome',
 						].map((skill) => (
 							<span
@@ -87,45 +88,6 @@ export default function Home() {
 
 				{/* Projetos */}
 				<ProjectGallery />
-
-				{/* Certificações & Prêmios */}
-				<section>
-					<h2 className="mb-2 font-bold text-3xl">Certificações & Prêmios</h2>
-					<ul className="space-y-2">
-						<li>
-							Leão de Ouro (Gold Lion) - União Nacional de Yoga{' '}
-							<span className="text-sky-10">2008</span>
-						</li>
-						<li>
-							Clean Code Highlight - Trybe{' '}
-							<span className="text-sky-10">2023</span>
-						</li>
-						<li>
-							Soft Skills Highlight - Leadership - Trybe{' '}
-							<span className="text-sky-10">2023</span>
-						</li>
-						<li>
-							GTD - Fundamentals <span className="text-sky-10">2018</span>
-						</li>
-						<li>
-							GTD - Projects and Priorities{' '}
-							<span className="text-sky-10">2018</span>
-						</li>
-						<li>
-							Product Launch Formula - Erico Rocha{' '}
-							<span className="text-sky-10">2015</span>
-						</li>
-					</ul>
-				</section>
-
-				{/* Idiomas */}
-				<section>
-					<h2 className="mb-2 font-bold text-3xl">Idiomas</h2>
-					<ul className="space-y-2">
-						<li>Português — Nativo</li>
-						<li>Inglês — Avançado (LCCI Level 2 - 11/2000)</li>
-					</ul>
-				</section>
 			</main>
 			<footer className="border-slate-2 border-t-2 py-16 dark:border-slatedark-2">
 				<p className="text-center">
