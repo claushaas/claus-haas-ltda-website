@@ -27,11 +27,11 @@ export default function ProjetosSection() {
 
 						return (
 							<motion.li
+								className="flex-shrink-0 rounded-3xl bg-sky-2 p-4 shadow-slate-8 shadow-xs dark:bg-skydark-2 dark:shadow-slatedark-8"
 								key={project.slug}
 								layout
-								transition={{ duration: 0.4, type: 'tween' }}
-								className="flex-shrink-0 rounded-3xl bg-sky-2 p-4 shadow-slate-8 shadow-xs dark:bg-skydark-2 dark:shadow-slatedark-8"
 								style={{ width: slideWidth }}
+								transition={{ duration: 0.4, type: 'tween' }}
 							>
 								<h3 className="mb-1 font-semibold text-xl">{project.title}</h3>
 								{project.description && (
@@ -77,22 +77,22 @@ export default function ProjetosSection() {
 					})}
 				</ul>
 				<button
-					type="button"
+					aria-label="Next"
 					className="-translate-y-1/2 absolute top-1/2 right-0 z-20 rounded-full bg-sky-3 px-2 py-1 text-sky-12 shadow hover:bg-sky-4 dark:bg-skydark-3 dark:text-skydark-12 dark:hover:bg-skydark-4"
 					onClick={next}
-					aria-label="Next"
+					type="button"
 				>
 					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
+						aria-label="Next"
 						fill="none"
+						height="24"
 						stroke="currentColor"
-						strokeWidth="2"
 						strokeLinecap="round"
 						strokeLinejoin="round"
-						aria-label="Next"
+						strokeWidth="2"
+						viewBox="0 0 24 24"
+						width="24"
+						xmlns="http://www.w3.org/2000/svg"
 					>
 						<title>Next</title>
 						<path d="M5 12h14" />
