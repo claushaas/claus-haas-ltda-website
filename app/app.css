@@ -14,7 +14,7 @@
 }
 
 :root {
-  @apply bg-slate-1 dark:bg-slatedark-1
+  @apply bg-slate-1 dark:bg-slatedark-1 box-border;
 }
 
 html,
@@ -24,7 +24,7 @@ body {
   }
 }
 
-main, header, section {
+main, section {
   @apply mb-16;
 }
 
