@@ -46,12 +46,13 @@
 	},
 	"linter": {
 		"domains": {
+			"project": "recommended",
 			"react": "all"
 		},
 		"enabled": true,
 		"rules": {
 			"nursery": {
-				"useSortedClasses": "error"
+				"useSortedClasses": "on"
 			},
 			"recommended": true
 		}
