@@ -2,25 +2,12 @@ import { Link } from 'react-router';
 import Face from '~/assets/images/face.svg?react';
 import { useIsBot } from '~/hooks/use-is-bot';
 import ProjectGallery from '../ui/layouts/projects-gallery';
-import type { Route } from './+types/home';
 
-export function meta({ data }: Route.MetaArgs) {
+export const meta = () => {
 	return [
 		{ title: 'Claus Haas Ltda.' },
 		{ content: 'Bem-vind@ ao meu website', name: 'description' },
-		{
-			content: data.colorScheme === 'dark' ? '#111113' : '#fcfcfd',
-			name: 'theme-color',
-		},
 	];
-}
-
-export const loader = ({ request }: Route.LoaderArgs) => {
-	const colorScheme = request.headers.get('sec-ch-prefers-color-scheme');
-
-	return {
-		colorScheme: colorScheme ?? 'dark',
-	};
 };
 
 export default function Home() {
@@ -30,7 +17,12 @@ export default function Home() {
 		<>
 			<header className="my-16 flex flex-wrap gap-4 md:h-96 md:flex-nowrap">
 				<div className="flex w-full justify-center md:justify-start">
-					<Face className="h-full w-fit fill-sky-12 stroke-2 stroke-sky-11 dark:fill-skydark-11 dark:stroke-skydark-10" />
+					<Face
+						aria-label="Ilustração do rosto de Claus Haas"
+						className="h-full w-fit fill-sky-12 stroke-2 stroke-sky-11 dark:fill-skydark-11 dark:stroke-skydark-10"
+						role="img"
+						title="Claus Haas"
+					/>
 				</div>
 				<div className="flex w-full flex-col justify-between">
 					<div className="flex flex-col items-end">
@@ -48,10 +40,12 @@ export default function Home() {
 					</div>
 				</div>
 			</header>
-			<main>
+			<main id="main-content" tabIndex={-1}>
 				{/* Sobre / Resumo Profissional */}
-				<section>
-					<h2 className="mb-2 font-bold text-3xl">Sobre</h2>
+				<section aria-labelledby="sobre-heading">
+					<h2 className="mb-2 font-bold text-3xl" id="sobre-heading">
+						Sobre
+					</h2>
 					<p className="max-w-2xl text-lg text-sky-11 dark:text-skydark-11">
 						Desenvolvedor fullstack com experiência em plataformas web,
 						automação e integrações de marketing digital. Atuação em projetos de
@@ -61,8 +55,10 @@ export default function Home() {
 				</section>
 
 				{/* Skills & Tecnologias */}
-				<section>
-					<h2 className="mb-2 font-bold text-3xl">Skills & Tecnologias</h2>
+				<section aria-labelledby="skills-heading">
+					<h2 className="mb-2 font-bold text-3xl" id="skills-heading">
+						Skills & Tecnologias
+					</h2>
 					<div className="flex flex-wrap gap-2">
 						{[
 							'HTML',

@@ -53,6 +53,7 @@ export default function ProjectCard({ project, slideWidth }: ProjectCardProps) {
 			)}
 			{project.link ? (
 				<a
+					aria-label={`Ver mais sobre o projeto ${project.title}`}
 					className="text-sky-10 underline hover:opacity-80"
 					href={project.link}
 					rel="noopener noreferrer"
