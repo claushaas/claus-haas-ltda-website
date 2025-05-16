@@ -18,7 +18,7 @@ type ProjectCardProps = {
 export default function ProjectCard({ project, slideWidth }: ProjectCardProps) {
 	return (
 		<motion.li
-			className="flex-shrink-0 rounded-3xl bg-sky-2 p-4 shadow-slate-8 shadow-xs dark:bg-skydark-2 dark:shadow-slatedark-8"
+			className="flex-shrink-0 rounded-3xl bg-sky-2 p-6 shadow-slate-8 shadow-sm dark:bg-skydark-2 dark:shadow-slatedark-8"
 			key={project.slug}
 			layout
 			style={{ width: slideWidth }}
