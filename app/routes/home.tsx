@@ -8,7 +8,7 @@ export function meta({ data }: Route.MetaArgs) {
 		{ title: 'Claus Haas Ltda.' },
 		{ content: 'Bem-vind@ ao meu website', name: 'description' },
 		{
-			content: data?.colorScheme === 'dark' ? '#111113' : '#fcfcfd',
+			content: data.colorScheme === 'dark' ? '#111113' : '#fcfcfd',
 			name: 'theme-color',
 		},
 		{
