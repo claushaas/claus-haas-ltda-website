@@ -15,7 +15,7 @@ export default async function handleRequest(
 	const userAgent = request.headers.get('user-agent');
 
 	const body = await renderToReadableStream(
-		<IsBotProvider isBot={isbot(request.headers.get('user-agent') ?? '')}>
+		<IsBotProvider isBot={isbot(userAgent ?? '')}>
 			<ServerRouter context={routerContext} url={request.url} />
 		</IsBotProvider>,
 		{
