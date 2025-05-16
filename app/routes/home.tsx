@@ -29,11 +29,9 @@ export default function Home() {
 				</div>
 				<div className="flex w-full flex-col justify-between">
 					<div className="flex flex-col items-end">
-						<h1 className="font-default text-9xl text-shadow-sky-12 text-shadow-xs dark:text-shadow-skydark-12">
+						<h1 className="text-right font-default text-9xl text-shadow-sky-12 text-shadow-xs dark:text-shadow-skydark-12">
 							Claus
-						</h1>
-						<h1 className="text-9xl text-shadow-sky-12 text-shadow-xs dark:text-shadow-skydark-12">
-							Haas
+							<span className="block">Haas</span>
 						</h1>
 					</div>
 					<div className="flex flex-col items-end">
