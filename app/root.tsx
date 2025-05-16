@@ -43,7 +43,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Meta />
 				<Links />
 			</head>
-			<body className="m-auto h-fit max-w-4xl space-y-16 px-4">
+			<body className="m-auto h-fit max-w-4xl space-y-16 bg-slate-1 px-4 dark:bg-slatedark-1">
 				{children}
 				<ScrollRestoration />
 				{isBot ? null : <Scripts />}
