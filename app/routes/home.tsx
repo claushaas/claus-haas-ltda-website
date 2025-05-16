@@ -11,9 +11,6 @@ export function meta({ data }: Route.MetaArgs) {
 			content: data.colorScheme === 'dark' ? '#111113' : '#fcfcfd',
 			name: 'theme-color',
 		},
-		{
-			charSet: 'utf-8',
-		},
 	];
 }
 

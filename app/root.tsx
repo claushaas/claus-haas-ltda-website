@@ -39,6 +39,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 		<html className="h-full" lang="en">
 			<head>
 				<meta content="width=device-width, initial-scale=1" name="viewport" />
+				<meta charSet="utf-8" />
 				<Meta />
 				<Links />
 			</head>
