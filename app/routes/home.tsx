@@ -15,7 +15,10 @@ export default function Home() {
 
 	return (
 		<>
-			<header className="my-16 flex flex-wrap gap-4 md:h-96 md:flex-nowrap">
+			<header
+				className="my-16 flex flex-wrap gap-4 md:h-96 md:flex-nowrap"
+				id="header"
+			>
 				<div className="flex w-full justify-center md:justify-start">
 					<Face
 						aria-label="Ilustração do rosto de Claus Haas"
@@ -42,10 +45,8 @@ export default function Home() {
 			</header>
 			<main id="main-content" tabIndex={-1}>
 				{/* Sobre / Resumo Profissional */}
-				<section aria-labelledby="sobre-heading">
-					<h2 className="mb-2 font-bold text-3xl" id="sobre-heading">
-						Sobre
-					</h2>
+				<section aria-labelledby="sobre-heading" id="about">
+					<h2 className="mb-2 font-bold text-3xl">Sobre</h2>
 					<p className="max-w-2xl text-lg text-sky-11 dark:text-skydark-11">
 						Desenvolvedor fullstack com experiência em plataformas web,
 						automação e integrações de marketing digital. Atuação em projetos de
@@ -55,10 +56,8 @@ export default function Home() {
 				</section>
 
 				{/* Skills & Tecnologias */}
-				<section aria-labelledby="skills-heading">
-					<h2 className="mb-2 font-bold text-3xl" id="skills-heading">
-						Skills & Tecnologias
-					</h2>
+				<section aria-labelledby="skills-heading" id="skills">
+					<h2 className="mb-2 font-bold text-3xl">Skills & Tecnologias</h2>
 					<div className="flex flex-wrap gap-2">
 						{[
 							'HTML',
@@ -99,9 +98,14 @@ export default function Home() {
 				</section>
 
 				{/* Projetos */}
-				<ProjectGallery />
+				<section aria-labelledby="projetos-heading" id="projects">
+					<ProjectGallery />
+				</section>
 			</main>
-			<footer className="mb-0 border-slate-2 border-t-2 py-16 dark:border-slatedark-2">
+			<footer
+				className="mb-0 border-slate-2 border-t-2 py-16 dark:border-slatedark-2"
+				id="footer"
+			>
 				<p className="text-center">
 					Todos os direitos reservados - {new Date().getFullYear()} - Claus Haas
 					Ltda.
