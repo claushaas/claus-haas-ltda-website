@@ -2,7 +2,6 @@ import { Link } from 'react-router';
 import Face from '~/assets/images/face.svg?react';
 import { useIsBot } from '~/hooks/use-is-bot';
 import { skills } from '../content/skills/skills';
-import { AnimatedHeading } from '../ui/components/animated-heading';
 import { SkillBadge } from '../ui/components/skill-badge';
 import ProjectGallery from '../ui/layouts/projects-gallery';
 
@@ -32,10 +31,10 @@ export default function Home() {
 				</div>
 				<div className="flex w-full flex-col justify-between">
 					<div className="flex flex-col items-end">
-						<AnimatedHeading className="text-right font-default text-9xl text-shadow-sky-12 text-shadow-xs dark:text-shadow-skydark-12">
+						<h1 className="text-right font-default text-9xl text-shadow-sky-12 text-shadow-xs dark:text-shadow-skydark-12">
 							Claus
 							<span className="block">Haas</span>
-						</AnimatedHeading>
+						</h1>
 					</div>
 					<div className="flex flex-col items-end">
 						<p className="text-2xl">Fullstack Developer</p>
