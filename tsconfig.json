@@ -4,12 +4,15 @@
 		"noEmit": true,
 		"skipLibCheck": true,
 		"strict": true,
-		"types": ["@cloudflare/workers-types/2023-07-01"],
 		"verbatimModuleSyntax": true
 	},
 	"files": [],
 	"references": [
-		{ "path": "./tsconfig.node.json" },
-		{ "path": "./tsconfig.cloudflare.json" }
+		{
+			"path": "./tsconfig.node.json"
+		},
+		{
+			"path": "./tsconfig.cloudflare.json"
+		}
 	]
 }
