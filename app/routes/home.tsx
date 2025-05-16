@@ -1,6 +1,9 @@
 import { Link } from 'react-router';
 import Face from '~/assets/images/face.svg?react';
 import { useIsBot } from '~/hooks/use-is-bot';
+import { skills } from '../content/skills/skills';
+import { AnimatedHeading } from '../ui/components/animated-heading';
+import { SkillBadge } from '../ui/components/skill-badge';
 import ProjectGallery from '../ui/layouts/projects-gallery';
 
 export const meta = () => {
@@ -29,10 +32,10 @@ export default function Home() {
 				</div>
 				<div className="flex w-full flex-col justify-between">
 					<div className="flex flex-col items-end">
-						<h1 className="text-right font-default text-9xl text-shadow-sky-12 text-shadow-xs dark:text-shadow-skydark-12">
+						<AnimatedHeading className="text-right font-default text-9xl text-shadow-sky-12 text-shadow-xs dark:text-shadow-skydark-12">
 							Claus
 							<span className="block">Haas</span>
-						</h1>
+						</AnimatedHeading>
 					</div>
 					<div className="flex flex-col items-end">
 						<p className="text-2xl">Fullstack Developer</p>
@@ -56,41 +59,9 @@ export default function Home() {
 				{/* Skills & Tecnologias */}
 				<section aria-labelledby="skills-heading" id="skills">
 					<h2 className="mb-2 font-bold text-3xl">Skills & Tecnologias</h2>
-					<div className="flex flex-wrap gap-2">
-						{[
-							'HTML',
-							'CSS',
-							'JavaScript',
-							'TypeScript',
-							'React.js',
-							'React Router',
-							'React Native',
-							'Expo',
-							'Expo Router',
-							'Remix.Js',
-							'Node',
-							'Docker',
-							'Git',
-							'MySQL',
-							'Postgres',
-							'Vite',
-							'AWS',
-							'SES',
-							'Wordpress',
-							'Mautic',
-							'InfusionSoft',
-							'Thrive Themes',
-							'Elementor',
-							'Motion',
-							'Zapier',
-							'Biome',
-						].map((skill) => (
-							<span
-								className="rounded-md bg-sky-3 px-3 py-1 font-medium text-sky-12 text-sm shadow-slate-8 shadow-xs dark:bg-skydark-3 dark:text-skydark-12 dark:shadow-slate-8"
-								key={skill}
-							>
-								{skill}
-							</span>
+					<div className="flex flex-wrap gap-4">
+						{skills.map((skill) => (
+							<SkillBadge key={skill} skill={skill} />
 						))}
 					</div>
 				</section>

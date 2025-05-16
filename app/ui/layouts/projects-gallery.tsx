@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getAllProjects } from '~/projects';
+import { getAllProjects } from '~/content/projects';
 import ProjectCard from '../components/project-card';
 
 export default function ProjetosSection() {
