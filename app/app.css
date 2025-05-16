@@ -14,7 +14,7 @@
 }
 
 :root {
-  @apply bg-slate-1 dark:bg-slatedark-1 box-border;
+  @apply bg-slate-1 dark:bg-slatedark-1;
 }
 
 html,

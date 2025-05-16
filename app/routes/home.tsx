@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import Face from '~/assets/images/face.svg?react';
+import { useIsBot } from '~/hooks/use-is-bot';
 import ProjectGallery from '../ui/layouts/projects-gallery';
 import type { Route } from './+types/home';
 
@@ -23,6 +24,8 @@ export const loader = ({ request }: Route.LoaderArgs) => {
 };
 
 export default function Home() {
+	const isBot = useIsBot();
+
 	return (
 		<>
 			<header className="my-16 flex flex-wrap gap-4 md:h-96 md:flex-nowrap">
@@ -102,14 +105,22 @@ export default function Home() {
 				{/* Projetos */}
 				<ProjectGallery />
 			</main>
-			<footer className="border-slate-2 border-t-2 py-16 dark:border-slatedark-2">
+			<footer className="mb-0 border-slate-2 border-t-2 py-16 dark:border-slatedark-2">
 				<p className="text-center">
-					Todos os direitos reservados - 2025 - Claus Haas Ltda. - CNPJ
-					59.586.732/0001-58
+					Todos os direitos reservados - {new Date().getFullYear()} - Claus Haas
+					Ltda.
+					{!isBot && ' - CNPJ 59.586.732/0001-58'}
 				</p>
-				<p className="text-center">
-					<Link to={'mailto:contact@claushaas.dev'}>contact@claushaas.dev</Link>
-				</p>
+				{!isBot && (
+					<p className="text-center">
+						<Link
+							className="text-sky-8 underline underline-offset-2 hover:opacity-80 dark:text-skydark-8"
+							to={'mailto:contact@claushaas.dev'}
+						>
+							contact@claushaas.dev
+						</Link>
+					</p>
+				)}
 			</footer>
 		</>
 	);
