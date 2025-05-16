@@ -1,13 +1,29 @@
 import { Link } from 'react-router';
 import Face from '~/assets/images/face.svg?react';
 import ProjectGallery from '../ui/layouts/projects-gallery';
+import type { Route } from './+types/home';
 
-export function meta() {
+export function meta({ data }: Route.MetaArgs) {
 	return [
-		{ title: 'New React Router App' },
-		{ content: 'Welcome to React Router!', name: 'description' },
+		{ title: 'Claus Haas Ltda.' },
+		{ content: 'Bem-vind@ ao meu website', name: 'description' },
+		{
+			content: data?.colorScheme === 'dark' ? '#111113' : '#fcfcfd',
+			name: 'theme-color',
+		},
+		{
+			charSet: 'utf-8',
+		},
 	];
 }
+
+export const loader = ({ request }: Route.LoaderArgs) => {
+	const colorScheme = request.headers.get('sec-ch-prefers-color-scheme');
+
+	return {
+		colorScheme: colorScheme ?? 'dark',
+	};
+};
 
 export default function Home() {
 	return (
