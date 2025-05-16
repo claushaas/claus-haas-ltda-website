@@ -1,6 +1,6 @@
-import { motion } from 'motion/react';
 import { useState } from 'react';
 import { getAllProjects } from '~/projects';
+import ProjectCard from '../components/project-card';
 
 export default function ProjetosSection() {
 	const projectsList = getAllProjects();
@@ -9,12 +9,12 @@ export default function ProjetosSection() {
 	);
 	const slideWidth = 360;
 
-	function next() {
+	const next = () => {
 		setOrderOfProjects((prev) => {
 			const [first, ...rest] = prev;
 			return [...rest, first];
 		});
-	}
+	};
 
 	return (
 		<section>
@@ -24,55 +24,12 @@ export default function ProjetosSection() {
 				<ul className="flex w-full gap-4 overflow-hidden py-4">
 					{orderOfProjects.map((projectOrder) => {
 						const project = projectsList[projectOrder];
-
 						return (
-							<motion.li
-								className="flex-shrink-0 rounded-3xl bg-sky-2 p-4 shadow-slate-8 shadow-xs dark:bg-skydark-2 dark:shadow-slatedark-8"
+							<ProjectCard
 								key={project.slug}
-								layout
-								style={{ width: slideWidth }}
-								transition={{ duration: 0.4, type: 'tween' }}
-							>
-								<h3 className="mb-1 font-semibold text-xl">{project.title}</h3>
-								{project.description && (
-									<p className="mb-2 text-sky-11 dark:text-skydark-11">
-										{project.description}
-									</p>
-								)}
-								{project.technologies && project.technologies.length > 0 && (
-									<div className="mb-2 flex flex-wrap gap-2">
-										{project.technologies.map((tec) => (
-											<span
-												className="rounded bg-sky-3 px-2 py-0.5 text-sky-12 text-xs dark:bg-skydark-3 dark:text-skydark-12"
-												key={tec}
-											>
-												{tec}
-											</span>
-										))}
-									</div>
-								)}
-								{project.highlights && project.highlights.length > 0 && (
-									<ul className="mb-2 list-disc pl-5 text-sky-11 dark:text-skydark-11">
-										{project.highlights.map((destaque) => (
-											<li key={destaque}>{destaque}</li>
-										))}
-									</ul>
-								)}
-								{project.link ? (
-									<a
-										className="text-sky-10 underline hover:opacity-80"
-										href={project.link}
-										rel="noopener noreferrer"
-										target="_blank"
-									>
-										Ver mais
-									</a>
-								) : (
-									<span className="cursor-not-allowed text-sky-10 underline opacity-60">
-										Ver mais
-									</span>
-								)}
-							</motion.li>
+								project={project}
+								slideWidth={slideWidth}
+							/>
 						);
 					})}
 				</ul>
