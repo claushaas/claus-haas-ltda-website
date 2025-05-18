@@ -19,11 +19,11 @@ export default function Home() {
 	return (
 		<>
 			<header
-				className="my-16 flex flex-wrap gap-4 sm:flex-nowrap md:h-96"
+				className="my-4 flex flex-wrap gap-4 sm:my-16 sm:flex-nowrap md:h-96"
 				id="header"
 			>
-				<div className="flex w-full justify-center md:justify-start">
-					<Face className="max-h-56 sm:max-h-none" />
+				<div className="mb-4 flex w-full justify-center sm:mb-0 md:justify-start">
+					<Face className="max-h-56 w-full sm:max-h-none" />
 				</div>
 				<div className="flex w-full flex-col justify-between">
 					<div className="flex flex-col items-end">
