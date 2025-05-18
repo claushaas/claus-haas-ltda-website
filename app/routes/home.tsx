@@ -35,6 +35,7 @@ export default function Home() {
 						<p className="text-2xl">Fullstack Developer</p>
 						<p className="text-2xl">Automation Expert</p>
 						<p className="text-2xl">CRM Specialist</p>
+						<PrideFlag className="size-8" />
 					</div>
 				</div>
 			</header>
