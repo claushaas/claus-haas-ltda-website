@@ -22,7 +22,7 @@ export default function Home() {
 				id="header"
 			>
 				<div className="flex w-full justify-center md:justify-start">
-					<Face />
+					<Face className="max-h-56 sm:max-h-none" />
 				</div>
 				<div className="flex w-full flex-col justify-between">
 					<div className="flex flex-col items-end">
