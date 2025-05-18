@@ -1,40 +1,48 @@
 import { Link } from 'react-router';
-import Face from '~/assets/images/face.svg?react';
+import PrideFlag from '~/assets/images/progress-pride-flag.svg?react';
+import { useIsBot } from '~/hooks/use-is-bot';
+import Face from '~/ui/components/face';
+import { skills } from '../content/skills/skills';
+import { SkillBadge } from '../ui/components/skill-badge';
 import ProjectGallery from '../ui/layouts/projects-gallery';
 
-export function meta() {
+export const meta = () => {
 	return [
-		{ title: 'New React Router App' },
-		{ content: 'Welcome to React Router!', name: 'description' },
+		{ title: 'Claus Haas Ltda.' },
+		{ content: 'Bem-vind@ ao meu website', name: 'description' },
 	];
-}
+};
 
 export default function Home() {
+	const isBot = useIsBot();
+
 	return (
 		<>
-			<header className="my-16 flex flex-wrap gap-4 md:h-96 md:flex-nowrap">
+			<header
+				className="my-16 flex flex-wrap gap-4 sm:flex-nowrap md:h-96"
+				id="header"
+			>
 				<div className="flex w-full justify-center md:justify-start">
-					<Face className="h-full w-fit fill-sky-12 stroke-2 stroke-sky-11 dark:fill-skydark-11 dark:stroke-skydark-10" />
+					<Face className="max-h-56 sm:max-h-none" />
 				</div>
 				<div className="flex w-full flex-col justify-between">
 					<div className="flex flex-col items-end">
-						<h1 className="font-default text-9xl text-shadow-sky-12 text-shadow-xs dark:text-shadow-skydark-12">
+						<h1 className="text-right font-default text-6xl sm:text-8xl">
 							Claus
-						</h1>
-						<h1 className="text-9xl text-shadow-sky-12 text-shadow-xs dark:text-shadow-skydark-12">
-							Haas
+							<span className="block">Haas</span>
 						</h1>
 					</div>
 					<div className="flex flex-col items-end">
-						<p className="text-2xl">Fullstack Developer</p>
-						<p className="text-2xl">Automation Expert</p>
-						<p className="text-2xl">CRM Specialist</p>
+						<p className="text-xl sm:text-2xl">Fullstack Developer</p>
+						<p className="text-xl sm:text-2xl">Automation Expert</p>
+						<p className="text-xl sm:text-2xl">CRM Specialist</p>
+						<PrideFlag className="size-14" />
 					</div>
 				</div>
 			</header>
-			<main>
+			<main id="main-content" tabIndex={-1}>
 				{/* Sobre / Resumo Profissional */}
-				<section>
+				<section aria-labelledby="sobre-heading" id="about">
 					<h2 className="mb-2 font-bold text-3xl">Sobre</h2>
 					<p className="max-w-2xl text-lg text-sky-11 dark:text-skydark-11">
 						Desenvolvedor fullstack com experiência em plataformas web,
@@ -45,58 +53,39 @@ export default function Home() {
 				</section>
 
 				{/* Skills & Tecnologias */}
-				<section>
+				<section aria-labelledby="skills-heading" id="skills">
 					<h2 className="mb-2 font-bold text-3xl">Skills & Tecnologias</h2>
-					<div className="flex flex-wrap gap-2">
-						{[
-							'HTML',
-							'CSS',
-							'JavaScript',
-							'TypeScript',
-							'React.js',
-							'React Router',
-							'React Native',
-							'Expo',
-							'Expo Router',
-							'Remix.Js',
-							'Node',
-							'Docker',
-							'Git',
-							'MySQL',
-							'Postgres',
-							'Vite',
-							'AWS',
-							'SES',
-							'Wordpress',
-							'Mautic',
-							'InfusionSoft',
-							'Thrive Themes',
-							'Elementor',
-							'Motion',
-							'Zapier',
-							'Biome',
-						].map((skill) => (
-							<span
-								className="rounded-md bg-sky-3 px-3 py-1 font-medium text-sky-12 text-sm shadow-slate-8 shadow-xs dark:bg-skydark-3 dark:text-skydark-12 dark:shadow-slate-8"
-								key={skill}
-							>
-								{skill}
-							</span>
+					<div className="flex flex-wrap gap-4">
+						{skills.map((skill) => (
+							<SkillBadge key={skill} skill={skill} />
 						))}
 					</div>
 				</section>
 
 				{/* Projetos */}
-				<ProjectGallery />
+				<section aria-labelledby="projetos-heading" id="projects">
+					<ProjectGallery />
+				</section>
 			</main>
-			<footer className="border-slate-2 border-t-2 py-16 dark:border-slatedark-2">
+			<footer
+				className="mb-0 border-slate-2 border-t-2 py-16 dark:border-slatedark-2"
+				id="footer"
+			>
 				<p className="text-center">
-					Todos os direitos reservados - 2025 - Claus Haas Ltda. - CNPJ
-					59.586.732/0001-58
+					Todos os direitos reservados - {new Date().getFullYear()} - Claus Haas
+					Ltda.
+					{!isBot && ' - CNPJ 59.586.732/0001-58'}
 				</p>
-				<p className="text-center">
-					<Link to={'mailto:contact@claushaas.dev'}>contact@claushaas.dev</Link>
-				</p>
+				{!isBot && (
+					<p className="text-center">
+						<Link
+							className="text-sky-8 underline underline-offset-2 hover:opacity-80 dark:text-skydark-8"
+							to={'mailto:contact@claushaas.dev'}
+						>
+							contact@claushaas.dev
+						</Link>
+					</p>
+				)}
 			</footer>
 		</>
 	);

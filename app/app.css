@@ -14,14 +14,7 @@
 }
 
 :root {
-  @apply bg-slate-1 dark:bg-slatedark-1 box-border;
-}
-
-html,
-body {
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  @apply bg-slate-1 dark:bg-slatedark-1;
 }
 
 main, section {
@@ -29,8 +22,8 @@ main, section {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-default;
   @apply text-sky-12 dark:text-skydark-12;
+  @apply font-default;
 }
 
 p {

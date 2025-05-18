@@ -29,6 +29,22 @@ export const links: Route.LinksFunction = () => [
 		sizes: '16x16',
 		type: 'image/png',
 	},
+	{
+		href: '/favicon.ico',
+		rel: 'shortcut icon',
+	},
+	{
+		href: '/android-chrome-192x192.png',
+		rel: 'icon',
+		sizes: '192x192',
+		type: 'image/png',
+	},
+	{
+		href: '/android-chrome-512x512.png',
+		rel: 'icon',
+		sizes: '512x512',
+		type: 'image/png',
+	},
 	{ href: '/site.webmanifest', rel: 'manifest' },
 ];
 
@@ -36,14 +52,30 @@ export function Layout({ children }: { children: React.ReactNode }) {
 	const isBot = useIsBot();
 
 	return (
-		<html className="h-full" lang="en">
+		<html lang="en">
 			<head>
-				<meta charSet="utf-8" />
 				<meta content="width=device-width, initial-scale=1" name="viewport" />
+				<meta charSet="utf-8" />
+				<meta content="index, follow" name="robots" />
+				<meta content="Claus Haas Ltda." name="author" />
+				<meta content="yes" name="apple-mobile-web-app-capable" />
+				<meta content="default" name="apple-mobile-web-app-status-bar-style" />
+				<meta content="telephone=no" name="format-detection" />
+				<meta content="IE=edge" httpEquiv="X-UA-Compatible" />
+				<meta
+					content="#111113"
+					media="(prefers-color-scheme: dark)"
+					name="theme-color"
+				/>
+				<meta
+					content="#fcfcfd"
+					media="(prefers-color-scheme: light)"
+					name="theme-color"
+				/>
 				<Meta />
 				<Links />
 			</head>
-			<body className="m-auto h-fit max-w-4xl space-y-16 px-4">
+			<body className="m-auto h-fit max-w-4xl space-y-16 bg-slate-1 px-4 dark:bg-slatedark-1">
 				{children}
 				<ScrollRestoration />
 				{isBot ? null : <Scripts />}
