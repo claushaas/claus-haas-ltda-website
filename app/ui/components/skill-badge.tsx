@@ -7,7 +7,7 @@ interface SkillBadgeProps {
 export function SkillBadge({ skill }: SkillBadgeProps) {
 	return (
 		<motion.span
-			className="rounded-md bg-sky-3 px-3 py-1 font-medium text-sky-12 text-sm shadow-slate-8 shadow-xs dark:bg-skydark-3 dark:text-skydark-12 dark:shadow-slate-8"
+			className="cursor-grab rounded-md bg-sky-3 px-3 py-1 font-medium text-sky-12 text-sm shadow-slate-8 shadow-xs active:cursor-grabbing dark:bg-skydark-3 dark:text-skydark-12 dark:shadow-slate-8"
 			onMouseEnter={(e) => {
 				const isDark = window.matchMedia(
 					'(prefers-color-scheme: dark)',
