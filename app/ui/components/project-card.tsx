@@ -12,16 +12,14 @@ type Project = {
 
 type ProjectCardProps = {
 	project: Project;
-	slideWidth: number;
 };
 
-export default function ProjectCard({ project, slideWidth }: ProjectCardProps) {
+export default function ProjectCard({ project }: ProjectCardProps) {
 	return (
 		<motion.li
-			className="flex-shrink-0 rounded-3xl bg-sky-2 p-6 shadow-slate-8 shadow-sm dark:bg-skydark-2 dark:shadow-slatedark-8"
+			className="max-w-[80%] flex-shrink-0 rounded-3xl bg-sky-2 p-6 shadow-slate-8 shadow-sm sm:w-96 sm:max-w-none dark:bg-skydark-2 dark:shadow-slatedark-8"
 			key={project.slug}
 			layout
-			style={{ width: slideWidth }}
 			transition={{ duration: 0.4, type: 'tween' }}
 		>
 			{project.title && (

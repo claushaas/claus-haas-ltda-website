@@ -7,7 +7,6 @@ export default function ProjetosSection() {
 	const [orderOfProjects, setOrderOfProjects] = useState(
 		projectsList.map((_, index) => index),
 	);
-	const slideWidth = 360;
 
 	const next = () => {
 		setOrderOfProjects((prev) => {
@@ -29,13 +28,7 @@ export default function ProjetosSection() {
 				>
 					{orderOfProjects.map((projectOrder) => {
 						const project = projectsList[projectOrder];
-						return (
-							<ProjectCard
-								key={project.slug}
-								project={project}
-								slideWidth={slideWidth}
-							/>
-						);
+						return <ProjectCard key={project.slug} project={project} />;
 					})}
 				</ul>
 				<button

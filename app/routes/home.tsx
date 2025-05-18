@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import PrideFlag from '~/assets/images/progress-pride-flag.svg?react';
 import { useIsBot } from '~/hooks/use-is-bot';
 import Face from '~/ui/components/face';
 import { skills } from '../content/skills/skills';
@@ -18,7 +19,7 @@ export default function Home() {
 	return (
 		<>
 			<header
-				className="my-16 flex flex-wrap gap-4 md:h-96 md:flex-nowrap"
+				className="my-16 flex flex-wrap gap-4 sm:flex-nowrap md:h-86"
 				id="header"
 			>
 				<div className="flex w-full justify-center md:justify-start">
@@ -26,15 +27,15 @@ export default function Home() {
 				</div>
 				<div className="flex w-full flex-col justify-between">
 					<div className="flex flex-col items-end">
-						<h1 className="text-right font-default text-9xl">
+						<h1 className="text-right font-default text-6xl sm:text-8xl">
 							Claus
 							<span className="block">Haas</span>
 						</h1>
 					</div>
 					<div className="flex flex-col items-end">
-						<p className="text-2xl">Fullstack Developer</p>
-						<p className="text-2xl">Automation Expert</p>
-						<p className="text-2xl">CRM Specialist</p>
+						<p className="text-xl sm:text-2xl">Fullstack Developer</p>
+						<p className="text-xl sm:text-2xl">Automation Expert</p>
+						<p className="text-xl sm:text-2xl">CRM Specialist</p>
 						<PrideFlag className="size-8" />
 					</div>
 				</div>
