@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
-import Face from '~/assets/images/face.svg?react';
 import { useIsBot } from '~/hooks/use-is-bot';
+import Face from '~/ui/components/face';
 import { skills } from '../content/skills/skills';
 import { SkillBadge } from '../ui/components/skill-badge';
 import ProjectGallery from '../ui/layouts/projects-gallery';
@@ -22,16 +22,11 @@ export default function Home() {
 				id="header"
 			>
 				<div className="flex w-full justify-center md:justify-start">
-					<Face
-						aria-label="Ilustração do rosto de Claus Haas"
-						className="h-full w-fit fill-sky-12 stroke-2 stroke-sky-11 dark:fill-skydark-11 dark:stroke-skydark-10"
-						role="img"
-						title="Claus Haas"
-					/>
+					<Face />
 				</div>
 				<div className="flex w-full flex-col justify-between">
 					<div className="flex flex-col items-end">
-						<h1 className="text-right font-default text-9xl text-shadow-sky-12 text-shadow-xs dark:text-shadow-skydark-12">
+						<h1 className="text-right font-default text-9xl">
 							Claus
 							<span className="block">Haas</span>
 						</h1>

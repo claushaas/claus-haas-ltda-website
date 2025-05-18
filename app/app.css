@@ -11,28 +11,10 @@
 
 @theme {
   --font-default: "Fira Code", sans-serif;
-
-  --animate-bg-shine: bg-shine 2.2s linear infinite;
-
-  @keyframes bg-shine {
-    from {
-      background-position: 0 0;
-    }
-    to {
-      background-position: -200% 0;
-    }
-  }
 }
 
 :root {
   @apply bg-slate-1 dark:bg-slatedark-1;
-}
-
-html,
-body {
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
 }
 
 main, section {
@@ -40,8 +22,8 @@ main, section {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-default;
   @apply text-sky-12 dark:text-skydark-12;
+  @apply font-default;
 }
 
 p {
