@@ -1,5 +1,6 @@
 {
 	"dependencies": {
+		"@radix-ui/colors": "^3.0.0",
 		"isbot": "^5.1.28",
 		"motion": "^12.12.1",
 		"react": "^19.1.0",
