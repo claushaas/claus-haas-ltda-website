@@ -19,7 +19,7 @@ export default function Home() {
 	return (
 		<>
 			<header
-				className="my-16 flex flex-wrap gap-4 sm:flex-nowrap md:h-86"
+				className="my-16 flex flex-wrap gap-4 sm:flex-nowrap md:h-96"
 				id="header"
 			>
 				<div className="flex w-full justify-center md:justify-start">
@@ -36,7 +36,7 @@ export default function Home() {
 						<p className="text-xl sm:text-2xl">Fullstack Developer</p>
 						<p className="text-xl sm:text-2xl">Automation Expert</p>
 						<p className="text-xl sm:text-2xl">CRM Specialist</p>
-						<PrideFlag className="size-8" />
+						<PrideFlag className="size-14" />
 					</div>
 				</div>
 			</header>
