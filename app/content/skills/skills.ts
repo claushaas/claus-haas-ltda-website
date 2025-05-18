@@ -25,4 +25,7 @@ export const skills = [
 	'Motion',
 	'Zapier',
 	'Biome',
+	'Looker Studio',
+	'Google Analytics',
+	'Google Tag Manager',
 ];
