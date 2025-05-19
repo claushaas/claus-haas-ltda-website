@@ -15,8 +15,8 @@ export const skills = [
 	'MySQL',
 	'Postgres',
 	'Vite',
-	'AWS',
-	'SES',
+	'AWS Cognito',
+	'AWS SES',
 	'Wordpress',
 	'Mautic',
 	'InfusionSoft',
@@ -25,4 +25,7 @@ export const skills = [
 	'Motion',
 	'Zapier',
 	'Biome',
+	'Looker Studio',
+	'Google Analytics',
+	'Google Tag Manager',
 ];

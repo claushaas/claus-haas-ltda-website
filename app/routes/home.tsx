@@ -33,22 +33,131 @@ export default function Home() {
 						</h1>
 					</div>
 					<div className="flex flex-col items-end">
-						<p className="text-xl sm:text-2xl">Fullstack Developer</p>
-						<p className="text-xl sm:text-2xl">Automation Expert</p>
-						<p className="text-xl sm:text-2xl">CRM Specialist</p>
+						<p className="text-right text-xl sm:text-2xl">
+							Fullstack Developer
+							<span className="block">Automation Expert</span>
+							<span className="block">CRM Specialist</span>
+						</p>
 						<PrideFlag className="size-14" />
 					</div>
 				</div>
 			</header>
 			<main id="main-content" tabIndex={-1}>
-				{/* Sobre / Resumo Profissional */}
-				<section aria-labelledby="sobre-heading" id="about">
-					<h2 className="mb-2 font-bold text-3xl">Sobre</h2>
-					<p className="max-w-2xl text-lg text-sky-11 dark:text-skydark-11">
-						Desenvolvedor fullstack com experiência em plataformas web,
-						automação e integrações de marketing digital. Atuação em projetos de
-						grande escala, liderança e inovação em ambientes educacionais e
-						corporativos.
+				<section aria-labelledby="about-heading" id="about">
+					<h2 className="mb-2 font-bold text-3xl">
+						Transformando ideias em soluções digitais com estratégia, código e
+						visão de negócio
+					</h2>
+
+					<p>
+						Sou <strong>Claus Haas</strong> — desenvolvedor full-stack,
+						especialista em infraestrutura em nuvem e automação de sistemas. Há
+						mais de 12 anos, ajudo empresas a romperem a barreira entre{' '}
+						<em>ter tecnologia</em> e{' '}
+						<em>usá-la com inteligência estratégica</em>.
+					</p>
+
+					<p>
+						Minha motivação principal é simples e poderosa:{' '}
+						<strong>ver as coisas funcionando como foram idealizadas</strong>.
+						Enquanto muitos se frustram tentando transformar ideias em sistemas
+						viáveis, eu entro em cena para{' '}
+						<strong>traduzir visão em estrutura</strong>, eliminar gargalos e
+						acelerar o crescimento.
+					</p>
+
+					<p>
+						Mais do que escrever código, meu trabalho é{' '}
+						<strong>entender o coração do seu negócio</strong> e transformá-lo
+						em sistemas eficientes, interfaces intuitivas e fluxos automatizados
+						que realmente fazem diferença. Cada linha de código tem propósito.
+						Cada automação tem impacto. Cada sistema que construo entrega o que
+						toda empresa busca:{' '}
+						<strong>eficiência, controle e escalabilidade real</strong>.
+					</p>
+
+					<h3 className="mt-10 font-semibold text-2xl">
+						O que eu faço na prática:
+					</h3>
+					<ul className="list-inside list-disc">
+						<li>Desenvolvo aplicações robustas com React, Node.js e AWS.</li>
+						<li>
+							Integro CRMs como Mautic, Infusionsoft, RD Station e HubSpot com
+							automações que economizam tempo e aumentam conversão.
+						</li>
+						<li>
+							Automatizo vendas, atendimento e jornadas de e-mail, eliminando
+							tarefas manuais.
+						</li>
+						<li>
+							Conecto ferramentas díspares e entrego plataformas que funcionam —
+							na prática, não só na teoria.
+						</li>
+						<li>
+							Desenho arquiteturas escaláveis com foco em performance e
+							crescimento sustentável.
+						</li>
+					</ul>
+
+					<h3 className="mt-10 font-semibold text-2xl">
+						Experiência comprovada
+					</h3>
+					<p>
+						Já liderei o desenvolvimento de{' '}
+						<strong>plataformas com mais de 70 mil usuários ativos</strong>,
+						integrando sistemas de pagamento, CRM, e-mail marketing e
+						notificações em um ecossistema digital eficiente. Trabalhei com
+						ferramentas como React, Supabase, WordPress, Mautic, Infusionsoft,
+						RD Station, TypeScript, Next.js, AWS e outras — sempre com foco na{' '}
+						<strong>estratégia por trás da tecnologia</strong>.
+					</p>
+
+					<h3 className="mt-10 font-semibold text-2xl">Quando me procuram?</h3>
+					<ul className="list-inside list-disc">
+						<li>Quando é necessário integrar sistemas que não conversam.</li>
+						<li>Quando os processos manuais estão travando a operação.</li>
+						<li>Quando os dados precisam virar decisões — não planilhas.</li>
+						<li>
+							Quando é hora de entregar com precisão, clareza e performance.
+						</li>
+					</ul>
+
+					<h3 className="mt-10 font-semibold text-2xl">O que me move:</h3>
+					<ul className="list-inside list-disc">
+						<li>Criar aplicações que vendem, escalam e encantam.</li>
+						<li>
+							Automatizar o que atrasa, conectar o que está solto e dar vida aos
+							dados.
+						</li>
+						<li>
+							Fazer a tecnologia trabalhar para o negócio — e não o contrário.
+						</li>
+					</ul>
+
+					<h3 className="mt-10 font-semibold text-2xl">
+						A tecnologia certa, no lugar certo, muda tudo.
+					</h3>
+					<p>
+						Se sua operação ainda depende de improvisos e processos manuais,
+						talvez o que falte não seja esforço — mas{' '}
+						<strong>estrutura certa, pensada do jeito certo</strong>. Meu papel
+						é construir essa estrutura. E fazer sua empresa respirar aliviada.
+					</p>
+
+					<p>
+						Seja qual for o tamanho da sua ideia, ela merece virar realidade.
+						Com estratégia, eficiência e tecnologia de verdade.
+					</p>
+
+					<p className="mt-6 font-semibold text-lg">
+						{'Vamos conversar && () =>'}
+						<a
+							aria-label="Enviar email para contact@claushaas.dev"
+							className="ml-2 text-sky-8 underline underline-offset-2 hover:opacity-80 dark:text-skydark-8"
+							href="mailto:contact@claushaas.dev"
+						>
+							contact@claushaas.dev
+						</a>
 					</p>
 				</section>
 
