@@ -10,7 +10,7 @@ const Face = ({ className }: FaceProps) => {
 			className={`stroke-plum-10 drop-shadow-lg drop-shadow-plum-8 dark:stroke-plumdark-10 dark:drop-shadow-plumdark-8 ${className}`}
 			id="face"
 			version="1.1"
-			viewBox="80 0 650 800"
+			viewBox="80 0 800 800"
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<title>Claus Haas</title>
