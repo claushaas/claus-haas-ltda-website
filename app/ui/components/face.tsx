@@ -25,7 +25,6 @@ const Face = ({ className }: FaceProps) => {
 					duration: 2,
 					ease: 'easeInOut',
 					repeatDelay: 1,
-					repeatType: 'loop',
 				}}
 			/>
 			<motion.path
@@ -39,7 +38,6 @@ const Face = ({ className }: FaceProps) => {
 					duration: 2,
 					ease: 'easeInOut',
 					repeatDelay: 1,
-					repeatType: 'loop',
 				}}
 			/>
 			<motion.path
@@ -53,7 +51,6 @@ const Face = ({ className }: FaceProps) => {
 					duration: 1,
 					ease: 'easeInOut',
 					repeatDelay: 1,
-					repeatType: 'loop',
 				}}
 			/>
 			<motion.path
@@ -67,7 +64,6 @@ const Face = ({ className }: FaceProps) => {
 					duration: 1,
 					ease: 'easeInOut',
 					repeatDelay: 1,
-					repeatType: 'loop',
 				}}
 			/>
 		</motion.svg>
