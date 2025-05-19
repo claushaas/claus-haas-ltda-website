@@ -24,9 +24,14 @@ main, section {
 h1, h2, h3, h4, h5, h6 {
   @apply text-sky-12 dark:text-skydark-12;
   @apply font-default;
+  @apply mb-5;
+}
+
+p, li {
+  @apply font-default;
+  @apply text-sky-11 dark:text-skydark-11;
 }
 
 p {
-  @apply font-default;
-  @apply text-sky-11 dark:text-skydark-11;
+  @apply mb-4;
 }
