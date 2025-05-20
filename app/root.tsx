@@ -13,6 +13,7 @@ import type { Route } from './+types/root';
 import './app.css';
 import { useIsBot } from './hooks/use-is-bot';
 import { detectLanguage } from './i18n/i18n';
+import { LanguageSwitcher } from './ui/components/language-switcher';
 
 export const links: Route.LinksFunction = () => [
 	{
@@ -67,7 +68,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<meta charSet="utf-8" />
 				<meta content="index, follow" name="robots" />
 				<meta content="Claus Haas Ltda." name="author" />
-				<meta content="yes" name="apple-mobile-web-app-capable" />
+				{/* apple-mobile-web-app-capable está deprecated, usar mobile-web-app-capable */}
+				<meta content="yes" name="mobile-web-app-capable" />
 				<meta content="default" name="apple-mobile-web-app-status-bar-style" />
 				<meta content="telephone=no" name="format-detection" />
 				<meta content="IE=edge" httpEquiv="X-UA-Compatible" />
@@ -92,6 +94,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Links />
 			</head>
 			<body className="m-auto h-fit max-w-4xl space-y-16 bg-slate-1 px-4 dark:bg-slatedark-1">
+				<header className="flex justify-end pt-4">
+					<LanguageSwitcher />
+				</header>
 				{children}
 				<ScrollRestoration />
 				{isBot ? null : <Scripts />}

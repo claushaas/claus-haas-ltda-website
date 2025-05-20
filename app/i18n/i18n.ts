@@ -1,5 +1,6 @@
 import { pick } from 'accept-language-parser';
-import i18n, { type InitOptions } from 'i18next';
+import type i18n from 'i18next';
+import type { InitOptions } from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
@@ -44,7 +45,25 @@ export const detectLanguage = (request: Request) => {
 	return defaultLanguage;
 };
 
-const isBrowser = typeof window === 'object' && typeof document === 'object';
+/**
+ * Seta o cookie 'i18next' com o idioma preferido do usuário.
+ * O cookie é persistido por 1 ano e disponível em todo o site.
+ * Use esta função ao trocar o idioma na UI.
+ *
+ * Obs: Atribuição direta a document.cookie é padrão para cookies simples.
+ * Se o projeto crescer, considere usar uma biblioteca como js-cookie para maior robustez.
+ *
+ * @param language Código do idioma (ex: 'pt', 'en')
+ */
+export const setI18nextCookie = (language: string) => {
+	if (typeof document === 'undefined') return;
+	const expires = new Date();
+	expires.setFullYear(expires.getFullYear() + 1);
+	// biome-ignore lint: necessário para persistir a língua preferida do usuário
+	document.cookie = `i18next=${language}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
+};
+
+const isBrowser = typeof document === 'object';
 
 export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 	// first we add the generic configuration for client and server
@@ -82,13 +101,5 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 	// now we tell i18next to use the React plunig and wee initialize it with our options
 	await i18next.use(initReactI18next).init(options);
 
-	if (!isBrowser) {
-		// finally if we are running server-side we will require the localized message from the public/locales folder
-		// and add it as a resource bundle to i18next so it has the localized message already loaded
-		i18n.addResourceBundle(
-			language ?? defaultLanguage,
-			'namespace1',
-			require(`../../public/locales/${language}.json`),
-		);
-	}
+	// agora removemos o bloco que usava require, pois o backend já carrega os arquivos de tradução
 };

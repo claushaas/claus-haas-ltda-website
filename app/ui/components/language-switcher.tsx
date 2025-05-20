@@ -1,0 +1,49 @@
+import { useTranslation } from 'react-i18next';
+import { FaFlag, FaFlagUsa, FaGlobe } from 'react-icons/fa6';
+import { useChangeLanguage } from '~/hooks/use-change-language';
+
+const languages = [
+	{
+		code: 'pt',
+		icon: <FaFlag className="mr-1 inline-block" />,
+		label: 'Português',
+	},
+	{
+		code: 'en',
+		icon: <FaFlagUsa className="mr-1 inline-block" />,
+		label: 'English',
+	},
+];
+
+/**
+ * Componente para seleção de idioma com ícones Font Awesome 6.
+ */
+export const LanguageSwitcher = () => {
+	const { t } = useTranslation();
+	const { changeLanguage, currentLanguage } = useChangeLanguage();
+
+	return (
+		<div className="flex items-center gap-2">
+			<FaGlobe
+				aria-label={t('idioma')}
+				className="text-lg text-radix-slate-11"
+			/>
+			{languages.map(({ code, label, icon }) => (
+				<button
+					aria-pressed={currentLanguage === code}
+					className={`rounded px-2 py-1 font-medium text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-radix-slate-7 ${
+						currentLanguage === code
+							? 'bg-radix-slate-4 text-radix-slate-12'
+							: 'bg-transparent text-radix-slate-11 hover:bg-radix-slate-3'
+					}`}
+					key={code}
+					onClick={() => changeLanguage(code)}
+					type="button"
+				>
+					{icon}
+					<span className="sr-only">{label}</span>
+				</button>
+			))}
+		</div>
+	);
+};
