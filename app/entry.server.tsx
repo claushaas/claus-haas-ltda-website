@@ -1,8 +1,11 @@
+import i18n from 'i18next';
 import { isbot } from 'isbot';
 import { renderToReadableStream } from 'react-dom/server';
+import { I18nextProvider } from 'react-i18next';
 import type { AppLoadContext, EntryContext } from 'react-router';
 import { ServerRouter } from 'react-router';
 import { IsBotProvider } from './hooks/use-is-bot';
+import { detectLanguage, initI18Next } from './i18n/i18n';
 
 export default async function handleRequest(
 	request: Request,
@@ -14,9 +17,13 @@ export default async function handleRequest(
 	let shellRendered = false;
 	const userAgent = request.headers.get('user-agent');
 
+	await initI18Next(i18n, detectLanguage(request));
+
 	const body = await renderToReadableStream(
 		<IsBotProvider isBot={isbot(userAgent ?? '')}>
-			<ServerRouter context={routerContext} url={request.url} />
+			<I18nextProvider i18n={i18n}>
+				<ServerRouter context={routerContext} url={request.url} />
+			</I18nextProvider>
 		</IsBotProvider>,
 		{
 			onError(error: unknown) {
