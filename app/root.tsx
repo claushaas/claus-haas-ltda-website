@@ -1,15 +1,18 @@
 import {
 	isRouteErrorResponse,
 	Links,
+	type LoaderFunctionArgs,
 	Meta,
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useLoaderData,
 } from 'react-router';
 
 import type { Route } from './+types/root';
 import './app.css';
 import { useIsBot } from './hooks/use-is-bot';
+import { detectLanguage } from './i18n/i18n';
 
 export const links: Route.LinksFunction = () => [
 	{
@@ -48,8 +51,14 @@ export const links: Route.LinksFunction = () => [
 	{ href: '/site.webmanifest', rel: 'manifest' },
 ];
 
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+	const language = detectLanguage(request);
+	return { language };
+};
+
 export function Layout({ children }: { children: React.ReactNode }) {
 	const isBot = useIsBot();
+	const { language } = useLoaderData<typeof loader>();
 
 	return (
 		<html lang="en">
@@ -71,6 +80,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					content="#fcfcfd"
 					media="(prefers-color-scheme: light)"
 					name="theme-color"
+				/>
+				<link
+					as="fetch"
+					crossOrigin="anonymous"
+					href={`/locales/${language}.json`}
+					rel="preload"
+					type="application/json"
 				/>
 				<Meta />
 				<Links />
