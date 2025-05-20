@@ -1,41 +1,70 @@
+import { PassThrough } from 'node:stream';
+import { createReadableStreamFromReadable } from '@react-router/node';
 import { isbot } from 'isbot';
-import { renderToReadableStream } from 'react-dom/server';
-import type { AppLoadContext, EntryContext } from 'react-router';
+import {
+	type RenderToPipeableStreamOptions,
+	renderToPipeableStream,
+} from 'react-dom/server';
+import { I18nextProvider } from 'react-i18next';
+import type {
+	EntryContext,
+	unstable_RouterContextProvider,
+} from 'react-router';
 import { ServerRouter } from 'react-router';
 import { IsBotProvider } from './hooks/use-is-bot';
+import { getInstance } from './middleware/i18next';
 
-export default async function handleRequest(
+export const streamTimeout = 5_000;
+
+export default function handleRequest(
 	request: Request,
 	responseStatusCode: number,
 	responseHeaders: Headers,
-	routerContext: EntryContext,
-	_loadContext: AppLoadContext,
+	entryContext: EntryContext,
+	routerContext: unstable_RouterContextProvider,
 ) {
-	let shellRendered = false;
-	const userAgent = request.headers.get('user-agent');
+	return new Promise((resolve, reject) => {
+		let shellRendered = false;
+		let userAgent = request.headers.get('user-agent');
 
-	const body = await renderToReadableStream(
-		<IsBotProvider isBot={isbot(userAgent ?? '')}>
-			<ServerRouter context={routerContext} url={request.url} />
-		</IsBotProvider>,
-		{
-			onError(error: unknown) {
-				responseStatusCode = 500;
-				if (shellRendered) {
-					console.error(error);
-				}
+		let readyOption: keyof RenderToPipeableStreamOptions =
+			(userAgent && isbot(userAgent)) || entryContext.isSpaMode
+				? 'onAllReady'
+				: 'onShellReady';
+
+		let { pipe, abort } = renderToPipeableStream(
+			<IsBotProvider isBot={isbot(userAgent ?? '')}>
+				<I18nextProvider i18n={getInstance(routerContext)}>
+					<ServerRouter context={entryContext} url={request.url} />
+				</I18nextProvider>
+			</IsBotProvider>,
+			{
+				[readyOption]() {
+					shellRendered = true;
+					let body = new PassThrough();
+					let stream = createReadableStreamFromReadable(body);
+
+					responseHeaders.set('Content-Type', 'text/html');
+
+					resolve(
+						new Response(stream, {
+							headers: responseHeaders,
+							status: responseStatusCode,
+						}),
+					);
+
+					pipe(body);
+				},
+				onError(error: unknown) {
+					responseStatusCode = 500;
+					if (shellRendered) console.error(error);
+				},
+				onShellError(error: unknown) {
+					reject(error);
+				},
 			},
-		},
-	);
-	shellRendered = true;
+		);
 
-	if ((userAgent && isbot(userAgent)) || routerContext.isSpaMode) {
-		await body.allReady;
-	}
-
-	responseHeaders.set('Content-Type', 'text/html');
-	return new Response(body, {
-		headers: responseHeaders,
-		status: responseStatusCode,
+		setTimeout(abort, streamTimeout + 1000);
 	});
 }
