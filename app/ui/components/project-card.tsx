@@ -23,7 +23,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 			transition={{ duration: 0.4, type: 'tween' }}
 		>
 			{project.title && (
-				<h3 className="mb-1 font-semibold text-xl">{project.title}</h3>
+				<h3 className="mt-0 mb-1 font-semibold text-xl sm:mt-0">
+					{project.title}
+				</h3>
 			)}
 			{project.description && (
 				<p className="mb-2 text-sky-11 dark:text-skydark-11">

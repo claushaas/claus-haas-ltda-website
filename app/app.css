@@ -18,13 +18,12 @@
 }
 
 main, section {
-  @apply mb-16;
+  @apply mb-20;
 }
 
 h1, h2, h3, h4, h5, h6 {
   @apply text-sky-12 dark:text-skydark-12;
   @apply font-default;
-  @apply mb-5;
 }
 
 p, li {

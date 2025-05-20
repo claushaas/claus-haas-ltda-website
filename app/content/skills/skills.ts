@@ -8,7 +8,7 @@ export const skills = [
 	'React Native',
 	'Expo',
 	'Expo Router',
-	'Remix.Js',
+	'Remix',
 	'Node',
 	'Docker',
 	'Git',

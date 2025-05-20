@@ -17,7 +17,7 @@ export default function ProjetosSection() {
 
 	return (
 		<section aria-labelledby="projetos-heading">
-			<h2 className="mb-2 font-bold text-3xl" id="projetos-heading">
+			<h2 className="mb-8 font-bold text-3xl" id="projetos-heading">
 				Projetos
 			</h2>
 			<div className="relative flex items-center">
