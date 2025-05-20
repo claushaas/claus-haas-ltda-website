@@ -9,6 +9,8 @@ const supportedLanguages = ['pt', 'en'];
 
 const defaultLanguage = 'en';
 
+const defaultNamespace = 'translation';
+
 const getFromSupported = (language: string | null) => {
 	return (
 		pick(supportedLanguages, language ?? defaultLanguage, { loose: true }) ??
@@ -16,7 +18,22 @@ const getFromSupported = (language: string | null) => {
 	);
 };
 
+const getCookie = (name: string, cookieHeader: string | null) => {
+	if (!cookieHeader) return null;
+	return (
+		cookieHeader
+			.split(';')
+			.map((v) => v.trim())
+			.find((v) => v.startsWith(`${name}=`))
+			?.split('=')[1] ?? null
+	);
+};
+
 export const detectLanguage = (request: Request) => {
+	const cookieValue = getCookie('i18next', request.headers.get('Cookie'));
+	if (cookieValue) {
+		return getFromSupported(cookieValue);
+	}
 	// first we prioritize the URL, if the user adds the `lng` is most likely what they want
 	const url = new URL(request.url);
 	if (url.searchParams.has('lng')) {
@@ -63,15 +80,16 @@ export const setI18nextCookie = (language: string) => {
 	document.cookie = `i18next=${language}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
 };
 
-const isBrowser = typeof document === 'object';
+const isBrowser = typeof window !== 'undefined';
 
 export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 	// first we add the generic configuration for client and server
 	const options: InitOptions = {
+		defaultNS: defaultNamespace,
 		detection: {
 			caches: ['cookie'],
 		},
-		fallbackLng: 'en',
+		fallbackLng: defaultLanguage,
 		initImmediate: true,
 		interpolation: { escapeValue: false },
 		keySeparator: false,
@@ -84,8 +102,6 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 	if (!isBrowser) {
 		// here we set the language we are going to use
 		options.lng = language ?? defaultLanguage;
-		// and the namespace
-		options.defaultNS = 'namespace1';
 	}
 
 	// then we add the configuration used only client-side

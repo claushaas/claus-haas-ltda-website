@@ -62,7 +62,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 	const { language } = useLoaderData<typeof loader>();
 
 	return (
-		<html lang="en">
+		<html lang={language}>
 			<head>
 				<meta content="width=device-width, initial-scale=1" name="viewport" />
 				<meta charSet="utf-8" />
