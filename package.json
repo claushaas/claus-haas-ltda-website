@@ -10,6 +10,7 @@
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"react-i18next": "^15.5.1",
+		"react-icons": "^5.5.0",
 		"react-router": "^7.6.0",
 		"tailwindcss-radix-colors": "^2.1.0"
 	},
@@ -44,7 +45,7 @@
 		"down": "docker compose down",
 		"preview": "npm run build && vite preview",
 		"typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
-		"up": "docker compose up -d --build",
+		"up": "COMPOSE_BAKE=true docker compose up -d --build",
 		"update": "npx npm-check-updates -i"
 	},
 	"type": "module"
