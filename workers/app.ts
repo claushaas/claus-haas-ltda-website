@@ -15,9 +15,7 @@ const requestHandler = createRequestHandler(
 );
 
 export default {
-	async fetch(request, env, ctx) {
-		return requestHandler(request, {
-			cloudflare: { ctx, env },
-		});
+	async fetch(request, _env, _ctx) {
+		return requestHandler(request, new Map());
 	},
 } satisfies ExportedHandler<Env>;

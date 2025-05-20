@@ -15,7 +15,7 @@ export const [i18nextMiddleware, getLocale, getInstance] =
 		detection: {
 			cookie: localeCookie,
 			fallbackLanguage: 'en',
-			supportedLanguages: ['en', 'es'],
+			supportedLanguages: ['en', 'pt'],
 		},
 		i18next: {
 			resources: { en: { translation: en }, pt: { translation: pt } },

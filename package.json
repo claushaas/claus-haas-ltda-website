@@ -1,6 +1,7 @@
 {
 	"dependencies": {
 		"@radix-ui/colors": "^3.0.0",
+		"i18next": "^25.2.0",
 		"i18next-browser-languagedetector": "^8.1.0",
 		"i18next-fetch-backend": "^6.0.0",
 		"isbot": "^5.1.28",
@@ -17,7 +18,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.0.0-beta.4",
-		"@cloudflare/vite-plugin": "^1.2.2",
+		"@cloudflare/vite-plugin": "^1.2.3",
 		"@react-router/dev": "^7.6.0",
 		"@tailwindcss/vite": "^4.1.7",
 		"@types/node": "^22.15.19",
@@ -28,7 +29,7 @@
 		"vite": "^6.3.5",
 		"vite-plugin-svgr": "^4.3.0",
 		"vite-tsconfig-paths": "^5.1.4",
-		"wrangler": "^4.15.2"
+		"wrangler": "^4.16.0"
 	},
 	"engines": {
 		"node": ">=22.15.1"
@@ -45,7 +46,7 @@
 		"down": "docker compose down",
 		"preview": "npm run build && vite preview",
 		"typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
-		"up": "COMPOSE_BAKE=true docker compose up -d --build",
+		"up": "docker compose up -d --build",
 		"update": "npx npm-check-updates -i"
 	},
 	"type": "module"

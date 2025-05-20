@@ -20,6 +20,9 @@
 	"placement": {
 		"mode": "smart"
 	},
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"routes": [
 		{
 			"pattern": "claushaas.dev",

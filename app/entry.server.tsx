@@ -1,10 +1,5 @@
-import { PassThrough } from 'node:stream';
-import { createReadableStreamFromReadable } from '@react-router/node';
 import { isbot } from 'isbot';
-import {
-	type RenderToPipeableStreamOptions,
-	renderToPipeableStream,
-} from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
 import { I18nextProvider } from 'react-i18next';
 import type {
 	EntryContext,
@@ -16,55 +11,28 @@ import { getInstance } from './middleware/i18next';
 
 export const streamTimeout = 5_000;
 
-export default function handleRequest(
+export default async function handleRequest(
 	request: Request,
 	responseStatusCode: number,
 	responseHeaders: Headers,
 	entryContext: EntryContext,
 	routerContext: unstable_RouterContextProvider,
 ) {
-	return new Promise((resolve, reject) => {
-		let shellRendered = false;
-		let userAgent = request.headers.get('user-agent');
+	let userAgent = request.headers.get('user-agent');
+	const isBotUser = isbot(userAgent ?? '');
 
-		let readyOption: keyof RenderToPipeableStreamOptions =
-			(userAgent && isbot(userAgent)) || entryContext.isSpaMode
-				? 'onAllReady'
-				: 'onShellReady';
+	const markup = renderToString(
+		<IsBotProvider isBot={isBotUser}>
+			<I18nextProvider i18n={getInstance(routerContext)}>
+				<ServerRouter context={entryContext} url={request.url} />
+			</I18nextProvider>
+		</IsBotProvider>,
+	);
 
-		let { pipe, abort } = renderToPipeableStream(
-			<IsBotProvider isBot={isbot(userAgent ?? '')}>
-				<I18nextProvider i18n={getInstance(routerContext)}>
-					<ServerRouter context={entryContext} url={request.url} />
-				</I18nextProvider>
-			</IsBotProvider>,
-			{
-				[readyOption]() {
-					shellRendered = true;
-					let body = new PassThrough();
-					let stream = createReadableStreamFromReadable(body);
+	responseHeaders.set('Content-Type', 'text/html');
 
-					responseHeaders.set('Content-Type', 'text/html');
-
-					resolve(
-						new Response(stream, {
-							headers: responseHeaders,
-							status: responseStatusCode,
-						}),
-					);
-
-					pipe(body);
-				},
-				onError(error: unknown) {
-					responseStatusCode = 500;
-					if (shellRendered) console.error(error);
-				},
-				onShellError(error: unknown) {
-					reject(error);
-				},
-			},
-		);
-
-		setTimeout(abort, streamTimeout + 1000);
+	return new Response(markup, {
+		headers: responseHeaders,
+		status: responseStatusCode,
 	});
 }
