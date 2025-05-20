@@ -1,5 +1,4 @@
 import {
-	data,
 	isRouteErrorResponse,
 	Links,
 	Meta,
@@ -10,16 +9,8 @@ import {
 import type { Route } from './+types/root';
 import './app.css';
 import { useTranslation } from 'react-i18next';
-import { useChangeLanguage } from 'remix-i18next/react';
-import {
-	getLocale,
-	i18nextMiddleware,
-	localeCookie,
-} from '~/middleware/i18next';
 import { useIsBot } from './hooks/use-is-bot';
 import { LanguageSwitcher } from './ui/components/language-switcher';
-
-export const unstable_middleware = [i18nextMiddleware];
 
 export const links: Route.LinksFunction = () => [
 	{
@@ -57,15 +48,6 @@ export const links: Route.LinksFunction = () => [
 	},
 	{ href: '/site.webmanifest', rel: 'manifest' },
 ];
-
-export async function loader({ context }: Route.LoaderArgs) {
-	const locale = getLocale(context);
-
-	return data(
-		{ locale },
-		{ headers: { 'Set-Cookie': await localeCookie.serialize(locale) } },
-	);
-}
 
 export function Layout({ children }: { children: React.ReactNode }) {
 	const { i18n } = useTranslation();
@@ -108,8 +90,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 	);
 }
 
-export default function App({ loaderData }: Route.ComponentProps) {
-	useChangeLanguage(loaderData.locale);
+export default function App() {
 	return <Outlet />;
 }
 
