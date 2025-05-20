@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useIsBot } from '~/hooks/use-is-bot';
 import Face from '~/ui/components/face';
 import { skills } from '../content/skills/skills';
@@ -13,6 +14,7 @@ export const meta = () => {
 
 export default function Home() {
 	const isBot = useIsBot();
+	const { t } = useTranslation();
 
 	return (
 		<>
@@ -26,15 +28,15 @@ export default function Home() {
 				<div className="flex w-full flex-col justify-between">
 					<div className="flex flex-col items-end">
 						<h1 className="text-right font-default text-6xl sm:text-8xl">
-							Claus
-							<span className="block">Haas</span>
+							{t('home.name1')}
+							<span className="block">{t('home.name2')}</span>
 						</h1>
 					</div>
 					<div className="flex flex-col items-end">
 						<p className="text-right text-xl sm:text-2xl">
-							Fullstack Developer
-							<span className="block">Automation Expert</span>
-							<span className="block">CRM Specialist</span>
+							{t('home.role1')}
+							<span className="block">{t('home.role2')}</span>
+							<span className="block">{t('home.role3')}</span>
 						</p>
 					</div>
 				</div>
@@ -43,128 +45,76 @@ export default function Home() {
 				<section aria-labelledby="about-heading" id="about">
 					<div className="mb-20">
 						<h2 className="mt-20 mb-8 font-bold text-3xl">
-							Transformando ideias em soluções digitais com estratégia, código e
-							visão de negócio
+							{t('home.aboutTitle')}
 						</h2>
 
-						<p>
-							Sou <strong>Claus Haas</strong> — desenvolvedor full-stack,
-							especialista em infraestrutura em nuvem e automação de sistemas.
-							Há mais de 12 anos, ajudo empresas a romperem a barreira entre{' '}
-							<em>ter tecnologia</em> e{' '}
-							<em>usá-la com inteligência estratégica</em>.
-						</p>
+						<p>{t('home.about1')}</p>
 
-						<p>
-							Minha motivação principal é simples e poderosa:{' '}
-							<strong>ver as coisas funcionando como foram idealizadas</strong>.
-							Enquanto muitos se frustram tentando transformar ideias em
-							sistemas viáveis, eu entro em cena para{' '}
-							<strong>traduzir visão em estrutura</strong>, eliminar gargalos e
-							acelerar o crescimento.
-						</p>
+						<p>{t('home.about2')}</p>
 
-						<p>
-							Mais do que escrever código, meu trabalho é{' '}
-							<strong>entender o coração do seu negócio</strong> e transformá-lo
-							em sistemas eficientes, interfaces intuitivas e fluxos
-							automatizados que realmente fazem diferença. Cada linha de código
-							tem propósito. Cada automação tem impacto. Cada sistema que
-							construo entrega o que toda empresa busca:{' '}
-							<strong>eficiência, controle e escalabilidade real</strong>.
-						</p>
+						<p>{t('home.about3')}</p>
+
+						<p>{t('home.about4')}</p>
 					</div>
 
 					<div className="mb-20">
 						<h3 className="mb-8 font-semibold text-2xl">
-							O que eu faço na prática:
+							{t('home.whatIDoTitle')}
 						</h3>
 						<ul className="list-inside list-disc">
-							<li>Desenvolvo aplicações robustas com React, Node.js e AWS.</li>
-							<li>
-								Integro CRMs como Mautic, Infusionsoft, RD Station e HubSpot com
-								automações que economizam tempo e aumentam conversão.
-							</li>
-							<li>
-								Automatizo vendas, atendimento e jornadas de e-mail, eliminando
-								tarefas manuais.
-							</li>
-							<li>
-								Conecto ferramentas díspares e entrego plataformas que funcionam
-								— na prática, não só na teoria.
-							</li>
-							<li>
-								Desenho arquiteturas escaláveis com foco em performance e
-								crescimento sustentável.
-							</li>
+							<li>{t('home.whatIDo1')}</li>
+							<li>{t('home.whatIDo2')}</li>
+							<li>{t('home.whatIDo3')}</li>
+							<li>{t('home.whatIDo4')}</li>
+							<li>{t('home.whatIDo5')}</li>
 						</ul>
 					</div>
 
 					<div className="mb-20">
 						<h3 className="mb-8 font-semibold text-2xl">
-							Experiência comprovada
+							{t('home.experienceTitle')}
 						</h3>
-						<p>
-							Já liderei o desenvolvimento de{' '}
-							<strong>plataformas com mais de 70 mil usuários ativos</strong>,
-							integrando sistemas de pagamento, CRM, e-mail marketing e
-							notificações em um ecossistema digital eficiente. Trabalhei com
-							ferramentas como React, Supabase, WordPress, Mautic, Infusionsoft,
-							RD Station, TypeScript, Next.js, AWS e outras — sempre com foco na{' '}
-							<strong>estratégia por trás da tecnologia</strong>.
-						</p>
+						<p>{t('home.experience')}</p>
 					</div>
 
 					<div className="mb-20">
-						<h3 className="mb-8 font-semibold text-2xl">Quando me procuram?</h3>
+						<h3 className="mb-8 font-semibold text-2xl">
+							{t('home.whenTitle')}
+						</h3>
 						<ul className="list-inside list-disc">
-							<li>Quando é necessário integrar sistemas que não conversam.</li>
-							<li>Quando os processos manuais estão travando a operação.</li>
-							<li>Quando os dados precisam virar decisões — não planilhas.</li>
-							<li>
-								Quando é hora de entregar com precisão, clareza e performance.
-							</li>
-						</ul>
-					</div>
-
-					<div className="mb-20">
-						<h3 className="mb-8 font-semibold text-2xl">O que me move:</h3>
-						<ul className="list-inside list-disc">
-							<li>Criar aplicações que vendem, escalam e encantam.</li>
-							<li>
-								Automatizar o que atrasa, conectar o que está solto e dar vida
-								aos dados.
-							</li>
-							<li>
-								Fazer a tecnologia trabalhar para o negócio — e não o contrário.
-							</li>
+							<li>{t('home.when1')}</li>
+							<li>{t('home.when2')}</li>
+							<li>{t('home.when3')}</li>
+							<li>{t('home.when4')}</li>
 						</ul>
 					</div>
 
 					<div className="mb-20">
 						<h3 className="mb-8 font-semibold text-2xl">
-							A tecnologia certa, no lugar certo, muda tudo.
+							{t('home.motivationTitle')}
 						</h3>
-						<p>
-							Se sua operação ainda depende de improvisos e processos manuais,
-							talvez o que falte não seja esforço — mas{' '}
-							<strong>estrutura certa, pensada do jeito certo</strong>. Meu
-							papel é construir essa estrutura. E fazer sua empresa respirar
-							aliviada.
-						</p>
+						<ul className="list-inside list-disc">
+							<li>{t('home.motivation1')}</li>
+							<li>{t('home.motivation2')}</li>
+							<li>{t('home.motivation3')}</li>
+						</ul>
+					</div>
 
-						<p>
-							Seja qual for o tamanho da sua ideia, ela merece virar realidade.
-							Com estratégia, eficiência e tecnologia de verdade.
-						</p>
+					<div className="mb-20">
+						<h3 className="mb-8 font-semibold text-2xl">
+							{t('home.techRightTitle')}
+						</h3>
+						<p>{t('home.techRight1')}</p>
+
+						<p>{t('home.techRight2')}</p>
 					</div>
 
 					<div className="mb-20">
 						<p className="font-semibold text-lg">
-							{'Vamos conversar && () =>'}
+							{t('home.letsTalk')}
 							{!isBot && (
 								<a
-									aria-label="Enviar email para contact@claushaas.dev"
+									aria-label={t('home.emailAria')}
 									className="ml-2 text-sky-8 underline underline-offset-2 hover:opacity-80 dark:text-skydark-8"
 									href="mailto:contact@claushaas.dev"
 								>
@@ -177,7 +127,9 @@ export default function Home() {
 
 				{/* Skills & Tecnologias */}
 				<section aria-labelledby="skills-heading" id="skills">
-					<h2 className="mb-8 font-bold text-3xl">Skills & Tecnologias</h2>
+					<h2 className="mb-8 font-bold text-3xl" id="skills-heading">
+						{t('home.skillsTitle')}
+					</h2>
 					<div className="flex flex-wrap gap-4">
 						{skills.map((skill) => (
 							<SkillBadge key={skill} skill={skill} />
@@ -195,9 +147,8 @@ export default function Home() {
 				id="footer"
 			>
 				<p className="text-center">
-					Todos os direitos reservados - {new Date().getFullYear()} - Claus Haas
-					Ltda.
-					{!isBot && ' - CNPJ 59.586.732/0001-58'}
+					{t('home.footer', { year: new Date().getFullYear() })}
+					{!isBot && t('home.footerCnpj')}
 				</p>
 			</footer>
 		</>
