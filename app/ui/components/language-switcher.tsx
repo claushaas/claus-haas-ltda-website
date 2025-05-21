@@ -1,6 +1,5 @@
-import type React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaFlag, FaFlagUsa, FaGlobe } from 'react-icons/fa6';
+import { FaGlobe } from 'react-icons/fa6';
 import { useChangeLanguage } from '~/hooks/use-change-language';
 
 /**
@@ -11,19 +10,16 @@ export const LanguageSwitcher = () => {
 	const { changeLanguage, currentLanguage } = useChangeLanguage();
 
 	const languages: {
-		code: 'pt' | 'en';
-		icon: React.JSX.Element;
+		code: import('~/i18n/i18n').SupportedLanguage;
 		label: string;
 	}[] = [
 		{
 			code: 'pt',
-			icon: <FaFlag className="mr-1 inline-block" />,
-			label: t('idioma.pt', 'Português'),
+			label: 'Português',
 		},
 		{
 			code: 'en',
-			icon: <FaFlagUsa className="mr-1 inline-block" />,
-			label: t('idioma.en', 'English'),
+			label: 'English',
 		},
 	];
 
@@ -31,22 +27,18 @@ export const LanguageSwitcher = () => {
 		<div className="flex items-center gap-2">
 			<FaGlobe
 				aria-label={t('idioma.label', 'Idioma')}
-				className="text-lg text-radix-slate-11"
+				className="text-lg text-radix-slate-11 text-sky-11 dark:text-skydark-11"
 			/>
-			{languages.map(({ code, label, icon }) => (
+			{languages.map(({ code, label }) => (
 				<button
 					aria-pressed={currentLanguage === code}
-					className={`rounded px-2 py-1 font-medium text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-radix-slate-7 ${
-						currentLanguage === code
-							? 'bg-radix-slate-4 text-radix-slate-12'
-							: 'bg-transparent text-radix-slate-11 hover:bg-radix-slate-3'
-					}`}
+					className={`rounded px-2 py-1 font-medium text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-radix-slate-7 ${currentLanguage === code ? 'cursor-default opacity-60' : 'cursor-pointer text-radix-slate-12 opacity-100 hover:bg-radix-slate-3'}`}
+					disabled={currentLanguage === code}
 					key={code}
 					onClick={() => changeLanguage(code)}
 					type="button"
 				>
-					{icon}
-					<span className="sr-only">{label}</span>
+					<span className="text-sky-11 dark:text-skydark-11">{label}</span>
 				</button>
 			))}
 		</div>

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useIsBot } from '~/hooks/use-is-bot';
 import Face from '~/ui/components/face';
+import { LanguageSwitcher } from '~/ui/components/language-switcher';
 import { skills } from '../content/skills/skills';
 import { SkillBadge } from '../ui/components/skill-badge';
 import ProjectGallery from '../ui/layouts/projects-gallery';
@@ -19,32 +20,37 @@ export default function Home() {
 	return (
 		<>
 			<header
-				className="my-4 flex flex-wrap gap-4 sm:mt-16 sm:mb-24 sm:flex-nowrap md:h-96"
+				className="mb-0 flex flex-col items-center justify-items-start"
 				id="header"
 			>
-				<div className="mb-4 flex w-full justify-center sm:mb-0 md:justify-start">
-					<Face className="max-h-56 w-fit sm:max-h-none" />
+				<div className="px-16 py-4">
+					<LanguageSwitcher />
 				</div>
-				<div className="flex w-full flex-col justify-between">
-					<div className="flex flex-col items-end">
-						<h1 className="text-right font-default text-6xl sm:text-8xl">
-							{t('home.name1')}
-							<span className="block">{t('home.name2')}</span>
-						</h1>
+				<div className="mt-4 flex w-full flex-wrap gap-4 sm:mt-16 sm:flex-nowrap md:h-96">
+					<div className="mb-4 flex w-full justify-center sm:mb-0 md:justify-start">
+						<Face className="max-h-56 w-fit sm:max-h-none" />
 					</div>
-					<div className="flex flex-col items-end">
-						<p className="text-right text-xl sm:text-2xl">
-							{t('home.role1')}
-							<span className="block">{t('home.role2')}</span>
-							<span className="block">{t('home.role3')}</span>
-						</p>
+					<div className="m-auto flex w-fit flex-col sm:w-full sm:justify-between">
+						<div className="flex flex-col items-end">
+							<h1 className="text-right font-default text-5xl sm:text-8xl">
+								Claus
+								<span className="sm:block"> Haas</span>
+							</h1>
+						</div>
+						<div className="flex flex-col items-end">
+							<p className="text-right text-xl sm:text-2xl">
+								{t('home.role1')}
+								<span className="block">{t('home.role2')}</span>
+								<span className="block">{t('home.role3')}</span>
+							</p>
+						</div>
 					</div>
 				</div>
 			</header>
 			<main id="main-content" tabIndex={-1}>
 				<section aria-labelledby="about-heading" id="about">
-					<div className="mb-20">
-						<h2 className="mt-20 mb-8 font-bold text-3xl">
+					<div className="mb-10 sm:mb-20">
+						<h2 className="mt-10 mb-4 font-bold text-xl sm:mt-20 sm:mb-8 sm:text-3xl">
 							{t('home.aboutTitle')}
 						</h2>
 
@@ -57,8 +63,8 @@ export default function Home() {
 						<p>{t('home.about4')}</p>
 					</div>
 
-					<div className="mb-20">
-						<h3 className="mb-8 font-semibold text-2xl">
+					<div className="mb-10 sm:mb-20">
+						<h3 className="mb-4 font-semibold text-lg sm:mb-8 sm:text-2xl">
 							{t('home.whatIDoTitle')}
 						</h3>
 						<ul className="list-inside list-disc">
@@ -70,15 +76,15 @@ export default function Home() {
 						</ul>
 					</div>
 
-					<div className="mb-20">
-						<h3 className="mb-8 font-semibold text-2xl">
+					<div className="mb-10 sm:mb-20">
+						<h3 className="mb-4 font-semibold text-lg sm:mb-8 sm:text-2xl">
 							{t('home.experienceTitle')}
 						</h3>
 						<p>{t('home.experience')}</p>
 					</div>
 
-					<div className="mb-20">
-						<h3 className="mb-8 font-semibold text-2xl">
+					<div className="mb-10 sm:mb-20">
+						<h3 className="mb-4 font-semibold text-lg sm:mb-8 sm:text-2xl">
 							{t('home.whenTitle')}
 						</h3>
 						<ul className="list-inside list-disc">
@@ -89,8 +95,8 @@ export default function Home() {
 						</ul>
 					</div>
 
-					<div className="mb-20">
-						<h3 className="mb-8 font-semibold text-2xl">
+					<div className="mb-10 sm:mb-20">
+						<h3 className="mb-4 font-semibold text-lg sm:mb-8 sm:text-2xl">
 							{t('home.motivationTitle')}
 						</h3>
 						<ul className="list-inside list-disc">
@@ -100,8 +106,8 @@ export default function Home() {
 						</ul>
 					</div>
 
-					<div className="mb-20">
-						<h3 className="mb-8 font-semibold text-2xl">
+					<div className="mb-10 sm:mb-20">
+						<h3 className="mb-4 font-semibold text-lg sm:mb-8 sm:text-2xl">
 							{t('home.techRightTitle')}
 						</h3>
 						<p>{t('home.techRight1')}</p>
@@ -109,7 +115,7 @@ export default function Home() {
 						<p>{t('home.techRight2')}</p>
 					</div>
 
-					<div className="mb-20">
+					<div className="mb-10 sm:mb-20">
 						<p className="font-semibold text-lg">
 							{t('home.letsTalk')}
 							{!isBot && (
@@ -127,7 +133,10 @@ export default function Home() {
 
 				{/* Skills & Tecnologias */}
 				<section aria-labelledby="skills-heading" id="skills">
-					<h2 className="mb-8 font-bold text-3xl" id="skills-heading">
+					<h2
+						className="mb-8 font-bold text-xl sm:text-3xl"
+						id="skills-heading"
+					>
 						{t('home.skillsTitle')}
 					</h2>
 					<div className="flex flex-wrap gap-4">
