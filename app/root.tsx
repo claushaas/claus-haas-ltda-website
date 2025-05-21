@@ -11,7 +11,7 @@ import {
 import type { Route } from './+types/root';
 import './app.css';
 import { useIsBot } from './hooks/use-is-bot';
-import { detectLanguage } from './i18n/i18n';
+import { defaultLanguage, detectLanguage } from './i18n/i18n';
 
 export const links: Route.LinksFunction = () => [
 	{
@@ -58,7 +58,7 @@ export const loader = ({ request }: LoaderFunctionArgs) => {
 
 export function Layout({ children }: { children: React.ReactNode }) {
 	const loaderData = useLoaderData<typeof loader>();
-	const language = loaderData?.language ?? 'pt';
+	const language = loaderData?.language ?? defaultLanguage;
 	const canonicalUrl = loaderData?.canonicalUrl;
 	const isBot = useIsBot();
 

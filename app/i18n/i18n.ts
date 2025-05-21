@@ -10,7 +10,7 @@ import { initReactI18next } from 'react-i18next';
 const supportedLanguages = ['pt', 'en'] as const;
 export type SupportedLanguage = (typeof supportedLanguages)[number];
 
-const defaultLanguage = 'en';
+export const defaultLanguage = 'en';
 
 const getFromSupported = (language: string | null): SupportedLanguage => {
 	return (pick(supportedLanguages, language ?? defaultLanguage, {
