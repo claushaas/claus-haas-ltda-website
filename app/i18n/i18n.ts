@@ -58,7 +58,7 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 		fallbackLng: 'en',
 		initImmediate: true,
 		interpolation: { escapeValue: false },
-		keySeparator: false,
+		// keySeparator removido para permitir navegação em objetos aninhados
 		load: 'languageOnly',
 		react: { useSuspense: false },
 		supportedLngs: supportedLanguages,

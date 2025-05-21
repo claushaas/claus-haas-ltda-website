@@ -55,7 +55,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 			)}
 			{project.link ? (
 				<a
-					aria-label={t('project.seeMoreAria', { title: project.title })}
+					aria-label={t('project.seeMoreAria', {
+						title: t(project.title ?? ''),
+					})}
 					className="text-sky-10 underline hover:opacity-80"
 					href={project.link}
 					rel="noopener noreferrer"
