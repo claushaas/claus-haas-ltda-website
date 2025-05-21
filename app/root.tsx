@@ -80,6 +80,36 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					media="(prefers-color-scheme: light)"
 					name="theme-color"
 				/>
+				{/* SEO & Acessibilidade */}
+				<meta content="Claus Haas Ltda." name="application-name" />
+				<meta content="Claus Haas Ltda." name="apple-mobile-web-app-title" />
+				<meta content="true" name="HandheldFriendly" />
+				<meta content="strict-origin-when-cross-origin" name="referrer" />
+				<meta content={language} httpEquiv="Content-Language" />
+				<link
+					href={typeof window !== 'undefined' ? window.location.href : ''}
+					rel="canonical"
+				/>
+				{/* Open Graph */}
+				<meta content="Claus Haas Ltda." property="og:title" />
+				<meta
+					content="Desenvolvimento de software, automação e soluções digitais sob medida."
+					property="og:description"
+				/>
+				<meta content="website" property="og:type" />
+				<meta
+					content={typeof window !== 'undefined' ? window.location.href : ''}
+					property="og:url"
+				/>
+				<meta content="/android-chrome-512x512.png" property="og:image" />
+				{/* Twitter Card */}
+				<meta content="summary_large_image" name="twitter:card" />
+				<meta content="Claus Haas Ltda." name="twitter:title" />
+				<meta
+					content="Desenvolvimento de software, automação e soluções digitais sob medida."
+					name="twitter:description"
+				/>
+				<meta content="/android-chrome-512x512.png" name="twitter:image" />
 				<Meta />
 				<Links />
 			</head>

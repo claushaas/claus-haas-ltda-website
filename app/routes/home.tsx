@@ -1,16 +1,39 @@
 import { useTranslation } from 'react-i18next';
+import type { LoaderFunctionArgs, MetaArgs } from 'react-router';
 import { useIsBot } from '~/hooks/use-is-bot';
+import { detectLanguage } from '~/i18n/i18n';
 import Face from '~/ui/components/face';
 import { LanguageSwitcher } from '~/ui/components/language-switcher';
 import { skills } from '../content/skills/skills';
 import { SkillBadge } from '../ui/components/skill-badge';
 import ProjectGallery from '../ui/layouts/projects-gallery';
 
-export const meta = () => {
+export const meta = ({ data }: MetaArgs<typeof loader>) => {
+	const language = data?.language;
+
+	const metaByLang = {
+		en: {
+			description: 'Welcome to my website',
+			title: 'Claus Haas Ltda.',
+		},
+		pt: {
+			description: 'Bem-vind@ ao meu website',
+			title: 'Claus Haas Ltda.',
+		},
+	};
+
+	const meta = metaByLang[language as 'pt' | 'en'] ?? metaByLang.en;
+
 	return [
-		{ title: 'Claus Haas Ltda.' },
-		{ content: 'Bem-vind@ ao meu website', name: 'description' },
+		{ title: meta.title },
+		{ content: meta.description, name: 'description' },
 	];
+};
+
+export const loader = ({ request }: LoaderFunctionArgs) => {
+	return {
+		language: detectLanguage(request),
+	};
 };
 
 export default function Home() {
@@ -26,11 +49,11 @@ export default function Home() {
 				<div className="px-16 py-4">
 					<LanguageSwitcher />
 				</div>
-				<div className="mt-4 flex w-full flex-wrap gap-4 sm:mt-16 sm:flex-nowrap md:h-96">
-					<div className="mb-4 flex w-full justify-center sm:mb-0 md:justify-start">
-						<Face className="max-h-56 w-fit sm:max-h-none" />
+				<div className="mt-4 flex w-full flex-col gap-4 sm:mt-16 sm:h-90 sm:flex-row">
+					<div className="mb-4 flex w-full justify-center sm:mb-0 sm:justify-start">
+						<Face className="max-h-56 w-fit sm:max-h-90" />
 					</div>
-					<div className="m-auto flex w-fit flex-col sm:w-full sm:justify-between">
+					<div className="m-auto flex h-full w-fit flex-col justify-between">
 						<div className="flex flex-col items-end">
 							<h1 className="text-right font-default text-5xl sm:text-8xl">
 								Claus
@@ -38,7 +61,7 @@ export default function Home() {
 							</h1>
 						</div>
 						<div className="flex flex-col items-end">
-							<p className="text-right text-xl sm:text-2xl">
+							<p className="text-nowrap text-right text-lg sm:text-xl">
 								{t('home.role1')}
 								<span className="block">{t('home.role2')}</span>
 								<span className="block">{t('home.role3')}</span>
