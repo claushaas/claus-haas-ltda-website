@@ -24,9 +24,7 @@ Você DEVE planejar extensivamente antes de cada chamada de função, e refletir
 3. Desenvolva um plano claro e passo a passo. Divida a correção em etapas pequenas e gerenciáveis.
 4. Implemente a correção de forma incremental. Faça alterações pequenas e testáveis no código.
 5. Depure conforme necessário. Use técnicas de depuração para isolar e resolver problemas.
-6. Teste com frequência. Rode testes após cada alteração para verificar a correção.
-7. Prossiga até que a causa raiz esteja resolvida e todos os testes passem.
-8. Reflita e valide de forma abrangente. Após passar nos testes, pense na intenção original, escreva testes adicionais para garantir a correção e lembre-se de que há testes ocultos que também devem passar para a solução ser completa.
+6. Prossiga até que a causa raiz esteja resolvida.
 
 > Consulte as seções detalhadas abaixo para mais informações sobre cada etapa.
 
@@ -57,34 +55,10 @@ Leia cuidadosamente o issue e pense bem antes de começar a codar.
 - Para testar hipóteses, adicione testes ou funções auxiliares.
 - Reavalie suas suposições caso ocorra comportamento inesperado.
 
-### 6. Testes
-- Rode testes frequentemente.
-- Após cada alteração, verifique a correção executando testes relevantes.
-- Se falharem, analise os erros e revise sua correção.
-- Escreva testes adicionais se necessário para cobrir comportamentos ou casos extremos.
-- Certifique-se de que todos os testes passem antes de finalizar.
-- Para rodar os testes: `npm test` ou `yarn test`.
-- Os testes devem ficar em arquivos `.test.ts` ou `.test.tsx` próximos ao código testado ou em uma pasta `__tests__`.
-- Exemplo de teste:
-```ts
-import { soma } from '@/utils/soma';
-test('soma dois números', () => {
-  expect(soma(2, 3)).toBe(5);
-});
-```
-
-### 7. Verificação Final
+### 6. Verificação Final
 - Confirme que a causa raiz foi corrigida.
 - Revise sua solução para garantir correção lógica e robustez.
 - Prossiga até ter extrema confiança de que a correção está completa e todos os testes passam.
-
-### 8. Reflexão Final e Testes Adicionais
-- Reflita cuidadosamente sobre a intenção original do usuário e o enunciado do problema.
-- Pense sobre casos extremos ou cenários que podem não estar cobertos por testes existentes.
-- Escreva testes adicionais para validar completamente a correção.
-- Rode esses novos testes e certifique-se de que todos passem.
-- Esteja ciente de que existem testes ocultos adicionais que também devem passar para a solução ser bem-sucedida.
-- Não assuma que a tarefa está completa apenas porque os testes visíveis passaram; continue refinando até ter confiança de que a correção é robusta e abrangente.
 
 ## Estilo e Estrutura de Código
 - Escreva código TypeScript conciso e tecnicamente preciso com exemplos claros.
@@ -206,7 +180,7 @@ test('soma dois números', () => {
 - Configure regras adicionais em `biome.json` se necessário.
 
 ## Vite
-- Use scripts do Vite para desenvolvimento e build.
+- Use scripts do Vite para desenvolvimento.
 - Hot reload já habilitado por padrão.
 - Plugins recomendados: `vite-plugin-svgr`, `vite-tsconfig-paths`, `@tailwindcss/vite`.
 - Exemplo de importação de SVG:
@@ -218,7 +192,6 @@ test('soma dois números', () => {
 ## Cloudflare Workers & Wrangler
 - Use `wrangler` para deploy e testes locais de workers.
 - Scripts úteis:
-  - `npm run deploy` para publicar
   - `npm run cf-typegen` para gerar tipos
 - Configure variáveis de ambiente sensíveis no painel do Cloudflare, nunca no código-fonte.
 
