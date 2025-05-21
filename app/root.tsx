@@ -83,7 +83,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					media="(prefers-color-scheme: light)"
 					name="theme-color"
 				/>
-				{/* SEO & Acessibilidade */}
+				{/* SEO & Accessibility */}
 				<meta content="Claus Haas Ltda." name="application-name" />
 				<meta content="Claus Haas Ltda." name="apple-mobile-web-app-title" />
 				<meta content="true" name="HandheldFriendly" />
@@ -109,7 +109,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<meta content="/android-chrome-512x512.png" name="twitter:image" />
 				<Meta />
 				<Links />
-				{/* Injeção do idioma inicial para o client sincronizar com SSR */}
+				{/* Inject initial language for client SSR sync */}
 				<script id="initial-i18n-language" type="application/json">
 					{JSON.stringify({ language })}
 				</script>

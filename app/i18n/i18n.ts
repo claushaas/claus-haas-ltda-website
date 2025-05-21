@@ -58,7 +58,7 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 		fallbackLng: 'en',
 		initImmediate: true,
 		interpolation: { escapeValue: false },
-		// keySeparator removido para permitir navegação em objetos aninhados
+		// keySeparator removed to allow navigation in nested objects
 		load: 'languageOnly',
 		react: { useSuspense: false },
 		supportedLngs: supportedLanguages,
@@ -72,13 +72,13 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 		options.defaultNS = 'namespace1';
 	}
 
-	// then we add the configuration usada apenas no client
+	// then we add the configuration used only on the client
 	if (isBrowser) {
 		options.backend = { loadPath: '/locales/{{lng}}.json' };
 		i18next.use(LanguageDetector).use(HttpApi);
 		const cookieOptions = { path: '/', sameSite: 'lax' as const };
 		if (language) {
-			// Se idioma foi passado explicitamente, não ativa detecção, mas permite setar cookie
+			// If language was explicitly passed, do not enable detection, but allow setting cookie
 			options.lng = language;
 			options.detection = { caches: ['cookie'], cookieOptions, order: [] };
 		} else {
@@ -90,7 +90,7 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 	await i18next.use(initReactI18next).init(options);
 
 	if (!isBrowser) {
-		// finalmente, se estivermos rodando server-side, vamos importar dinamicamente o JSON de tradução
+		// finally, if we are running server-side, dynamically import the translation JSON
 		const resource = (
 			await import(`../../public/locales/${language ?? defaultLanguage}.json`)
 		).default;
