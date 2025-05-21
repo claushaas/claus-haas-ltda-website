@@ -1,3 +1,4 @@
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaFlag, FaFlagUsa, FaGlobe } from 'react-icons/fa6';
 import { useChangeLanguage } from '~/hooks/use-change-language';
@@ -9,7 +10,11 @@ export const LanguageSwitcher = () => {
 	const { t } = useTranslation();
 	const { changeLanguage, currentLanguage } = useChangeLanguage();
 
-	const languages = [
+	const languages: {
+		code: 'pt' | 'en';
+		icon: React.JSX.Element;
+		label: string;
+	}[] = [
 		{
 			code: 'pt',
 			icon: <FaFlag className="mr-1 inline-block" />,

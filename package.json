@@ -1,12 +1,12 @@
 {
 	"dependencies": {
 		"@radix-ui/colors": "^3.0.0",
+		"accept-language-parser": "^1.5.0",
 		"i18next": "^25.2.0",
 		"i18next-browser-languagedetector": "^8.1.0",
 		"i18next-fetch-backend": "^6.0.0",
 		"isbot": "^5.1.28",
 		"motion": "^12.12.1",
-		"pretty-cache-header": "^1.0.0",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"react-i18next": "^15.5.1",
@@ -19,6 +19,7 @@
 		"@cloudflare/vite-plugin": "^1.2.3",
 		"@react-router/dev": "^7.6.0",
 		"@tailwindcss/vite": "^4.1.7",
+		"@types/accept-language-parser": "^1.5.8",
 		"@types/node": "^22.15.19",
 		"@types/react": "^19.1.4",
 		"@types/react-dom": "^19.1.5",

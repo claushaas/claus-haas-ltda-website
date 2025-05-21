@@ -10,7 +10,7 @@ export const useChangeLanguage = () => {
 	const currentLanguage = i18n.language;
 
 	const changeLanguage = useCallback(
-		(lng: string) => {
+		(lng: import('~/i18n/i18n').SupportedLanguage) => {
 			i18n.changeLanguage(lng);
 		},
 		[i18n],

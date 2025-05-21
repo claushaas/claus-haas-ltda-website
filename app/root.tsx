@@ -1,15 +1,17 @@
 import {
 	isRouteErrorResponse,
 	Links,
+	type LoaderFunctionArgs,
 	Meta,
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useLoaderData,
 } from 'react-router';
 import type { Route } from './+types/root';
 import './app.css';
-import { useTranslation } from 'react-i18next';
 import { useIsBot } from './hooks/use-is-bot';
+import { detectLanguage } from './i18n/i18n';
 import { LanguageSwitcher } from './ui/components/language-switcher';
 
 export const links: Route.LinksFunction = () => [
@@ -49,9 +51,13 @@ export const links: Route.LinksFunction = () => [
 	{ href: '/site.webmanifest', rel: 'manifest' },
 ];
 
+export const loader = ({ request }: LoaderFunctionArgs) => {
+	const language = detectLanguage(request);
+	return { language };
+};
+
 export function Layout({ children }: { children: React.ReactNode }) {
-	const { i18n } = useTranslation();
-	const language = i18n.language || 'en';
+	const language = useLoaderData<typeof loader>().language;
 	const isBot = useIsBot();
 
 	return (

@@ -1,20 +1,12 @@
 import i18next from 'i18next';
-import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector';
-import Fetch from 'i18next-fetch-backend';
 import { StrictMode, startTransition } from 'react';
 import { hydrateRoot } from 'react-dom/client';
-import { I18nextProvider, initReactI18next } from 'react-i18next';
+import { I18nextProvider } from 'react-i18next';
 import { HydratedRouter } from 'react-router/dom';
+import { initI18Next } from './i18n/i18n';
 
 async function main() {
-	await i18next
-		.use(initReactI18next)
-		.use(Fetch)
-		.use(I18nextBrowserLanguageDetector)
-		.init({
-			detection: { caches: [], order: ['htmlTag'] },
-			fallbackLng: 'en',
-		});
+	await initI18Next(i18next);
 
 	startTransition(() => {
 		hydrateRoot(
