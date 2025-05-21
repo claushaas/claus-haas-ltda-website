@@ -5,7 +5,7 @@ export const project = {
 		'projects.portfolio.highlights.cloudflareWorkers',
 		'projects.portfolio.highlights.i18n',
 	],
-	link: 'https://clausaas.dev',
+	link: 'https://claushaas.dev',
 	technologies: [
 		'React',
 		'React Native',

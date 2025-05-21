@@ -52,11 +52,14 @@ export const links: Route.LinksFunction = () => [
 
 export const loader = ({ request }: LoaderFunctionArgs) => {
 	const language = detectLanguage(request);
-	return { language };
+	const canonicalUrl = request.url;
+	return { canonicalUrl, language };
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
-	const language = useLoaderData<typeof loader>().language;
+	const loaderData = useLoaderData<typeof loader>();
+	const language = loaderData?.language ?? 'pt';
+	const canonicalUrl = loaderData?.canonicalUrl;
 	const isBot = useIsBot();
 
 	return (
@@ -86,10 +89,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<meta content="true" name="HandheldFriendly" />
 				<meta content="strict-origin-when-cross-origin" name="referrer" />
 				<meta content={language} httpEquiv="Content-Language" />
-				<link
-					href={typeof window !== 'undefined' ? window.location.href : ''}
-					rel="canonical"
-				/>
+				{canonicalUrl && <link href={canonicalUrl} rel="canonical" />}
 				{/* Open Graph */}
 				<meta content="Claus Haas Ltda." property="og:title" />
 				<meta
@@ -97,10 +97,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					property="og:description"
 				/>
 				<meta content="website" property="og:type" />
-				<meta
-					content={typeof window !== 'undefined' ? window.location.href : ''}
-					property="og:url"
-				/>
+				{canonicalUrl && <meta content={canonicalUrl} property="og:url" />}
 				<meta content="/android-chrome-512x512.png" property="og:image" />
 				{/* Twitter Card */}
 				<meta content="summary_large_image" name="twitter:card" />
@@ -112,6 +109,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<meta content="/android-chrome-512x512.png" name="twitter:image" />
 				<Meta />
 				<Links />
+				{/* Injeção do idioma inicial para o client sincronizar com SSR */}
+				<script id="initial-i18n-language" type="application/json">
+					{JSON.stringify({ language })}
+				</script>
 			</head>
 			<body className="m-auto h-fit max-w-4xl space-y-16 bg-slate-1 px-4 dark:bg-slatedark-1">
 				{children}

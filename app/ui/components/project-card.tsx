@@ -48,14 +48,16 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 			)}
 			{project.highlights && project.highlights.length > 0 && (
 				<ul className="mb-2 list-disc pl-5 text-sky-11 dark:text-skydark-11">
-					{project.highlights.map((destaque) => (
-						<li key={destaque}>{t(destaque)}</li>
+					{project.highlights.map((highlight) => (
+						<li key={highlight}>{t(highlight)}</li>
 					))}
 				</ul>
 			)}
 			{project.link ? (
 				<a
-					aria-label={t('project.seeMoreAria', { title: project.title })}
+					aria-label={t('project.seeMoreAria', {
+						title: t(project.title ?? ''),
+					})}
 					className="text-sky-10 underline hover:opacity-80"
 					href={project.link}
 					rel="noopener noreferrer"

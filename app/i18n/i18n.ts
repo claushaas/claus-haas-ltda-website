@@ -58,7 +58,7 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 		fallbackLng: 'en',
 		initImmediate: true,
 		interpolation: { escapeValue: false },
-		keySeparator: false,
+		// keySeparator removido para permitir navegação em objetos aninhados
 		load: 'languageOnly',
 		react: { useSuspense: false },
 		supportedLngs: supportedLanguages,
@@ -72,14 +72,18 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 		options.defaultNS = 'namespace1';
 	}
 
-	// then we add the configuration used only client-side
+	// then we add the configuration usada apenas no client
 	if (isBrowser) {
-		// here we configure the path for our JSON filas with the localized messages
 		options.backend = { loadPath: '/locales/{{lng}}.json' };
-		// and here we set what to use as cache for the language detection
-		options.detection = { caches: ['cookie'] };
-		// and we tell i18next to use the language detector and http api plugins
 		i18next.use(LanguageDetector).use(HttpApi);
+		const cookieOptions = { path: '/', sameSite: 'lax' as const };
+		if (language) {
+			// Se idioma foi passado explicitamente, não ativa detecção, mas permite setar cookie
+			options.lng = language;
+			options.detection = { caches: ['cookie'], cookieOptions, order: [] };
+		} else {
+			options.detection = { caches: ['cookie'], cookieOptions };
+		}
 	}
 
 	// now we tell i18next to use the React plunig and wee initialize it with our options
