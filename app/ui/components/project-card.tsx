@@ -48,8 +48,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 			)}
 			{project.highlights && project.highlights.length > 0 && (
 				<ul className="mb-2 list-disc pl-5 text-sky-11 dark:text-skydark-11">
-					{project.highlights.map((destaque) => (
-						<li key={destaque}>{t(destaque)}</li>
+					{project.highlights.map((highlight) => (
+						<li key={highlight}>{t(highlight)}</li>
 					))}
 				</ul>
 			)}
