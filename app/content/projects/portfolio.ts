@@ -1,6 +1,10 @@
 export const project = {
-	description: 'Este site.',
-	highlights: ['SSR', 'Cloudflare Workers'],
+	description: 'projects.portfolio.description',
+	highlights: [
+		'projects.portfolio.highlights.ssr',
+		'projects.portfolio.highlights.cloudflareWorkers',
+		'projects.portfolio.highlights.i18n',
+	],
 	link: 'https://clausaas.dev',
 	technologies: [
 		'React',
@@ -12,5 +16,5 @@ export const project = {
 		'Motion',
 		'Cloudflare Workers',
 	],
-	title: 'claushaas.dev',
+	title: 'projects.portfolio.title',
 };

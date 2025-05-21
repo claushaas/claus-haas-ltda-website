@@ -26,12 +26,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 		>
 			{project.title && (
 				<h3 className="mt-0 mb-1 font-semibold text-xl sm:mt-0">
-					{project.title}
+					{t(project.title)}
 				</h3>
 			)}
 			{project.description && (
 				<p className="mb-2 text-sky-11 dark:text-skydark-11">
-					{project.description}
+					{t(project.description)}
 				</p>
 			)}
 			{project.technologies && project.technologies.length > 0 && (
@@ -49,7 +49,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 			{project.highlights && project.highlights.length > 0 && (
 				<ul className="mb-2 list-disc pl-5 text-sky-11 dark:text-skydark-11">
 					{project.highlights.map((destaque) => (
-						<li key={destaque}>{destaque}</li>
+						<li key={destaque}>{t(destaque)}</li>
 					))}
 				</ul>
 			)}

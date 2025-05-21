@@ -1,6 +1,9 @@
 export const project = {
-	description: 'Este site.',
-	highlights: ['SSR', 'Cloudflare Workers'],
+	description: 'projects.budgetPalWebsite.description',
+	highlights: [
+		'projects.budgetPalWebsite.highlights.ssr',
+		'projects.budgetPalWebsite.highlights.cloudflareWorkers',
+	],
 	link: 'https://budgetpalapp.com',
 	technologies: [
 		'React',
@@ -12,5 +15,5 @@ export const project = {
 		'Motion',
 		'Cloudflare Workers',
 	],
-	title: 'busgetPal Website',
+	title: 'projects.budgetPalWebsite.title',
 };

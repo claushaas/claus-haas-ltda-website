@@ -7,9 +7,6 @@
 	"name": "claus-haas-ltda-website",
 	"compatibility_date": "2025-05-05",
 	"main": "./workers/app.ts",
-	"vars": {
-		"VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare"
-	},
 	"observability": {
 		"enabled": true
 	},
