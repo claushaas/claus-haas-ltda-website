@@ -1,15 +1,17 @@
 import {
 	isRouteErrorResponse,
 	Links,
+	type LoaderFunctionArgs,
 	Meta,
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useLoaderData,
 } from 'react-router';
-
 import type { Route } from './+types/root';
 import './app.css';
 import { useIsBot } from './hooks/use-is-bot';
+import { detectLanguage } from './i18n/i18n';
 
 export const links: Route.LinksFunction = () => [
 	{
@@ -48,17 +50,23 @@ export const links: Route.LinksFunction = () => [
 	{ href: '/site.webmanifest', rel: 'manifest' },
 ];
 
+export const loader = ({ request }: LoaderFunctionArgs) => {
+	const language = detectLanguage(request);
+	return { language };
+};
+
 export function Layout({ children }: { children: React.ReactNode }) {
+	const language = useLoaderData<typeof loader>().language;
 	const isBot = useIsBot();
 
 	return (
-		<html lang="en">
+		<html lang={language}>
 			<head>
 				<meta content="width=device-width, initial-scale=1" name="viewport" />
 				<meta charSet="utf-8" />
 				<meta content="index, follow" name="robots" />
 				<meta content="Claus Haas Ltda." name="author" />
-				<meta content="yes" name="apple-mobile-web-app-capable" />
+				<meta content="yes" name="mobile-web-app-capable" />
 				<meta content="default" name="apple-mobile-web-app-status-bar-style" />
 				<meta content="telephone=no" name="format-detection" />
 				<meta content="IE=edge" httpEquiv="X-UA-Compatible" />
