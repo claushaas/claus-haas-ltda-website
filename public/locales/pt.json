@@ -40,6 +40,45 @@
 	"idioma.pt": "Português",
 	"project.seeMore": "Ver mais",
 	"project.seeMoreAria": "Ver mais sobre o projeto {{title}}",
+	"projects": {
+		"budgetPal": {
+			"description": "App mobile criado em react native. Seu propósito é ajudar famílias com recursos financeiros limitados a criarem um orçamento compartilhado, para alcançarem suas metas financeiras.",
+			"highlights": {
+				"multiUser": "Multiusuário",
+				"offlineFirst": "Offline first",
+				"realtimeSync": "Sincronização em tempo real"
+			},
+			"title": "budgetPal"
+		},
+		"budgetPalWebsite": {
+			"description": "Site para a divulgação do app budgetPal.",
+			"highlights": {
+				"cloudflareWorkers": "Cloudflare Workers",
+				"ssr": "SSR"
+			},
+			"title": "budgetPal Website"
+		},
+		"portfolio": {
+			"description": "Este site. Criado com o propósito de divulgar a minha empresa e o meu trabalho.",
+			"highlights": {
+				"cloudflareWorkers": "Cloudflare Workers",
+				"i18n": "i18n",
+				"ssr": "SSR"
+			},
+			"title": "claushaas.dev"
+		},
+		"yem": {
+			"description": "Plataforma da maior escola de Yoga do Brasil. Com mais de 70 mil alunos, a Yoga em Movimento faz a diferença na qualidade de vida e espiritualidade de milhares de pessoas no mundo inteiro.",
+			"highlights": {
+				"awsCognito": "AWS Cognito",
+				"hotmart": "Hotmart",
+				"mautic": "Mautic",
+				"postgres": "Postgres",
+				"prismaOrm": "Prisma ORM"
+			},
+			"title": "Yoga em Movimento"
+		}
+	},
 	"projects.listAria": "Lista de projetos",
 	"projects.next": "Próximo",
 	"projects.nextAria": "Próximo projeto",

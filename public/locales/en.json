@@ -40,6 +40,45 @@
 	"idioma.pt": "Portuguese",
 	"project.seeMore": "See more",
 	"project.seeMoreAria": "See more about project {{title}}",
+	"projects": {
+		"budgetPal": {
+			"description": "Mobile app created in React Native. Its purpose is to help families with limited financial resources create a shared budget to achieve their financial goals.",
+			"highlights": {
+				"multiUser": "Multi user",
+				"offlineFirst": "Offline first",
+				"realtimeSync": "Realtime sync"
+			},
+			"title": "budgetPal"
+		},
+		"budgetPalWebsite": {
+			"description": "Website for promoting the budgetPal app.",
+			"highlights": {
+				"cloudflareWorkers": "Cloudflare Workers",
+				"ssr": "SSR"
+			},
+			"title": "budgetPal Website"
+		},
+		"portfolio": {
+			"description": "This website. Created to promote my company and my work.",
+			"highlights": {
+				"cloudflareWorkers": "Cloudflare Workers",
+				"i18n": "i18n",
+				"ssr": "SSR"
+			},
+			"title": "claushaas.dev"
+		},
+		"yem": {
+			"description": "Platform of the largest Yoga school in Brazil. With over 70,000 students, Yoga em Movimento makes a difference in the quality of life and spirituality of thousands of people worldwide.",
+			"highlights": {
+				"awsCognito": "AWS Cognito",
+				"hotmart": "Hotmart",
+				"mautic": "Mautic",
+				"postgres": "Postgres",
+				"prismaOrm": "Prisma ORM"
+			},
+			"title": "Yoga em Movimento"
+		}
+	},
 	"projects.listAria": "Project list",
 	"projects.next": "Next",
 	"projects.nextAria": "Next project",

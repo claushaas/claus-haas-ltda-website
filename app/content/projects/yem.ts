@@ -1,7 +1,12 @@
 export const project = {
-	description:
-		'Breve descrição do projeto exemplo, tecnologias utilizadas, desafios e resultados.',
-	highlights: ['Destaque 1', 'Destaque 2'],
+	description: 'projects.yem.description',
+	highlights: [
+		'projects.yem.highlights.awsCognito',
+		'projects.yem.highlights.hotmart',
+		'projects.yem.highlights.mautic',
+		'projects.yem.highlights.postgres',
+		'projects.yem.highlights.prismaOrm',
+	],
 	link: 'https://yogaemmovimento.com',
 	technologies: [
 		'React',
@@ -22,6 +27,11 @@ export const project = {
 		'Radix Primitives',
 		'Joi',
 		'Motion',
+		'Hotmart',
+		'WhatsApp API',
+		'Google Tag Manager',
+		'Google Analytics',
+		'Google Search Console',
 	],
-	title: 'Yoga em Movimento',
+	title: 'projects.yem.title',
 };

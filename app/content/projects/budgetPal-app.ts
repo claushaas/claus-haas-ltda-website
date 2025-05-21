@@ -1,7 +1,10 @@
 export const project = {
-	description:
-		'App mobile criado em react native. Seu propósito é ajudar famílias com recursos financeiros limitados a criarem um orçamento compartilhado, para alcançarem suas metas financeiras.',
-	highlights: ['Offline first', 'Realtime sync', 'Multi user'],
+	description: 'projects.budgetPal.description',
+	highlights: [
+		'projects.budgetPal.highlights.offlineFirst',
+		'projects.budgetPal.highlights.realtimeSync',
+		'projects.budgetPal.highlights.multiUser',
+	],
 	link: 'https://budgetpalapp.com',
 	technologies: [
 		'React',
@@ -17,5 +20,5 @@ export const project = {
 		'Zod',
 		'React Native Reanimated',
 	],
-	title: 'budgetPal',
+	title: 'projects.budgetPal.title',
 };
