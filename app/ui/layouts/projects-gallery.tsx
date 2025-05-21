@@ -26,7 +26,7 @@ export default function ProjetosSection() {
 				<div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-24 bg-gradient-to-l from-slate-1 to-transparent dark:from-slatedark-1" />
 				<ul
 					aria-label={t('projects.listAria')}
-					className="flex w-full gap-4 overflow-hidden py-4"
+					className="flex w-full gap-4 overflow-hidden py-4 pl-1"
 				>
 					{orderOfProjects.map((projectOrder) => {
 						const project = projectsList[projectOrder];
