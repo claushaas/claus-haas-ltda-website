@@ -28,7 +28,7 @@
 		"vite": "^6.3.5",
 		"vite-plugin-svgr": "^4.3.0",
 		"vite-tsconfig-paths": "^5.1.4",
-		"wrangler": "^4.21.1"
+		"wrangler": "^4.21.2"
 	},
 	"engines": {
 		"node": ">=22.16.0"
