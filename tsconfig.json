@@ -3,9 +3,7 @@
 		"checkJs": true,
 		"noEmit": true,
 		"paths": {
-			"~/*": [
-				"./app/*"
-			]
+			"~/*": ["./app/*"]
 		},
 		"skipLibCheck": true,
 		"strict": true,
