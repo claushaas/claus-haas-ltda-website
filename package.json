@@ -5,7 +5,7 @@
 		"i18next": "^25.3.2",
 		"i18next-browser-languagedetector": "^8.2.0",
 		"i18next-fetch-backend": "^6.0.0",
-		"isbot": "^5.1.28",
+		"isbot": "^5.1.29",
 		"motion": "^12.23.11",
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1",
@@ -16,19 +16,19 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.1.2",
-		"@cloudflare/vite-plugin": "^1.10.1",
+		"@cloudflare/vite-plugin": "^1.10.2",
 		"@react-router/dev": "^7.7.1",
 		"@tailwindcss/vite": "^4.1.11",
 		"@types/accept-language-parser": "^1.5.8",
 		"@types/node": "^24.1.0",
-		"@types/react": "^19.1.8",
-		"@types/react-dom": "^19.1.6",
+		"@types/react": "^19.1.9",
+		"@types/react-dom": "^19.1.7",
 		"tailwindcss": "^4.1.11",
 		"typescript": "^5.8.3",
 		"vite": "^7.0.6",
 		"vite-plugin-svgr": "^4.3.0",
 		"vite-tsconfig-paths": "^5.1.4",
-		"wrangler": "^4.26.0"
+		"wrangler": "^4.26.1"
 	},
 	"engines": {
 		"node": ">=22.17.1"
