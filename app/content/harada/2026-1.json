@@ -1,0 +1,101 @@
+{
+	"meta": {
+		"title": "Harada Board — DogsThat (Claus)",
+		"period": "2026 Q1",
+		"language": "pt",
+		"updatedAt": "2026-01-20"
+	},
+	"goal": "Construir e manter sistemas de CRM e produto que aumentem conversão, retenção e LTV com mínima fricção operacional",
+	"themes": [
+		"Contexto & Visão Externa (A)",
+		"Arquitetura de CRM Escalável (B)",
+		"Impacto no Negócio (C)",
+		"Integração Produto ↔ CRM (D)",
+		"Automação Orientada a Dados (F)",
+		"Execução & Ações (G)",
+		"Diagnóstico & Comunicação Técnica (H)",
+		"Sustentabilidade & Aprendizado (I)"
+	],
+	"actions": [
+		[
+			"Tendências em CRM, produto e marketing digital",
+			"Mudanças de comportamento dos alunos",
+			"Padrões do mercado: o que está ficando obsoleto",
+			"O que outras empresas fazem melhor que a DogsThat",
+			"Restrições externas: plataformas, regras, escala",
+			"Sinais fracos: mudanças antes de virarem problema",
+			"Oportunidades: alavancas externas de crescimento",
+			"Riscos externos: dependências e lock-ins"
+		],
+		[
+			"Modelagem semântica de dados",
+			"Estratégia de tags e campos",
+			"Reuso de padrões (templates, módulos, convenções)",
+			"Versionamento (dados, automações, contratos)",
+			"Anti-padrões conhecidos (o que evitar)",
+			"Manutenibilidade (custo de mudança baixo)",
+			"Clareza estrutural (nomenclatura e hierarquia)",
+			"Evolução segura: mudanças incrementais sem quebrar"
+		],
+		[
+			"Métricas que importam: conversão, churn, LTV",
+			"Gargalos de receita ligados a sistemas",
+			"Dados ruins viram perda financeira (ex.: segmentação errada)",
+			"O que escalar (alto ROI) vs o que eliminar",
+			"Trade-offs conscientes (simplicidade vs flexibilidade)",
+			"Métricas-alvo (definir números e direção)",
+			"Definição de sucesso (o que prova que funcionou)",
+			"Restrições e prazo (limites explícitos do trimestre)"
+		],
+		[
+			"Fonte única da verdade (SSOT) para estados do aluno",
+			"Estados do aluno: modelo e transições",
+			"Eventos confiáveis (contratos de evento e payload)",
+			"Sincronização (latência, consistência, retries)",
+			"Edge cases (duplicidade, atraso, reprocessamento)",
+			"Idempotência (processar 1x ou 100x sem dano)",
+			"Performance (custos e gargalos de pipeline)",
+			"Resiliência (falha parcial sem colapsar o sistema)"
+		],
+		[
+			"Automação por comportamento real (não por achismo)",
+			"Redução de trabalho manual (operação mais leve)",
+			"Rollback (capacidade de desfazer com segurança)",
+			"Observabilidade (logs, métricas, rastreio)",
+			"Testabilidade (simular eventos e validar fluxos)",
+			"Simplicidade (menos regras, mais previsibilidade)",
+			"Robustez (tolerância a falhas e dados sujos)",
+			"Anti-fragilidade (melhora com estresse controlado)"
+		],
+		[
+			"Ações diárias (1–3 alavancas por dia)",
+			"Ações semanais (entregas + revisão de impacto)",
+			"Ações quinzenais (limpeza e ajustes estruturais)",
+			"Ações mensais (auditoria de saúde do sistema)",
+			"Eliminar ruído (tarefas sem impacto em meta)",
+			"Automatizar tarefas repetitivas (economia de tempo)",
+			"Revisar legado (reduzir risco e complexidade)",
+			"Documentar o mínimo viável (contratos e decisões)"
+		],
+		[
+			"Logs claros (mensagens úteis, não ruído)",
+			"Alertas úteis (ação clara, baixo falso positivo)",
+			"Dashboards que respondem perguntas reais",
+			"Linguagem sem jargão (para o time todo)",
+			"Registro de decisões (por que fizemos assim)",
+			"Ensino interno (reduzir dependência de você)",
+			"Redução de gargalos humanos (menos fila, mais fluxo)",
+			"Confiança do time (observável, previsível, explicado)"
+		],
+		[
+			"Energia (gestão de capacidade real)",
+			"Foco (priorização e corte de distrações)",
+			"Limites (o que não entra no escopo)",
+			"Saúde mental (ritmo sustentável)",
+			"Ritmo de trabalho (cadência consistente)",
+			"Aprendizado contínuo (skills e fundamentos)",
+			"Revisões periódicas (o que ajustar por trimestre)",
+			"Ajustes conscientes (mudanças com intenção, não reação)"
+		]
+	]
+}

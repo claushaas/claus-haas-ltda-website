@@ -223,9 +223,9 @@ Medidas:
 
 ### Fase 1 — Base (MVP)
 
-* [ ] Criar estrutura `content/harada`
-* [ ] Criar `index.json`
-* [ ] Criar primeira versão do Harada
+* [x] Criar estrutura `content/harada`
+* [x] Criar `index.json`
+* [x] Criar primeira versão do Harada
 * [ ] Implementar loader da rota `/harada`
 * [ ] Validação de schema + tamanho
 * [ ] Função pura de normalização `actions → grid`

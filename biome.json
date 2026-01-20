@@ -59,6 +59,20 @@
 			}
 		}
 	},
+	"overrides": [
+		{
+			"assist": {
+				"actions": {
+					"source": {
+						"useSortedAttributes": "off",
+						"useSortedKeys": "off",
+						"useSortedProperties": "off"
+					}
+				}
+			},
+			"includes": ["**/harada/**/*.json"]
+		}
+	],
 	"vcs": {
 		"clientKind": "git",
 		"enabled": true,
