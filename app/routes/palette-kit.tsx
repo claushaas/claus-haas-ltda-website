@@ -41,18 +41,17 @@ export const meta = ({ loaderData }: MetaArgs<typeof loader>) => {
 };
 
 export default function PaletteKit() {
-	const { markdown, language } = useLoaderData<typeof loader>();
+	const { markdown } = useLoaderData<typeof loader>();
 
 	const [Markdown, setMarkdown] = useState<ComponentType<{
 		children: string;
 	}> | null>(null);
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <.>
 	useEffect(() => {
 		import('react-markdown').then((mod) => {
 			setMarkdown(() => mod.default);
 		});
-	}, [language]);
+	}, []);
 
 	if (!Markdown) return null; // ou skeleton
 
