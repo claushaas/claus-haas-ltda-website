@@ -70,12 +70,6 @@ const haradaVersions = import.meta.glob('../content/harada/*.json', {
 	eager: true,
 });
 
-const DISPLAY_MAX_LENGTH = 80;
-const clampText = (value: string) => {
-	if (value.length <= DISPLAY_MAX_LENGTH) return value;
-	return `${value.slice(0, DISPLAY_MAX_LENGTH - 1)}…`;
-};
-
 const validateHarada = (data: HaradaContent) => {
 	if (!assertString(data.goal) || data.goal.length > MAX_LENGTH) {
 		throw new Error('Goal ausente ou maior que 120 caracteres.');
@@ -331,26 +325,43 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 		const tooltipId = `harada-tooltip-${cellToRender.row}-${cellToRender.col}`;
 		const directionLabel =
 			cellToRender.role !== 'goal' ? (cellToRender.direction ?? '') : 'center';
+		const horizontalTooltipClass =
+			colIndex <= 2
+				? 'left-0 translate-x-0'
+				: colIndex >= gridSize.cols - 3
+					? 'right-0 translate-x-0'
+					: 'left-1/2 -translate-x-1/2';
+		const verticalTooltipClass =
+			rowIndex >= gridSize.rows - 2
+				? 'bottom-full mb-3 -translate-y-3'
+				: 'top-full mt-3 translate-y-3';
 
 		return (
 			<div key={`${cellToRender.row}-${cellToRender.col}`}>
 				<button
 					aria-describedby={tooltipId}
 					aria-label={cellToRender.text}
-					className={`group relative flex h-full w-full items-center justify-center rounded-lg border px-2 py-2 text-center text-[11px] leading-snug transition-all duration-150 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-8 sm:text-xs md:text-sm ${styles.cell}`}
+					className={`group relative gap-2 flex h-full w-full flex-col items-center rounded-lg border px-3 pb-3 pt-3 text-center text-[11px] leading-snug transition-all duration-150 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-8 sm:text-xs md:text-sm ${styles.cell}`}
 					type="button"
 				>
-					<span className="pointer-events-none absolute left-2 top-2 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide shadow-sm">
-						{directionLabel}
-					</span>
-					<span className="text-pretty wrap-break-words line-clamp-3">
-						{clampText(cellToRender.text)}
-					</span>
+					<div className="flex w-full justify-start">
+						<span className="pointer-events-none rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide shadow-sm">
+							{directionLabel}
+						</span>
+					</div>
+					<div className="flex align-middle justify-center">
+						<span className="text-pretty wrap-break-word line-clamp-4 text-center">
+							{cellToRender.text}
+						</span>
+					</div>
+
 					<span
 						className="sr-only"
 						id={tooltipId}
 					>{`${styles.label}: ${cellToRender.text}`}</span>
-					<div className="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-56 -translate-x-1/2 translate-y-2 rounded-lg bg-slate-12 px-3 py-2 text-left text-xs text-slate-1 opacity-0 shadow-2xl transition-all duration-150 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 print:hidden">
+					<div
+						className={`pointer-events-none absolute z-30 w-64 rounded-lg border border-slate-8 bg-slate-12 px-3 py-2 text-left text-xs text-slate-1 opacity-0 shadow-2xl transition-all duration-150 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 print:hidden ${horizontalTooltipClass} ${verticalTooltipClass}`}
+					>
 						<div className="mb-1 flex items-center gap-2">
 							<span
 								className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${styles.badge}`}
