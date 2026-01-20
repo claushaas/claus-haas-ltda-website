@@ -11,15 +11,31 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
 	const url = new URL(`/content/${language}/color-manifesto.md`, request.url);
 
-	const res = await fetch(url);
+	let response = await fetch(url);
+	let resolvedLanguage = language;
 
-	if (!res.ok) {
-		throw new Response('Markdown not found', { status: 404 });
+	if (!response.ok) {
+		if (language !== 'en') {
+			const fallbackUrl = new URL(
+				'/content/en/color-manifesto.md',
+				request.url,
+			);
+			const fallbackResponse = await fetch(fallbackUrl);
+
+			if (!fallbackResponse.ok) {
+				throw new Response('Markdown not found', { status: 404 });
+			}
+
+			response = fallbackResponse;
+			resolvedLanguage = 'en';
+		} else {
+			throw new Response('Markdown not found', { status: 404 });
+		}
 	}
 
 	return {
-		language,
-		markdown: await res.text(),
+		language: resolvedLanguage,
+		markdown: await response.text(),
 	};
 };
 
