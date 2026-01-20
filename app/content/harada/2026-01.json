@@ -7,325 +7,314 @@
 		"period": "2026 Q1",
 		"updatedAt": "2026-01-20"
 	},
-
 	"goal": {
-		"pt": "Construir e manter sistemas de CRM e produto que aumentem conversão, retenção e LTV com mínima fricção operacional",
-		"en": "Build and run CRM and product systems that raise conversion, retention, and LTV with minimal friction"
+		"pt": "Criar sistemas de CRM e produto que eliminam fricção operacional e viabilizam conversão, retenção e LTV de forma consistente",
+		"en": "Build CRM and product systems that eliminate operational friction and consistently enable conversion, retention, and LTV"
 	},
-
 	"themes": [
 		{
-			"pt": "Contexto & Visão Externa (A)",
-			"en": "Context & External Vision (A)"
+			"pt": "Saúde Mental, Física e Energia (A)",
+			"en": "Mental, Physical Health & Energy (A)"
 		},
 		{
-			"pt": "Arquitetura de CRM Escalável (B)",
-			"en": "Scalable CRM Architecture (B)"
+			"pt": "Estabilidade Financeira Pessoal (B)",
+			"en": "Personal Financial Stability (B)"
 		},
 		{
-			"pt": "Impacto no Negócio (C)",
-			"en": "Business Impact (C)"
+			"pt": "Vida Social, Descanso e Relações (C)",
+			"en": "Social Life, Rest & Relationships (C)"
 		},
 		{
 			"pt": "Integração Produto ↔ CRM (D)",
 			"en": "Product ↔ CRM Integration (D)"
 		},
 		{
-			"pt": "Automação Orientada a Dados (F)",
-			"en": "Data-Driven Automation (F)"
+			"pt": "Arquitetura Técnica Escalável (F)",
+			"en": "Scalable Technical Architecture (F)"
 		},
 		{
-			"pt": "Execução & Ações (G)",
-			"en": "Execution & Actions (G)"
+			"pt": "Automação Orientada a Dados (G)"
 		},
 		{
-			"pt": "Diagnóstico & Comunicação Técnica (H)",
-			"en": "Technical Diagnosis & Communication (H)"
+			"pt": "Impacto no Negócio (H)",
+			"en": "Business Impact (H)"
 		},
 		{
-			"pt": "Sustentabilidade & Aprendizado (I)",
-			"en": "Sustainability & Learning (I)"
+			"pt": "Diagnóstico, Comunicação e Aprendizado (I)",
+			"en": "Diagnosis, Communication & Learning (I)"
 		}
 	],
-
 	"actions": [
 		[
 			{
-				"pt": "Tendências em CRM, produto e marketing digital",
-				"en": "Trends in CRM, product, and digital marketing"
+				"pt": "Monitorar diariamente o estado de energia (baixa, desregulada, excessiva)",
+				"en": "Daily check-in on energy state (low, dysregulated, excessive)"
 			},
 			{
-				"pt": "Mudanças de comportamento dos alunos",
-				"en": "Changes in student behavior"
+				"pt": "Manter rotina mínima de sono como prioridade absoluta",
+				"en": "Maintain a minimum sleep routine as a top priority"
 			},
 			{
-				"pt": "Padrões do mercado: o que está ficando obsoleto",
-				"en": "Market patterns: what is becoming obsolete"
+				"pt": "Executar movimento físico leve mesmo em dias ruins",
+				"en": "Perform light physical movement even on bad days"
 			},
 			{
-				"pt": "O que outras empresas fazem melhor que a DogsThat",
-				"en": "What other companies do better than DogsThat"
+				"pt": "Evitar decisões estruturais em estados extremos de energia",
+				"en": "Avoid structural decisions during extreme energy states"
 			},
 			{
-				"pt": "Restrições externas: plataformas, regras, escala",
-				"en": "External constraints: platforms, rules, scale"
+				"pt": "Usar medicação e acompanhamento médico como pilar do sistema",
+				"en": "Use medication and medical follow-up as a system pillar"
 			},
 			{
-				"pt": "Sinais fracos antes de virarem problemas",
-				"en": "Weak signals before they become problems"
+				"pt": "Reduzir estímulos quando a energia estiver excessiva",
+				"en": "Reduce stimulation when energy is excessive"
 			},
 			{
-				"pt": "Oportunidades externas de crescimento",
-				"en": "External growth opportunities"
+				"pt": "Criar dias de recuperação após períodos intensos",
+				"en": "Schedule recovery days after intense periods"
 			},
 			{
-				"pt": "Riscos externos e dependências",
-				"en": "External risks and dependencies"
+				"pt": "Registrar padrões entre energia, humor e produtividade",
+				"en": "Log patterns between energy, mood, and productivity"
 			}
 		],
-
 		[
 			{
-				"pt": "Modelagem semântica de dados",
-				"en": "Semantic data modeling"
+				"pt": "Mapear mensalmente todas as dívidas e obrigações fixas",
+				"en": "Monthly mapping of all debts and fixed obligations"
 			},
 			{
-				"pt": "Estratégia de tags e campos",
-				"en": "Tags and fields strategy"
+				"pt": "Manter visão clara de entradas e saídas essenciais",
+				"en": "Maintain a clear view of essential income and expenses"
 			},
 			{
-				"pt": "Reuso de padrões",
-				"en": "Pattern reuse"
+				"pt": "Evitar decisões financeiras impulsivas em estados emocionais extremos",
+				"en": "Avoid impulsive financial decisions during extreme emotional states"
 			},
 			{
-				"pt": "Versionamento",
-				"en": "Versioning"
+				"pt": "Criar orçamento simples focado em previsibilidade",
+				"en": "Create a simple budget focused on predictability"
 			},
 			{
-				"pt": "Anti-padrões conhecidos",
-				"en": "Known anti-patterns"
+				"pt": "Separar despesas essenciais de não essenciais",
+				"en": "Separate essential from non-essential expenses"
 			},
 			{
-				"pt": "Manutenibilidade",
-				"en": "Maintainability"
+				"pt": "Revisar dívidas sem julgamento ou culpa",
+				"en": "Review debts without judgment or guilt"
 			},
 			{
-				"pt": "Clareza estrutural",
-				"en": "Structural clarity"
+				"pt": "Reduzir decisões financeiras recorrentes",
+				"en": "Reduce recurring financial decisions"
 			},
 			{
-				"pt": "Evolução segura",
-				"en": "Safe evolution"
+				"pt": "Registrar impacto financeiro no estado mental",
+				"en": "Log financial impact on mental state"
 			}
 		],
-
 		[
 			{
-				"pt": "Métricas que importam: conversão, churn, LTV",
-				"en": "Metrics that matter: conversion, churn, LTV"
+				"pt": "Agendar momentos semanais de descanso real, sem culpa",
+				"en": "Schedule weekly moments of real rest, guilt-free"
 			},
 			{
-				"pt": "Gargalos de receita ligados a sistemas",
-				"en": "Revenue bottlenecks tied to systems"
+				"pt": "Proteger tempo de qualidade com marido e família",
+				"en": "Protect quality time with spouse and family"
 			},
 			{
-				"pt": "Dados ruins viram perda financeira",
-				"en": "Poor data leads to financial loss"
+				"pt": "Incluir lazer simples na rotina (passeios, hobbies)",
+				"en": "Include simple leisure in routine (walks, hobbies)"
 			},
 			{
-				"pt": "O que escalar vs o que eliminar",
-				"en": "What to scale vs what to eliminate"
+				"pt": "Planejar pequenas pausas ao longo da semana",
+				"en": "Plan small breaks throughout the week"
 			},
 			{
-				"pt": "Trade-offs conscientes",
-				"en": "Conscious trade-offs"
+				"pt": "Manter vínculo afetivo com a cachorra como regulador emocional",
+				"en": "Maintain bond with the dog as an emotional regulator"
 			},
 			{
-				"pt": "Métricas-alvo",
-				"en": "Target metrics"
+				"pt": "Cultivar relacionamentos profissionais saudáveis de forma consciente",
+				"en": "Consciously cultivate healthy professional relationships"
 			},
 			{
-				"pt": "Definição de sucesso",
-				"en": "Definition of success"
+				"pt": "Planejar viagens ou escapadas com antecedência simples",
+				"en": "Plan trips or getaways with simple advance planning"
 			},
 			{
-				"pt": "Restrições e prazo",
-				"en": "Constraints and timeline"
+				"pt": "Registrar impacto do descanso e das relações na energia e humor",
+				"en": "Log the impact of rest and relationships on energy and mood"
 			}
 		],
-
 		[
 			{
-				"pt": "Fonte única da verdade",
-				"en": "Single source of truth"
+				"pt": "Definir claramente os estados do aluno entre produto e CRM",
+				"en": "Clearly define student states between product and CRM"
 			},
 			{
-				"pt": "Estados do aluno",
-				"en": "Student states"
+				"pt": "Estabelecer fonte única da verdade para cada estado",
+				"en": "Establish a single source of truth for each state"
 			},
 			{
-				"pt": "Eventos confiáveis",
-				"en": "Reliable events"
+				"pt": "Garantir eventos idempotentes e rastreáveis",
+				"en": "Ensure idempotent and traceable events"
 			},
 			{
-				"pt": "Sincronização",
-				"en": "Synchronization"
+				"pt": "Documentar contratos de eventos entre sistemas",
+				"en": "Document event contracts between systems"
 			},
 			{
-				"pt": "Edge cases",
-				"en": "Edge cases"
+				"pt": "Tratar falhas de sincronização de forma explícita",
+				"en": "Handle synchronization failures explicitly"
 			},
 			{
-				"pt": "Idempotência",
-				"en": "Idempotency"
+				"pt": "Reduzir trabalho manual causado por inconsistência",
+				"en": "Reduce manual work caused by inconsistency"
 			},
 			{
-				"pt": "Performance",
-				"en": "Performance"
+				"pt": "Criar mecanismos de reconciliação de estados",
+				"en": "Create state reconciliation mechanisms"
 			},
 			{
-				"pt": "Resiliência",
-				"en": "Resilience"
+				"pt": "Tornar integrações compreensíveis para outros times",
+				"en": "Make integrations understandable to other teams"
 			}
 		],
-
 		[
 			{
-				"pt": "Automação por comportamento real",
-				"en": "Automation driven by real behavior"
+				"pt": "Manter arquitetura modular com fronteiras claras",
+				"en": "Maintain modular architecture with clear boundaries"
 			},
 			{
-				"pt": "Redução de trabalho manual",
-				"en": "Reduction of manual work"
+				"pt": "Evitar acoplamento desnecessário entre sistemas",
+				"en": "Avoid unnecessary coupling between systems"
 			},
 			{
-				"pt": "Rollback",
-				"en": "Rollback"
+				"pt": "Preferir soluções simples a abstrações prematuras",
+				"en": "Prefer simple solutions over premature abstractions"
 			},
 			{
-				"pt": "Observabilidade",
-				"en": "Observability"
+				"pt": "Documentar decisões arquiteturais relevantes",
+				"en": "Document relevant architectural decisions"
 			},
 			{
-				"pt": "Testabilidade",
-				"en": "Testability"
+				"pt": "Evoluir sistemas de forma incremental e reversível",
+				"en": "Evolve systems incrementally and reversibly"
 			},
 			{
-				"pt": "Simplicidade",
-				"en": "Simplicity"
+				"pt": "Padronizar estruturas recorrentes",
+				"en": "Standardize recurring structures"
 			},
 			{
-				"pt": "Robustez",
-				"en": "Robustness"
+				"pt": "Reduzir dependência de conhecimento tácito",
+				"en": "Reduce dependency on tacit knowledge"
 			},
 			{
-				"pt": "Anti-fragilidade",
-				"en": "Anti-fragility"
+				"pt": "Garantir que outras pessoas consigam manter o sistema",
+				"en": "Ensure others can maintain the system"
 			}
 		],
-
 		[
 			{
-				"pt": "Ações diárias",
-				"en": "Daily actions"
+				"pt": "Automatizar apenas processos repetitivos e previsíveis",
+				"en": "Automate only repetitive and predictable processes"
 			},
 			{
-				"pt": "Ações semanais",
-				"en": "Weekly actions"
+				"pt": "Basear automações em dados confiáveis e validados",
+				"en": "Base automations on reliable and validated data"
 			},
 			{
-				"pt": "Ações quinzenais",
-				"en": "Bi-weekly actions"
+				"pt": "Adicionar observabilidade a todas as automações",
+				"en": "Add observability to all automations"
 			},
 			{
-				"pt": "Ações mensais",
-				"en": "Monthly actions"
+				"pt": "Projetar falha segura e reversível",
+				"en": "Design safe and reversible failure"
 			},
 			{
-				"pt": "Eliminar ruído",
-				"en": "Eliminate noise"
+				"pt": "Evitar lógica de negócio complexa em automações",
+				"en": "Avoid complex business logic in automations"
 			},
 			{
-				"pt": "Automatizar tarefas repetitivas",
-				"en": "Automate repetitive tasks"
+				"pt": "Reduzir tarefas manuais recorrentes",
+				"en": "Reduce recurring manual tasks"
 			},
 			{
-				"pt": "Revisar legado",
-				"en": "Review legacy"
+				"pt": "Documentar propósito e limites de cada automação",
+				"en": "Document purpose and limits of each automation"
 			},
 			{
-				"pt": "Documentar o mínimo viável",
-				"en": "Document the minimum viable"
+				"pt": "Revisar periodicamente automações existentes",
+				"en": "Periodically review existing automations"
 			}
 		],
-
 		[
 			{
-				"pt": "Logs claros",
-				"en": "Clear logs"
+				"pt": "Relacionar decisões técnicas a métricas de negócio relevantes",
+				"en": "Relate technical decisions to relevant business metrics"
 			},
 			{
-				"pt": "Alertas úteis",
-				"en": "Useful alerts"
+				"pt": "Priorizar impacto sistêmico em vez de entregas isoladas",
+				"en": "Prioritize systemic impact over isolated deliveries"
 			},
 			{
-				"pt": "Dashboards que respondem perguntas",
-				"en": "Dashboards that answer questions"
+				"pt": "Observar efeitos de mudanças ao longo do tempo",
+				"en": "Observe effects of changes over time"
 			},
 			{
-				"pt": "Linguagem sem jargão",
-				"en": "Jargon-free language"
+				"pt": "Usar métricas para orientar decisões, não para cobrança",
+				"en": "Use metrics to guide decisions, not for pressure"
 			},
 			{
-				"pt": "Registro de decisões",
-				"en": "Decision records"
+				"pt": "Comunicar impacto técnico em linguagem acessível",
+				"en": "Communicate technical impact in accessible language"
 			},
 			{
-				"pt": "Ensino interno",
-				"en": "Internal teaching"
+				"pt": "Identificar gargalos de negócio ligados a sistemas",
+				"en": "Identify business bottlenecks tied to systems"
 			},
 			{
-				"pt": "Redução de gargalos humanos",
-				"en": "Reduction of human bottlenecks"
+				"pt": "Avaliar trade-offs de forma explícita",
+				"en": "Explicitly evaluate trade-offs"
 			},
 			{
-				"pt": "Confiança do time",
-				"en": "Team confidence"
+				"pt": "Registrar aprendizados sobre impacto no negócio",
+				"en": "Record learnings about business impact"
 			}
 		],
-
 		[
 			{
-				"pt": "Energia",
-				"en": "Energy"
+				"pt": "Realizar check-ins regulares para avaliar o funcionamento do sistema",
+				"en": "Perform regular check-ins to assess system performance"
 			},
 			{
-				"pt": "Foco",
-				"en": "Focus"
+				"pt": "Registrar decisões importantes e seus contextos",
+				"en": "Record important decisions and their context"
 			},
 			{
-				"pt": "Limites",
-				"en": "Limits"
+				"pt": "Analisar falhas sem personalizar culpa",
+				"en": "Analyze failures without personalizing blame"
 			},
 			{
-				"pt": "Saúde mental",
-				"en": "Mental health"
+				"pt": "Transformar problemas recorrentes em ajustes de sistema",
+				"en": "Turn recurring problems into system adjustments"
 			},
 			{
-				"pt": "Ritmo de trabalho",
-				"en": "Work pace"
+				"pt": "Comunicar aprendizados de forma clara e objetiva",
+				"en": "Communicate learnings clearly and objectively"
 			},
 			{
-				"pt": "Aprendizado contínuo",
-				"en": "Continuous learning"
+				"pt": "Revisar periodicamente o Harada para ajustes finos",
+				"en": "Periodically review the Harada for fine adjustments"
 			},
 			{
-				"pt": "Revisões periódicas",
-				"en": "Periodic reviews"
+				"pt": "Identificar padrões de sucesso e fragilidade",
+				"en": "Identify patterns of success and fragility"
 			},
 			{
-				"pt": "Ajustes conscientes",
-				"en": "Conscious adjustments"
+				"pt": "Manter histórico de aprendizados e decisões",
+				"en": "Maintain a history of learnings and decisions"
 			}
 		]
 	]
