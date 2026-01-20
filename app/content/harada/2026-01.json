@@ -7,14 +7,14 @@
 	},
 	"goal": "Construir e manter sistemas de CRM e produto que aumentem conversão, retenção e LTV com mínima fricção operacional",
 	"themes": [
-		"Contexto & Visão Externa (A)",
-		"Arquitetura de CRM Escalável (B)",
-		"Impacto no Negócio (C)",
-		"Integração Produto ↔ CRM (D)",
-		"Automação Orientada a Dados (F)",
-		"Execução & Ações (G)",
-		"Diagnóstico & Comunicação Técnica (H)",
-		"Sustentabilidade & Aprendizado (I)"
+		"Contexto & Visão Externa",
+		"Arquitetura de CRM Escalável",
+		"Impacto no Negócio",
+		"Integração Produto ↔ CRM",
+		"Automação Orientada a Dados",
+		"Execução & Ações",
+		"Diagnóstico & Comunicação Técnica",
+		"Sustentabilidade & Aprendizado"
 	],
 	"actions": [
 		[

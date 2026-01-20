@@ -42,7 +42,7 @@ export default function Home() {
 	return (
 		<>
 			<section
-				className="mb-0 flex flex-col items-center justify-items-start"
+				className="mb-0 flex flex-col items-center justify-items-start max-w-4xl m-auto"
 				id="header"
 			>
 				<div className=" flex w-full flex-col gap-4 sm:mt-16 sm:h-90 sm:flex-row">
@@ -66,7 +66,7 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
-			<main id="main-content" tabIndex={-1}>
+			<main className="m-auto max-w-4xl" id="main-content" tabIndex={-1}>
 				<section aria-labelledby="about-heading" id="about">
 					<div className="mb-10 sm:mb-20">
 						<h2 className="mt-10 mb-4 font-bold text-xl sm:mt-20 sm:mb-8 sm:text-3xl">

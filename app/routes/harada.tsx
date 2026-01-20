@@ -66,6 +66,16 @@ const isIsoDate = (value: string) => /^\d{4}-\d{2}-\d{2}$/.test(value);
 const assertString = (value: unknown): value is string =>
 	typeof value === 'string';
 
+const haradaVersions = import.meta.glob('../content/harada/*.json', {
+	eager: true,
+});
+
+const DISPLAY_MAX_LENGTH = 80;
+const clampText = (value: string) => {
+	if (value.length <= DISPLAY_MAX_LENGTH) return value;
+	return `${value.slice(0, DISPLAY_MAX_LENGTH - 1)}…`;
+};
+
 const validateHarada = (data: HaradaContent) => {
 	if (!assertString(data.goal) || data.goal.length > MAX_LENGTH) {
 		throw new Error('Goal ausente ou maior que 120 caracteres.');
@@ -191,15 +201,16 @@ const loadVersion = async (
 ): Promise<HaradaContent> => {
 	const targetVersion = options?.isBot ? 'dummy' : version;
 
-	try {
-		const module = await import(`~/content/harada/${targetVersion}.json`);
-		return (
-			(module as { default?: HaradaContent }).default ??
-			(module as HaradaContent)
-		);
-	} catch {
+	const entry = Object.entries(haradaVersions).find(([path]) =>
+		path.endsWith(`${targetVersion}.json`),
+	);
+
+	if (!entry) {
 		throw new Error(`Não foi possível carregar a versão "${targetVersion}".`);
 	}
+
+	const module = entry[1] as { default?: HaradaContent };
+	return module.default ?? (module as HaradaContent);
 };
 
 export async function loader({ request }: Route.LoaderArgs) {
@@ -269,37 +280,76 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 		},
 	};
 
-	const renderCell = (cell: GridCell | null, idx: number) => {
-		if (!cell) {
+	const findThemeForPosition = (row: number, col: number) => {
+		return themeLayouts.find((layout) => {
+			return (
+				layout.actionsBlock.rows.includes(row) &&
+				layout.actionsBlock.cols.includes(col)
+			);
+		});
+	};
+
+	const renderCell = (
+		cell: GridCell | null,
+		rowIndex: number,
+		colIndex: number,
+	) => {
+		let cellToRender = cell;
+
+		if (!cellToRender) {
+			const layout = findThemeForPosition(rowIndex, colIndex);
+			if (layout) {
+				const excludedRow =
+					layout.actionsBlock.rows[actionPattern.excludedCell.rowOffset];
+				const excludedCol =
+					layout.actionsBlock.cols[actionPattern.excludedCell.colOffset];
+
+				if (rowIndex === excludedRow && colIndex === excludedCol) {
+					cellToRender = {
+						col: colIndex,
+						direction: layout.direction,
+						index: layout.index,
+						role: 'theme',
+						row: rowIndex,
+						text: themes[layout.index] ?? layout.direction,
+					};
+				}
+			}
+		}
+
+		if (!cellToRender) {
 			return (
 				<div
 					aria-hidden
 					className="h-full w-full rounded-lg border border-dashed border-slate-4 bg-linear-to-br from-slate-2 to-slate-3/70 print:bg-white print:border-slate-8"
-					key={`empty-${idx}`}
+					key={`empty-${rowIndex}-${colIndex}`}
 				/>
 			);
 		}
 
-		const styles = roleStyles[cell.role];
-		const tooltipId = `harada-tooltip-${cell.row}-${cell.col}`;
+		const styles = roleStyles[cellToRender.role];
+		const tooltipId = `harada-tooltip-${cellToRender.row}-${cellToRender.col}`;
 		const directionLabel =
-			cell.role !== 'goal' ? (cell.direction ?? '') : 'center';
+			cellToRender.role !== 'goal' ? (cellToRender.direction ?? '') : 'center';
 
 		return (
-			<div key={`${cell.row}-${cell.col}`}>
+			<div key={`${cellToRender.row}-${cellToRender.col}`}>
 				<button
 					aria-describedby={tooltipId}
+					aria-label={cellToRender.text}
 					className={`group relative flex h-full w-full items-center justify-center rounded-lg border px-2 py-2 text-center text-[11px] leading-snug transition-all duration-150 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-8 sm:text-xs md:text-sm ${styles.cell}`}
 					type="button"
 				>
 					<span className="pointer-events-none absolute left-2 top-2 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide shadow-sm">
 						{directionLabel}
 					</span>
-					<span className="text-pretty wrap-break-word">{cell.text}</span>
+					<span className="text-pretty wrap-break-words line-clamp-3">
+						{clampText(cellToRender.text)}
+					</span>
 					<span
 						className="sr-only"
 						id={tooltipId}
-					>{`${styles.label}: ${cell.text}`}</span>
+					>{`${styles.label}: ${cellToRender.text}`}</span>
 					<div className="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-56 -translate-x-1/2 translate-y-2 rounded-lg bg-slate-12 px-3 py-2 text-left text-xs text-slate-1 opacity-0 shadow-2xl transition-all duration-150 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 print:hidden">
 						<div className="mb-1 flex items-center gap-2">
 							<span
@@ -307,13 +357,15 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 							>
 								{styles.label}
 							</span>
-							{cell.direction && (
+							{cellToRender.direction && (
 								<span className="text-[11px] uppercase text-slate-4">
-									{cell.direction}
+									{cellToRender.direction}
 								</span>
 							)}
 						</div>
-						<p className="text-slate-2 text-sm leading-snug">{cell.text}</p>
+						<p className="text-slate-2 text-sm leading-snug">
+							{cellToRender.text}
+						</p>
 					</div>
 				</button>
 			</div>
@@ -321,7 +373,7 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 	};
 
 	return (
-		<main className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 print:max-w-full print:px-2 print:py-4">
+		<main className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-10 print:max-w-full print:px-2 print:py-4">
 			<header className="flex flex-col gap-4 border-b border-slate-4 pb-6 print:border-slate-8">
 				<div className="flex flex-wrap items-center justify-between gap-3">
 					<div>
@@ -374,7 +426,7 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 					<div className="grid aspect-square w-full grid-cols-9 gap-1 sm:gap-1.5 md:gap-2">
 						{grid.flatMap((row: (GridCell | null)[], rowIndex: number) =>
 							row.map((cell: GridCell | null, colIndex: number) =>
-								renderCell(cell, rowIndex * grid.length + colIndex),
+								renderCell(cell, rowIndex, colIndex),
 							),
 						)}
 					</div>
