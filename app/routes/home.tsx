@@ -8,8 +8,8 @@ import { skills } from '../content/skills/skills';
 import { SkillBadge } from '../ui/components/skill-badge';
 import ProjectGallery from '../ui/layouts/projects-gallery';
 
-export const meta = ({ data }: MetaArgs<typeof loader>) => {
-	const language = data?.language;
+export const meta = ({ loaderData }: MetaArgs<typeof loader>) => {
+	const language = loaderData?.language;
 
 	const metaByLang = {
 		en: {
