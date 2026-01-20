@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { useRevalidator } from 'react-router';
 import { useI18nInstance } from './use-i18n-instance';
 
 /**
@@ -8,12 +9,14 @@ import { useI18nInstance } from './use-i18n-instance';
 export const useChangeLanguage = () => {
 	const i18n = useI18nInstance();
 	const currentLanguage = i18n.language;
+	const { revalidate } = useRevalidator();
 
 	const changeLanguage = useCallback(
 		(lng: import('~/i18n/i18n').SupportedLanguage) => {
 			i18n.changeLanguage(lng);
+			revalidate();
 		},
-		[i18n],
+		[i18n, revalidate],
 	);
 
 	return { changeLanguage, currentLanguage };

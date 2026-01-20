@@ -1,0 +1,138 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+
+	"constraints": {
+		"actionsPerTheme": 8,
+		"exclusiveRoles": ["goal", "theme", "action"],
+		"gridSize": "9x9",
+		"themesCount": 8
+	},
+	"description": "Schema estrutural do Harada Board. Define papéis semânticos e posicionamento no grid 9x9, sem conteúdo real.",
+
+	"layout": {
+		"actions": {
+			"blockPattern": {
+				"excludedCell": { "colOffset": 1, "rowOffset": 1 },
+				"fillOrder": [
+					[0, 0],
+					[0, 1],
+					[0, 2],
+					[1, 0],
+					[1, 2],
+					[2, 0],
+					[2, 1],
+					[2, 2]
+				],
+				"size": "3x3"
+			},
+			"description": "Cada tema possui exatamente 8 ações, posicionadas no bloco 3x3 correspondente, exceto a célula central.",
+			"maxLength": 120
+		},
+
+		"goal": {
+			"maxLength": 120,
+			"position": { "col": 4, "row": 4 },
+			"role": "goal"
+		},
+		"grid": {
+			"center": { "col": 4, "row": 4 },
+			"columns": 9,
+			"rows": 9
+		},
+
+		"themes": [
+			{
+				"actionsBlock": {
+					"cols": [3, 4, 5],
+					"rows": [0, 1, 2]
+				},
+				"direction": "N",
+				"index": 0,
+				"position": { "col": 4, "row": 3 },
+				"role": "theme"
+			},
+			{
+				"actionsBlock": {
+					"cols": [6, 7, 8],
+					"rows": [0, 1, 2]
+				},
+				"direction": "NE",
+				"index": 1,
+				"position": { "col": 5, "row": 3 },
+				"role": "theme"
+			},
+			{
+				"actionsBlock": {
+					"cols": [6, 7, 8],
+					"rows": [3, 4, 5]
+				},
+				"direction": "E",
+				"index": 2,
+				"position": { "col": 5, "row": 4 },
+				"role": "theme"
+			},
+			{
+				"actionsBlock": {
+					"cols": [6, 7, 8],
+					"rows": [6, 7, 8]
+				},
+				"direction": "SE",
+				"index": 3,
+				"position": { "col": 5, "row": 5 },
+				"role": "theme"
+			},
+			{
+				"actionsBlock": {
+					"cols": [3, 4, 5],
+					"rows": [6, 7, 8]
+				},
+				"direction": "S",
+				"index": 4,
+				"position": { "col": 4, "row": 5 },
+				"role": "theme"
+			},
+			{
+				"actionsBlock": {
+					"cols": [0, 1, 2],
+					"rows": [6, 7, 8]
+				},
+				"direction": "SW",
+				"index": 5,
+				"position": { "col": 3, "row": 5 },
+				"role": "theme"
+			},
+			{
+				"actionsBlock": {
+					"cols": [0, 1, 2],
+					"rows": [3, 4, 5]
+				},
+				"direction": "W",
+				"index": 6,
+				"position": { "col": 3, "row": 4 },
+				"role": "theme"
+			},
+			{
+				"actionsBlock": {
+					"cols": [0, 1, 2],
+					"rows": [0, 1, 2]
+				},
+				"direction": "NW",
+				"index": 7,
+				"position": { "col": 3, "row": 3 },
+				"role": "theme"
+			}
+		]
+	},
+
+	"meta": {
+		"description": "Metadados informativos (não posicionais)",
+		"fields": {
+			"language": "string",
+			"period": "string",
+			"title": "string",
+			"updatedAt": "ISO-8601 date"
+		}
+	},
+	"title": "Harada Board – Structural Schema",
+	"type": "object"
+}

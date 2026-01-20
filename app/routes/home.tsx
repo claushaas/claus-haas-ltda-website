@@ -3,13 +3,12 @@ import type { LoaderFunctionArgs, MetaArgs } from 'react-router';
 import { useIsBot } from '~/hooks/use-is-bot';
 import { detectLanguage } from '~/i18n/i18n';
 import Face from '~/ui/components/face';
-import { LanguageSwitcher } from '~/ui/components/language-switcher';
 import { skills } from '../content/skills/skills';
 import { SkillBadge } from '../ui/components/skill-badge';
 import ProjectGallery from '../ui/layouts/projects-gallery';
 
-export const meta = ({ data }: MetaArgs<typeof loader>) => {
-	const language = data?.language;
+export const meta = ({ loaderData }: MetaArgs<typeof loader>) => {
+	const language = loaderData?.language;
 
 	const metaByLang = {
 		en: {
@@ -42,14 +41,11 @@ export default function Home() {
 
 	return (
 		<>
-			<header
-				className="mb-0 flex flex-col items-center justify-items-start"
+			<section
+				className="mb-0 flex flex-col items-center justify-items-start max-w-4xl m-auto"
 				id="header"
 			>
-				<div className="px-16 py-4">
-					<LanguageSwitcher />
-				</div>
-				<div className="mt-4 flex w-full flex-col gap-4 sm:mt-16 sm:h-90 sm:flex-row">
+				<div className=" flex w-full flex-col gap-4 sm:mt-16 sm:h-90 sm:flex-row">
 					<div className="mb-4 flex w-full justify-center sm:mb-0 sm:justify-start">
 						<Face className="max-h-56 w-fit sm:max-h-90" />
 					</div>
@@ -69,8 +65,8 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
-			</header>
-			<main id="main-content" tabIndex={-1}>
+			</section>
+			<main className="m-auto max-w-4xl" id="main-content" tabIndex={-1}>
 				<section aria-labelledby="about-heading" id="about">
 					<div className="mb-10 sm:mb-20">
 						<h2 className="mt-10 mb-4 font-bold text-xl sm:mt-20 sm:mb-8 sm:text-3xl">
@@ -174,15 +170,6 @@ export default function Home() {
 					<ProjectGallery />
 				</section>
 			</main>
-			<footer
-				className="mb-0 border-slate-2 border-t-2 py-16 dark:border-slatedark-2"
-				id="footer"
-			>
-				<p className="text-center">
-					{t('home.footer', { year: new Date().getFullYear() })}
-					{!isBot && t('home.footerCnpj')}
-				</p>
-			</footer>
 		</>
 	);
 }

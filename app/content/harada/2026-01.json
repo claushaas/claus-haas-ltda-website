@@ -1,0 +1,332 @@
+{
+	"meta": {
+		"title": {
+			"pt": "Harada Board — DogsThat (Claus)",
+			"en": "Harada Board — DogsThat (Claus)"
+		},
+		"period": "2026 Q1",
+		"updatedAt": "2026-01-20"
+	},
+
+	"goal": {
+		"pt": "Construir e manter sistemas de CRM e produto que aumentem conversão, retenção e LTV com mínima fricção operacional",
+		"en": "Build and run CRM and product systems that raise conversion, retention, and LTV with minimal friction"
+	},
+
+	"themes": [
+		{
+			"pt": "Contexto & Visão Externa (A)",
+			"en": "Context & External Vision (A)"
+		},
+		{
+			"pt": "Arquitetura de CRM Escalável (B)",
+			"en": "Scalable CRM Architecture (B)"
+		},
+		{
+			"pt": "Impacto no Negócio (C)",
+			"en": "Business Impact (C)"
+		},
+		{
+			"pt": "Integração Produto ↔ CRM (D)",
+			"en": "Product ↔ CRM Integration (D)"
+		},
+		{
+			"pt": "Automação Orientada a Dados (F)",
+			"en": "Data-Driven Automation (F)"
+		},
+		{
+			"pt": "Execução & Ações (G)",
+			"en": "Execution & Actions (G)"
+		},
+		{
+			"pt": "Diagnóstico & Comunicação Técnica (H)",
+			"en": "Technical Diagnosis & Communication (H)"
+		},
+		{
+			"pt": "Sustentabilidade & Aprendizado (I)",
+			"en": "Sustainability & Learning (I)"
+		}
+	],
+
+	"actions": [
+		[
+			{
+				"pt": "Tendências em CRM, produto e marketing digital",
+				"en": "Trends in CRM, product, and digital marketing"
+			},
+			{
+				"pt": "Mudanças de comportamento dos alunos",
+				"en": "Changes in student behavior"
+			},
+			{
+				"pt": "Padrões do mercado: o que está ficando obsoleto",
+				"en": "Market patterns: what is becoming obsolete"
+			},
+			{
+				"pt": "O que outras empresas fazem melhor que a DogsThat",
+				"en": "What other companies do better than DogsThat"
+			},
+			{
+				"pt": "Restrições externas: plataformas, regras, escala",
+				"en": "External constraints: platforms, rules, scale"
+			},
+			{
+				"pt": "Sinais fracos antes de virarem problemas",
+				"en": "Weak signals before they become problems"
+			},
+			{
+				"pt": "Oportunidades externas de crescimento",
+				"en": "External growth opportunities"
+			},
+			{
+				"pt": "Riscos externos e dependências",
+				"en": "External risks and dependencies"
+			}
+		],
+
+		[
+			{
+				"pt": "Modelagem semântica de dados",
+				"en": "Semantic data modeling"
+			},
+			{
+				"pt": "Estratégia de tags e campos",
+				"en": "Tags and fields strategy"
+			},
+			{
+				"pt": "Reuso de padrões",
+				"en": "Pattern reuse"
+			},
+			{
+				"pt": "Versionamento",
+				"en": "Versioning"
+			},
+			{
+				"pt": "Anti-padrões conhecidos",
+				"en": "Known anti-patterns"
+			},
+			{
+				"pt": "Manutenibilidade",
+				"en": "Maintainability"
+			},
+			{
+				"pt": "Clareza estrutural",
+				"en": "Structural clarity"
+			},
+			{
+				"pt": "Evolução segura",
+				"en": "Safe evolution"
+			}
+		],
+
+		[
+			{
+				"pt": "Métricas que importam: conversão, churn, LTV",
+				"en": "Metrics that matter: conversion, churn, LTV"
+			},
+			{
+				"pt": "Gargalos de receita ligados a sistemas",
+				"en": "Revenue bottlenecks tied to systems"
+			},
+			{
+				"pt": "Dados ruins viram perda financeira",
+				"en": "Poor data leads to financial loss"
+			},
+			{
+				"pt": "O que escalar vs o que eliminar",
+				"en": "What to scale vs what to eliminate"
+			},
+			{
+				"pt": "Trade-offs conscientes",
+				"en": "Conscious trade-offs"
+			},
+			{
+				"pt": "Métricas-alvo",
+				"en": "Target metrics"
+			},
+			{
+				"pt": "Definição de sucesso",
+				"en": "Definition of success"
+			},
+			{
+				"pt": "Restrições e prazo",
+				"en": "Constraints and timeline"
+			}
+		],
+
+		[
+			{
+				"pt": "Fonte única da verdade",
+				"en": "Single source of truth"
+			},
+			{
+				"pt": "Estados do aluno",
+				"en": "Student states"
+			},
+			{
+				"pt": "Eventos confiáveis",
+				"en": "Reliable events"
+			},
+			{
+				"pt": "Sincronização",
+				"en": "Synchronization"
+			},
+			{
+				"pt": "Edge cases",
+				"en": "Edge cases"
+			},
+			{
+				"pt": "Idempotência",
+				"en": "Idempotency"
+			},
+			{
+				"pt": "Performance",
+				"en": "Performance"
+			},
+			{
+				"pt": "Resiliência",
+				"en": "Resilience"
+			}
+		],
+
+		[
+			{
+				"pt": "Automação por comportamento real",
+				"en": "Automation driven by real behavior"
+			},
+			{
+				"pt": "Redução de trabalho manual",
+				"en": "Reduction of manual work"
+			},
+			{
+				"pt": "Rollback",
+				"en": "Rollback"
+			},
+			{
+				"pt": "Observabilidade",
+				"en": "Observability"
+			},
+			{
+				"pt": "Testabilidade",
+				"en": "Testability"
+			},
+			{
+				"pt": "Simplicidade",
+				"en": "Simplicity"
+			},
+			{
+				"pt": "Robustez",
+				"en": "Robustness"
+			},
+			{
+				"pt": "Anti-fragilidade",
+				"en": "Anti-fragility"
+			}
+		],
+
+		[
+			{
+				"pt": "Ações diárias",
+				"en": "Daily actions"
+			},
+			{
+				"pt": "Ações semanais",
+				"en": "Weekly actions"
+			},
+			{
+				"pt": "Ações quinzenais",
+				"en": "Bi-weekly actions"
+			},
+			{
+				"pt": "Ações mensais",
+				"en": "Monthly actions"
+			},
+			{
+				"pt": "Eliminar ruído",
+				"en": "Eliminate noise"
+			},
+			{
+				"pt": "Automatizar tarefas repetitivas",
+				"en": "Automate repetitive tasks"
+			},
+			{
+				"pt": "Revisar legado",
+				"en": "Review legacy"
+			},
+			{
+				"pt": "Documentar o mínimo viável",
+				"en": "Document the minimum viable"
+			}
+		],
+
+		[
+			{
+				"pt": "Logs claros",
+				"en": "Clear logs"
+			},
+			{
+				"pt": "Alertas úteis",
+				"en": "Useful alerts"
+			},
+			{
+				"pt": "Dashboards que respondem perguntas",
+				"en": "Dashboards that answer questions"
+			},
+			{
+				"pt": "Linguagem sem jargão",
+				"en": "Jargon-free language"
+			},
+			{
+				"pt": "Registro de decisões",
+				"en": "Decision records"
+			},
+			{
+				"pt": "Ensino interno",
+				"en": "Internal teaching"
+			},
+			{
+				"pt": "Redução de gargalos humanos",
+				"en": "Reduction of human bottlenecks"
+			},
+			{
+				"pt": "Confiança do time",
+				"en": "Team confidence"
+			}
+		],
+
+		[
+			{
+				"pt": "Energia",
+				"en": "Energy"
+			},
+			{
+				"pt": "Foco",
+				"en": "Focus"
+			},
+			{
+				"pt": "Limites",
+				"en": "Limits"
+			},
+			{
+				"pt": "Saúde mental",
+				"en": "Mental health"
+			},
+			{
+				"pt": "Ritmo de trabalho",
+				"en": "Work pace"
+			},
+			{
+				"pt": "Aprendizado contínuo",
+				"en": "Continuous learning"
+			},
+			{
+				"pt": "Revisões periódicas",
+				"en": "Periodic reviews"
+			},
+			{
+				"pt": "Ajustes conscientes",
+				"en": "Conscious adjustments"
+			}
+		]
+	]
+}
