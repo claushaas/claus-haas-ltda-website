@@ -2,9 +2,7 @@
 
 ## *A structural model for color systems in digital products*
 
-> Color is not a palette.  
-> Color is not a token.  
-> Color is a decision made in context.
+> Color is not a palette. Color is not a token. Color is a decision made in context.
 
 ---
 

@@ -10,8 +10,10 @@ import {
 } from 'react-router';
 import type { Route } from './+types/root';
 import './app.css';
+import { useTranslation } from 'react-i18next';
 import { useIsBot } from './hooks/use-is-bot';
 import { defaultLanguage, detectLanguage } from './i18n/i18n';
+import { LanguageSwitcher } from './ui/components/language-switcher';
 
 export const links: Route.LinksFunction = () => [
 	{
@@ -61,6 +63,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 	const language = loaderData?.language ?? defaultLanguage;
 	const canonicalUrl = loaderData?.canonicalUrl;
 	const isBot = useIsBot();
+	const { t } = useTranslation();
 
 	return (
 		<html lang={language}>
@@ -115,7 +118,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				</script>
 			</head>
 			<body className="m-auto h-fit max-w-4xl space-y-16 bg-slate-1 px-4 dark:bg-slatedark-1">
+				<header className="py-4 flex justify-center">
+					<LanguageSwitcher />
+				</header>
 				{children}
+				<footer
+					className="mb-0 border-slate-2 border-t-2 py-16 dark:border-slatedark-2"
+					id="footer"
+				>
+					<p className="text-center">
+						{t('home.footer', { year: new Date().getFullYear() })}
+						{!isBot && t('home.footerCnpj')}
+					</p>
+				</footer>
 				<ScrollRestoration />
 				{isBot ? null : <Scripts />}
 			</body>

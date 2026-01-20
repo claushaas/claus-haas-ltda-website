@@ -2,9 +2,7 @@
 
 ## *Um modelo estrutural para sistemas de cor em produtos digitais*
 
-> Cor não é paleta.
-> Cor não é token.
-> Cor é decisão em contexto.
+> Cor não é paleta. Cor não é token. Cor é decisão em contexto.
 
 ---
 

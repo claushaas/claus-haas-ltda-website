@@ -3,7 +3,6 @@ import type { LoaderFunctionArgs, MetaArgs } from 'react-router';
 import { useIsBot } from '~/hooks/use-is-bot';
 import { detectLanguage } from '~/i18n/i18n';
 import Face from '~/ui/components/face';
-import { LanguageSwitcher } from '~/ui/components/language-switcher';
 import { skills } from '../content/skills/skills';
 import { SkillBadge } from '../ui/components/skill-badge';
 import ProjectGallery from '../ui/layouts/projects-gallery';
@@ -42,14 +41,11 @@ export default function Home() {
 
 	return (
 		<>
-			<header
+			<section
 				className="mb-0 flex flex-col items-center justify-items-start"
 				id="header"
 			>
-				<div className="px-16 py-4">
-					<LanguageSwitcher />
-				</div>
-				<div className="mt-4 flex w-full flex-col gap-4 sm:mt-16 sm:h-90 sm:flex-row">
+				<div className=" flex w-full flex-col gap-4 sm:mt-16 sm:h-90 sm:flex-row">
 					<div className="mb-4 flex w-full justify-center sm:mb-0 sm:justify-start">
 						<Face className="max-h-56 w-fit sm:max-h-90" />
 					</div>
@@ -69,7 +65,7 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
-			</header>
+			</section>
 			<main id="main-content" tabIndex={-1}>
 				<section aria-labelledby="about-heading" id="about">
 					<div className="mb-10 sm:mb-20">
@@ -174,15 +170,6 @@ export default function Home() {
 					<ProjectGallery />
 				</section>
 			</main>
-			<footer
-				className="mb-0 border-slate-2 border-t-2 py-16 dark:border-slatedark-2"
-				id="footer"
-			>
-				<p className="text-center">
-					{t('home.footer', { year: new Date().getFullYear() })}
-					{!isBot && t('home.footerCnpj')}
-				</p>
-			</footer>
 		</>
 	);
 }
