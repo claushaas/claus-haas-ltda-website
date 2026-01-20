@@ -208,6 +208,7 @@ Medidas:
 * Schema validation (ex: Zod)
 * Validação de tamanho (9×9, 8×8)
 * Limite de caracteres
+* Normalização determinística (mapeamento `actions → grid`) com colisões detectadas antes do render
 
 ### 8.2 Opcional (Testes)
 
@@ -226,17 +227,17 @@ Medidas:
 * [x] Criar estrutura `content/harada`
 * [x] Criar `index.json`
 * [x] Criar primeira versão do Harada
-* [ ] Implementar loader da rota `/harada`
-* [ ] Validação de schema + tamanho
-* [ ] Função pura de normalização `actions → grid`
-* [ ] Render do grid existente
-* [ ] Meta tags + headers + robots.txt
+* [x] Implementar loader da rota `/harada` (fetch da versão ativa via `index.json`, validações e cabeçalho `X-Robots-Tag`)
+* [x] Validação de schema + tamanho
+* [x] Função pura de normalização `actions → grid`
+* [x] Render do grid existente (por enquanto um JSON para inspeção)
+* [x] Meta tags + headers + robots.txt
 
 ### Fase 2 — Qualidade
 
-* [ ] Estilos específicos para goal / themes / actions
-* [ ] Tooltip acessível
-* [ ] Layout print-friendly
+* [x] Estilos específicos para goal / themes / actions
+* [x] Tooltip acessível
+* [x] Layout print-friendly
 
 ### Fase 3 — Evolução (futuro)
 
@@ -247,7 +248,16 @@ Medidas:
 
 ---
 
-## 10. Critério de Sucesso
+## 10. Progresso recente
+
+* `app/routes/harada.tsx` agora implementa o loader: obtém `latest` de `app/content/harada/index.json`, importa dinamicamente a versão `2026-01`, valida goal/themes/actions/meta e normaliza `actions` para um grid 9×9 estrictamente sem colisões.
+* O loader devolve `grid`, `goal`, `themes`, `meta` e `version` usando `Response.json` com cabeçalhos `X-Robots-Tag: noindex, nofollow, noarchive`.
+* Rota agora expõe meta tags `noindex, nofollow, noarchive` e o `robots.txt` bloqueia `/harada` conforme o plano de SEO.
+* `app/routes.ts` registra a rota `harada`, permitindo que o typegen gere `./+types/harada` para usos futuros.
+* O arquivo `2026-01.json` foi renomeado para casar com o valor definido em `index.json`, alinhando conteúdo e referência.
+* UI da rota implementada: grid 9×9 estilizado com distinção visual para goal/themes/actions, tooltips acessíveis (hover e foco) e ajustes print-friendly; legenda e lista de themes adicionadas.
+
+## 11. Critério de Sucesso
 
 * O Harada pode ser alterado **sem tocar no código de UI**
 * Um novo Harada é apenas um novo arquivo JSON
