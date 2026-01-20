@@ -221,7 +221,10 @@ export async function loader({ request }: Route.LoaderArgs) {
 	const version = haradaIndex.latest;
 	if (!version) {
 		throw Response.json(
-			{ message: 'Arquivo index.json não define a versão mais recente.' },
+			{
+				message: 'Arquivo index.json não define a versão mais recente.',
+				source: 'harada-loader',
+			},
 			withNoIndexHeaders({ status: 500 }),
 		);
 	}
@@ -255,7 +258,15 @@ export async function loader({ request }: Route.LoaderArgs) {
 			error instanceof Error
 				? error.message
 				: 'Erro desconhecido ao validar o Harada.';
-		throw Response.json({ message }, withNoIndexHeaders({ status: 400 }));
+		throw Response.json(
+			{
+				language,
+				message,
+				source: 'harada-loader',
+				version: resolvedVersion,
+			},
+			withNoIndexHeaders({ status: 400 }),
+		);
 	}
 }
 
