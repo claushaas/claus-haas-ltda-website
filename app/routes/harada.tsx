@@ -1,18 +1,21 @@
 import { isbot } from 'isbot';
+import { useTranslation } from 'react-i18next';
 import haradaIndex from '~/content/harada/index.json';
 import schema from '~/content/harada/schema.json';
+import { detectLanguage, type SupportedLanguage } from '~/i18n/i18n';
 import type { Route } from './+types/harada';
 
+type LocalizedText = { en: string; pt: string };
+
 type HaradaContent = {
-	actions: string[][];
-	goal: string;
+	actions: LocalizedText[][];
+	goal: LocalizedText;
 	meta: {
-		language: string;
 		period: string;
-		title: string;
+		title: LocalizedText;
 		updatedAt: string;
 	};
-	themes: string[];
+	themes: LocalizedText[];
 };
 
 type CellRole = 'goal' | 'theme' | 'action';
@@ -29,9 +32,14 @@ type GridCell = {
 type LoaderResponse = {
 	grid: (GridCell | null)[][];
 	goal: string;
-	meta: HaradaContent['meta'];
+	meta: {
+		title: string;
+		period: string;
+		updatedAt: string;
+	};
 	themes: string[];
 	version: string;
+	language: SupportedLanguage;
 };
 
 const noIndexHeaders = {
@@ -48,11 +56,6 @@ const withNoIndexHeaders = (init?: ResponseInit) => {
 	};
 };
 
-const MAX_LENGTH =
-	typeof schema.layout.actions.maxLength === 'number'
-		? schema.layout.actions.maxLength
-		: 120;
-
 const themeLayouts = schema.layout.themes;
 const actionPattern = schema.layout.actions.blockPattern;
 const gridSize = {
@@ -66,14 +69,21 @@ const isIsoDate = (value: string) => /^\d{4}-\d{2}-\d{2}$/.test(value);
 const assertString = (value: unknown): value is string =>
 	typeof value === 'string';
 
+const resolveText = (text: LocalizedText, language: SupportedLanguage) =>
+	text[language] ?? text.en ?? text.pt;
+
 const haradaVersions = import.meta.glob('../content/harada/*.json', {
 	eager: true,
 });
 
 const validateHarada = (data: HaradaContent) => {
-	if (!assertString(data.goal) || data.goal.length > MAX_LENGTH) {
-		throw new Error('Goal ausente ou maior que 120 caracteres.');
-	}
+	const validateText = (text: LocalizedText, label: string) => {
+		if (!text || !assertString(text.en) || !assertString(text.pt)) {
+			throw new Error(`${label} deve conter chaves 'pt' e 'en'.`);
+		}
+	};
+
+	validateText(data.goal, 'Goal');
 
 	if (
 		!Array.isArray(data.themes) ||
@@ -82,20 +92,16 @@ const validateHarada = (data: HaradaContent) => {
 		throw new Error('Themes devem ter exatamente 8 itens.');
 	}
 
+	data.themes.forEach((theme, index) => {
+		validateText(theme, `Theme ${index + 1}`);
+	});
+
 	if (
 		!Array.isArray(data.actions) ||
 		data.actions.length !== schema.constraints.actionsPerTheme
 	) {
 		throw new Error('Actions devem ter 8 blocos, um por theme.');
 	}
-
-	data.themes.forEach((theme, index) => {
-		if (!assertString(theme) || theme.length > MAX_LENGTH) {
-			throw new Error(
-				`Theme ${index + 1} ausente ou maior que 120 caracteres.`,
-			);
-		}
-	});
 
 	data.actions.forEach((actionList, themeIndex) => {
 		if (!Array.isArray(actionList)) {
@@ -105,11 +111,10 @@ const validateHarada = (data: HaradaContent) => {
 			throw new Error(`Theme ${themeIndex + 1} deve ter exatamente 8 actions.`);
 		}
 		actionList.forEach((action, actionIndex) => {
-			if (!assertString(action) || action.length > MAX_LENGTH) {
-				throw new Error(
-					`Action ${actionIndex + 1} do theme ${themeIndex + 1} é inválida ou maior que 120 caracteres.`,
-				);
-			}
+			validateText(
+				action,
+				`Action ${actionIndex + 1} do theme ${themeIndex + 1}`,
+			);
 		});
 	});
 
@@ -117,10 +122,11 @@ const validateHarada = (data: HaradaContent) => {
 		throw new Error('Meta é obrigatório.');
 	}
 
-	const { language, period, title, updatedAt } = data.meta;
-	if (![language, period, title, updatedAt].every(assertString)) {
-		throw new Error('Campos de meta devem ser strings.');
+	const { period, title, updatedAt } = data.meta;
+	if (!assertString(period) || !assertString(updatedAt)) {
+		throw new Error('Campos period e updatedAt devem ser strings.');
 	}
+	validateText(title, 'Meta.title');
 	if (!isIsoDate(updatedAt)) {
 		throw new Error(
 			'Campo meta.updatedAt deve estar em formato ISO (YYYY-MM-DD).',
@@ -134,7 +140,10 @@ const ensureInsideGrid = (row: number, col: number) => {
 	}
 };
 
-const buildGrid = (data: HaradaContent): (GridCell | null)[][] => {
+const buildGrid = (
+	data: HaradaContent,
+	language: SupportedLanguage,
+): (GridCell | null)[][] => {
 	const grid: (GridCell | null)[][] = Array.from(
 		{ length: gridSize.rows },
 		() => Array.from({ length: gridSize.cols }, () => null),
@@ -152,11 +161,11 @@ const buildGrid = (data: HaradaContent): (GridCell | null)[][] => {
 		col: goalPosition.col,
 		role: 'goal',
 		row: goalPosition.row,
-		text: data.goal,
+		text: resolveText(data.goal, language),
 	});
 
 	themeLayouts.forEach((layout, index) => {
-		const themeText = data.themes[index];
+		const themeText = resolveText(data.themes[index], language);
 		placeCell({
 			col: layout.position.col,
 			direction: layout.direction,
@@ -174,7 +183,7 @@ const buildGrid = (data: HaradaContent): (GridCell | null)[][] => {
 		fillOrder.forEach(([rowOffset, colOffset], actionIndex) => {
 			const row = blockRows[rowOffset];
 			const col = blockCols[colOffset];
-			const actionText = actions[actionIndex];
+			const actionText = resolveText(actions[actionIndex], language);
 			placeCell({
 				col,
 				direction: layout.direction,
@@ -208,6 +217,7 @@ const loadVersion = async (
 };
 
 export async function loader({ request }: Route.LoaderArgs) {
+	const language = detectLanguage(request);
 	const version = haradaIndex.latest;
 	if (!version) {
 		throw Response.json(
@@ -223,14 +233,19 @@ export async function loader({ request }: Route.LoaderArgs) {
 
 	try {
 		validateHarada(content);
-		const grid = buildGrid(content);
+		const grid = buildGrid(content, language);
 
 		return Response.json(
 			{
-				goal: content.goal,
+				goal: resolveText(content.goal, language),
 				grid,
-				meta: content.meta,
-				themes: content.themes,
+				language,
+				meta: {
+					period: content.meta.period,
+					title: resolveText(content.meta.title, language),
+					updatedAt: content.meta.updatedAt,
+				},
+				themes: content.themes.map((theme) => resolveText(theme, language)),
 				version: resolvedVersion,
 			},
 			withNoIndexHeaders(),
@@ -251,7 +266,8 @@ export const meta: Route.MetaFunction = () => [
 
 export default function Harada({ loaderData }: Route.ComponentProps) {
 	const data = loaderData as LoaderResponse;
-	const { grid, meta, version, goal, themes } = data;
+	const { grid, meta, version, goal, themes, language } = data;
+	const { t } = useTranslation();
 
 	const roleStyles: Record<
 		GridCell['role'],
@@ -349,8 +365,8 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 							{directionLabel}
 						</span>
 					</div>
-					<div className="flex align-middle justify-center">
-						<span className="text-pretty wrap-break-word line-clamp-4 text-center">
+					<div className="flex w-full items-start justify-center">
+						<span className="w-full wrap-break-word text-balance line-clamp-4 text-center hyphens-auto">
 							{cellToRender.text}
 						</span>
 					</div>
@@ -389,34 +405,35 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 				<div className="flex flex-wrap items-center justify-between gap-3">
 					<div>
 						<h1 className="text-3xl font-semibold tracking-tight text-slate-12 dark:text-slate-1 print:text-black">
-							Harada Board
+							{t('harada.title')}
 						</h1>
 						<p className="text-sm text-slate-11 dark:text-slate-4 print:text-black">
-							Versão ativa: {version} • Atualizado em {meta.updatedAt}
+							{t('harada.activeVersion', { version })} •{' '}
+							{t('harada.updatedAt', { date: meta.updatedAt })}
 						</p>
 					</div>
 					<div className="flex flex-wrap gap-2">
 						<span className="rounded-full bg-amber-3 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-11 ring-1 ring-amber-7/50 print:bg-white print:ring-amber-8">
-							Goal
+							{t('harada.legend.goal')}
 						</span>
 						<span className="rounded-full bg-sky-3 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-sky-11 ring-1 ring-sky-7/50 print:bg-white print:ring-sky-8">
-							Theme
+							{t('harada.legend.theme')}
 						</span>
 						<span className="rounded-full bg-slate-3 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-12 ring-1 ring-slate-7/50 print:bg-white print:ring-slate-8">
-							Action
+							{t('harada.legend.action')}
 						</span>
 					</div>
 				</div>
 				<div className="grid gap-3 rounded-xl border border-slate-4 bg-slate-2/50 p-4 shadow-sm print:bg-white print:border-slate-8 print:shadow-none dark:bg-slatedark-2/60">
 					<div className="flex flex-wrap items-center gap-2 text-sm text-slate-12 dark:text-slate-3 print:text-black">
 						<span className="rounded-md bg-slate-12 px-2 py-1 text-[11px] font-semibold uppercase tracking-wide text-slate-1 print:bg-black print:text-white">
-							Meta
+							{t('harada.metaLabel')}
 						</span>
 						<span className="font-medium">{meta.title}</span>
 						<span className="text-slate-10">·</span>
 						<span>{meta.period}</span>
 						<span className="text-slate-10">·</span>
-						<span className="uppercase">{meta.language}</span>
+						<span className="uppercase">{language}</span>
 					</div>
 					<p className="text-base font-semibold text-slate-12 dark:text-slate-2 print:text-black">
 						{goal}
@@ -427,10 +444,10 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 			<section className="space-y-4">
 				<div className="flex items-center justify-between">
 					<h2 className="text-lg font-semibold text-slate-12 dark:text-slate-1 print:text-black">
-						Grid 9×9
+						{t('harada.gridTitle')}
 					</h2>
 					<p className="text-xs text-slate-10 print:text-black">
-						Passe o mouse ou foque para ver detalhes
+						{t('harada.gridHint')}
 					</p>
 				</div>
 				<div className="overflow-hidden rounded-2xl border border-slate-4 bg-linear-to-br from-slate-1 via-slate-2 to-slate-3 p-3 shadow-lg print:bg-white print:border-slate-8 print:shadow-none dark:from-slate-12 dark:via-slate-11 dark:to-slate-10">
@@ -446,7 +463,7 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 
 			<section className="grid gap-4 rounded-xl border border-slate-4 bg-slate-2/60 p-4 shadow-sm print:bg-white print:border-slate-8 print:shadow-none dark:bg-slatedark-2/60">
 				<h3 className="text-base font-semibold text-slate-12 dark:text-slate-1 print:text-black">
-					Themes (ordem fixa)
+					{t('harada.themesTitle')}
 				</h3>
 				<ol className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
 					{themes.map((theme: string, index: number) => (

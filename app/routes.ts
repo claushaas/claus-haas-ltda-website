@@ -5,4 +5,8 @@ export default [
 	index('./routes/home.tsx'),
 	route('palette-kit', './routes/palette-kit.tsx'),
 	route('harada', './routes/harada.tsx'),
+	route(
+		'.well-known/appspecific/com.chrome.devtools.json',
+		'./routes/devtools-probe.tsx',
+	),
 ] satisfies RouteConfig;
