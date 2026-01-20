@@ -30,6 +30,7 @@
 		},
 
 		"goal": {
+			"lang": ["pt", "en"],
 			"maxLength": 120,
 			"position": { "col": 4, "row": 4 },
 			"role": "goal"
@@ -42,6 +43,7 @@
 
 		"themes": [
 			{
+				"lang": ["pt", "en"],
 				"actionsBlock": {
 					"cols": [3, 4, 5],
 					"rows": [0, 1, 2]
@@ -52,6 +54,7 @@
 				"role": "theme"
 			},
 			{
+				"lang": ["pt", "en"],
 				"actionsBlock": {
 					"cols": [6, 7, 8],
 					"rows": [0, 1, 2]
@@ -62,6 +65,7 @@
 				"role": "theme"
 			},
 			{
+				"lang": ["pt", "en"],
 				"actionsBlock": {
 					"cols": [6, 7, 8],
 					"rows": [3, 4, 5]
@@ -72,6 +76,7 @@
 				"role": "theme"
 			},
 			{
+				"lang": ["pt", "en"],
 				"actionsBlock": {
 					"cols": [6, 7, 8],
 					"rows": [6, 7, 8]
@@ -82,6 +87,7 @@
 				"role": "theme"
 			},
 			{
+				"lang": ["pt", "en"],
 				"actionsBlock": {
 					"cols": [3, 4, 5],
 					"rows": [6, 7, 8]
@@ -92,6 +98,7 @@
 				"role": "theme"
 			},
 			{
+				"lang": ["pt", "en"],
 				"actionsBlock": {
 					"cols": [0, 1, 2],
 					"rows": [6, 7, 8]
@@ -102,6 +109,7 @@
 				"role": "theme"
 			},
 			{
+				"lang": ["pt", "en"],
 				"actionsBlock": {
 					"cols": [0, 1, 2],
 					"rows": [3, 4, 5]
@@ -112,6 +120,7 @@
 				"role": "theme"
 			},
 			{
+				"lang": ["pt", "en"],
 				"actionsBlock": {
 					"cols": [0, 1, 2],
 					"rows": [0, 1, 2]
@@ -127,9 +136,8 @@
 	"meta": {
 		"description": "Metadados informativos (não posicionais)",
 		"fields": {
-			"language": "string",
 			"period": "string",
-			"title": "string",
+			"title": { "lang": ["pt", "en"] },
 			"updatedAt": "ISO-8601 date"
 		}
 	},
