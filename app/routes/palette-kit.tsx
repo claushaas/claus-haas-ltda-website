@@ -1,5 +1,4 @@
-import type { ComponentType } from 'react';
-import { useEffect, useState } from 'react';
+import Markdown from 'react-markdown';
 import {
 	type LoaderFunctionArgs,
 	type MetaArgs,
@@ -58,18 +57,6 @@ export const meta = ({ loaderData }: MetaArgs<typeof loader>) => {
 
 export default function PaletteKit() {
 	const { markdown } = useLoaderData<typeof loader>();
-
-	const [Markdown, setMarkdown] = useState<ComponentType<{
-		children: string;
-	}> | null>(null);
-
-	useEffect(() => {
-		import('react-markdown').then((mod) => {
-			setMarkdown(() => mod.default);
-		});
-	}, []);
-
-	if (!Markdown) return null; // ou skeleton
 
 	return <Markdown>{markdown}</Markdown>;
 }
