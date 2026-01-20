@@ -53,7 +53,10 @@
 			"correctness": {
 				"useUniqueElementIds": "off"
 			},
-			"recommended": true
+			"recommended": true,
+			"style": {
+				"useComponentExportOnlyModules": "off"
+			}
 		}
 	},
 	"vcs": {
