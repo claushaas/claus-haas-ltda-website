@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+	/* light mode */
+	--bg-base: #f6f7f9;
+	--bg-base-subtle: #eef1f5;
+
+	--bg-surface: #ffffff;
+	--bg-surface-muted: #f9fafb;
+
+	--text-primary: #111827;
+	--text-secondary: #374151;
+	--text-muted: #6b7280;
+
+	--accent-primary: #2563eb;
+	--accent-muted: #3b82f6;
+
+	--shadow-surface:
+		0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.06);
+
+	--radius-surface: 6px;
+
+	--font-family-base:
+		Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+	--text-body: 1rem;
+	--text-meta: 0.875rem;
+	--text-heading: 1.375rem;
+
+	--weight-regular: 400;
+	--weight-medium: 500;
+	--weight-semibold: 600;
+
+	--line-body: 1.7;
+	--line-heading: 1.4;
+	--line-meta: 1.5;
+
+	--space-xs: 0.5rem;
+	--space-sm: 1rem;
+	--space-md: 2rem;
+	--space-lg: 3rem;
+	--space-xl: 5rem;
+}
+
+.dark {
+	/* dark mode */
+	--bg-base: #0f172a;
+	--bg-base-subtle: #020617;
+
+	--bg-surface: #111827;
+	--bg-surface-muted: #1f2933;
+
+	--text-primary: #e5e7eb;
+	--text-secondary: #cbd5e1;
+	--text-muted: #9ca3af;
+
+	--accent-primary: #60a5fa;
+	--accent-muted: #93c5fd;
+
+	--shadow-surface: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+html {
+	font-family: var(--font-family-base);
+	color: var(--text-primary);
+	background: var(--bg-base);
+}
+
+/* Acento padrão em links (sem firula) */
+a {
+	color: var(--accent-primary);
+	text-decoration: none;
+}
+a:hover {
+	color: var(--accent-muted);
+	text-decoration: underline;
+}
+
+/* Foco acessível */
+:focus-visible {
+	outline: 2px solid var(--accent-primary);
+	outline-offset: 2px;
+}
