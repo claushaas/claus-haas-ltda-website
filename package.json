@@ -2,11 +2,11 @@
 	"dependencies": {
 		"@radix-ui/colors": "^3.0.0",
 		"accept-language-parser": "^1.5.0",
-		"i18next": "^25.7.4",
+		"i18next": "^25.8.0",
 		"i18next-browser-languagedetector": "^8.2.0",
 		"i18next-fetch-backend": "^7.0.0",
 		"isbot": "^5.1.33",
-		"motion": "^12.27.1",
+		"motion": "^12.28.1",
 		"react": "^19.2.3",
 		"react-dom": "^19.2.3",
 		"react-i18next": "^16.5.3",
@@ -17,19 +17,20 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.11",
-		"@cloudflare/vite-plugin": "^1.21.0",
+		"@cloudflare/vite-plugin": "^1.21.1",
 		"@react-router/dev": "^7.12.0",
 		"@tailwindcss/vite": "^4.1.18",
 		"@types/accept-language-parser": "^1.5.8",
 		"@types/node": "^25.0.9",
-		"@types/react": "^19.2.8",
+		"@types/react": "^19.2.9",
 		"@types/react-dom": "^19.2.3",
+		"markdownlint-cli": "^0.47.0",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3",
 		"vite": "^7.3.1",
 		"vite-plugin-svgr": "^4.5.0",
 		"vite-tsconfig-paths": "^6.0.4",
-		"wrangler": "^4.59.2"
+		"wrangler": "^4.59.3"
 	},
 	"engines": {
 		"node": ">=24.13.0"
@@ -44,6 +45,8 @@
 		"deploy": "npm run build && wrangler deploy",
 		"dev": "react-router dev",
 		"down": "docker compose down",
+		"lint": "npm run typecheck &&npm run biome:fix:unsafe && npm run md:fix",
+		"md:fix": "npx markdownlint-cli --fix --ignore node_modules ./**/*.md",
 		"preview": "npm run build && vite preview",
 		"typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
 		"up": "docker compose up -d --build",
