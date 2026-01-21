@@ -231,11 +231,55 @@ Espaçamento codifica significado.
 - Novos valores de espaçamento são **proibidos**
 - Se um novo valor parece necessário, a hierarquia está incorreta
 
-### Largura de Leitura
+### Área de Leitura — Mesa vs Papel (Legibilidade Responsiva)
+
+O viewport é a mesa. A coluna de conteúdo é o papel.
+A mesa pode ser infinita; o papel deve permanecer legível para humanos.
+
+O site deve preservar um comprimento de linha confortável em todos os dispositivos.
+Largura não é um número fixo; é uma **restrição de legibilidade**.
+
+#### Objetivos
+
+- Evitar linhas muito longas (fadiga ocular)
+- Evitar colunas muito estreitas (fragmentação)
+- Preservar margens calmas (respiro da mesa)
+- Manter tipografia e largura de coluna acopladas
+
+#### Contrato
+
+- Largura de leitura é definida como um **intervalo**, não um valor fixo único
+- O sistema visa ~60–75 caracteres por linha para texto denso
+- Excesso de largura do viewport vira "ambiente", não largura de conteúdo
+
+#### Tokens
+
+| Token | Valor | Descrição |
+| ----- | ----- | --------- |
+| `--reading-min` | 45ch | Largura mínima da coluna |
+| `--reading-ideal` | 68ch | Largura ideal (alvo) |
+| `--reading-max` | 78ch | Largura máxima (teto) |
+| `--pad-min` | 1rem | Padding lateral mínimo |
+| `--pad-ideal` | 2rem | Padding lateral ideal |
+| `--pad-max` | 3rem | Padding lateral máximo |
+
+#### Implementação
 
 ```css
---max-reading: 72ch;
+.reading {
+  width: min(100%, clamp(var(--reading-min), 90vw, var(--reading-max)));
+  max-width: var(--reading-max);
+  margin-inline: auto;
+  padding-inline: clamp(var(--pad-min), 4vw, var(--pad-max));
+}
 ```
+
+#### Notas
+
+- **Não** aumentar largura de leitura para "ocupar espaço"
+- Se um layout parece vazio em telas largas, adicione estrutura (nav, surfaces, seções), não comprimento de linha
+- Muito largo → cansativo (salto ocular grande)
+- Muito estreito → dispersivo (muitas quebras)
 
 ---
 

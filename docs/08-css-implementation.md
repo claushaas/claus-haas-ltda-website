@@ -76,8 +76,16 @@ O CSS segue a abordagem **CSS-first** do Tailwind v4:
   --space-lg: 3rem;
   --space-xl: 5rem;
 
-  /* --- Layout --- */
-  --max-reading: 72ch;
+  /* --- Layout: Reading Area (Mesa vs Papel) --- */
+  /* A largura de leitura é um intervalo, não um valor fixo */
+  --reading-min: 45ch;
+  --reading-ideal: 68ch;
+  --reading-max: 78ch;
+  
+  /* Padding lateral adaptativo */
+  --pad-min: 1rem;
+  --pad-ideal: 2rem;
+  --pad-max: 3rem;
 }
 
 /* --- Dark Mode --- */
@@ -143,11 +151,13 @@ a:hover {
     color: var(--text-primary);
   }
 
-  /* reading: single-column, long-form width + side padding */
+  /* reading: single-column, long-form width + adaptive padding */
+  /* O viewport é a mesa; a coluna é o papel */
   .reading {
-    max-width: var(--max-reading);
+    width: min(100%, clamp(var(--reading-min), 90vw, var(--reading-max)));
+    max-width: var(--reading-max);
     margin-inline: auto;
-    padding-inline: var(--space-sm);
+    padding-inline: clamp(var(--pad-min), 4vw, var(--pad-max));
   }
 
   /* --- Stacks (ritmo vertical) --- */
