@@ -1,6 +1,7 @@
 import type { ReactNode, RefObject } from 'react';
 import { useEffect } from 'react';
 import { useEngaged } from '~/hooks/use-engaged';
+import { useGlobalState } from '~/state/global-state';
 
 const useHistoryBackClose = (active: boolean, onClose: () => void) => {
 	useEffect(() => {
@@ -39,8 +40,14 @@ export const FocusLayer = ({
 		onClose,
 		returnFocusRef,
 	});
+	const { setAttention } = useGlobalState();
 
 	useHistoryBackClose(active, onClose);
+
+	useEffect(() => {
+		setAttention(active ? 'engaged' : 'ambient');
+		return () => setAttention('ambient');
+	}, [active, setAttention]);
 
 	if (!active) {
 		return null;
