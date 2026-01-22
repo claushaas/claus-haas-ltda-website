@@ -202,9 +202,9 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 3.4 i18n e prerender
 
-- [ ] Prefixar rotas com `/:lang(en|pt)`
-- [ ] Gerar lista no `prerender()` com base em `content-index`
-- [ ] Validar fallback para `/en`
+- [x] Prefixar rotas com `/:lang(en|pt)`
+- [x] Gerar lista no `prerender()` com base em `content-index`
+- [x] Validar fallback para `/en`
 
 ### 3.5 Encontrabilidade e anchors
 
