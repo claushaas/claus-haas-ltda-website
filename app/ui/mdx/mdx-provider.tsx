@@ -1,0 +1,53 @@
+import { MDXProvider } from '@mdx-js/react';
+import type { ComponentProps, ReactNode } from 'react';
+
+const Heading = ({ className, ...props }: ComponentProps<'h2'>) => (
+	<h2
+		className={['t-heading', className].filter(Boolean).join(' ')}
+		{...props}
+	/>
+);
+
+const Paragraph = ({ className, ...props }: ComponentProps<'p'>) => (
+	<p className={['t-body', className].filter(Boolean).join(' ')} {...props} />
+);
+
+const List = ({ className, ...props }: ComponentProps<'ul'>) => (
+	<ul className={['t-body', className].filter(Boolean).join(' ')} {...props} />
+);
+
+const OrderedList = ({ className, ...props }: ComponentProps<'ol'>) => (
+	<ol className={['t-body', className].filter(Boolean).join(' ')} {...props} />
+);
+
+const ListItem = ({ className, ...props }: ComponentProps<'li'>) => (
+	<li className={['t-body', className].filter(Boolean).join(' ')} {...props} />
+);
+
+const Pre = ({ className, ...props }: ComponentProps<'pre'>) => (
+	<pre
+		className={['surface', 'tile', className].filter(Boolean).join(' ')}
+		{...props}
+	/>
+);
+
+type ProviderProps = {
+	children: ReactNode;
+};
+
+export const AppMdxProvider = ({ children }: ProviderProps) => (
+	<MDXProvider
+		components={{
+			h1: Heading,
+			h2: Heading,
+			h3: Heading,
+			li: ListItem,
+			ol: OrderedList,
+			p: Paragraph,
+			pre: Pre,
+			ul: List,
+		}}
+	>
+		{children}
+	</MDXProvider>
+);
