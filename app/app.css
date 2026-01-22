@@ -104,6 +104,21 @@ html {
   font-family: var(--font-family-base);
 }
 
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-muted);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
 main, section {
   @apply mb-20;
 }
