@@ -82,7 +82,7 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ## Fase 1 — Design System Base (Tokens + Classes + Contratos)
 
-> **Status:** 🔄 Em progresso
+> **Status:** ✅ Completo
 
 ### 1.1 Tokens fundamentais (design system)
 
@@ -125,8 +125,8 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 1.7 Print styles
 
-- [ ] Adicionar estilos de print conforme [26-publishing-export.md](./26-publishing-export.md)
-- [ ] Garantir que surfaces viram borda leve em print
+- [x] Adicionar estilos de print conforme [26-publishing-export.md](./26-publishing-export.md)
+- [x] Garantir que surfaces viram borda leve em print
 
 ### Entregaveis Fase 1
 
@@ -378,7 +378,7 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 | Fase | Nome | Status |
 | ---- | ---- | ------ |
 | 0 | Fundacao | ✅ Completo |
-| 1 | Design System Base | 🔄 Em progresso |
+| 1 | Design System Base | ✅ Completo |
 | 2 | Componentes Core | 🔲 Pendente |
 | 3 | Rotas Principais | 🔲 Pendente |
 | 4 | Harada | 🔄 Em progresso |
