@@ -1,266 +1,360 @@
-# 12 — Roadmap de Implementação
+# 12 — Roadmap de Implementacao
 
-> Este documento define as fases de implementação da v0.2.
-
----
-
-## Visão Geral
-
-A implementação é dividida em fases incrementais. Cada fase deve estar **completa e funcional** antes de passar para a próxima.
+> Este documento e o tronco do sistema. Se algo nao esta aqui, esta fora do escopo de execucao.
 
 ---
 
-## Fase 0 — Fundação (Já Existente)
+## Visao Geral
+
+A implementacao e dividida em fases incrementais. Cada fase deve estar **completa e funcional** antes de passar para a proxima.
+
+---
+
+## Premissas e Contratos (Obrigatorios)
+
+Este roadmap parte das decisoes e contratos abaixo. Se houver conflito, este roadmap deve ser atualizado.
+
+- **Decisoes consolidadas**: [13-decisions.md](./13-decisions.md)
+- **Filosofia e direcao**: [01-philosophy.md](./01-philosophy.md) e [03-design-philosophy.md](./03-design-philosophy.md)
+- **Semantica e hierarquia**: [06-semantic-text.md](./06-semantic-text.md)
+- **Sistema de design**: [04-design-system.md](./04-design-system.md)
+- **Cores**: [16-color-system-spec.md](./16-color-system-spec.md)
+- **Tipografia**: [17-typography-system-spec.md](./17-typography-system-spec.md)
+- **Elevacao**: [05-elevation-system.md](./05-elevation-system.md)
+- **Aliens**: [18-alien-elements-spec.md](./18-alien-elements-spec.md) e [25-aliens-catalog.md](./25-aliens-catalog.md)
+- **Transferencia de foco**: [19-focus-transfer-spec.md](./19-focus-transfer-spec.md)
+- **Estado global**: [20-global-state-contract.md](./20-global-state-contract.md)
+- **Interacao**: [21-interaction-spec.md](./21-interaction-spec.md)
+- **Motion**: [22-motion-policy.md](./22-motion-policy.md)
+- **Encontrabilidade**: [23-findability-navigation.md](./23-findability-navigation.md)
+- **Resiliencia**: [24-resilience-loading-error.md](./24-resilience-loading-error.md)
+- **Publicacao e print**: [26-publishing-export.md](./26-publishing-export.md)
+- **Arquitetura de informacao**: [02-information-architecture.md](./02-information-architecture.md)
+- **Rotas**: [10-route-specs.md](./10-route-specs.md) e [11-harada-spec.md](./11-harada-spec.md)
+- **Stack tecnico**: [07-tech-stack.md](./07-tech-stack.md)
+- **Componentes**: [09-component-specs.md](./09-component-specs.md)
+- **Qualidade**: [14-pr-checklist.md](./14-pr-checklist.md) e [15-success-criteria.md](./15-success-criteria.md)
+- **Indice da documentacao**: [README.md](./README.md)
+- **Contexto original**: [00-origin.md](./00-origin.md)
+
+---
+
+## Mapa da Documentacao (Tronco, Galhos e Folhas)
+
+### Galhos (impacto direto nas fases)
+
+- **Direcao e semantica**: [01-philosophy.md](./01-philosophy.md), [03-design-philosophy.md](./03-design-philosophy.md), [06-semantic-text.md](./06-semantic-text.md)
+- **Sistema visual**: [04-design-system.md](./04-design-system.md), [16-color-system-spec.md](./16-color-system-spec.md), [17-typography-system-spec.md](./17-typography-system-spec.md), [05-elevation-system.md](./05-elevation-system.md)
+- **Aliens e foco**: [18-alien-elements-spec.md](./18-alien-elements-spec.md), [25-aliens-catalog.md](./25-aliens-catalog.md), [19-focus-transfer-spec.md](./19-focus-transfer-spec.md)
+- **Estado e interacao**: [20-global-state-contract.md](./20-global-state-contract.md), [21-interaction-spec.md](./21-interaction-spec.md), [22-motion-policy.md](./22-motion-policy.md), [24-resilience-loading-error.md](./24-resilience-loading-error.md), [23-findability-navigation.md](./23-findability-navigation.md)
+- **Arquitetura e rotas**: [02-information-architecture.md](./02-information-architecture.md), [10-route-specs.md](./10-route-specs.md), [11-harada-spec.md](./11-harada-spec.md)
+- **Implementacao**: [07-tech-stack.md](./07-tech-stack.md), [08-css-implementation.md](./08-css-implementation.md), [09-component-specs.md](./09-component-specs.md)
+- **Governanca e validacao**: [13-decisions.md](./13-decisions.md), [14-pr-checklist.md](./14-pr-checklist.md), [15-success-criteria.md](./15-success-criteria.md)
+- **Publicacao**: [26-publishing-export.md](./26-publishing-export.md)
+
+### Folhas (contexto e navegacao)
+
+- [00-origin.md](./00-origin.md) — conversa que gerou o projeto
+- [README.md](./README.md) — indice e mapa de entrada
+
+---
+
+## Fase 0 — Fundacao (Ja Existente)
 
 > **Status:** ✅ Completo
 
-O repositório já possui:
+O repositorio ja possui:
 
 - [x] Estrutura React Router v7
 - [x] Vite configurado
 - [x] Tailwind CSS v4
 - [x] TypeScript
 - [x] Cloudflare Workers setup
-- [x] i18n básico (react-i18next) com conteúdo disponível em inglês e português (PT-BR)
+- [x] i18n basico (react-i18next) com conteudo em ingles e portugues (PT-BR)
 - [x] Rota `/harada` inicial implementada
 - [x] Estrutura `content/harada/` com JSON
 
----
-
-## Fase 1 — Design System Base
-
-> **Status:** 🔲 Pendente
-
-### 1.1 Tokens CSS
-
-- [ ] Implementar tokens em `:root` conforme [08-css-implementation.md](./08-css-implementation.md)
-- [ ] Implementar tokens dark mode em `.dark`
-- [ ] Verificar se tokens existentes no `app.css` estão alinhados com a spec
-
-### 1.2 Classes Canônicas
-
-- [ ] Implementar todas as classes canônicas em `@layer components`
-- [ ] Remover classes não-canônicas existentes (se houver)
-- [ ] Documentar qualquer desvio necessário
-
-### 1.3 MDX Base
-
-- [ ] Adicionar `@mdx-js/rollup` ao Vite (`vite.config.ts`)
-- [ ] Criar árvore `app/content/mdx/{en,pt}/notes`
-- [ ] Criar `app/content-index/notes.{en,pt}.ts` com slugs e metadados
-- [ ] Implementar `MDXProvider` e o kit mínimo (Callout, Figure, CodeBlock)
-
-### 1.4 Base Plane
-
-- [ ] Garantir que `html` usa tokens de font, bg, color
-- [ ] Garantir estilos de link (accent, hover)
-- [ ] Garantir `:focus-visible` acessível
-
-### 1.5 Sistema de Iluminação Global
-
-- [ ] Criar `app/lib/elevation.ts` com lógica de iluminação
-- [ ] Implementar cálculo de ângulo e falloff por elemento
-- [ ] Integrar no `entry.client.tsx`
-- [ ] Testar que elementos `.surface` respondem à iluminação
-- [ ] Verificar que NÃO há drop-shadows tradicionais
-
-### Entregáveis Fase 1
-
-- `app/app.css` atualizado com sistema completo
-- `app/lib/elevation.ts` implementado
-- Pipeline MDX configurado e kit mínimo pronto
-- Verificação de que dark mode funciona
-- Verificação de que iluminação global funciona
+**Referencias diretas:** [07-tech-stack.md](./07-tech-stack.md), [10-route-specs.md](./10-route-specs.md), [11-harada-spec.md](./11-harada-spec.md)
 
 ---
 
-## Fase 2 — Componentes Core
+## Fase 1 — Design System Base (Tokens + Classes + Contratos)
 
 > **Status:** 🔲 Pendente
 
-### 2.1 SiteNav
+### 1.1 Tokens fundamentais (design system)
+
+- [ ] Alinhar tokens de cor com [16-color-system-spec.md](./16-color-system-spec.md)
+- [ ] Alinhar tokens tipograficos responsivos com [17-typography-system-spec.md](./17-typography-system-spec.md)
+- [ ] Alinhar tokens de elevacao com [05-elevation-system.md](./05-elevation-system.md)
+- [ ] Implementar tokens de motion conforme [22-motion-policy.md](./22-motion-policy.md)
+- [ ] Implementar tokens de focus overlay conforme [19-focus-transfer-spec.md](./19-focus-transfer-spec.md)
+- [ ] Garantir que `.dark` sobrescreve apenas tokens (sem mudar semantica)
+
+### 1.2 Layout base (mesa vs papel)
+
+- [ ] Implementar tokens de leitura e padding conforme [04-design-system.md](./04-design-system.md)
+- [ ] Garantir `.reading` com `clamp()` e `ch` conforme [08-css-implementation.md](./08-css-implementation.md)
+
+### 1.3 Classes canonicas
+
+- [ ] Implementar classes tipograficas `.t-*` responsivas
+- [ ] Implementar `.surface`, `.tile`, `.page`, `.reading`, `.section`, `.stack-*`
+- [ ] Implementar `.alien`, `.focus-layer`, `.focus-surface`
+
+### 1.4 Base plane e acessibilidade
+
+- [ ] `html` usa tokens de font, bg e cor
+- [ ] `:focus-visible` usa accent sem glow
+- [ ] Links com estados de hover consistentes
+
+### 1.5 Elevacao global
+
+- [ ] Criar `app/lib/elevation.ts`
+- [ ] Injetar `--a`, `--hi`, `--ao`, `--sh` via JS
+- [ ] Validar ausencia de drop-shadow tradicional
+
+### 1.6 MDX base
+
+- [ ] Configurar MDX no Vite
+- [ ] Criar arvore `app/content/mdx/{en,pt}/notes`
+- [ ] Criar `app/content-index/notes.{en,pt}.ts`
+- [ ] Implementar `MDXProvider` com kit minimo
+
+### 1.7 Print styles
+
+- [ ] Adicionar estilos de print conforme [26-publishing-export.md](./26-publishing-export.md)
+- [ ] Garantir que surfaces viram borda leve em print
+
+### Entregaveis Fase 1
+
+- `app/app.css` alinhado a [08-css-implementation.md](./08-css-implementation.md)
+- Tokens completos para light/dark/motion/focus
+- Iluminacao global funcional
+- MDX base funcionando
+
+**Referencias diretas:** [04-design-system.md](./04-design-system.md), [05-elevation-system.md](./05-elevation-system.md), [08-css-implementation.md](./08-css-implementation.md), [16-color-system-spec.md](./16-color-system-spec.md), [17-typography-system-spec.md](./17-typography-system-spec.md), [22-motion-policy.md](./22-motion-policy.md), [19-focus-transfer-spec.md](./19-focus-transfer-spec.md), [26-publishing-export.md](./26-publishing-export.md)
+
+---
+
+## Fase 2 — Componentes Core (Interacao e Estado)
+
+> **Status:** 🔲 Pendente
+
+### 2.1 Navegacao e base
 
 - [ ] Implementar `SiteNav` conforme [09-component-specs.md](./09-component-specs.md)
-- [ ] Garantir acessibilidade (aria-label)
-- [ ] Verificar responsividade (flex-wrap)
+- [ ] Implementar `SkipLink` e garantir foco inicial (ver [21-interaction-spec.md](./21-interaction-spec.md))
 
-### 2.2 Layout Components
+### 2.2 Kit MDX minimo
 
-- [ ] Implementar `PageLayout` (opcional, pode ser inline)
-- [ ] Implementar `PageHeader` (opcional, pode ser inline)
-- [ ] Implementar `Footer`
+- [ ] `Callout` com surface
+- [ ] `Figure` com `.alien` e `.surface`
+- [ ] `CodeBlock` com surface e overflow previsivel
 
-### Entregáveis Fase 2
+### 2.3 Focus Transfer e Engaged
+
+- [ ] Implementar `FocusLayer` e `FocusSurface`
+- [ ] Adicionar foco preso, ESC e click fora
+- [ ] Adicionar scroll lock durante Engaged
+- [ ] Integrar history state para Back fechar
+
+### 2.4 Infra de estado global
+
+- [ ] Definir estado global conforme [20-global-state-contract.md](./20-global-state-contract.md)
+- [ ] Conectar estado Engaged com componentes de midia
+
+### Entregaveis Fase 2
 
 - Componentes em `app/ui/components/`
-- Componentes testados visualmente
+- Foco e navegacao por teclado funcionando
+
+**Referencias diretas:** [09-component-specs.md](./09-component-specs.md), [20-global-state-contract.md](./20-global-state-contract.md), [21-interaction-spec.md](./21-interaction-spec.md), [19-focus-transfer-spec.md](./19-focus-transfer-spec.md)
 
 ---
 
-## Fase 3 — Rotas Principais
+## Fase 3 — Rotas Principais (IA + Conteudo Base)
 
 > **Status:** 🔲 Pendente
 
-### 3.1 Home (`/`)
+### 3.1 Alinhamento de arquitetura
 
-- [ ] Implementar conforme [10-route-specs.md](./10-route-specs.md)
-- [ ] Usar estrutura base
-- [ ] Incluir surface para "Start here"
-- [ ] Incluir SiteNav e Footer
+- [ ] Confirmar estrutura das rotas em [02-information-architecture.md](./02-information-architecture.md)
+- [ ] Garantir URLs estaveis por idioma
 
-### 3.2 How I Work (`/how-i-work`)
+### 3.2 Rotas core
 
-- [ ] Implementar estrutura base
-- [ ] Adicionar conteúdo do "manual operacional"
-- [ ] Garantir hierarquia tipográfica clara
+- [ ] Home (`/`) conforme [10-route-specs.md](./10-route-specs.md)
+- [ ] How I Work (`/how-i-work`)
+- [ ] Principles (`/principles`) com anchors
+- [ ] About (`/about`)
+- [ ] Projects (`/projects`)
+- [ ] Uses (`/uses`)
+- [ ] Contact (`/contact`)
 
-### 3.3 About (`/about`)
+### 3.3 Notes (MDX)
 
-- [ ] Implementar estrutura base
-- [ ] Criar conteúdo factual
+- [ ] Lista `/notes` via `content-index`
+- [ ] Paginas `/notes/:slug` por idioma
+- [ ] Garantir `.reading` e `.t-*` em MDX
 
-### 3.4 Principles (`/principles`)
+### 3.4 i18n e prerender
 
-- [ ] Implementar estrutura base
-- [ ] Definir e adicionar lista de princípios
+- [ ] Prefixar rotas com `/:lang(en|pt)`
+- [ ] Gerar lista no `prerender()` com base em `content-index`
+- [ ] Validar fallback para `/en`
 
-### 3.5 Projects (`/projects`)
+### 3.5 Encontrabilidade e anchors
 
-- [ ] Implementar estrutura base
-- [ ] Definir lista de projetos/casos
+- [ ] IDs estaveis para secoes longas
+- [ ] Foco no heading ao navegar por hash
 
-### 3.6 Uses (`/uses`)
-
-- [ ] Implementar estrutura base
-- [ ] Definir categorias de ferramentas
-
-### 3.7 Contact (`/contact`)
-
-- [ ] Implementar estrutura base
-- [ ] Definir canais de contato
-
-### 3.8 Notes (`/notes`)
-
-- [ ] Implementar listagem via `content-index`
-- [ ] Renderizar MDX com `MDXProvider`
-
-### 3.9 Rotas por Idioma + Prerender
-
-- [ ] Prefixar rotas públicas com `/:lang(en|pt)`
-- [ ] Gerar lista de rotas no `prerender()` com base em `content-index`
-- [ ] Validar fallback para `/en` quando idioma não existe
-
-### Entregáveis Fase 3
+### Entregaveis Fase 3
 
 - Todas as rotas principais funcionando
-- Navegação entre rotas funcional
+- Navegacao entre rotas funcional
+- Anchor navigation consistente
+
+**Referencias diretas:** [02-information-architecture.md](./02-information-architecture.md), [10-route-specs.md](./10-route-specs.md), [23-findability-navigation.md](./23-findability-navigation.md)
 
 ---
 
 ## Fase 4 — Harada (Refinamento)
 
-> **Status:** 🔄 Em progresso (base já existe)
+> **Status:** 🔄 Em progresso
 
-### 4.1 Verificação
+### 4.1 Verificacao de contrato
 
-- [ ] Verificar se implementação atual está alinhada com [11-harada-spec.md](./11-harada-spec.md)
-- [ ] Garantir validação de schema
-- [ ] Garantir normalização determinística
+- [ ] Carregar `index.json` e resolver versao
+- [ ] Validar schema e limites
+- [ ] Normalizar grid deterministico
 
-### 4.2 UI
+### 4.2 UI e acessibilidade
 
-- [ ] Aplicar classes canônicas (`.surface`, `.tile`, etc.)
-- [ ] Verificar tooltips acessíveis
-- [ ] Verificar layout print-friendly
+- [ ] Aplicar classes canonicas (`.surface`, `.tile`)
+- [ ] Tooltips acessiveis
+- [ ] Print-friendly para export
 
 ### 4.3 SEO
 
-- [ ] Verificar meta tags noindex
-- [ ] Verificar header X-Robots-Tag
-- [ ] Verificar robots.txt
+- [ ] Meta `noindex, nofollow`
+- [ ] Header `X-Robots-Tag`
+- [ ] `robots.txt` bloqueando `/harada`
 
-### Entregáveis Fase 4
+### Entregaveis Fase 4
 
 - Rota `/harada` alinhada com spec
-- Testes de normalização (opcional)
+- Pipeline de validacao completo
+
+**Referencias diretas:** [11-harada-spec.md](./11-harada-spec.md), [26-publishing-export.md](./26-publishing-export.md)
 
 ---
 
-## Fase 5 — Qualidade
+## Fase 5 — Qualidade, Politicas e Resiliencia
 
 > **Status:** 🔲 Pendente
 
-### 5.1 Acessibilidade
+### 5.1 Acessibilidade e interacao
 
-- [ ] Verificar contraste WCAG AA
-- [ ] Validar pares de contraste definidos no [16-color-system-spec.md](./16-color-system-spec.md)
-- [ ] Verificar navegação por teclado
-- [ ] Verificar ordem de headings
-- [ ] Verificar aria-labels
+- [ ] Navegacao por teclado em todas as rotas
+- [ ] Foco nao obscurecido (anchors e overlays)
+- [ ] Ordem de headings valida
 
-### 5.2 Performance
+### 5.2 Focus Transfer e Engaged
 
-- [ ] Verificar bundle size
+- [ ] Engaged nunca ocorre sem acao explicita
+- [ ] ESC e Back sempre fecham
+- [ ] Scroll lock consistente
+
+### 5.3 Motion
+
+- [ ] Reduced motion respeitado em todas as transicoes
+- [ ] Sem bounce/overshoot
+
+### 5.4 Aliens e fallback
+
+- [ ] Todos os aliens em `.surface` com `.alien`
+- [ ] Fallback textual para falhas
+- [ ] Captions consistentes
+
+### 5.5 Resiliencia de carregamento
+
+- [ ] Estados Idle/Loading/Ready/Empty/Error implementados
+- [ ] Mensagens curtas e factuais
+
+### 5.6 Print e export
+
+- [ ] Print styles validados
+- [ ] Export (se aplicavel) discreto e em `.t-meta`
+
+### 5.7 Performance
+
+- [ ] Validar LCP, CLS e FID conforme [15-success-criteria.md](./15-success-criteria.md)
 - [ ] Verificar font loading (Inter)
-- [ ] Verificar Core Web Vitals
+- [ ] Validar bundle size
 
-### 5.3 Dark Mode
+### 5.8 Dark Mode
 
-- [ ] Implementar toggle
+- [ ] Implementar toggle (decisao em [13-decisions.md](./13-decisions.md))
 - [ ] Testar todos os tokens em dark mode
 - [ ] Verificar contraste em dark mode
 
-### 5.4 i18n
+### 5.9 i18n
 
-- [ ] Verificar textos traduzidos
-- [ ] Garantir fallback para inglês
-- [ ] Confirmar que as traduções em português (PT-BR) estão completas para cada rota
+- [ ] Garantir fallback para ingles
+- [ ] Verificar textos traduzidos por rota
 
-### Entregáveis Fase 5
+### Entregaveis Fase 5
 
-- Site acessível e performático
-- Dark mode funcional
+- Interacao consistente
+- Resiliencia comprovada
+- Print sem ruido
+
+**Referencias diretas:** [14-pr-checklist.md](./14-pr-checklist.md), [15-success-criteria.md](./15-success-criteria.md), [13-decisions.md](./13-decisions.md), [21-interaction-spec.md](./21-interaction-spec.md), [19-focus-transfer-spec.md](./19-focus-transfer-spec.md), [22-motion-policy.md](./22-motion-policy.md), [18-alien-elements-spec.md](./18-alien-elements-spec.md), [25-aliens-catalog.md](./25-aliens-catalog.md), [24-resilience-loading-error.md](./24-resilience-loading-error.md), [26-publishing-export.md](./26-publishing-export.md)
 
 ---
 
-## Fase 6 — Conteúdo
+## Fase 6 — Conteudo e Traducoes
 
 > **Status:** 🔲 Pendente
 
-### 6.1 Textos
+### 6.1 Conteudo
 
-- [ ] Escrever conteúdo completo de `/how-i-work`
-- [ ] Escrever conteúdo de `/about`
+- [ ] Escrever `/how-i-work`
+- [ ] Escrever `/about`
 - [ ] Definir e escrever `/principles`
-- [ ] Criar primeira nota para `/notes`
+- [ ] Escrever `/projects`, `/uses`, `/contact`
+- [ ] Criar primeira nota em `/notes`
 
-### 6.2 Traduções
+### 6.2 Traducoes
 
-- [ ] Garantir que cada rota tenha texto completo em inglês e PT-BR
-- [ ] Verificar arquivos em `public/locales/` e manter a sincronização entre as versões
+- [ ] Garantir EN + PT-BR completos
+- [ ] Verificar `public/locales/` e MDX por idioma
 
-### Entregáveis Fase 6
+### Entregaveis Fase 6
 
-- Site com conteúdo completo
-- Traduções atualizadas
+- Conteudo completo
+- Traducoes alinhadas
+
+**Referencias diretas:** [02-information-architecture.md](./02-information-architecture.md), [13-decisions.md](./13-decisions.md)
 
 ---
 
-## Fase 7 — Deploy & Launch
+## Fase 7 — Deploy e Launch
 
 > **Status:** 🔲 Pendente
 
-### 7.1 Verificações Finais
+### 7.1 Validacoes finais
 
 - [ ] Rodar checklist de PR completo
-- [ ] Verificar todos os critérios de sucesso
-- [ ] Testar em múltiplos browsers
+- [ ] Verificar criterios de sucesso
+- [ ] Testar em multiplos browsers
 - [ ] Testar em mobile
 
 ### 7.2 Deploy
 
 - [ ] Deploy para Cloudflare Workers
-- [ ] Verificar domínio/DNS
+- [ ] Verificar dominio/DNS
 - [ ] Verificar HTTPS
 
 ### 7.3 Monitoramento
@@ -268,10 +362,12 @@ O repositório já possui:
 - [ ] Configurar analytics (se desejado)
 - [ ] Verificar logs de erro
 
-### Entregáveis Fase 7
+### Entregaveis Fase 7
 
-- Site live em produção
-- Documentação final atualizada
+- Site live em producao
+- Documentacao final atualizada
+
+**Referencias diretas:** [14-pr-checklist.md](./14-pr-checklist.md), [15-success-criteria.md](./15-success-criteria.md), [07-tech-stack.md](./07-tech-stack.md)
 
 ---
 
@@ -279,31 +375,31 @@ O repositório já possui:
 
 | Fase | Nome | Status |
 | ---- | ---- | ------ |
-| 0 | Fundação | ✅ Completo |
+| 0 | Fundacao | ✅ Completo |
 | 1 | Design System Base | 🔲 Pendente |
 | 2 | Componentes Core | 🔲 Pendente |
 | 3 | Rotas Principais | 🔲 Pendente |
 | 4 | Harada | 🔄 Em progresso |
 | 5 | Qualidade | 🔲 Pendente |
-| 6 | Conteúdo | 🔲 Pendente |
-| 7 | Deploy & Launch | 🔲 Pendente |
+| 6 | Conteudo | 🔲 Pendente |
+| 7 | Deploy e Launch | 🔲 Pendente |
 
 ---
 
-## Próximos Passos Imediatos
+## Proximos Passos Imediatos
 
-1. **Revisar decisões pendentes** em [13-decisions.md](./13-decisions.md)
-2. **Iniciar Fase 1** — Atualizar `app/app.css` com tokens completos
-3. **Validar** que dark mode funciona após atualização
+1. **Iniciar Fase 1**: alinhar tokens e classes com [08-css-implementation.md](./08-css-implementation.md)
+2. **Implementar motion e focus overlay** conforme [22-motion-policy.md](./22-motion-policy.md) e [19-focus-transfer-spec.md](./19-focus-transfer-spec.md)
+3. **Configurar MDX base** e kit minimo
 
 ---
 
-## Critérios para Avançar de Fase
+## Criterios para Avancar de Fase
 
-Antes de avançar para a próxima fase:
+Antes de avancar para a proxima fase:
 
-- [ ] Todos os itens da fase atual estão ✅
+- [ ] Todos os itens da fase atual estao ✅
 - [ ] Nenhum erro de lint/type
 - [ ] `npm run biome:check` passa
 - [ ] `npm run typecheck` passa
-- [ ] Verificação visual em browser
+- [ ] Verificacao visual em browser
