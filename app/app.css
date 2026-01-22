@@ -204,6 +204,27 @@ p {
     margin-top: var(--space-xl);
   }
 
+  .surface-pad {
+    padding: var(--space-md);
+  }
+
+  .callout-neutral {
+    border-left: 2px solid var(--accent-muted);
+  }
+
+  .callout-warning {
+    border-left: 2px solid var(--text-primary);
+    background: var(--bg-surface-muted);
+  }
+
+  .code-block {
+    overflow-x: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
   .nav-row {
     display: flex;
     flex-wrap: wrap;

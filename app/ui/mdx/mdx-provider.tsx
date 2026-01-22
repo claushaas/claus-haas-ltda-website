@@ -1,5 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
 import type { ComponentProps, ReactNode } from 'react';
+import { Callout } from './callout';
+import { CodeBlock, Figure } from './figure';
 
 const Heading1 = ({ className, ...props }: ComponentProps<'h1'>) => (
 	<h1
@@ -52,6 +54,9 @@ type ProviderProps = {
 export const AppMdxProvider = ({ children }: ProviderProps) => (
 	<MDXProvider
 		components={{
+			Callout,
+			CodeBlock,
+			Figure,
 			h1: Heading1,
 			h2: Heading2,
 			h3: Heading3,
