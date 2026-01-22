@@ -156,10 +156,10 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 2.3 Focus Transfer e Engaged
 
-- [ ] Implementar `FocusLayer` e `FocusSurface`
-- [ ] Adicionar foco preso, ESC e click fora
-- [ ] Adicionar scroll lock durante Engaged
-- [ ] Integrar history state para Back fechar
+- [x] Implementar `FocusLayer` e `FocusSurface`
+- [x] Adicionar foco preso, ESC e click fora
+- [x] Adicionar scroll lock durante Engaged
+- [x] Integrar history state para Back fechar
 
 ### 2.4 Infra de estado global
 
