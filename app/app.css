@@ -56,6 +56,14 @@
   --line-body: 1.7;
   --line-heading: 1.4;
   --line-meta: 1.5;
+
+  /* Reading width + adaptive padding */
+  --reading-min: 45ch;
+  --reading-ideal: 68ch;
+  --reading-max: 78ch;
+  --pad-min: 1rem;
+  --pad-ideal: 2rem;
+  --pad-max: 3rem;
 }
 
 .dark {
@@ -98,6 +106,13 @@ html {
 
 main, section {
   @apply mb-20;
+}
+
+.reading {
+  width: min(100%, clamp(var(--reading-min), 90vw, var(--reading-max)));
+  max-width: var(--reading-max);
+  margin-inline: auto;
+  padding-inline: clamp(var(--pad-min), 4vw, var(--pad-max));
 }
 
 h1, h2, h3, h4, h5, h6 {
