@@ -169,7 +169,7 @@ Opção 2 (EN + PT-BR), já que o setup existe. Mas garantir que fallback para E
 
 ### DP-007: Valores de Cor Finais
 
-**Status:** 🔴 PENDENTE
+**Status:** ✅ DECIDIDO
 
 **Contexto:**  
 Os valores HEX definidos nos tokens são adequados?
@@ -183,10 +183,10 @@ Os valores HEX definidos nos tokens são adequados?
 | Contraste | Verificar WCAG AA |
 
 **Recomendação:**  
-Manter HEX por simplicidade. Verificar contraste após implementação.
+Usar OKLCH como formato primário, com fallback em rgba apenas quando necessário. Seguir o [16-color-system-spec.md](./16-color-system-spec.md) e verificar contraste após implementação.
 
 **Decisão:**  
-<!-- Preencher quando decidido -->
+Valores finais definidos no [16-color-system-spec.md](./16-color-system-spec.md) (H=260, OKLCH, tokens completos e validação de contraste).
 
 ---
 

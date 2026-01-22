@@ -106,6 +106,8 @@ Isso significa:
 
 > Cor é semântica, não expressão.
 
+Ver [16-color-system-spec.md](./16-color-system-spec.md) para as regras não-negociáveis e tokens oficiais.
+
 ### Princípios
 
 - Hierarquia é dirigida por **luminosidade**, não saturação

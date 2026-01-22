@@ -19,6 +19,8 @@ Este checklist garante que cada mudança no código mantém a integridade do sis
 - [ ] Não introduziu cores fora dos tokens definidos
 - [ ] Não usou valores HEX/RGB inline
 - [ ] Accent usado apenas para links e focus
+- [ ] OKLCH como formato primário (ver [16-color-system-spec.md](./16-color-system-spec.md))
+- [ ] Contraste validado nos pares exigidos do spec
 
 ### 2. Sombras e Bordas
 

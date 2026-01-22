@@ -24,25 +24,33 @@ O CSS segue a abordagem **CSS-first** do Tailwind v4:
    DESIGN SYSTEM TOKENS
    =========================== */
 
+/* Ver 16-color-system-spec.md para invariantes, tabela LxC e validação de contraste. */
+
 :root {
-  /* --- Cores: Light Mode --- */
+  /* --- Cores: Light Mode (OKLCH first, rgba fallback quando necessário) --- */
   
   /* Base Environment (mesa de trabalho) */
-  --bg-base: #f6f7f9;
-  --bg-base-subtle: #eef1f5;
+  --bg-base: oklch(0.96 0.010 260);
+  --bg-base-subtle: oklch(0.94 0.012 260);
 
   /* Elevated Surface (papel sobre papel) */
-  --bg-surface: #ffffff;
-  --bg-surface-muted: #f9fafb;
+  --bg-surface: oklch(0.99 0.005 260);
+  --bg-surface-muted: oklch(0.975 0.007 260);
+  --bg-tile: oklch(0.965 0.008 260);
 
   /* Text */
-  --text-primary: #111827;
-  --text-secondary: #374151;
-  --text-muted: #6b7280;
+  --text-heading-color: oklch(0.18 0.020 260);
+  --text-primary: oklch(0.22 0.020 260);
+  --text-secondary: oklch(0.35 0.015 260);
+  --text-muted: oklch(0.48 0.010 260);
 
   /* Accent (azul) */
-  --accent-primary: #2563eb;
-  --accent-muted: #3b82f6;
+  --accent-primary: oklch(0.60 0.14 260);
+  --accent-muted: oklch(0.68 0.14 260);
+  --accent-strong: oklch(0.52 0.16 260);
+
+  /* Borders/separators (uso raro) */
+  --border-subtle: oklch(0.88 0.012 260);
 
   /* --- Elevação (Sistema de Iluminação Global) --- */
   /* Ver 05-elevation-system.md para detalhes completos */
@@ -90,18 +98,23 @@ O CSS segue a abordagem **CSS-first** do Tailwind v4:
 
 /* --- Dark Mode --- */
 .dark {
-  --bg-base: #0f172a;
-  --bg-base-subtle: #020617;
+  --bg-base: oklch(0.16 0.020 260);
+  --bg-base-subtle: oklch(0.13 0.020 260);
 
-  --bg-surface: #111827;
-  --bg-surface-muted: #1f2933;
+  --bg-surface: oklch(0.20 0.020 260);
+  --bg-surface-muted: oklch(0.23 0.018 260);
+  --bg-tile: oklch(0.26 0.016 260);
 
-  --text-primary: #e5e7eb;
-  --text-secondary: #cbd5e1;
-  --text-muted: #9ca3af;
+  --text-heading-color: oklch(0.95 0.010 260);
+  --text-primary: oklch(0.92 0.010 260);
+  --text-secondary: oklch(0.84 0.012 260);
+  --text-muted: oklch(0.72 0.010 260);
 
-  --accent-primary: #60a5fa;
-  --accent-muted: #93c5fd;
+  --accent-primary: oklch(0.60 0.14 260);
+  --accent-muted: oklch(0.68 0.14 260);
+  --accent-strong: oklch(0.52 0.16 260);
+
+  --border-subtle: oklch(0.30 0.016 260);
 
   /* Dark mode: elevação por luminosidade, menos oclusão */
   --hi: 0.10;
@@ -288,7 +301,7 @@ a:hover {
   /* tile: muted paper within paper */
   .tile {
     border-radius: var(--radius-surface);
-    background: var(--bg-surface-muted);
+    background: var(--bg-tile);
     padding: var(--space-xs);
   }
 }
@@ -444,14 +457,20 @@ export default {
         accent: {
           DEFAULT: 'var(--accent-primary)',
           muted: 'var(--accent-muted)',
+          strong: 'var(--accent-strong)',
         },
         bg: {
           base: 'var(--bg-base)',
           subtle: 'var(--bg-base-subtle)',
           surface: 'var(--bg-surface)',
           'surface-muted': 'var(--bg-surface-muted)',
+          tile: 'var(--bg-tile)',
+        },
+        border: {
+          subtle: 'var(--border-subtle)',
         },
         text: {
+          heading: 'var(--text-heading-color)',
           primary: 'var(--text-primary)',
           secondary: 'var(--text-secondary)',
           muted: 'var(--text-muted)',

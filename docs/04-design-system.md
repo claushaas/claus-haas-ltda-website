@@ -74,13 +74,15 @@ Subseções dependem de espaçamento, não de inflação de tamanho.
 
 Todas as cores são intencionalmente frias e levemente azuladas.
 Sem neutros puros.
+Preferir OKLCH como formato primário, com fallback em rgba apenas quando necessário.
+Valores oficiais e regras completas estão em [16-color-system-spec.md](./16-color-system-spec.md).
 
 ### Ambiente Base
 
 | Token | Valor | Uso |
 | ----- | ----- | --- |
-| `--bg-base` | `#f6f7f9` | Background principal |
-| `--bg-base-subtle` | `#eef1f5` | Background sutil |
+| `--bg-base` | `oklch(0.96 0.010 260)` | Background principal |
+| `--bg-base-subtle` | `oklch(0.94 0.012 260)` | Background sutil |
 
 O base representa a superfície da mesa.
 
@@ -88,8 +90,10 @@ O base representa a superfície da mesa.
 
 | Token | Valor | Uso |
 | ----- | ----- | --- |
-| `--bg-surface` | `#ffffff` | Papel sobre papel |
-| `--bg-surface-muted` | `#f9fafb` | Superfície muted |
+| `--bg-surface` | `oklch(0.99 0.005 260)` | Papel sobre papel |
+| `--bg-surface-muted` | `oklch(0.975 0.007 260)` | Superfície muted |
+| `--bg-tile` | `oklch(0.965 0.008 260)` | Tile interno |
+| `--border-subtle` | `oklch(0.88 0.012 260)` | Separadores mínimos |
 
 A diferença deve ser sutil mas perceptível.
 
@@ -97,9 +101,10 @@ A diferença deve ser sutil mas perceptível.
 
 | Token | Valor | Uso |
 | ----- | ----- | --- |
-| `--text-primary` | `#111827` | Texto principal |
-| `--text-secondary` | `#374151` | Texto secundário |
-| `--text-muted` | `#6b7280` | Texto terciário, meta |
+| `--text-heading-color` | `oklch(0.18 0.020 260)` | Heading forte |
+| `--text-primary` | `oklch(0.22 0.020 260)` | Texto principal |
+| `--text-secondary` | `oklch(0.35 0.015 260)` | Texto secundário |
+| `--text-muted` | `oklch(0.48 0.010 260)` | Texto terciário, meta |
 
 Cada papel de texto deve ser visualmente inequívoco.
 Se dois papéis parecem similares, a hierarquia falhou.
@@ -108,8 +113,9 @@ Se dois papéis parecem similares, a hierarquia falhou.
 
 | Token | Valor | Uso |
 | ----- | ----- | --- |
-| `--accent-primary` | `#2563eb` | Links, focus |
-| `--accent-muted` | `#3b82f6` | Hover states |
+| `--accent-primary` | `oklch(0.60 0.14 260)` | Links, focus |
+| `--accent-muted` | `oklch(0.68 0.14 260)` | Hover states |
+| `--accent-strong` | `oklch(0.52 0.16 260)` | Pressed (raro) |
 
 Accent é usado **apenas** para:
 
@@ -127,15 +133,17 @@ Dark mode preserva o mesmo modelo físico.
 
 | Token | Valor |
 | ----- | ----- |
-| `--bg-base` | `#0f172a` |
-| `--bg-base-subtle` | `#020617` |
+| `--bg-base` | `oklch(0.16 0.020 260)` |
+| `--bg-base-subtle` | `oklch(0.13 0.020 260)` |
 
 ### Superfície Elevada
 
 | Token | Valor |
 | ----- | ----- |
-| `--bg-surface` | `#111827` |
-| `--bg-surface-muted` | `#1f2933` |
+| `--bg-surface` | `oklch(0.20 0.020 260)` |
+| `--bg-surface-muted` | `oklch(0.23 0.018 260)` |
+| `--bg-tile` | `oklch(0.26 0.016 260)` |
+| `--border-subtle` | `oklch(0.30 0.016 260)` |
 
 Elevação em dark mode é percebida primariamente através de luminosidade, não sombra.
 
@@ -143,16 +151,18 @@ Elevação em dark mode é percebida primariamente através de luminosidade, nã
 
 | Token | Valor |
 | ----- | ----- |
-| `--text-primary` | `#e5e7eb` |
-| `--text-secondary` | `#cbd5e1` |
-| `--text-muted` | `#9ca3af` |
+| `--text-heading-color` | `oklch(0.95 0.010 260)` |
+| `--text-primary` | `oklch(0.92 0.010 260)` |
+| `--text-secondary` | `oklch(0.84 0.012 260)` |
+| `--text-muted` | `oklch(0.72 0.010 260)` |
 
 ### Accent
 
 | Token | Valor |
 | ----- | ----- |
-| `--accent-primary` | `#60a5fa` |
-| `--accent-muted` | `#93c5fd` |
+| `--accent-primary` | `oklch(0.60 0.14 260)` |
+| `--accent-muted` | `oklch(0.68 0.14 260)` |
+| `--accent-strong` | `oklch(0.52 0.16 260)` |
 
 **Efeitos de glow são explicitamente proibidos.**
 

@@ -178,6 +178,7 @@ O repositório já possui:
 ### 5.1 Acessibilidade
 
 - [ ] Verificar contraste WCAG AA
+- [ ] Validar pares de contraste definidos no [16-color-system-spec.md](./16-color-system-spec.md)
 - [ ] Verificar navegação por teclado
 - [ ] Verificar ordem de headings
 - [ ] Verificar aria-labels

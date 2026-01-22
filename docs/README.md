@@ -30,6 +30,7 @@ Esta pasta contém a documentação completa para a implementação da versão 0
 | [13-decisions.md](./13-decisions.md) | Decisões pendentes e log de decisões |
 | [14-pr-checklist.md](./14-pr-checklist.md) | Checklist de qualidade para PRs |
 | [15-success-criteria.md](./15-success-criteria.md) | Critérios de sucesso e validação |
+| [16-color-system-spec.md](./16-color-system-spec.md) | Especificação completa do sistema de cores (OKLCH) |
 
 ---
 
