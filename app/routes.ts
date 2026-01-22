@@ -10,6 +10,8 @@ export default [
 		route('projects', './routes/projects.tsx'),
 		route('uses', './routes/uses.tsx'),
 		route('contact', './routes/contact.tsx'),
+		route('notes', './routes/notes.tsx'),
+		route('notes/:slug', './routes/notes.$slug.tsx'),
 		route('harada', './routes/harada.tsx'),
 		route('palette-kit', './routes/palette-kit.tsx'),
 	]),

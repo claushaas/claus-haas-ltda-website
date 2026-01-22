@@ -196,9 +196,9 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 3.3 Notes (MDX)
 
-- [ ] Lista `/notes` via `content-index`
-- [ ] Paginas `/notes/:slug` por idioma
-- [ ] Garantir `.reading` e `.t-*` em MDX
+- [x] Lista `/notes` via `content-index`
+- [x] Paginas `/notes/:slug` por idioma
+- [x] Garantir `.reading` e `.t-*` em MDX
 
 ### 3.4 i18n e prerender
 

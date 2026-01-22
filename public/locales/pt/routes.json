@@ -15,6 +15,12 @@
 		"placeholder": "Conteúdo em breve.",
 		"title": "Como eu trabalho"
 	},
+	"notes": {
+		"description": "Pensamento em movimento. Ensaios, frameworks e reflexões.",
+		"empty": "Nenhuma nota publicada ainda.",
+		"notFound": "Nota não encontrada.",
+		"title": "Notas"
+	},
 	"principles": {
 		"description": "O que não muda independentemente do contexto.",
 		"placeholder": "Conteúdo em breve.",
