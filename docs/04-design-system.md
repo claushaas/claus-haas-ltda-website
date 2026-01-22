@@ -318,6 +318,20 @@ Regras completas em [19-focus-transfer-spec.md](./19-focus-transfer-spec.md).
 
 ---
 
+## Motion (Animacao como Explicacao)
+
+Animacao nao e ornamento. Ela explica mudancas de estado.
+Regras completas em [22-motion-policy.md](./22-motion-policy.md).
+
+---
+
+## Resiliencia (Load/Error/Empty)
+
+Estados de carga e falha sao parte do sistema.
+Regras completas em [24-resilience-loading-error.md](./24-resilience-loading-error.md).
+
+---
+
 ## Regra de Integridade
 
 > **Se uma decisão visual não cabe nos tokens existentes, ela é inválida.**

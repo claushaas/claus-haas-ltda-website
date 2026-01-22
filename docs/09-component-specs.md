@@ -76,6 +76,34 @@ Nenhuma variação é permitida. O componente é fixo.
 
 ---
 
+## SkipLink
+
+Link de acessibilidade para pular direto ao conteudo principal.
+
+### Especificacao
+
+| Aspecto | Valor |
+| ------- | ----- |
+| **Propósito** | Pular para o conteudo principal |
+| **Posicao** | Primeiro item focavel da pagina |
+| **Destino** | `#main-content` (ou id equivalente) |
+
+### Implementacao
+
+```tsx
+export function SkipLink() {
+  return (
+    <a className="t-meta" href="#main-content">
+      Pular para o conteudo
+    </a>
+  );
+}
+```
+
+**Nota:** ver [21-interaction-spec.md](./21-interaction-spec.md) para regras de foco e navegacao.
+
+---
+
 ## Kit Mínimo de Componentes MDX
 
 Componentes MDX são **funcionais e silenciosos**. Sem ornamento. Sem layout “hero”. Eles existem para esclarecer o conteúdo.
@@ -158,6 +186,34 @@ export function CodeBlock({ code, language, caption }: CodeBlockProps) {
 **Nota:** code blocks com syntax highlight sao alienigenas e devem respeitar contencao.
 
 **Nota:** integrar via `MDXProvider` em `app/ui/mdx/mdx-provider.tsx` para mapear `Callout`, `Figure` e `CodeBlock` no render.
+
+---
+
+## FocusLayer
+
+Wrapper semantico para estado Engaged (foco transferido).
+
+### Especificacao
+
+| Aspecto | Valor |
+| ------- | ----- |
+| **Propósito** | Overlay de foco + superficie ativa |
+| **Classe** | `.focus-layer` e `.focus-surface` |
+| **Uso** | Apenas no estado Engaged |
+
+### Implementacao (Conceitual)
+
+```tsx
+export function FocusLayer({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="focus-layer" role="dialog" aria-modal="true">
+      <div className="focus-surface surface surface-pad">{children}</div>
+    </div>
+  );
+}
+```
+
+**Nota:** comportamento de foco e scroll lock em [19-focus-transfer-spec.md](./19-focus-transfer-spec.md).
 
 ---
 

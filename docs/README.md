@@ -34,6 +34,13 @@ Esta pasta contém a documentação completa para a implementação da versão 0
 | [17-typography-system-spec.md](./17-typography-system-spec.md) | Especificação completa do sistema tipográfico responsivo |
 | [18-alien-elements-spec.md](./18-alien-elements-spec.md) | Especificação de contenção para embeds e mídias externas |
 | [19-focus-transfer-spec.md](./19-focus-transfer-spec.md) | Especificação de transferência de foco para mídias ativas |
+| [20-global-state-contract.md](./20-global-state-contract.md) | Contrato de estado global (desk, paper, focus) |
+| [21-interaction-spec.md](./21-interaction-spec.md) | Especificação de interações (teclado, foco, navegação) |
+| [22-motion-policy.md](./22-motion-policy.md) | Política de motion e reduced motion |
+| [23-findability-navigation.md](./23-findability-navigation.md) | Encontrabilidade e navegação (âncoras, busca) |
+| [24-resilience-loading-error.md](./24-resilience-loading-error.md) | Resiliência: loading, error, empty e falhas de aliens |
+| [25-aliens-catalog.md](./25-aliens-catalog.md) | Catálogo de aliens e casos críticos |
+| [26-publishing-export.md](./26-publishing-export.md) | Publicação, print e exportação |
 
 ---
 

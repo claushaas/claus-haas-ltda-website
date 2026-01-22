@@ -20,6 +20,7 @@ Relacionamentos diretos:
 - Tokens e classes canonicamente usados vivem em [08-css-implementation.md](./08-css-implementation.md)
 - A hierarquia textual e definida em [06-semantic-text.md](./06-semantic-text.md)
 - A logica de planos (mesa + papel) vive em [05-elevation-system.md](./05-elevation-system.md)
+- Casos criticos vivem em [25-aliens-catalog.md](./25-aliens-catalog.md)
 
 ---
 

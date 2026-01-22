@@ -28,6 +28,8 @@ Relacionamentos diretos:
 - Contencao de alienigenas em [18-alien-elements-spec.md](./18-alien-elements-spec.md)
 - Hierarquia textual em [06-semantic-text.md](./06-semantic-text.md)
 - Tokens e classes em [08-css-implementation.md](./08-css-implementation.md)
+- Contrato de estado global em [20-global-state-contract.md](./20-global-state-contract.md)
+- Motion e reduced motion em [22-motion-policy.md](./22-motion-policy.md)
 
 ---
 

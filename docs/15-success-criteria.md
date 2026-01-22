@@ -140,7 +140,25 @@
 
 ---
 
-### 8. Estabilidade
+### 8. Foco Intencional
+
+**Critério:** O foco muda apenas quando o usuario escolhe.
+
+**Como validar:**
+
+- Engaged so ocorre por acao explicita
+- Overlay e motion sao discretos
+- Escape e Back desfazem o estado
+
+**Indicadores de sucesso:**
+
+- [ ] Nenhum takeover inesperado
+- [ ] Usuarios entendem que estao \"segurando\" o conteudo
+- [ ] Reduced motion nao quebra o fluxo
+
+---
+
+### 9. Estabilidade
 
 **Critério:** Nenhum bug visual ou funcional.
 
@@ -161,7 +179,7 @@
 
 ## Critérios Qualitativos
 
-### 9. Sensação
+### 10. Sensação
 
 **O site deve sentir:**
 
@@ -180,7 +198,7 @@
 
 ---
 
-### 10. Hierarquia Óbvia
+### 11. Hierarquia Óbvia
 
 **Critério:** A hierarquia é óbvia sem esforço.
 

@@ -55,6 +55,13 @@ O CSS segue a abordagem **CSS-first** do Tailwind v4:
   /* Focus overlay (ver 19-focus-transfer-spec.md) */
   --focus-overlay: oklch(0.22 0.02 260 / 0.45);
 
+  /* Motion tokens (ver 22-motion-policy.md) */
+  --motion-fast: 120ms;
+  --motion-medium: 180ms;
+  --motion-slow: 240ms;
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
   /* --- Elevação (Sistema de Iluminação Global) --- */
   /* Ver 05-elevation-system.md para detalhes completos */
   --radius-surface: 6px;
@@ -134,6 +141,14 @@ O CSS segue a abordagem **CSS-first** do Tailwind v4:
   --hi: 0.10;
   --ao: 0.08;
   --sh: 0.04;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 1ms;
+    --motion-medium: 1ms;
+    --motion-slow: 1ms;
+  }
 }
 
 /* ===========================
@@ -496,6 +511,37 @@ import { initElevation } from '~/lib/elevation';
 
 // ... após hydration
 initElevation();
+```
+
+---
+
+## Print Styles
+
+Print deve manter hierarquia e remover ruido visual.
+Ver [26-publishing-export.md](./26-publishing-export.md).
+
+```css
+@media print {
+  html {
+    background: #fff;
+    color: #000;
+  }
+
+  .page {
+    background: #fff;
+  }
+
+  .surface {
+    box-shadow: none;
+    background: transparent;
+    border: 1px solid #ccc;
+  }
+
+  .nav-row,
+  nav {
+    display: none;
+  }
+}
 ```
 
 ---

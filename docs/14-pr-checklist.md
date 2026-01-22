@@ -48,19 +48,26 @@ Este checklist garante que cada mudança no código mantém a integridade do sis
 - [ ] Sem múltiplos níveis de elevação
 - [ ] Sem animações de elevação
 
-### 6. Layout
+### 6. Motion e Foco
+
+- [ ] Motion respeita [22-motion-policy.md](./22-motion-policy.md)
+- [ ] Reduced motion funciona
+- [ ] Engaged segue [19-focus-transfer-spec.md](./19-focus-transfer-spec.md)
+- [ ] Scroll lock e focus trap corretos quando aplicavel
+
+### 7. Layout
 
 - [ ] Usou classes canônicas (`.page`, `.reading`, `.section`)
-- [ ] Largura de leitura respeitada (~72ch)
+- [ ] Largura de leitura respeitada (~60–75ch)
 - [ ] Responsividade funciona
 
-### 7. Componentes
+### 8. Componentes
 
 - [ ] Não introduziu componentes proibidos (ver lista abaixo)
 - [ ] Componentes novos usam apenas classes canônicas
 - [ ] Componentes documentados se novos
 
-### 8. Acessibilidade
+### 9. Acessibilidade
 
 - [ ] Focus visível e acessível (`:focus-visible`)
 - [ ] Contraste atende WCAG AA
@@ -68,14 +75,19 @@ Este checklist garante que cada mudança no código mantém a integridade do sis
 - [ ] `aria-labels` onde necessário
 - [ ] Navegação por teclado funciona
 
-### 9. Código
+### 10. Resiliência
+
+- [ ] Load/Error/Empty respeitam [24-resilience-loading-error.md](./24-resilience-loading-error.md)
+- [ ] Aliens possuem fallback e legenda
+
+### 11. Código
 
 - [ ] `npm run biome:check` passa sem erros
 - [ ] `npm run typecheck` passa sem erros
 - [ ] Sem `// @ts-ignore` ou `any` desnecessário
 - [ ] Sem console.log de debug
 
-### 10. Valores Arbitrários
+### 12. Valores Arbitrários
 
 - [ ] Nenhum valor arbitrário em `className` (ex: `[#123456]`, `[13px]`)
 - [ ] Se exceção foi necessária, está documentada
@@ -89,10 +101,9 @@ Os seguintes padrões são explicitamente proibidos:
 | Componente | Motivo |
 | ---------- | ------ |
 | Cards decorativos | Ruído visual |
-| Modals | Complexidade |
+| Modals genéricos | Substituídos por Focus Transfer |
 | Dropdowns | Menus ocultos |
 | Hamburger menu | Menus ocultos |
-| Carousels | UX ruim |
 | Tabs | Oculta informação |
 | Accordions | Oculta informação |
 | Toasts | Interrupção |

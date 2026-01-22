@@ -10,11 +10,13 @@ Todas as rotas seguem a mesma estrutura base:
 
 ```tsx
 import { SiteNav } from "~/ui/components/site-nav";
+import { SkipLink } from "~/ui/components/skip-link";
 
 export default function RouteName() {
   return (
     <main className="page">
-      <div className="reading section stack-lg">
+      <SkipLink />
+      <div className="reading section stack-lg" id="main-content">
         <header className="stack-sm">
           <h1 className="t-heading">Page Title</h1>
           <p className="t-body">Page description.</p>
@@ -33,6 +35,19 @@ export default function RouteName() {
 ```
 
 > **Idiomas:** O site está disponível em inglês e português (PT-BR) e todas as strings de rotas vêm das traduções (`useTranslation`). Use os namespaces por rota para manter os textos sincronizados em `public/locales/en.json` e `public/locales/pt.json`, sempre com fallback para inglês quando a tradução em PT-BR faltar.
+
+---
+
+## Contrato de Estado por Rota
+
+Cada rota deve declarar:
+
+- se suporta `Engaged` (foco ativo)
+- quais aliens sao permitidos
+- se ha navegacao por ancoras
+- quais LoadStates sao esperados
+
+Contrato global em [20-global-state-contract.md](./20-global-state-contract.md).
 
 ---
 
