@@ -63,11 +63,20 @@ O CSS segue a abordagem **CSS-first** do Tailwind v4:
   --a: 90deg;  /* ângulo da luz (topo-centro) */
 
   /* --- Tipografia --- */
+  /* Ver 17-typography-system-spec.md para regras e racional */
   --font-family-base: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
-  --text-body: 1rem;
-  --text-meta: 0.875rem;
-  --text-heading: 1.375rem;
+  --font-body-min: 0.95rem;
+  --font-body-ideal: 1rem;
+  --font-body-max: 1.05rem;
+
+  --font-heading-min: 1.25rem;
+  --font-heading-ideal: 1.375rem;
+  --font-heading-max: 1.5rem;
+
+  --font-meta-min: 0.8rem;
+  --font-meta-ideal: 0.875rem;
+  --font-meta-max: 0.9rem;
 
   --weight-regular: 400;
   --weight-medium: 500;
@@ -219,21 +228,33 @@ a:hover {
   /* --- Tipografia --- */
   
   .t-heading {
-    font-size: var(--text-heading);
+    font-size: clamp(
+      var(--font-heading-min),
+      1.1rem + 0.6vw,
+      var(--font-heading-max)
+    );
     line-height: var(--line-heading);
     font-weight: var(--weight-semibold);
     color: var(--text-primary);
   }
 
   .t-body {
-    font-size: var(--text-body);
+    font-size: clamp(
+      var(--font-body-min),
+      0.9rem + 0.3vw,
+      var(--font-body-max)
+    );
     line-height: var(--line-body);
     font-weight: var(--weight-regular);
     color: var(--text-secondary);
   }
 
   .t-meta {
-    font-size: var(--text-meta);
+    font-size: clamp(
+      var(--font-meta-min),
+      0.75rem + 0.2vw,
+      var(--font-meta-max)
+    );
     line-height: var(--line-meta);
     font-weight: var(--weight-medium);
     color: var(--text-muted);
@@ -256,7 +277,11 @@ a:hover {
     flex-wrap: wrap;
     column-gap: var(--space-sm);
     row-gap: var(--space-xs);
-    font-size: var(--text-meta);
+    font-size: clamp(
+      var(--font-meta-min),
+      0.75rem + 0.2vw,
+      var(--font-meta-max)
+    );
     line-height: var(--line-meta);
     font-weight: var(--weight-medium);
   }
@@ -480,9 +505,18 @@ export default {
         base: ['var(--font-family-base)'],
       },
       fontSize: {
-        body: ['var(--text-body)', { lineHeight: 'var(--line-body)' }],
-        heading: ['var(--text-heading)', { lineHeight: 'var(--line-heading)' }],
-        meta: ['var(--text-meta)', { lineHeight: 'var(--line-meta)' }],
+        body: [
+          'clamp(var(--font-body-min), 0.9rem + 0.3vw, var(--font-body-max))',
+          { lineHeight: 'var(--line-body)' },
+        ],
+        heading: [
+          'clamp(var(--font-heading-min), 1.1rem + 0.6vw, var(--font-heading-max))',
+          { lineHeight: 'var(--line-heading)' },
+        ],
+        meta: [
+          'clamp(var(--font-meta-min), 0.75rem + 0.2vw, var(--font-meta-max))',
+          { lineHeight: 'var(--line-meta)' },
+        ],
       },
       fontWeight: {
         regular: 'var(--weight-regular)',

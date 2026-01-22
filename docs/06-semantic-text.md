@@ -38,6 +38,7 @@ A resposta deve ser óbvia pela forma visual apenas.
 ## Papéis de Texto (Semânticos, Não Estilísticos)
 
 Cada papel de texto tem um **único significado explícito** e uma **única representação visual**.
+O vocabulário é fechado (ver [17-typography-system-spec.md](./17-typography-system-spec.md)).
 
 ### Body Text (Texto Principal)
 
@@ -63,17 +64,6 @@ Este é o estado padrão do pensamento.
 
 Um heading deve sinalizar:
 > "Agora estamos raciocinando sobre um conceito diferente."
-
-### Subsection Heading (Se Usado)
-
-| Aspecto | Especificação |
-| ------- | ------------- |
-| **Significado** | Subdivisão do mesmo espaço conceitual |
-| **Distinção** | Visualmente distinto de body |
-| **Hierarquia** | Claramente mais fraco que section heading |
-| **Regra** | Nunca ambíguo com body text |
-
-> Se a distinção entre section e subsection não é óbvia, um deles deve ser removido.
 
 ### Meta / Texto de Suporte
 
@@ -194,21 +184,33 @@ O sistema deve parecer:
 
 ```css
 .t-heading {
-  font-size: var(--text-heading);
+  font-size: clamp(
+    var(--font-heading-min),
+    1.1rem + 0.6vw,
+    var(--font-heading-max)
+  );
   line-height: var(--line-heading);
   font-weight: var(--weight-semibold);
   color: var(--text-primary);
 }
 
 .t-body {
-  font-size: var(--text-body);
+  font-size: clamp(
+    var(--font-body-min),
+    0.9rem + 0.3vw,
+    var(--font-body-max)
+  );
   line-height: var(--line-body);
   font-weight: var(--weight-regular);
   color: var(--text-secondary);
 }
 
 .t-meta {
-  font-size: var(--text-meta);
+  font-size: clamp(
+    var(--font-meta-min),
+    0.75rem + 0.2vw,
+    var(--font-meta-max)
+  );
   line-height: var(--line-meta);
   font-weight: var(--weight-medium);
   color: var(--text-muted);

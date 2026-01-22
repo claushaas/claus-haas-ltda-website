@@ -48,17 +48,18 @@ Racional:
 
 **Pesos além de semibold são proibidos.**
 
-### Tamanhos
+### Tamanhos (Intervalos Responsivos)
 
-| Token | Valor | Uso |
-| ----- | ----- | --- |
-| `--text-body` | 1rem | Texto principal |
-| `--text-meta` | 0.875rem | Texto secundário, notas |
-| `--text-heading` | 1.375rem | Headings |
+Tamanho de fonte não é absoluto. Ele responde ao contexto do viewport via `clamp()`.
+Especificação completa em [17-typography-system-spec.md](./17-typography-system-spec.md).
 
-**Apenas um tamanho de heading é permitido.**
+| Papel | Tokens | Intervalo |
+| ----- | ------ | --------- |
+| Body | `--font-body-min` / `--font-body-ideal` / `--font-body-max` | 0.95rem → 1rem → 1.05rem |
+| Heading | `--font-heading-min` / `--font-heading-ideal` / `--font-heading-max` | 1.25rem → 1.375rem → 1.5rem |
+| Meta | `--font-meta-min` / `--font-meta-ideal` / `--font-meta-max` | 0.8rem → 0.875rem → 0.9rem |
 
-Subseções dependem de espaçamento, não de inflação de tamanho.
+**Somente três papéis tipográficos existem (body, heading, meta).**
 
 ### Line Heights
 
@@ -67,6 +68,8 @@ Subseções dependem de espaçamento, não de inflação de tamanho.
 | `--line-body` | 1.7 | Texto longo |
 | `--line-heading` | 1.4 | Títulos |
 | `--line-meta` | 1.5 | Texto secundário |
+
+Line height é ritmo de leitura e **não escala** com o viewport.
 
 ---
 
