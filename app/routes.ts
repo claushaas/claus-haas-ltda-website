@@ -19,4 +19,5 @@ export default [
 		'.well-known/appspecific/com.chrome.devtools.json',
 		'./routes/devtools-probe.tsx',
 	),
+	route('*', './routes/redirect.tsx'),
 ] satisfies RouteConfig;
