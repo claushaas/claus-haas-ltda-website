@@ -150,9 +150,9 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 2.2 Kit MDX minimo
 
-- [ ] `Callout` com surface
-- [ ] `Figure` com `.alien` e `.surface`
-- [ ] `CodeBlock` com surface e overflow previsivel
+- [x] `Callout` com surface
+- [x] `Figure` com `.alien` e `.surface`
+- [x] `CodeBlock` com surface e overflow previsivel
 
 ### 2.3 Focus Transfer e Engaged
 
