@@ -29,7 +29,7 @@ Cada decisão pendente tem:
 
 ### DP-001: Nome da Rota de Notas
 
-**Status:** 🔴 PENDENTE
+**Status:** ✅ DECIDIDO
 
 **Contexto:**  
 A rota para pensamento em movimento pode ser `/writing` ou `/notes`.
@@ -45,13 +45,13 @@ A rota para pensamento em movimento pode ser `/writing` ou `/notes`.
 `/notes` parece mais alinhado com a filosofia de transparência e autenticidade do site.
 
 **Decisão:**  
-<!-- Preencher quando decidido -->
+vamos usar /notes
 
 ---
 
 ### DP-002: Política de Dark Mode
 
-**Status:** 🔴 PENDENTE
+**Status:** ✅ DECIDIDO
 
 **Contexto:**  
 O site suporta dark mode, mas a política de ativação não foi definida.
@@ -68,7 +68,7 @@ O site suporta dark mode, mas a política de ativação não foi definida.
 Começar com opção 1 (automático apenas). Adicionar toggle depois se houver demanda.
 
 **Decisão:**  
-<!-- Preencher quando decidido -->
+opção 3
 
 ---
 
@@ -121,7 +121,7 @@ Lista + páginas individuais, com slugs vindos de `content-index` e MDX por idio
 
 ### DP-005: Rotas Adicionais
 
-**Status:** 🔴 PENDENTE
+**Status:** ✅ DECIDIDO
 
 **Contexto:**  
 Algumas rotas foram mencionadas mas não especificadas.
@@ -138,13 +138,13 @@ Algumas rotas foram mencionadas mas não especificadas.
 Não incluir na v0.2. Manter foco nas rotas core.
 
 **Decisão:**  
-<!-- Preencher quando decidido -->
+vamos incluir todas, já que essas informações já existem na versão atual
 
 ---
 
 ### DP-006: Internacionalização
 
-**Status:** 🔴 PENDENTE
+**Status:** ✅ DECIDIDO
 
 **Contexto:**  
 O site já tem setup de i18n. Qual a política de idiomas?
@@ -163,7 +163,7 @@ Opção 2 (EN + PT-BR), já que o setup existe. Mas garantir que fallback para E
 **Nota:** A expectativa imediata é que cada rota tenha conteúdo completo em inglês e português (PT-BR), usando `react-i18next` para trocar o idioma ativo.
 
 **Decisão:**  
-<!-- Preencher quando decidido -->
+opção 2 com inglês e português completos
 
 ---
 

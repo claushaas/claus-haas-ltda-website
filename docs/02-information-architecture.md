@@ -64,7 +64,7 @@ Esta é provavelmente a rota mais importante do site.
 
 ---
 
-### `/writing` ou `/notes`
+### `/notes`
 
 **Pergunta respondida:** "Como essa pessoa pensa ao longo do tempo?"
 
@@ -72,18 +72,38 @@ Esta é provavelmente a rota mais importante do site.
 | ------- | --------- |
 | **Função** | Processo de pensamento em movimento, Essays, notas, frameworks, reflexões |
 
-<!-- DECISÃO_PENDENTE: Escolher entre `/writing` e `/notes`
+---
 
-Opções:
-- `/writing` → mais curado, estilo ensaio
-- `/notes` → mais cru, estilo laboratório
+### `/projects`
 
-A escolha deve refletir a intenção:
-- Se o conteúdo será polido e publicado: `/writing`
-- Se o conteúdo será pensamento em progresso: `/notes`
+**Pergunta respondida:** "O que essa pessoa já entregou?"
 
-Recomendação: `/notes` parece mais alinhado com a filosofia de transparência e autenticidade, mas `/writing` pode parecer mais profissional. Decidir com base no tipo de conteúdo que será produzido.
--->
+| Aspecto | Descrição |
+| ------- | --------- |
+| **Função** | Evidência de trabalho real, casos selecionados |
+| **Características** | Objetivo, factual, sem marketing |
+
+---
+
+### `/contact`
+
+**Pergunta respondida:** "Como falar com essa pessoa?"
+
+| Aspecto | Descrição |
+| ------- | --------- |
+| **Função** | Canal direto e explícito |
+| **Características** | Simples, sem fricção, sem formulário pesado |
+
+---
+
+### `/uses`
+
+**Pergunta respondida:** "Com que ferramentas essa pessoa trabalha?"
+
+| Aspecto | Descrição |
+| ------- | --------- |
+| **Função** | Setup, ferramentas e ambiente |
+| **Características** | Transparente, sem glamour |
 
 ---
 
@@ -126,6 +146,14 @@ Ver [11-harada-spec.md](./11-harada-spec.md) para especificação completa.
 │ "Como pensa?" │  │ "Aplica em    │  │    rotas)     │
 │               │  │  si mesmo?"   │  │               │
 └───────────────┘  └───────────────┘  └───────────────┘
+        │
+        ├───────────────────────────────┬───────────────────────────────┐
+        ▼                               ▼                               ▼
+┌───────────────┐               ┌───────────────┐               ┌───────────────┐
+│  /projects    │               │   /contact    │               │    /uses      │
+│ "O que fez?"  │               │ "Como falar?" │               │ "Ferramentas" │
+│               │               │               │               │               │
+└───────────────┘               └───────────────┘               └───────────────┘
 ```
 
 ---
@@ -138,6 +166,9 @@ Ver [11-harada-spec.md](./11-harada-spec.md) para especificação completa.
 4. **`/about`** — Baseline factual
 5. **`/harada`** — Prova de prática (para quem quer ver mais)
 6. **`/notes`** — Pensamento em evolução
+7. **`/projects`** — Evidência de trabalho real
+8. **`/contact`** — Canal de contato explícito
+9. **`/uses`** — Ferramentas e setup
 
 ---
 

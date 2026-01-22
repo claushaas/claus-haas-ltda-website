@@ -64,6 +64,9 @@ Contrato global em [20-global-state-contract.md](./20-global-state-contract.md).
 - `/:lang(en|pt)/how-i-work`
 - `/:lang(en|pt)/principles`
 - `/:lang(en|pt)/about`
+- `/:lang(en|pt)/projects`
+- `/:lang(en|pt)/uses`
+- `/:lang(en|pt)/contact`
 - `/:lang(en|pt)/harada`
 
 **Conteúdo editorial em MDX:**
@@ -99,6 +102,12 @@ export default {
     "/pt/principles",
     "/en/about",
     "/pt/about",
+    "/en/projects",
+    "/pt/projects",
+    "/en/uses",
+    "/pt/uses",
+    "/en/contact",
+    "/pt/contact",
     "/en/harada",
     "/pt/harada",
     "/en/notes",
@@ -290,6 +299,136 @@ export default function AboutRoute() {
 ```
 
 <!-- TODO: Criar conteúdo para /about -->
+
+---
+
+## `/projects`
+
+### Objetivos
+
+- Evidência de trabalho real
+- Casos selecionados
+- Factual, sem marketing
+
+### Implementação (Esqueleto)
+
+```tsx
+import { SiteNav } from "~/ui/components/site-nav";
+
+export default function ProjectsRoute() {
+  return (
+    <main className="page">
+      <div className="reading section stack-lg">
+        <header className="stack-sm">
+          <h1 className="t-heading">Projects</h1>
+
+          <p className="t-body">
+            Selected work with context, scope, and outcomes.
+          </p>
+
+          <SiteNav />
+        </header>
+
+        <section className="stack-lg">
+          {/* cards proibidos: usar sections simples */}
+        </section>
+
+        <footer className="t-meta">
+          © {new Date().getFullYear()} Claus Haas
+        </footer>
+      </div>
+    </main>
+  );
+}
+```
+
+<!-- TODO: Criar conteúdo para /projects -->
+
+---
+
+## `/uses`
+
+### Objetivos
+
+- Ferramentas e setup
+- Transparencia, sem glamour
+
+### Implementação (Esqueleto)
+
+```tsx
+import { SiteNav } from "~/ui/components/site-nav";
+
+export default function UsesRoute() {
+  return (
+    <main className="page">
+      <div className="reading section stack-lg">
+        <header className="stack-sm">
+          <h1 className="t-heading">Uses</h1>
+
+          <p className="t-body">
+            Tools, setup, and the environment I rely on.
+          </p>
+
+          <SiteNav />
+        </header>
+
+        <article className="stack-lg">
+          {/* seções por categoria */}
+        </article>
+
+        <footer className="t-meta">
+          © {new Date().getFullYear()} Claus Haas
+        </footer>
+      </div>
+    </main>
+  );
+}
+```
+
+<!-- TODO: Criar conteúdo para /uses -->
+
+---
+
+## `/contact`
+
+### Objetivos
+
+- Canal direto e explícito
+- Sem friccao
+
+### Implementação (Esqueleto)
+
+```tsx
+import { SiteNav } from "~/ui/components/site-nav";
+
+export default function ContactRoute() {
+  return (
+    <main className="page">
+      <div className="reading section stack-lg">
+        <header className="stack-sm">
+          <h1 className="t-heading">Contact</h1>
+
+          <p className="t-body">
+            Direct contact paths with clear expectations.
+          </p>
+
+          <SiteNav />
+        </header>
+
+        <section className="stack-lg">
+          {/* canais de contato e instrucoes */}
+        </section>
+
+        <footer className="t-meta">
+          © {new Date().getFullYear()} Claus Haas
+        </footer>
+      </div>
+    </main>
+  );
+}
+```
+
+<!-- TODO: Criar conteúdo para /contact -->
 
 ---
 

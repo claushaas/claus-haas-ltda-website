@@ -136,24 +136,14 @@ app/
 
 ## Política de Dark Mode
 
-<!-- DECISÃO_PENDENTE: Política de Dark Mode
+**Decisão:** opção 3 — automático + override manual persistente.
 
-Opções:
-1. Apenas automático (prefers-color-scheme) — mais simples
-2. Toggle persistente (cookie/localStorage) — mais controle do usuário
-3. Ambos (automático + override manual) — mais complexo
+Implementação:
 
-A conversa não definiu qual opção seguir. Precisa decidir:
-- Se dark mode é importante o suficiente para ter toggle
-- Se a complexidade do toggle vale a pena
-
-Recomendação: Começar com apenas automático (opção 1), adicionar toggle depois se necessário.
--->
-
-Implementação mínima:
-
-- Toggle por adicionar/remover `.dark` no `<html>`
-- Persistência (cookie/localStorage) é opcional
+- Default segue `prefers-color-scheme`
+- Toggle permite override manual
+- Persistência via cookie ou localStorage
+- `.dark` aplicado no `<html>`
 
 ---
 

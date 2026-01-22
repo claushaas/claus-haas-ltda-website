@@ -124,12 +124,27 @@ O repositório já possui:
 - [ ] Implementar estrutura base
 - [ ] Definir e adicionar lista de princípios
 
-### 3.5 Notes (`/notes`)
+### 3.5 Projects (`/projects`)
+
+- [ ] Implementar estrutura base
+- [ ] Definir lista de projetos/casos
+
+### 3.6 Uses (`/uses`)
+
+- [ ] Implementar estrutura base
+- [ ] Definir categorias de ferramentas
+
+### 3.7 Contact (`/contact`)
+
+- [ ] Implementar estrutura base
+- [ ] Definir canais de contato
+
+### 3.8 Notes (`/notes`)
 
 - [ ] Implementar listagem via `content-index`
 - [ ] Renderizar MDX com `MDXProvider`
 
-### 3.6 Rotas por Idioma + Prerender
+### 3.9 Rotas por Idioma + Prerender
 
 - [ ] Prefixar rotas públicas com `/:lang(en|pt)`
 - [ ] Gerar lista de rotas no `prerender()` com base em `content-index`
@@ -191,7 +206,7 @@ O repositório já possui:
 
 ### 5.3 Dark Mode
 
-- [ ] Implementar toggle (se decidido)
+- [ ] Implementar toggle
 - [ ] Testar todos os tokens em dark mode
 - [ ] Verificar contraste em dark mode
 
