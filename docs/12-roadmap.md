@@ -163,8 +163,8 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 2.4 Infra de estado global
 
-- [ ] Definir estado global conforme [20-global-state-contract.md](./20-global-state-contract.md)
-- [ ] Conectar estado Engaged com componentes de midia
+- [x] Definir estado global conforme [20-global-state-contract.md](./20-global-state-contract.md)
+- [x] Conectar estado Engaged com componentes de midia
 
 ### Entregaveis Fase 2
 
