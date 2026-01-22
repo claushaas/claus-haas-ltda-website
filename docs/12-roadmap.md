@@ -100,9 +100,9 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 1.3 Classes canonicas
 
-- [ ] Implementar classes tipograficas `.t-*` responsivas
-- [ ] Implementar `.surface`, `.tile`, `.page`, `.reading`, `.section`, `.stack-*`
-- [ ] Implementar `.alien`, `.focus-layer`, `.focus-surface`
+- [x] Implementar classes tipograficas `.t-*` responsivas
+- [x] Implementar `.surface`, `.tile`, `.page`, `.reading`, `.section`, `.stack-*`
+- [x] Implementar `.alien`, `.focus-layer`, `.focus-surface`
 
 ### 1.4 Base plane e acessibilidade
 

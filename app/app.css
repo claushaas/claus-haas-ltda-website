@@ -108,13 +108,6 @@ main, section {
   @apply mb-20;
 }
 
-.reading {
-  width: min(100%, clamp(var(--reading-min), 90vw, var(--reading-max)));
-  max-width: var(--reading-max);
-  margin-inline: auto;
-  padding-inline: clamp(var(--pad-min), 4vw, var(--pad-max));
-}
-
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-heading-color);
   font-family: var(--font-family-base);
@@ -127,4 +120,116 @@ p, li {
 
 p {
   margin-bottom: 1rem;
+}
+
+@layer components {
+  .page {
+    min-height: 100dvh;
+    background: var(--bg-base);
+    color: var(--text-primary);
+  }
+
+  .reading {
+    width: min(100%, clamp(var(--reading-min), 90vw, var(--reading-max)));
+    max-width: var(--reading-max);
+    margin-inline: auto;
+    padding-inline: clamp(var(--pad-min), 4vw, var(--pad-max));
+  }
+
+  .section {
+    padding-block: 3rem;
+  }
+
+  .stack-xs > * + * {
+    margin-top: 0.5rem;
+  }
+
+  .stack-sm > * + * {
+    margin-top: 1rem;
+  }
+
+  .stack-md > * + * {
+    margin-top: 2rem;
+  }
+
+  .stack-lg > * + * {
+    margin-top: 3rem;
+  }
+
+  .stack-xl > * + * {
+    margin-top: 5rem;
+  }
+
+  .surface {
+    background: var(--bg-surface);
+    border-radius: var(--radius-surface);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, var(--hi, 0.18));
+    background-image:
+      linear-gradient(
+        calc(var(--a, 90deg) + 180deg),
+        rgba(0, 0, 0, var(--ao, 0.15)) 0%,
+        transparent 40%
+      ),
+      linear-gradient(
+        var(--a, 90deg),
+        rgba(255, 255, 255, var(--sh, 0.08)) 0%,
+        transparent 30%
+      );
+  }
+
+  .tile {
+    border-radius: var(--radius-surface);
+    background: var(--bg-tile);
+    padding: 0.5rem;
+  }
+
+  .t-heading {
+    font-size: clamp(
+      var(--font-heading-min),
+      1.1rem + 0.6vw,
+      var(--font-heading-max)
+    );
+    line-height: var(--line-heading);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .t-body {
+    font-size: clamp(
+      var(--font-body-min),
+      0.9rem + 0.3vw,
+      var(--font-body-max)
+    );
+    line-height: var(--line-body);
+    font-weight: var(--weight-regular);
+    color: var(--text-secondary);
+  }
+
+  .t-meta {
+    font-size: clamp(
+      var(--font-meta-min),
+      0.75rem + 0.2vw,
+      var(--font-meta-max)
+    );
+    line-height: var(--line-meta);
+    font-weight: var(--weight-medium);
+    color: var(--text-muted);
+  }
+
+  .alien {
+  }
+
+  .focus-layer {
+    position: fixed;
+    inset: 0;
+    background: var(--focus-overlay);
+    display: grid;
+    place-items: center;
+    z-index: 50;
+  }
+
+  .focus-surface {
+    max-width: min(92vw, var(--reading-max));
+  }
 }
