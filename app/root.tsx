@@ -11,13 +11,9 @@ import {
 import type { Route } from './+types/root';
 import './app.css';
 import { useTranslation } from 'react-i18next';
-import { GlobalStateProvider } from '~/state/global-state';
-import { AppMdxProvider } from '~/ui/mdx/mdx-provider';
 import { useIsBot } from './hooks/use-is-bot';
 import { defaultLanguage, detectLanguage } from './i18n/i18n';
 import { LanguageSwitcher } from './ui/components/language-switcher';
-import { SiteNav } from './ui/components/site-nav';
-import { SkipLink } from './ui/components/skip-link';
 
 export const links: Route.LinksFunction = () => [
 	{
@@ -121,15 +117,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					{JSON.stringify({ language })}
 				</script>
 			</head>
-			<body className="page m-auto h-fit space-y-16 px-4">
-				<SkipLink />
-				<header className="flex flex-col items-center gap-4 py-4">
+			<body className="m-auto h-fit space-y-16 bg-slate-1 px-4 dark:bg-slatedark-1">
+				<header className="py-4 flex justify-center">
 					<LanguageSwitcher />
-					<SiteNav />
 				</header>
-				<GlobalStateProvider>
-					<AppMdxProvider>{children}</AppMdxProvider>
-				</GlobalStateProvider>
+				{children}
 				<footer
 					className="mb-0 border-slate-2 border-t-2 py-16 dark:border-slatedark-2"
 					id="footer"
