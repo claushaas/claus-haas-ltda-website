@@ -118,10 +118,10 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 1.6 MDX base
 
-- [ ] Configurar MDX no Vite
-- [ ] Criar arvore `app/content/mdx/{en,pt}/notes`
-- [ ] Criar `app/content-index/notes.{en,pt}.ts`
-- [ ] Implementar `MDXProvider` com kit minimo
+- [x] Configurar MDX no Vite
+- [x] Criar arvore `app/content/mdx/{en,pt}/notes`
+- [x] Criar `app/content-index/notes.{en,pt}.ts`
+- [x] Implementar `MDXProvider` com kit minimo
 
 ### 1.7 Print styles
 

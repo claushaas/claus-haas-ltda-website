@@ -11,6 +11,7 @@ import {
 import type { Route } from './+types/root';
 import './app.css';
 import { useTranslation } from 'react-i18next';
+import { AppMdxProvider } from '~/ui/mdx/mdx-provider';
 import { useIsBot } from './hooks/use-is-bot';
 import { defaultLanguage, detectLanguage } from './i18n/i18n';
 import { LanguageSwitcher } from './ui/components/language-switcher';
@@ -121,7 +122,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<header className="py-4 flex justify-center">
 					<LanguageSwitcher />
 				</header>
-				{children}
+				<AppMdxProvider>{children}</AppMdxProvider>
 				<footer
 					className="mb-0 border-slate-2 border-t-2 py-16 dark:border-slatedark-2"
 					id="footer"
