@@ -4,6 +4,7 @@ import { hydrateRoot } from 'react-dom/client';
 import { I18nextProvider } from 'react-i18next';
 import { HydratedRouter } from 'react-router/dom';
 import { initI18Next } from './i18n/i18n';
+import { initElevation } from './lib/elevation';
 
 function getInitialLanguage() {
 	const script = document.getElementById('initial-i18n-language');
@@ -31,6 +32,8 @@ async function main() {
 				</I18nextProvider>
 			</StrictMode>,
 		);
+
+		initElevation();
 	});
 }
 
