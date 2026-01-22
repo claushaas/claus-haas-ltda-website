@@ -15,6 +15,12 @@
 		"placeholder": "Content coming soon.",
 		"title": "How I Work"
 	},
+	"notes": {
+		"description": "Thought in progress. Essays, frameworks, reflections.",
+		"empty": "No notes published yet.",
+		"notFound": "Note not found.",
+		"title": "Notes"
+	},
 	"principles": {
 		"description": "What does not change regardless of context.",
 		"placeholder": "Content coming soon.",
