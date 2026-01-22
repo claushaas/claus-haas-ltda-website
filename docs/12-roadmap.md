@@ -95,8 +95,8 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 1.2 Layout base (mesa vs papel)
 
-- [ ] Implementar tokens de leitura e padding conforme [04-design-system.md](./04-design-system.md)
-- [ ] Garantir `.reading` com `clamp()` e `ch` conforme [08-css-implementation.md](./08-css-implementation.md)
+- [x] Implementar tokens de leitura e padding conforme [04-design-system.md](./04-design-system.md)
+- [x] Garantir `.reading` com `clamp()` e `ch` conforme [08-css-implementation.md](./08-css-implementation.md)
 
 ### 1.3 Classes canonicas
 
