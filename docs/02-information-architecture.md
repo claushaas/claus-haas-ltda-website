@@ -14,6 +14,8 @@ Nenhuma rota deve sobrepor responsabilidades com outra.
 
 ## Estrutura de Rotas
 
+**Nota:** Todas as rotas públicas são prefixadas por idioma (`/en` e `/pt`). As descrições abaixo se referem ao “miolo” da rota após o prefixo.
+
 ### `/` — Home
 
 **Pergunta respondida:** "Isso é para mim?"

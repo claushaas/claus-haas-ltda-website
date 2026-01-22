@@ -248,6 +248,24 @@ a:hover {
     font-weight: var(--weight-medium);
   }
 
+  /* --- MDX Helpers --- */
+
+  .callout-neutral {
+    border-left: 2px solid var(--accent-muted);
+  }
+
+  .callout-warning {
+    border-left: 2px solid var(--text-primary);
+    background: var(--bg-surface-muted);
+  }
+
+  .code-block {
+    overflow-x: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
   /* --- Harada Grid --- */
   
   .harada-grid {

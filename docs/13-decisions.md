@@ -74,10 +74,10 @@ Começar com opção 1 (automático apenas). Adicionar toggle depois se houver d
 
 ### DP-003: Formato de Conteúdo Long-Form
 
-**Status:** 🔴 PENDENTE
+**Status:** ✅ DECIDIDO
 
 **Contexto:**  
-Páginas como `/how-i-work` e `/principles` terão texto longo. Qual formato usar?
+Conteúdo textual longo existirá tanto nas rotas principais quanto na seção de notas/escritos. Qual formato usar?
 
 **Opções:**
 
@@ -88,19 +88,19 @@ Páginas como `/how-i-work` e `/principles` terão texto longo. Qual formato usa
 | Markdown | Simples, focado em conteúdo | Limitado, precisa de parser |
 
 **Recomendação:**  
-JSX para rotas principais (mais controle). MDX para `/notes` se o conteúdo for frequente.
+JSX para rotas principais (mais controle). MDX para conteúdo editorial (notes/escritos).
 
 **Decisão:**  
-<!-- Preencher quando decidido -->
+Rotas principais ficam em JSX. Todo conteúdo editorial (notes, textos longos fora das rotas principais) usa MDX.
 
 ---
 
 ### DP-004: Formato da Rota `/notes`
 
-**Status:** 🔴 PENDENTE
+**Status:** ✅ DECIDIDO
 
 **Contexto:**  
-Como estruturar a rota de notas/pensamentos?
+Como estruturar a rota de notas/pensamentos? O conteúdo será em MDX, por idioma.
 
 **Opções:**
 
@@ -115,7 +115,7 @@ Como estruturar a rota de notas/pensamentos?
 Opção 1 (lista + páginas) é mais escalável. Começar simples, sem tags.
 
 **Decisão:**  
-<!-- Preencher quando decidido -->
+Lista + páginas individuais, com slugs vindos de `content-index` e MDX por idioma.
 
 ---
 
@@ -159,6 +159,8 @@ O site já tem setup de i18n. Qual a política de idiomas?
 
 **Recomendação:**  
 Opção 2 (EN + PT-BR), já que o setup existe. Mas garantir que fallback para EN funciona.
+
+**Nota:** A expectativa imediata é que cada rota tenha conteúdo completo em inglês e português (PT-BR), usando `react-i18next` para trocar o idioma ativo.
 
 **Decisão:**  
 <!-- Preencher quando decidido -->

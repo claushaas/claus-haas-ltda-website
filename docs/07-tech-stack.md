@@ -35,10 +35,12 @@
   "dependencies": {
     "react": "^19.x",
     "react-dom": "^19.x",
-    "react-router": "^7.x"
+    "react-router": "^7.x",
+    "@mdx-js/react": "^3.x"
   },
   "devDependencies": {
     "vite": "^7.x",
+    "@mdx-js/rollup": "^3.x",
     "tailwindcss": "^4.x",
     "@tailwindcss/vite": "^4.x",
     "typescript": "^5.x"
@@ -54,17 +56,20 @@ O Vite deve ser configurado com:
 
 - Plugin do Tailwind v4
 - Plugin do React Router v7
+- Plugin do MDX (`@mdx-js/rollup`)
 - CSS global importado no entry root/layout
 
 ```ts
 // vite.config.ts
 import tailwindcss from "@tailwindcss/vite";
 import { reactRouter } from "@react-router/dev/vite";
+import mdx from "@mdx-js/rollup";
 import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [
     tailwindcss(),
+    mdx(),
     reactRouter(),
   ],
 });
@@ -109,19 +114,22 @@ app/
 ├── root.tsx             # Layout principal
 ├── routes.ts            # Definição de rotas
 ├── routes/
-│   ├── home.tsx         # /
-│   ├── about.tsx        # /about
-│   ├── how-i-work.tsx   # /how-i-work
-│   ├── principles.tsx   # /principles
-│   ├── notes.tsx        # /notes (ou /writing)
-│   └── harada.tsx       # /harada
+│   ├── lang-layout.tsx  # Layout com :lang(en|pt)
+│   ├── home.tsx         # /:lang(en|pt)/
+│   ├── about.tsx        # /:lang(en|pt)/about
+│   ├── how-i-work.tsx   # /:lang(en|pt)/how-i-work
+│   ├── principles.tsx   # /:lang(en|pt)/principles
+│   ├── notes.tsx        # /:lang(en|pt)/notes
+│   ├── note.tsx         # /:lang(en|pt)/notes/:slug
+│   └── harada.tsx       # /:lang(en|pt)/harada
 ├── ui/
-│   └── components/
-│       └── site-nav.tsx # Navegação
-└── content/
-    └── harada/          # Dados do Harada
-        ├── index.json
-        └── 2026-01.json
+│   ├── components/
+│   │   └── site-nav.tsx # Navegação
+│   └── mdx/             # Componentes MDX
+├── content/
+│   ├── harada/           # Dados do Harada
+│   └── mdx/              # Conteúdo editorial por idioma
+└── content-index/         # Índices e metadados de MDX
 ```
 
 ---
@@ -151,20 +159,41 @@ Implementação mínima:
 
 ## Formato de Conteúdo
 
-<!-- DECISÃO_PENDENTE: Formato de Conteúdo para Páginas de Texto Longo
+**Decisão:** Rotas principais permanecem em JSX (controle total). Todo conteúdo editorial (notes/escritos) usa MDX.
 
-Opções:
-1. JSX puro — mais controle, mais verboso
-2. MDX — markdown + componentes, mais fácil de escrever
-3. Markdown simples — mais limitado, mas mais puro
+**Convenção de conteúdo por idioma:**
 
-A conversa não definiu qual opção seguir. Considerar:
-- Quantidade de conteúdo que será escrito
-- Quem vai escrever (só o Claus? outros?)
-- Complexidade aceitável
+- Conteúdo MDX duplicado por idioma (`en` e `pt`).
+- UI/labels continuam em `public/locales/en.json` e `public/locales/pt.json`.
+- Fallback: inglês é padrão.
 
-Recomendação: JSX para rotas principais, MDX para /notes se o conteúdo for frequente.
--->
+**Estrutura sugerida:**
+
+```text
+app/
+├── content/
+│   ├── harada/                # JSON do Harada (já existente)
+│   └── mdx/
+│       ├── en/
+│       │   └── notes/
+│       │       ├── 2026-01-why-systems.mdx
+│       │       └── 2026-02-clarity-bias.mdx
+│       └── pt/
+│           └── notes/
+│               ├── 2026-01-por-que-sistemas.mdx
+│               └── 2026-02-vies-da-clareza.mdx
+├── ui/
+│   └── mdx/
+│       ├── mdx-provider.tsx
+│       ├── callout.tsx
+│       ├── figure.tsx
+│       └── code-block.tsx
+└── content-index/
+    ├── notes.en.ts
+    └── notes.pt.ts
+```
+
+**Nota sobre metadata:** evitar frontmatter no MDX. Preferir índices separados (`content-index/*`) para título, slug e data.
 
 ---
 
@@ -181,6 +210,7 @@ O projeto usa Cloudflare Workers para deploy:
 ## Checklist de Setup
 
 - [ ] Vite configurado com plugins corretos
+- [ ] MDX configurado no Vite e `MDXProvider` pronto
 - [ ] Tailwind v4 importado no CSS principal
 - [ ] Tokens definidos em `:root`
 - [ ] Dark mode tokens em `.dark`

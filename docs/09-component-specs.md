@@ -17,6 +17,14 @@ Regras:
 
 ---
 
+## Idiomas e Traduções
+
+O site é bilingue: inglês e português (PT-BR). Todo texto visível deve vir de `react-i18next`, usando namespaces como `siteNav`, `pages.home`, etc., e os arquivos `public/locales/en.json` e `public/locales/pt.json` mantêm os pares de tradução.
+
+As rotas são renderizadas no idioma indicado pela URL (e.g., `/pt/about` ou `?lng=pt`), com fallback para o inglês quando o recurso não existe.
+
+---
+
 ## SiteNav
 
 Componente de navegação principal.
@@ -33,17 +41,27 @@ Componente de navegação principal.
 ### Implementação
 
 ```tsx
+import { useTranslation } from "react-i18next";
+
 export function SiteNav() {
+  const { t } = useTranslation("siteNav");
+  const links = [
+    { href: "/how-i-work", key: "howIWork" },
+    { href: "/principles", key: "principles" },
+    { href: "/notes", key: "notes" },
+    { href: "/harada", key: "harada" },
+    { href: "/about", key: "about" },
+  ];
+
   return (
-    <nav className="stack-xs" aria-label="Primary">
-      <div className="t-meta">Navigation</div>
-      
+    <nav className="stack-xs" aria-label={t("label")}>
+      <div className="t-meta">{t("navigationMeta")}</div>
       <div className="nav-row">
-        <a href="/how-i-work">How I Work</a>
-        <a href="/principles">Principles</a>
-        <a href="/notes">Notes</a>
-        <a href="/harada">Harada</a>
-        <a href="/about">About</a>
+        {links.map((link) => (
+          <a key={link.key} href={link.href}>
+            {t(link.key)}
+          </a>
+        ))}
       </div>
     </nav>
   );
@@ -54,15 +72,88 @@ export function SiteNav() {
 
 Nenhuma variação é permitida. O componente é fixo.
 
-<!-- DECISÃO_PENDENTE: Internacionalização do SiteNav
+<!-- NOTA: O SiteNav deve usar o namespace `siteNav` de `react-i18next` para renderizar labels em inglês e PT-BR. -->
 
-Se o site terá i18n, os textos do nav precisam vir de translations.
-Decidir:
-- O site terá múltiplos idiomas?
-- Se sim, usar useTranslation do react-i18next
+---
 
-Por enquanto, textos hardcoded em inglês.
--->
+## Kit Mínimo de Componentes MDX
+
+Componentes MDX são **funcionais e silenciosos**. Sem ornamento. Sem layout “hero”. Eles existem para esclarecer o conteúdo.
+
+### Callout
+
+**Uso:** apontar contexto ou ressalvas sem interromper o fluxo.
+
+**API:** `Callout({ title?, children, tone?: "neutral" | "warning" })`
+
+```tsx
+interface CalloutProps {
+  title?: string;
+  tone?: "neutral" | "warning";
+  children: React.ReactNode;
+}
+
+export function Callout({ title, tone = "neutral", children }: CalloutProps) {
+  const toneClass = tone === "warning" ? "callout-warning" : "callout-neutral";
+
+  return (
+    <aside className={`surface surface-pad stack-xs ${toneClass}`} role="note">
+      {title ? <div className="t-meta">{title}</div> : null}
+      <div className="t-body">{children}</div>
+    </aside>
+  );
+}
+```
+
+### Figure
+
+**Uso:** imagem/diagrama com legenda factual.
+
+**API:** `Figure({ src, alt, caption })`
+
+```tsx
+interface FigureProps {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+export function Figure({ src, alt, caption }: FigureProps) {
+  return (
+    <figure className="stack-xs">
+      <img className="surface" src={src} alt={alt} />
+      <figcaption className="t-meta">{caption}</figcaption>
+    </figure>
+  );
+}
+```
+
+### CodeBlock
+
+**Uso:** código com leitura confortável e sem “glow”.
+
+**API:** `CodeBlock({ code, language?, caption? })`
+
+```tsx
+interface CodeBlockProps {
+  code: string;
+  language?: string;
+  caption?: string;
+}
+
+export function CodeBlock({ code, language, caption }: CodeBlockProps) {
+  return (
+    <figure className="stack-xs">
+      <pre className="surface surface-pad code-block">
+        <code data-lang={language ?? "plain"}>{code}</code>
+      </pre>
+      {caption ? <figcaption className="t-meta">{caption}</figcaption> : null}
+    </figure>
+  );
+}
+```
+
+**Nota:** integrar via `MDXProvider` em `app/ui/mdx/mdx-provider.tsx` para mapear `Callout`, `Figure` e `CodeBlock` no render.
 
 ---
 

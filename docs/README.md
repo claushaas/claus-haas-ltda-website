@@ -90,12 +90,20 @@ Design, estrutura e conteúdo não "representam" o Claus estilisticamente — el
 
 ---
 
+## Idiomas e i18n
+
+- **Idiomas** — O site está disponível em inglês e português (PT-BR) e usa `react-i18next` para servir o idioma ativo.
+- **Fallback** — O inglês é o idioma padrão e o conteúdo em PT-BR está disponível em `public/locales/{lang}.json`.
+
+---
+
 ## Stack Técnico (Resumo)
 
 - **React Router v7** — roteamento com data APIs
 - **Vite** — bundler/dev server
 - **Tailwind CSS v4** — CSS-first com tokens restritivos
 - **TypeScript** — tipagem estrita
+- **MDX** — conteúdo editorial (notes/escritos)
 - **Cloudflare Workers** — deploy
 
 ---

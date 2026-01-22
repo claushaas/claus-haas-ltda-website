@@ -32,6 +32,67 @@ export default function RouteName() {
 }
 ```
 
+> **Idiomas:** O site está disponível em inglês e português (PT-BR) e todas as strings de rotas vêm das traduções (`useTranslation`). Use os namespaces por rota para manter os textos sincronizados em `public/locales/en.json` e `public/locales/pt.json`, sempre com fallback para inglês quando a tradução em PT-BR faltar.
+
+---
+
+## Estratégia de Rotas (i18n + conteúdo)
+
+**Convenção:** todas as rotas públicas são prefixadas por idioma:
+
+- `/:lang(en|pt)/...`
+- `/` redireciona para `/en` (ou usa o idioma detectado, com fallback para `/en`)
+
+**Rotas principais em JSX (sem MDX):**
+
+- `/:lang(en|pt)/` → Home
+- `/:lang(en|pt)/how-i-work`
+- `/:lang(en|pt)/principles`
+- `/:lang(en|pt)/about`
+- `/:lang(en|pt)/harada`
+
+**Conteúdo editorial em MDX:**
+
+- `/:lang(en|pt)/notes`
+- `/:lang(en|pt)/notes/:slug`
+
+---
+
+## Prerender (RR7)
+
+O prerender deve listar todas as rotas principais e cada `:slug` de MDX por idioma. A fonte da lista vem de `content-index/*`.
+
+```ts
+// react-router.config.ts
+import type { Config } from "@react-router/dev/config";
+import { notesEn } from "./app/content-index/notes.en";
+import { notesPt } from "./app/content-index/notes.pt";
+
+const notePaths = [
+  ...notesEn.map((note) => `/en/notes/${note.slug}`),
+  ...notesPt.map((note) => `/pt/notes/${note.slug}`),
+];
+
+export default {
+  ssr: true,
+  prerender: async () => [
+    "/en",
+    "/pt",
+    "/en/how-i-work",
+    "/pt/how-i-work",
+    "/en/principles",
+    "/pt/principles",
+    "/en/about",
+    "/pt/about",
+    "/en/harada",
+    "/pt/harada",
+    "/en/notes",
+    "/pt/notes",
+    ...notePaths,
+  ],
+} satisfies Config;
+```
+
 ---
 
 ## `/` — Home
@@ -277,23 +338,18 @@ export default function PrinciplesRoute() {
 - Essays, notas, frameworks
 - Formato mais flexível
 
-<!-- DECISÃO_PENDENTE: Formato de /notes
-
-Opções:
-1. Lista de posts com links para páginas individuais
-2. Página única com seções
-3. Feed cronológico
-4. Sistema de tags/categorias
-
-Decidir qual formato serve melhor ao propósito.
--->
+**Formato decidido:** lista + páginas individuais (MDX por idioma).
 
 ### Implementação (Esqueleto)
 
 ```tsx
 import { SiteNav } from "~/ui/components/site-nav";
+import { notesEn } from "~/content-index/notes.en";
+import { notesPt } from "~/content-index/notes.pt";
 
-export default function NotesRoute() {
+export default function NotesRoute({ params }: { params: { lang: "en" | "pt" } }) {
+  const notes = params.lang === "pt" ? notesPt : notesEn;
+
   return (
     <main className="page">
       <div className="reading section stack-lg">
@@ -307,7 +363,14 @@ export default function NotesRoute() {
           <SiteNav />
         </header>
 
-        {/* lista de notas ou conteúdo direto */}
+        <section className="stack-sm">
+          {notes.map((note) => (
+            <a key={note.slug} href={`/${params.lang}/notes/${note.slug}`}>
+              <div className="t-body">{note.title}</div>
+              <div className="t-meta">{note.date}</div>
+            </a>
+          ))}
+        </section>
 
         <footer className="t-meta">
           © {new Date().getFullYear()} Claus Haas

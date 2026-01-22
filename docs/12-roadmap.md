@@ -21,7 +21,7 @@ O repositório já possui:
 - [x] Tailwind CSS v4
 - [x] TypeScript
 - [x] Cloudflare Workers setup
-- [x] i18n básico (react-i18next)
+- [x] i18n básico (react-i18next) com conteúdo disponível em inglês e português (PT-BR)
 - [x] Rota `/harada` inicial implementada
 - [x] Estrutura `content/harada/` com JSON
 
@@ -43,13 +43,20 @@ O repositório já possui:
 - [ ] Remover classes não-canônicas existentes (se houver)
 - [ ] Documentar qualquer desvio necessário
 
-### 1.3 Base Plane
+### 1.3 MDX Base
+
+- [ ] Adicionar `@mdx-js/rollup` ao Vite (`vite.config.ts`)
+- [ ] Criar árvore `app/content/mdx/{en,pt}/notes`
+- [ ] Criar `app/content-index/notes.{en,pt}.ts` com slugs e metadados
+- [ ] Implementar `MDXProvider` e o kit mínimo (Callout, Figure, CodeBlock)
+
+### 1.4 Base Plane
 
 - [ ] Garantir que `html` usa tokens de font, bg, color
 - [ ] Garantir estilos de link (accent, hover)
 - [ ] Garantir `:focus-visible` acessível
 
-### 1.4 Sistema de Iluminação Global
+### 1.5 Sistema de Iluminação Global
 
 - [ ] Criar `app/lib/elevation.ts` com lógica de iluminação
 - [ ] Implementar cálculo de ângulo e falloff por elemento
@@ -61,6 +68,7 @@ O repositório já possui:
 
 - `app/app.css` atualizado com sistema completo
 - `app/lib/elevation.ts` implementado
+- Pipeline MDX configurado e kit mínimo pronto
 - Verificação de que dark mode funciona
 - Verificação de que iluminação global funciona
 
@@ -118,8 +126,14 @@ O repositório já possui:
 
 ### 3.5 Notes (`/notes`)
 
-- [ ] Decidir formato (ver [13-decisions.md](./13-decisions.md))
-- [ ] Implementar estrutura inicial
+- [ ] Implementar listagem via `content-index`
+- [ ] Renderizar MDX com `MDXProvider`
+
+### 3.6 Rotas por Idioma + Prerender
+
+- [ ] Prefixar rotas públicas com `/:lang(en|pt)`
+- [ ] Gerar lista de rotas no `prerender()` com base em `content-index`
+- [ ] Validar fallback para `/en` quando idioma não existe
 
 ### Entregáveis Fase 3
 
@@ -184,6 +198,7 @@ O repositório já possui:
 
 - [ ] Verificar textos traduzidos
 - [ ] Garantir fallback para inglês
+- [ ] Confirmar que as traduções em português (PT-BR) estão completas para cada rota
 
 ### Entregáveis Fase 5
 
@@ -205,8 +220,8 @@ O repositório já possui:
 
 ### 6.2 Traduções
 
-- [ ] Traduzir todo conteúdo para PT-BR (se aplicável)
-- [ ] Verificar arquivos em `public/locales/`
+- [ ] Garantir que cada rota tenha texto completo em inglês e PT-BR
+- [ ] Verificar arquivos em `public/locales/` e manter a sincronização entre as versões
 
 ### Entregáveis Fase 6
 
