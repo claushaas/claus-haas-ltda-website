@@ -106,9 +106,9 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 1.4 Base plane e acessibilidade
 
-- [ ] `html` usa tokens de font, bg e cor
-- [ ] `:focus-visible` usa accent sem glow
-- [ ] Links com estados de hover consistentes
+- [x] `html` usa tokens de font, bg e cor
+- [x] `:focus-visible` usa accent sem glow
+- [x] Links com estados de hover consistentes
 
 ### 1.5 Elevacao global
 
