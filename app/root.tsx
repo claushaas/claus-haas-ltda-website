@@ -11,6 +11,7 @@ import {
 import type { Route } from './+types/root';
 import './app.css';
 import { useTranslation } from 'react-i18next';
+import { useHashFocus } from '~/hooks/use-hash-focus';
 import { GlobalStateProvider } from '~/state/global-state';
 import { AppMdxProvider } from '~/ui/mdx/mdx-provider';
 import { useIsBot } from './hooks/use-is-bot';
@@ -147,6 +148,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+	useHashFocus();
+
 	return <Outlet />;
 }
 

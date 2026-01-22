@@ -1,28 +1,64 @@
 import { MDXProvider } from '@mdx-js/react';
 import type { ComponentProps, ReactNode } from 'react';
+import { isValidElement } from 'react';
 import { Callout } from './callout';
 import { CodeBlock, Figure } from './figure';
 
-const Heading1 = ({ className, ...props }: ComponentProps<'h1'>) => (
-	<h1
-		className={['t-heading', className].filter(Boolean).join(' ')}
-		{...props}
-	/>
-);
+const getNodeText = (node: ReactNode): string => {
+	if (node === null || node === undefined) {
+		return '';
+	}
 
-const Heading2 = ({ className, ...props }: ComponentProps<'h2'>) => (
-	<h2
-		className={['t-heading', className].filter(Boolean).join(' ')}
-		{...props}
-	/>
-);
+	if (typeof node === 'string' || typeof node === 'number') {
+		return String(node);
+	}
 
-const Heading3 = ({ className, ...props }: ComponentProps<'h3'>) => (
-	<h3
-		className={['t-heading', className].filter(Boolean).join(' ')}
-		{...props}
-	/>
-);
+	if (Array.isArray(node)) {
+		return node.map(getNodeText).join('');
+	}
+
+	if (isValidElement<{ children?: ReactNode }>(node)) {
+		return getNodeText(node.props.children);
+	}
+
+	return '';
+};
+
+const slugifyHeading = (value: string) =>
+	value
+		.trim()
+		.toLowerCase()
+		.normalize('NFD')
+		.replace(/[\u0300-\u036f]/g, '')
+		.replace(/[^a-z0-9\s-]/g, '')
+		.replace(/\s+/g, '-')
+		.replace(/-+/g, '-');
+
+type HeadingProps = ComponentProps<'h1'>;
+
+const renderHeading = (
+	tag: 'h1' | 'h2' | 'h3',
+	{ className, id, children, ...props }: HeadingProps,
+) => {
+	const text = getNodeText(children);
+	const slug = text ? slugifyHeading(text) : '';
+	const resolvedId = id ?? (slug ? slug : undefined);
+	const HeadingTag = tag;
+
+	return (
+		<HeadingTag
+			className={['t-heading', className].filter(Boolean).join(' ')}
+			id={resolvedId}
+			{...props}
+		>
+			{children}
+		</HeadingTag>
+	);
+};
+
+const Heading1 = (props: HeadingProps) => renderHeading('h1', props);
+const Heading2 = (props: HeadingProps) => renderHeading('h2', props);
+const Heading3 = (props: HeadingProps) => renderHeading('h3', props);
 
 const Paragraph = ({ className, ...props }: ComponentProps<'p'>) => (
 	<p className={['t-body', className].filter(Boolean).join(' ')} {...props} />

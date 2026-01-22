@@ -208,8 +208,8 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 3.5 Encontrabilidade e anchors
 
-- [ ] IDs estaveis para secoes longas
-- [ ] Foco no heading ao navegar por hash
+- [x] IDs estaveis para secoes longas
+- [x] Foco no heading ao navegar por hash
 
 ### Entregaveis Fase 3
 

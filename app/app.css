@@ -155,6 +155,7 @@ main, section {
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-heading-color);
   font-family: var(--font-family-base);
+  scroll-margin-top: 6rem;
 }
 
 p, li {
