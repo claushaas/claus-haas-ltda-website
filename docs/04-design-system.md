@@ -309,6 +309,15 @@ Regras e exemplos completos estao em [18-alien-elements-spec.md](./18-alien-elem
 
 ---
 
+## Transferencia de Foco (Midias Ativas)
+
+Quando o usuario escolhe engajar com midias ativas, o sistema muda de estado.
+Isso nao e modal; e **transferencia intencional de foco**.
+
+Regras completas em [19-focus-transfer-spec.md](./19-focus-transfer-spec.md).
+
+---
+
 ## Regra de Integridade
 
 > **Se uma decisão visual não cabe nos tokens existentes, ela é inválida.**

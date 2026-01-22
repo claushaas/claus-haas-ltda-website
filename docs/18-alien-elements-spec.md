@@ -156,6 +156,7 @@ Imagens nao podem introduzir um segundo sistema de cor.
 ## 5) Video (Alienigena Ativo)
 
 Video e o alienigena mais perigoso.
+O comportamento de foco no estado ativo segue [19-focus-transfer-spec.md](./19-focus-transfer-spec.md).
 
 ### 5.1 Regra do Thumbnail (Obrigatoria)
 

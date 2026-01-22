@@ -52,6 +52,9 @@ O CSS segue a abordagem **CSS-first** do Tailwind v4:
   /* Borders/separators (uso raro) */
   --border-subtle: oklch(0.88 0.012 260);
 
+  /* Focus overlay (ver 19-focus-transfer-spec.md) */
+  --focus-overlay: oklch(0.22 0.02 260 / 0.45);
+
   /* --- Elevação (Sistema de Iluminação Global) --- */
   /* Ver 05-elevation-system.md para detalhes completos */
   --radius-surface: 6px;
@@ -124,6 +127,8 @@ O CSS segue a abordagem **CSS-first** do Tailwind v4:
   --accent-strong: oklch(0.52 0.16 260);
 
   --border-subtle: oklch(0.30 0.016 260);
+
+  --focus-overlay: oklch(0.16 0.02 260 / 0.65);
 
   /* Dark mode: elevação por luminosidade, menos oclusão */
   --hi: 0.10;
@@ -266,6 +271,21 @@ a:hover {
     /* marcador semantico */
   }
 
+  /* --- Transferencia de Foco --- */
+  /* Ver 19-focus-transfer-spec.md para regras de foco */
+  .focus-layer {
+    position: fixed;
+    inset: 0;
+    background: var(--focus-overlay);
+    display: grid;
+    place-items: center;
+    z-index: 50;
+  }
+
+  .focus-surface {
+    max-width: min(92vw, var(--reading-max));
+  }
+
   /* --- Sections --- */
   
   .section {
@@ -384,6 +404,13 @@ a:hover {
 | Classe | Propósito |
 | ------ | --------- |
 | `.alien` | Marcador semântico para conteúdo externo |
+
+### Transferencia de Foco
+
+| Classe | Propósito |
+| ------ | --------- |
+| `.focus-layer` | Overlay de foco e bloqueio de fundo |
+| `.focus-surface` | Surface ativa no estado engajado |
 
 ### Navegação
 
