@@ -1,22 +1,29 @@
 import type { ReactNode, RefObject } from 'react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useEngaged } from '~/hooks/use-engaged';
 import { useGlobalState } from '~/state/global-state';
 
 const useHistoryBackClose = (active: boolean, onClose: () => void) => {
+	const previousStateRef = useRef<unknown>(null);
+
 	useEffect(() => {
 		if (!active) {
 			return;
 		}
 
 		const handlePop = () => onClose();
+		previousStateRef.current = window.history.state;
 		window.history.pushState({ engaged: true }, '');
 		window.addEventListener('popstate', handlePop);
 
 		return () => {
 			window.removeEventListener('popstate', handlePop);
 			if (window.history.state?.engaged) {
-				window.history.back();
+				window.history.replaceState(
+					previousStateRef.current,
+					'',
+					window.location.href,
+				);
 			}
 		};
 	}, [active, onClose]);

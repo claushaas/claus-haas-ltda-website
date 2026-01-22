@@ -141,7 +141,7 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ## Fase 2 — Componentes Core (Interacao e Estado)
 
-> **Status:** 🔄 Em progresso
+> **Status:** ✅ Completo
 
 ### 2.1 Navegacao e base
 
@@ -379,7 +379,7 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 | ---- | ---- | ------ |
 | 0 | Fundacao | ✅ Completo |
 | 1 | Design System Base | ✅ Completo |
-| 2 | Componentes Core | 🔄 Em progresso |
+| 2 | Componentes Core | ✅ Completo |
 | 3 | Rotas Principais | 🔲 Pendente |
 | 4 | Harada | 🔄 Em progresso |
 | 5 | Qualidade | 🔲 Pendente |

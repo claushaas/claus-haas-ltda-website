@@ -10,6 +10,10 @@ import { initReactI18next } from 'react-i18next';
 const supportedLanguages = ['pt', 'en'] as const;
 export type SupportedLanguage = (typeof supportedLanguages)[number];
 
+type Namespace = 'namespace1' | 'siteNav';
+
+const namespaces: Namespace[] = ['namespace1', 'siteNav'];
+
 export const defaultLanguage = 'en';
 
 const getFromSupported = (language: string | null): SupportedLanguage => {
@@ -52,6 +56,7 @@ const isBrowser = typeof document !== 'undefined';
 export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 	// first we add the generic configuration for client and server
 	const options: InitOptions = {
+		defaultNS: 'namespace1',
 		detection: {
 			caches: ['cookie'],
 		},
@@ -60,6 +65,7 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 		interpolation: { escapeValue: false },
 		// keySeparator removed to allow navigation in nested objects
 		load: 'languageOnly',
+		ns: namespaces,
 		react: { useSuspense: false },
 		supportedLngs: supportedLanguages,
 	};
@@ -68,13 +74,11 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 	if (!isBrowser) {
 		// here we set the language we are going to use
 		options.lng = language ?? defaultLanguage;
-		// and the namespace
-		options.defaultNS = 'namespace1';
 	}
 
 	// then we add the configuration used only on the client
 	if (isBrowser) {
-		options.backend = { loadPath: '/locales/{{lng}}.json' };
+		options.backend = { loadPath: '/locales/{{lng}}/{{ns}}.json' };
 		i18next.use(LanguageDetector).use(HttpApi);
 		const cookieOptions = { path: '/', sameSite: 'lax' as const };
 		if (language) {
@@ -90,10 +94,14 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 	await i18next.use(initReactI18next).init(options);
 
 	if (!isBrowser) {
-		// finally, if we are running server-side, dynamically import the translation JSON
+		const resolvedLanguage = language ?? defaultLanguage;
 		const resource = (
-			await import(`../../public/locales/${language ?? defaultLanguage}.json`)
+			await import(`../../public/locales/${resolvedLanguage}/namespace1.json`)
 		).default;
-		i18n.addResourceBundle(language ?? defaultLanguage, 'namespace1', resource);
+		const siteNavResource = (
+			await import(`../../public/locales/${resolvedLanguage}/siteNav.json`)
+		).default;
+		i18n.addResourceBundle(resolvedLanguage, 'namespace1', resource);
+		i18n.addResourceBundle(resolvedLanguage, 'siteNav', siteNavResource);
 	}
 };

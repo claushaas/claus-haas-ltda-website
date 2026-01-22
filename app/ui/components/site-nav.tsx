@@ -9,15 +9,15 @@ const links = [
 ];
 
 export const SiteNav = () => {
-	const { t } = useTranslation();
+	const { t } = useTranslation('siteNav');
 
 	return (
-		<nav aria-label={t('siteNav.label')} className="stack-xs">
-			<div className="t-meta">{t('siteNav.navigationMeta')}</div>
+		<nav aria-label={t('label')} className="stack-xs">
+			<div className="t-meta">{t('navigationMeta')}</div>
 			<div className="nav-row">
 				{links.map((link) => (
 					<a href={link.href} key={link.key}>
-						{t(`siteNav.${link.key}`)}
+						{t(link.key)}
 					</a>
 				))}
 			</div>
