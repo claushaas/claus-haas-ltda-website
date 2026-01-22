@@ -22,9 +22,23 @@ const getFromSupported = (language: string | null): SupportedLanguage => {
 	}) ?? defaultLanguage) as SupportedLanguage;
 };
 
+const getLanguageFromPath = (url: URL) => {
+	const segment = url.pathname.split('/').filter(Boolean)[0];
+	if (segment === 'pt' || segment === 'en') {
+		return segment;
+	}
+	return null;
+};
+
 export const detectLanguage = (request: Request): SupportedLanguage => {
-	// first we prioritize the URL, if the user adds the `lng` is most likely what they want
+	// first we prioritize the URL path prefix
 	const url = new URL(request.url);
+	const pathLanguage = getLanguageFromPath(url);
+	if (pathLanguage) {
+		return getFromSupported(pathLanguage);
+	}
+
+	// then we check for query param override
 	if (url.searchParams.has('lng')) {
 		return getFromSupported(url.searchParams.get('lng'));
 	}

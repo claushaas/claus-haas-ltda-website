@@ -177,12 +177,12 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ## Fase 3 — Rotas Principais (IA + Conteudo Base)
 
-> **Status:** 🔲 Pendente
+> **Status:** 🔄 Em progresso
 
 ### 3.1 Alinhamento de arquitetura
 
-- [ ] Confirmar estrutura das rotas em [02-information-architecture.md](./02-information-architecture.md)
-- [ ] Garantir URLs estaveis por idioma
+- [x] Confirmar estrutura das rotas em [02-information-architecture.md](./02-information-architecture.md)
+- [x] Garantir URLs estaveis por idioma
 
 ### 3.2 Rotas core
 
@@ -380,7 +380,7 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 | 0 | Fundacao | ✅ Completo |
 | 1 | Design System Base | ✅ Completo |
 | 2 | Componentes Core | ✅ Completo |
-| 3 | Rotas Principais | 🔲 Pendente |
+| 3 | Rotas Principais | 🔄 Em progresso |
 | 4 | Harada | 🔄 Em progresso |
 | 5 | Qualidade | 🔲 Pendente |
 | 6 | Conteudo | 🔲 Pendente |

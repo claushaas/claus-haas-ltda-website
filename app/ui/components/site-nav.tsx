@@ -8,15 +8,19 @@ const links = [
 	{ href: '/about', key: 'about' },
 ];
 
+const normalizeLanguage = (language: string) =>
+	language.startsWith('pt') ? 'pt' : 'en';
+
 export const SiteNav = () => {
-	const { t } = useTranslation('siteNav');
+	const { t, i18n } = useTranslation('siteNav');
+	const language = normalizeLanguage(i18n.language);
 
 	return (
 		<nav aria-label={t('label')} className="stack-xs">
 			<div className="t-meta">{t('navigationMeta')}</div>
 			<div className="nav-row">
 				{links.map((link) => (
-					<a href={link.href} key={link.key}>
+					<a href={`/${language}${link.href}`} key={link.key}>
 						{t(link.key)}
 					</a>
 				))}
