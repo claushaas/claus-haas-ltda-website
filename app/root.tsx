@@ -15,6 +15,8 @@ import { AppMdxProvider } from '~/ui/mdx/mdx-provider';
 import { useIsBot } from './hooks/use-is-bot';
 import { defaultLanguage, detectLanguage } from './i18n/i18n';
 import { LanguageSwitcher } from './ui/components/language-switcher';
+import { SiteNav } from './ui/components/site-nav';
+import { SkipLink } from './ui/components/skip-link';
 
 export const links: Route.LinksFunction = () => [
 	{
@@ -119,8 +121,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				</script>
 			</head>
 			<body className="page m-auto h-fit space-y-16 px-4">
-				<header className="py-4 flex justify-center">
+				<SkipLink />
+				<header className="flex flex-col items-center gap-4 py-4">
 					<LanguageSwitcher />
+					<SiteNav />
 				</header>
 				<AppMdxProvider>{children}</AppMdxProvider>
 				<footer

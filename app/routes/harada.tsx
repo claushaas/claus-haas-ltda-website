@@ -411,7 +411,11 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 	};
 
 	return (
-		<main className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-10 print:max-w-full print:px-2 print:py-4">
+		<main
+			className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-10 print:max-w-full print:px-2 print:py-4"
+			id="main-content"
+			tabIndex={-1}
+		>
 			<header className="flex flex-col gap-4 border-b border-slate-4 pb-6 print:border-slate-8">
 				<div className="flex flex-wrap items-center justify-between gap-3">
 					<div>

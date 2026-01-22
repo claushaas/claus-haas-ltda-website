@@ -204,6 +204,20 @@ p {
     margin-top: var(--space-xl);
   }
 
+  .nav-row {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--space-sm);
+    row-gap: var(--space-xs);
+    font-size: clamp(
+      var(--font-meta-min),
+      0.75rem + 0.2vw,
+      var(--font-meta-max)
+    );
+    line-height: var(--line-meta);
+    font-weight: var(--weight-medium);
+  }
+
   .surface {
     background: var(--bg-surface);
     border-radius: var(--radius-surface);

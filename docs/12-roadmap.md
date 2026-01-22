@@ -141,12 +141,12 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ## Fase 2 — Componentes Core (Interacao e Estado)
 
-> **Status:** 🔲 Pendente
+> **Status:** 🔄 Em progresso
 
 ### 2.1 Navegacao e base
 
-- [ ] Implementar `SiteNav` conforme [09-component-specs.md](./09-component-specs.md)
-- [ ] Implementar `SkipLink` e garantir foco inicial (ver [21-interaction-spec.md](./21-interaction-spec.md))
+- [x] Implementar `SiteNav` conforme [09-component-specs.md](./09-component-specs.md)
+- [x] Implementar `SkipLink` e garantir foco inicial (ver [21-interaction-spec.md](./21-interaction-spec.md))
 
 ### 2.2 Kit MDX minimo
 
@@ -379,7 +379,7 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 | ---- | ---- | ------ |
 | 0 | Fundacao | ✅ Completo |
 | 1 | Design System Base | ✅ Completo |
-| 2 | Componentes Core | 🔲 Pendente |
+| 2 | Componentes Core | 🔄 Em progresso |
 | 3 | Rotas Principais | 🔲 Pendente |
 | 4 | Harada | 🔄 Em progresso |
 | 5 | Qualidade | 🔲 Pendente |

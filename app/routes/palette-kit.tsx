@@ -71,5 +71,9 @@ export default function PaletteKit() {
 
 	if (!Markdown) return null; // ou skeleton
 
-	return <Markdown>{markdown}</Markdown>;
+	return (
+		<main className="reading section stack-md" id="main-content" tabIndex={-1}>
+			<Markdown>{markdown}</Markdown>
+		</main>
+	);
 }
