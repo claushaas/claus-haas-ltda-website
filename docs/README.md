@@ -32,6 +32,7 @@ Esta pasta contém a documentação completa para a implementação da versão 0
 | [15-success-criteria.md](./15-success-criteria.md) | Critérios de sucesso e validação |
 | [16-color-system-spec.md](./16-color-system-spec.md) | Especificação completa do sistema de cores (OKLCH) |
 | [17-typography-system-spec.md](./17-typography-system-spec.md) | Especificação completa do sistema tipográfico responsivo |
+| [18-alien-elements-spec.md](./18-alien-elements-spec.md) | Especificação de contenção para embeds e mídias externas |
 
 ---
 

@@ -260,6 +260,12 @@ a:hover {
     color: var(--text-muted);
   }
 
+  /* --- Elementos Alienigenas --- */
+  /* Ver 18-alien-elements-spec.md para regras de contencao */
+  .alien {
+    /* marcador semantico */
+  }
+
   /* --- Sections --- */
   
   .section {
@@ -372,6 +378,12 @@ a:hover {
 | `.t-heading` | Títulos |
 | `.t-body` | Texto principal |
 | `.t-meta` | Texto secundário |
+
+### Elementos Alienigenas
+
+| Classe | Propósito |
+| ------ | --------- |
+| `.alien` | Marcador semântico para conteúdo externo |
 
 ### Navegação
 

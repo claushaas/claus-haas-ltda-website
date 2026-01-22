@@ -296,6 +296,19 @@ Largura não é um número fixo; é uma **restrição de legibilidade**.
 
 ---
 
+## Elementos Alienigenas (Embeds e Midias Externas)
+
+Elementos externos sao alienigenas: trazem outra estetica, outra hierarquia, outra intencao.
+O sistema nao se adapta a eles; eles se adaptam ao sistema.
+
+Principio:
+
+> O embed e contido, nao absorvido.
+
+Regras e exemplos completos estao em [18-alien-elements-spec.md](./18-alien-elements-spec.md).
+
+---
+
 ## Regra de Integridade
 
 > **Se uma decisão visual não cabe nos tokens existentes, ela é inválida.**

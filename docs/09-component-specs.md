@@ -120,13 +120,15 @@ interface FigureProps {
 
 export function Figure({ src, alt, caption }: FigureProps) {
   return (
-    <figure className="stack-xs">
-      <img className="surface" src={src} alt={alt} />
+    <figure className="surface surface-pad stack-xs alien">
+      <img src={src} alt={alt} />
       <figcaption className="t-meta">{caption}</figcaption>
     </figure>
   );
 }
 ```
+
+**Nota:** imagens sao alienigenas passivos; ver [18-alien-elements-spec.md](./18-alien-elements-spec.md).
 
 ### CodeBlock
 
@@ -143,8 +145,8 @@ interface CodeBlockProps {
 
 export function CodeBlock({ code, language, caption }: CodeBlockProps) {
   return (
-    <figure className="stack-xs">
-      <pre className="surface surface-pad code-block">
+    <figure className="surface surface-pad stack-xs alien">
+      <pre className="code-block">
         <code data-lang={language ?? "plain"}>{code}</code>
       </pre>
       {caption ? <figcaption className="t-meta">{caption}</figcaption> : null}
@@ -152,6 +154,8 @@ export function CodeBlock({ code, language, caption }: CodeBlockProps) {
   );
 }
 ```
+
+**Nota:** code blocks com syntax highlight sao alienigenas e devem respeitar contencao.
 
 **Nota:** integrar via `MDXProvider` em `app/ui/mdx/mdx-provider.tsx` para mapear `Callout`, `Figure` e `CodeBlock` no render.
 
