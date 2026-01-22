@@ -10,6 +10,10 @@ import { initReactI18next } from 'react-i18next';
 const supportedLanguages = ['pt', 'en'] as const;
 export type SupportedLanguage = (typeof supportedLanguages)[number];
 
+type Namespace = 'namespace1' | 'siteNav' | 'routes';
+
+const namespaces: Namespace[] = ['namespace1', 'siteNav', 'routes'];
+
 export const defaultLanguage = 'en';
 
 const getFromSupported = (language: string | null): SupportedLanguage => {
@@ -18,9 +22,23 @@ const getFromSupported = (language: string | null): SupportedLanguage => {
 	}) ?? defaultLanguage) as SupportedLanguage;
 };
 
+const getLanguageFromPath = (url: URL) => {
+	const segment = url.pathname.split('/').filter(Boolean)[0];
+	if (segment === 'pt' || segment === 'en') {
+		return segment;
+	}
+	return null;
+};
+
 export const detectLanguage = (request: Request): SupportedLanguage => {
-	// first we prioritize the URL, if the user adds the `lng` is most likely what they want
+	// first we prioritize the URL path prefix
 	const url = new URL(request.url);
+	const pathLanguage = getLanguageFromPath(url);
+	if (pathLanguage) {
+		return getFromSupported(pathLanguage);
+	}
+
+	// then we check for query param override
 	if (url.searchParams.has('lng')) {
 		return getFromSupported(url.searchParams.get('lng'));
 	}
@@ -52,6 +70,7 @@ const isBrowser = typeof document !== 'undefined';
 export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 	// first we add the generic configuration for client and server
 	const options: InitOptions = {
+		defaultNS: 'namespace1',
 		detection: {
 			caches: ['cookie'],
 		},
@@ -60,6 +79,7 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 		interpolation: { escapeValue: false },
 		// keySeparator removed to allow navigation in nested objects
 		load: 'languageOnly',
+		ns: namespaces,
 		react: { useSuspense: false },
 		supportedLngs: supportedLanguages,
 	};
@@ -68,13 +88,11 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 	if (!isBrowser) {
 		// here we set the language we are going to use
 		options.lng = language ?? defaultLanguage;
-		// and the namespace
-		options.defaultNS = 'namespace1';
 	}
 
 	// then we add the configuration used only on the client
 	if (isBrowser) {
-		options.backend = { loadPath: '/locales/{{lng}}.json' };
+		options.backend = { loadPath: '/locales/{{lng}}/{{ns}}.json' };
 		i18next.use(LanguageDetector).use(HttpApi);
 		const cookieOptions = { path: '/', sameSite: 'lax' as const };
 		if (language) {
@@ -90,10 +108,14 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 	await i18next.use(initReactI18next).init(options);
 
 	if (!isBrowser) {
-		// finally, if we are running server-side, dynamically import the translation JSON
+		const resolvedLanguage = language ?? defaultLanguage;
 		const resource = (
-			await import(`../../public/locales/${language ?? defaultLanguage}.json`)
+			await import(`../../public/locales/${resolvedLanguage}/namespace1.json`)
 		).default;
-		i18n.addResourceBundle(language ?? defaultLanguage, 'namespace1', resource);
+		const siteNavResource = (
+			await import(`../../public/locales/${resolvedLanguage}/siteNav.json`)
+		).default;
+		i18n.addResourceBundle(resolvedLanguage, 'namespace1', resource);
+		i18n.addResourceBundle(resolvedLanguage, 'siteNav', siteNavResource);
 	}
 };

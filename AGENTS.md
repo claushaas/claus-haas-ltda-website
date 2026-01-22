@@ -49,3 +49,4 @@ Guia rápido para agentes e contribuidores trabalharem no repositório com segur
 - Não exponha segredos (Supabase/Cloudflare) no código; use variáveis de ambiente/Secrets do Wrangler.
 - Preserve acessibilidade: headings hierárquicos, aria-labels, foco e tooltips quando aplicável.
 - Conteúdo textual deve passar por i18n; evite strings hardcoded fora dos arquivos de tradução.
+- Respostas no chat sempre devem ser em português pt-BR
