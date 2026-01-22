@@ -118,7 +118,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					{JSON.stringify({ language })}
 				</script>
 			</head>
-			<body className="m-auto h-fit space-y-16 bg-slate-1 px-4 dark:bg-slatedark-1">
+			<body className="page m-auto h-fit space-y-16 px-4">
 				<header className="py-4 flex justify-center">
 					<LanguageSwitcher />
 				</header>

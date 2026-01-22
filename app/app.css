@@ -64,6 +64,13 @@
   --pad-min: 1rem;
   --pad-ideal: 2rem;
   --pad-max: 3rem;
+
+  /* Spacing tokens */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
 }
 
 .dark {
@@ -95,6 +102,28 @@
     --motion-fast: 1ms;
     --motion-medium: 1ms;
     --motion-slow: 1ms;
+  }
+}
+
+@media print {
+  html {
+    background: #fff;
+    color: #000;
+  }
+
+  .page {
+    background: #fff;
+  }
+
+  .surface {
+    box-shadow: none;
+    background: transparent;
+    border: 1px solid #ccc;
+  }
+
+  .nav-row,
+  nav {
+    display: none;
   }
 }
 
@@ -152,27 +181,27 @@ p {
   }
 
   .section {
-    padding-block: 3rem;
+    padding-block: var(--space-lg);
   }
 
   .stack-xs > * + * {
-    margin-top: 0.5rem;
+    margin-top: var(--space-xs);
   }
 
   .stack-sm > * + * {
-    margin-top: 1rem;
+    margin-top: var(--space-sm);
   }
 
   .stack-md > * + * {
-    margin-top: 2rem;
+    margin-top: var(--space-md);
   }
 
   .stack-lg > * + * {
-    margin-top: 3rem;
+    margin-top: var(--space-lg);
   }
 
   .stack-xl > * + * {
-    margin-top: 5rem;
+    margin-top: var(--space-xl);
   }
 
   .surface {
@@ -196,7 +225,7 @@ p {
   .tile {
     border-radius: var(--radius-surface);
     background: var(--bg-tile);
-    padding: 0.5rem;
+    padding: var(--space-xs);
   }
 
   .t-heading {
