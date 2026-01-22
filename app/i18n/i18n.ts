@@ -10,9 +10,9 @@ import { initReactI18next } from 'react-i18next';
 const supportedLanguages = ['pt', 'en'] as const;
 export type SupportedLanguage = (typeof supportedLanguages)[number];
 
-type Namespace = 'namespace1' | 'siteNav';
+type Namespace = 'namespace1' | 'siteNav' | 'routes';
 
-const namespaces: Namespace[] = ['namespace1', 'siteNav'];
+const namespaces: Namespace[] = ['namespace1', 'siteNav', 'routes'];
 
 export const defaultLanguage = 'en';
 

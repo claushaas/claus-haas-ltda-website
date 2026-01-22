@@ -1,0 +1,33 @@
+{
+	"about": {
+		"description": "Base factual: contexto profissional e humano.",
+		"placeholder": "Conteúdo em breve.",
+		"title": "Sobre"
+	},
+	"contact": {
+		"description": "Canais diretos com expectativas claras.",
+		"placeholder": "Conteúdo em breve.",
+		"title": "Contato"
+	},
+	"footer": "© {{year}} Claus Haas",
+	"howIWork": {
+		"description": "Manual operacional de colaboração.",
+		"placeholder": "Conteúdo em breve.",
+		"title": "Como eu trabalho"
+	},
+	"principles": {
+		"description": "O que não muda independentemente do contexto.",
+		"placeholder": "Conteúdo em breve.",
+		"title": "Princípios"
+	},
+	"projects": {
+		"description": "Trabalhos selecionados com contexto e resultados.",
+		"placeholder": "Conteúdo em breve.",
+		"title": "Projetos"
+	},
+	"uses": {
+		"description": "Ferramentas, setup e ambiente.",
+		"placeholder": "Conteúdo em breve.",
+		"title": "Ferramentas"
+	}
+}
