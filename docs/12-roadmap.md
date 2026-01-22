@@ -112,9 +112,9 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 1.5 Elevacao global
 
-- [ ] Criar `app/lib/elevation.ts`
-- [ ] Injetar `--a`, `--hi`, `--ao`, `--sh` via JS
-- [ ] Validar ausencia de drop-shadow tradicional
+- [x] Criar `app/lib/elevation.ts`
+- [x] Injetar `--a`, `--hi`, `--ao`, `--sh` via JS
+- [x] Validar ausencia de drop-shadow tradicional
 
 ### 1.6 MDX base
 
