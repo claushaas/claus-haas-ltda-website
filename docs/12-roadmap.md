@@ -74,22 +74,24 @@ O repositorio ja possui:
 - [x] Rota `/harada` inicial implementada
 - [x] Estrutura `content/harada/` com JSON
 
+Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite, Tailwind v4, TypeScript, Workers, i18n, rota /harada, conteudo Harada).
+
 **Referencias diretas:** [07-tech-stack.md](./07-tech-stack.md), [10-route-specs.md](./10-route-specs.md), [11-harada-spec.md](./11-harada-spec.md)
 
 ---
 
 ## Fase 1 — Design System Base (Tokens + Classes + Contratos)
 
-> **Status:** 🔲 Pendente
+> **Status:** 🔄 Em progresso
 
 ### 1.1 Tokens fundamentais (design system)
 
-- [ ] Alinhar tokens de cor com [16-color-system-spec.md](./16-color-system-spec.md)
-- [ ] Alinhar tokens tipograficos responsivos com [17-typography-system-spec.md](./17-typography-system-spec.md)
-- [ ] Alinhar tokens de elevacao com [05-elevation-system.md](./05-elevation-system.md)
-- [ ] Implementar tokens de motion conforme [22-motion-policy.md](./22-motion-policy.md)
-- [ ] Implementar tokens de focus overlay conforme [19-focus-transfer-spec.md](./19-focus-transfer-spec.md)
-- [ ] Garantir que `.dark` sobrescreve apenas tokens (sem mudar semantica)
+- [x] Alinhar tokens de cor com [16-color-system-spec.md](./16-color-system-spec.md)
+- [x] Alinhar tokens tipograficos responsivos com [17-typography-system-spec.md](./17-typography-system-spec.md)
+- [x] Alinhar tokens de elevacao com [05-elevation-system.md](./05-elevation-system.md)
+- [x] Implementar tokens de motion conforme [22-motion-policy.md](./22-motion-policy.md)
+- [x] Implementar tokens de focus overlay conforme [19-focus-transfer-spec.md](./19-focus-transfer-spec.md)
+- [x] Garantir que `.dark` sobrescreve apenas tokens (sem mudar semantica)
 
 ### 1.2 Layout base (mesa vs papel)
 
@@ -376,7 +378,7 @@ O repositorio ja possui:
 | Fase | Nome | Status |
 | ---- | ---- | ------ |
 | 0 | Fundacao | ✅ Completo |
-| 1 | Design System Base | 🔲 Pendente |
+| 1 | Design System Base | 🔄 Em progresso |
 | 2 | Componentes Core | 🔲 Pendente |
 | 3 | Rotas Principais | 🔲 Pendente |
 | 4 | Harada | 🔄 Em progresso |
