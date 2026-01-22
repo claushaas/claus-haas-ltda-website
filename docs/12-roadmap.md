@@ -186,13 +186,13 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 3.2 Rotas core
 
-- [ ] Home (`/`) conforme [10-route-specs.md](./10-route-specs.md)
-- [ ] How I Work (`/how-i-work`)
-- [ ] Principles (`/principles`) com anchors
-- [ ] About (`/about`)
-- [ ] Projects (`/projects`)
-- [ ] Uses (`/uses`)
-- [ ] Contact (`/contact`)
+- [x] Home (`/`) conforme [10-route-specs.md](./10-route-specs.md)
+- [x] How I Work (`/how-i-work`)
+- [x] Principles (`/principles`) com anchors
+- [x] About (`/about`)
+- [x] Projects (`/projects`)
+- [x] Uses (`/uses`)
+- [x] Contact (`/contact`)
 
 ### 3.3 Notes (MDX)
 

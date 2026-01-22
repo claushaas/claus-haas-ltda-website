@@ -1,0 +1,33 @@
+{
+	"about": {
+		"description": "Factual baseline: professional and human context.",
+		"placeholder": "Content coming soon.",
+		"title": "About"
+	},
+	"contact": {
+		"description": "Direct contact paths with clear expectations.",
+		"placeholder": "Content coming soon.",
+		"title": "Contact"
+	},
+	"footer": "© {{year}} Claus Haas",
+	"howIWork": {
+		"description": "A practical operating manual for collaboration.",
+		"placeholder": "Content coming soon.",
+		"title": "How I Work"
+	},
+	"principles": {
+		"description": "What does not change regardless of context.",
+		"placeholder": "Content coming soon.",
+		"title": "Principles"
+	},
+	"projects": {
+		"description": "Selected work with context, scope, and outcomes.",
+		"placeholder": "Content coming soon.",
+		"title": "Projects"
+	},
+	"uses": {
+		"description": "Tools, setup, and environment.",
+		"placeholder": "Content coming soon.",
+		"title": "Uses"
+	}
+}

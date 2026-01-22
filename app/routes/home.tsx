@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import type { LoaderFunctionArgs, MetaArgs } from 'react-router';
-import { useIsBot } from '~/hooks/use-is-bot';
 import { detectLanguage } from '~/i18n/i18n';
 import Face from '~/ui/components/face';
+import { SiteNav } from '~/ui/components/site-nav';
 import { skills } from '../content/skills/skills';
 import { SkillBadge } from '../ui/components/skill-badge';
 import ProjectGallery from '../ui/layouts/projects-gallery';
@@ -36,11 +36,10 @@ export const loader = ({ request }: LoaderFunctionArgs) => {
 };
 
 export default function Home() {
-	const isBot = useIsBot();
 	const { t } = useTranslation();
 
 	return (
-		<>
+		<main className="page">
 			<section
 				className="mb-0 flex flex-col items-center justify-items-start max-w-4xl m-auto"
 				id="header"
@@ -66,7 +65,7 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
-			<main className="m-auto max-w-4xl" id="main-content" tabIndex={-1}>
+			<div className="m-auto max-w-4xl" id="main-content" tabIndex={-1}>
 				<section aria-labelledby="about-heading" id="about">
 					<div className="mb-10 sm:mb-20">
 						<h2 className="mt-10 mb-4 font-bold text-xl sm:mt-20 sm:mb-8 sm:text-3xl">
@@ -115,6 +114,10 @@ export default function Home() {
 					</div>
 
 					<div className="mb-10 sm:mb-20">
+						<SiteNav />
+					</div>
+
+					<div className="mb-10 sm:mb-20">
 						<h3 className="mb-4 font-semibold text-lg sm:mb-8 sm:text-2xl">
 							{t('home.motivationTitle')}
 						</h3>
@@ -137,15 +140,13 @@ export default function Home() {
 					<div className="mb-10 sm:mb-20">
 						<p className="font-semibold text-lg">
 							{t('home.letsTalk')}
-							{!isBot && (
-								<a
-									aria-label={t('home.emailAria')}
-									className="ml-2 text-sky-8 underline underline-offset-2 hover:opacity-80 dark:text-skydark-8"
-									href="mailto:contact@claushaas.dev"
-								>
-									contact@claushaas.dev
-								</a>
-							)}
+							<a
+								aria-label={t('home.emailAria')}
+								className="ml-2 text-sky-8 underline underline-offset-2 hover:opacity-80 dark:text-skydark-8"
+								href="mailto:contact@claushaas.dev"
+							>
+								contact@claushaas.dev
+							</a>
 						</p>
 					</div>
 				</section>
@@ -169,7 +170,7 @@ export default function Home() {
 				<section aria-labelledby="projetos-heading" id="projects">
 					<ProjectGallery />
 				</section>
-			</main>
-		</>
+			</div>
+		</main>
 	);
 }
