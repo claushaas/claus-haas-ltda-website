@@ -127,19 +127,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				</script>
 			</head>
 			<GlobalStateProvider>
-				<body className="page m-auto h-fit space-y-16 px-4 flex flex-col justify-between">
-					<div className="m-0">
-						<SkipLink />
-						<header className="flex flex-col items-center gap-4 py-4">
-							<div className="flex flex-wrap items-center justify-center gap-3">
-								<LanguageSwitcher />
-								<ColorModeToggle />
-							</div>
-							<SiteNav />
-						</header>
-						<LoadStateSync />
-						<AppMdxProvider>{children}</AppMdxProvider>
-					</div>
+				<body className="page h-fit p-4 flex flex-col justify-between">
+					<SkipLink />
+					<header className="flex justify-center items-center gap-4 pb-4">
+						<SiteNav />
+						<ColorModeToggle />
+						<LanguageSwitcher />
+					</header>
+					<LoadStateSync />
+					<AppMdxProvider>{children}</AppMdxProvider>
 					<footer
 						className="mb-0 border-slate-2 border-t-2 pb-2 pt-16 dark:border-slatedark-2"
 						id="footer"

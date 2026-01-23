@@ -136,8 +136,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 /* Remover listas */
@@ -193,8 +191,52 @@ a:hover {
 main {
   display: flex;
   justify-content: center;
-  padding-top: 6rem;
-  padding-bottom: 4rem;
+  @apply py-10;
+}
+
+/* Tabelas básicas */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Elementos de formulário inline block */
+button,
+select,
+input,
+textarea {
+  line-height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-heading-color);
+  font-family: var(--font-family-base);
+  scroll-margin-top: 6rem;
+  font-weight: var(--);
+  overflow-wrap: break-word;
+  @apply mb-3 mt-2;
+}
+
+p, li {
+  color: var(--text-secondary);
+  font-family: var(--font-family-base);
+  overflow-wrap: break-word;
+}
+
+p {
+  @apply mb-4;
+}
+
+section {
+  @apply mb-20;
+}
+
+section:first-child {
+  @apply mt-10;
+}
+
+section:last-child {
+  @apply mb-10;
 }
 
 .skip-link {
@@ -225,55 +267,6 @@ main {
     outline-offset: 2px;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
   */
-}
-
-/* Tabelas básicas */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* Elementos de formulário inline block */
-button,
-select,
-input,
-textarea {
-  line-height: inherit;
-}
-
-/* Texto */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-section {
-  @apply mb-20;
-}
-
-section:last-child {
-  margin-bottom: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text-heading-color);
-  font-family: var(--font-family-base);
-  scroll-margin-top: 6rem;
-  font-weight: var(--);
-}
-
-p, li {
-  color: var(--text-secondary);
-  font-family: var(--font-family-base);
-}
-
-p {
-  margin-bottom: 1rem;
 }
 
 @layer components {
