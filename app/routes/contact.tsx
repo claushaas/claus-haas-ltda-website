@@ -11,7 +11,22 @@ export default function ContactRoute() {
 					<p className="t-body">{t('contact.description')}</p>
 				</header>
 				<section className="stack-lg">
-					<p className="t-body">{t('contact.placeholder')}</p>
+					<p className="t-body">{t('contact.body.0')}</p>
+					<p className="t-body">{t('contact.body.1')}</p>
+					<p className="t-body">
+						{t('contact.emailLabel')}{' '}
+						<a
+							className="text-sky-8 underline underline-offset-2 hover:opacity-80 dark:text-skydark-8"
+							href={`mailto:${t('contact.email')}`}
+						>
+							{t('contact.email')}
+						</a>
+					</p>
+					<ul className="t-body list-disc pl-6 stack-xs">
+						<li>{t('contact.expectations.0')}</li>
+						<li>{t('contact.expectations.1')}</li>
+						<li>{t('contact.expectations.2')}</li>
+					</ul>
 				</section>
 				<footer className="t-meta">{t('footer')}</footer>
 			</div>

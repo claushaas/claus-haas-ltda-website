@@ -1,53 +1,139 @@
 {
 	"about": {
+		"body": [
+			"Construo sistemas de software, automacao e infraestrutura com foco em clareza e baixa manutencao.",
+			"Trabalho entre produto, engenharia e operacoes para transformar ideias vagas em entregas precisas.",
+			"Esta pagina e curta de proposito. O objetivo e reduzir ruido, nao criar historia."
+		],
 		"description": "Base factual: contexto profissional e humano.",
-		"placeholder": "Conteúdo em breve.",
+		"highlights": [
+			"Entrega full-stack do discovery ao release.",
+			"Infra cloud e integracoes como base.",
+			"Documentacao e decisoes escritas como padrao."
+		],
 		"title": "Sobre"
 	},
 	"contact": {
+		"body": [
+			"Email e o caminho mais rapido. Respondo quando a solicitacao e especifica.",
+			"Se voce nao sabe exatamente o que precisa, envie contexto e restricoes. Eu ajudo a definir o escopo."
+		],
 		"description": "Canais diretos com expectativas claras.",
-		"placeholder": "Conteúdo em breve.",
+		"email": "contato@claushaas.dev",
+		"emailLabel": "Email:",
+		"expectations": [
+			"Objetivo e prazo.",
+			"O que ja esta decidido e o que esta aberto.",
+			"Restricoes: budget, risco ou limites tecnicos."
+		],
 		"title": "Contato"
 	},
 	"footer": "© {{year}} Claus Haas",
 	"howIWork": {
-		"description": "Manual operacional de colaboração.",
-		"placeholder": "Conteúdo em breve.",
+		"description": "Manual operacional de colaboracao.",
+		"sections": {
+			"bestResults": {
+				"items": [
+					"Defina o modo: explorar, decidir ou executar.",
+					"Entregue restricoes cedo: tempo, escopo, risco, invariantes.",
+					"Mostre o estado atual, nao so o objetivo.",
+					"Prefira ciclos curtos com checkpoints claros."
+				],
+				"title": "O que gera melhores resultados"
+			},
+			"boundaries": {
+				"body": "Se o objetivo nao estiver explicito, eu pauso. Nao otimizo movimento sem direcao.",
+				"title": "Limites"
+			},
+			"disagreement": {
+				"body": "Discordancia e debug. Premissas mais fortes vencem, nao autoridade.",
+				"rule": "Regra: se duas coisas parecem iguais, devem significar o mesmo.",
+				"title": "Discordancia"
+			},
+			"model": {
+				"body": "Eu penso em sistemas, entradas e resultados. Se algo parece simples, procuro o acoplamento escondido.",
+				"title": "Modelo"
+			}
+		},
 		"title": "Como eu trabalho"
 	},
 	"notes": {
-		"description": "Pensamento em movimento. Ensaios, frameworks e reflexões.",
+		"description": "Pensamento em movimento. Ensaios, frameworks e reflexoes.",
 		"empty": "Nenhuma nota publicada ainda.",
-		"notFound": "Nota não encontrada.",
+		"notFound": "Nota nao encontrada.",
 		"title": "Notas"
 	},
 	"principles": {
-		"description": "O que não muda independentemente do contexto.",
-		"placeholder": "Conteúdo em breve.",
+		"description": "O que nao muda independentemente do contexto.",
 		"sections": {
 			"boundaries": {
-				"description": "Conteúdo em breve.",
+				"description": "Restricao e feature. Se quebra o sistema, esta fora do escopo.",
 				"title": "Limites"
 			},
 			"decisions": {
-				"description": "Conteúdo em breve.",
-				"title": "Âncoras de decisão"
+				"description": "Decisoes vivem por escrito. Ambiguidade vira divida tecnica.",
+				"title": "Ancoras de decisao"
 			},
 			"invariants": {
-				"description": "Conteúdo em breve.",
+				"description": "Clareza vence velocidade. Confiabilidade vence novidade. Estrutura vence improviso.",
 				"title": "Invariantes"
 			}
 		},
-		"title": "Princípios"
+		"title": "Principios"
 	},
 	"projects": {
 		"description": "Trabalhos selecionados com contexto e resultados.",
-		"placeholder": "Conteúdo em breve.",
+		"featured": {
+			"body": "budgetPal e um app mobile focado em orcamento compartilhado para familias. Liderei produto e engenharia com foco em usabilidade e resiliencia.",
+			"highlights": [
+				"Fluxos offline-first e estrategia de sync.",
+				"Colaboracao em tempo real para varios usuarios.",
+				"Pipeline de release e monitoramento limpos."
+			],
+			"linkLabel": "budgetpalapp.com",
+			"linkUrl": "https://budgetpalapp.com",
+			"title": "Destaque: budgetPal"
+		},
+		"next": {
+			"body": "Mais estudos de caso entram aqui conforme a biblioteca cresce.",
+			"title": "Proximos"
+		},
 		"title": "Projetos"
 	},
 	"uses": {
 		"description": "Ferramentas, setup e ambiente.",
-		"placeholder": "Conteúdo em breve.",
+		"sections": {
+			"analytics": {
+				"items": ["Google Analytics.", "Google Tag Manager."],
+				"title": "Analytics"
+			},
+			"ops": {
+				"items": [
+					"Mautic, Infusionsoft, WordPress.",
+					"Elementor, Thrive Themes.",
+					"Zapier e automacoes.",
+					"Relatorios no Looker Studio."
+				],
+				"title": "Operacao"
+			},
+			"platform": {
+				"items": [
+					"AWS Cognito, AWS SES.",
+					"Cloudflare Workers.",
+					"Docker, Git, GitHub Actions."
+				],
+				"title": "Plataformas"
+			},
+			"stack": {
+				"items": [
+					"TypeScript, React, React Router, Node.",
+					"React Native, Expo, Expo Router.",
+					"Vite, Biome, Tailwind, Motion.",
+					"Postgres, MySQL, Supabase."
+				],
+				"title": "Stack principal"
+			}
+		},
 		"title": "Ferramentas"
 	}
 }

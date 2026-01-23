@@ -1,18 +1,60 @@
 {
 	"about": {
+		"body": [
+			"I build software systems, automation, and infrastructure with a bias for clarity and low maintenance.",
+			"I work across product, engineering, and operations to turn vague ideas into precise, shippable outcomes.",
+			"This page is intentionally short. The goal is to reduce noise, not add a story."
+		],
 		"description": "Factual baseline: professional and human context.",
-		"placeholder": "Content coming soon.",
+		"highlights": [
+			"Full-stack delivery from discovery to release.",
+			"Cloud-first infrastructure and integration work.",
+			"Documentation and decision hygiene as default."
+		],
 		"title": "About"
 	},
 	"contact": {
+		"body": [
+			"Email is the fastest way to reach me. I reply when the request is specific.",
+			"If you are not sure what you need, send the context and the constraint. I can help shape the scope."
+		],
 		"description": "Direct contact paths with clear expectations.",
-		"placeholder": "Content coming soon.",
+		"email": "contact@claushaas.dev",
+		"emailLabel": "Email:",
+		"expectations": [
+			"Objective and timeline.",
+			"What is already decided vs still open.",
+			"Constraints: budget, risk, or technical boundaries."
+		],
 		"title": "Contact"
 	},
 	"footer": "© {{year}} Claus Haas",
 	"howIWork": {
 		"description": "A practical operating manual for collaboration.",
-		"placeholder": "Content coming soon.",
+		"sections": {
+			"bestResults": {
+				"items": [
+					"Decide the mode: explore, decide, or execute.",
+					"Give constraints early: time, scope, risk, invariants.",
+					"Show the current state, not only the goal.",
+					"Prefer short loops with explicit checkpoints."
+				],
+				"title": "What Produces the Best Results"
+			},
+			"boundaries": {
+				"body": "If the objective is not explicit, I will pause. I do not optimize for motion without direction.",
+				"title": "Boundaries"
+			},
+			"disagreement": {
+				"body": "Disagreement is debugging. Stronger premises win, not authority.",
+				"rule": "Rule: if two things look the same, they should mean the same.",
+				"title": "Disagreement"
+			},
+			"model": {
+				"body": "I think in systems, inputs, and outcomes. If something looks simple, I will search for hidden coupling.",
+				"title": "Model"
+			}
+		},
 		"title": "How I Work"
 	},
 	"notes": {
@@ -23,18 +65,17 @@
 	},
 	"principles": {
 		"description": "What does not change regardless of context.",
-		"placeholder": "Content coming soon.",
 		"sections": {
 			"boundaries": {
-				"description": "Content coming soon.",
+				"description": "Constraints are a feature. If it breaks the system, it is out of scope.",
 				"title": "Boundaries"
 			},
 			"decisions": {
-				"description": "Content coming soon.",
-				"title": "Decision anchors"
+				"description": "Decisions live in writing. Ambiguity is treated as technical debt.",
+				"title": "Decision Anchors"
 			},
 			"invariants": {
-				"description": "Content coming soon.",
+				"description": "Clarity beats speed. Reliability beats novelty. Structure beats improvisation.",
 				"title": "Invariants"
 			}
 		},
@@ -42,12 +83,57 @@
 	},
 	"projects": {
 		"description": "Selected work with context, scope, and outcomes.",
-		"placeholder": "Content coming soon.",
+		"featured": {
+			"body": "budgetPal is a mobile app focused on shared budgets for families. I led product and engineering delivery with a focus on usability and resilience.",
+			"highlights": [
+				"Offline-first flows and sync strategy.",
+				"Realtime collaboration for multiple users.",
+				"Clean release pipeline and monitoring."
+			],
+			"linkLabel": "budgetpalapp.com",
+			"linkUrl": "https://budgetpalapp.com",
+			"title": "Featured: budgetPal"
+		},
+		"next": {
+			"body": "More case studies will be added here as the library grows.",
+			"title": "Next"
+		},
 		"title": "Projects"
 	},
 	"uses": {
 		"description": "Tools, setup, and environment.",
-		"placeholder": "Content coming soon.",
+		"sections": {
+			"analytics": {
+				"items": ["Google Analytics.", "Google Tag Manager."],
+				"title": "Analytics"
+			},
+			"ops": {
+				"items": [
+					"Mautic, Infusionsoft, WordPress.",
+					"Elementor, Thrive Themes.",
+					"Zapier and automation tooling.",
+					"Looker Studio reporting."
+				],
+				"title": "Ops"
+			},
+			"platform": {
+				"items": [
+					"AWS Cognito, AWS SES.",
+					"Cloudflare Workers.",
+					"Docker, Git, GitHub Actions."
+				],
+				"title": "Platforms"
+			},
+			"stack": {
+				"items": [
+					"TypeScript, React, React Router, Node.",
+					"React Native, Expo, Expo Router.",
+					"Vite, Biome, Tailwind, Motion.",
+					"Postgres, MySQL, Supabase."
+				],
+				"title": "Core Stack"
+			}
+		},
 		"title": "Uses"
 	}
 }

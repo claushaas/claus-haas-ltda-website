@@ -11,7 +11,29 @@ export default function ProjectsRoute() {
 					<p className="t-body">{t('projects.description')}</p>
 				</header>
 				<section className="stack-lg">
-					<p className="t-body">{t('projects.placeholder')}</p>
+					<section className="stack-sm">
+						<h2 className="t-heading">{t('projects.featured.title')}</h2>
+						<p className="t-body">{t('projects.featured.body')}</p>
+						<ul className="t-body list-disc pl-6 stack-xs">
+							<li>{t('projects.featured.highlights.0')}</li>
+							<li>{t('projects.featured.highlights.1')}</li>
+							<li>{t('projects.featured.highlights.2')}</li>
+						</ul>
+						<p className="t-meta">
+							<a
+								className="text-sky-8 underline underline-offset-2 hover:opacity-80 dark:text-skydark-8"
+								href={t('projects.featured.linkUrl')}
+								rel="noopener noreferrer"
+								target="_blank"
+							>
+								{t('projects.featured.linkLabel')}
+							</a>
+						</p>
+					</section>
+					<section className="stack-sm">
+						<h2 className="t-heading">{t('projects.next.title')}</h2>
+						<p className="t-body">{t('projects.next.body')}</p>
+					</section>
 				</section>
 				<footer className="t-meta">{t('footer')}</footer>
 			</div>

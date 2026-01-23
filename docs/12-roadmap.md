@@ -320,20 +320,20 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ## Fase 6 — Conteudo e Traducoes
 
-> **Status:** 🔲 Pendente
+> **Status:** ✅ Completo
 
 ### 6.1 Conteudo
 
-- [ ] Escrever `/how-i-work`
-- [ ] Escrever `/about`
-- [ ] Definir e escrever `/principles`
-- [ ] Escrever `/projects`, `/uses`, `/contact`
-- [ ] Criar primeira nota em `/notes`
+- [x] Escrever `/how-i-work`
+- [x] Escrever `/about`
+- [x] Definir e escrever `/principles`
+- [x] Escrever `/projects`, `/uses`, `/contact`
+- [x] Criar primeira nota em `/notes`
 
 ### 6.2 Traducoes
 
-- [ ] Garantir EN + PT-BR completos
-- [ ] Verificar `public/locales/` e MDX por idioma
+- [x] Garantir EN + PT-BR completos
+- [x] Verificar `public/locales/` e MDX por idioma
 
 ### Entregaveis Fase 6
 
@@ -385,7 +385,7 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 | 3 | Rotas Principais | ✅ Completo |
 | 4 | Harada | ✅ Completo |
 | 5 | Qualidade | 🔄 Em progresso |
-| 6 | Conteudo | 🔲 Pendente |
+| 6 | Conteudo | ✅ Completo |
 | 7 | Deploy e Launch | 🔲 Pendente |
 
 ---
