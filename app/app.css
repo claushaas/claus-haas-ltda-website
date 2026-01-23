@@ -7,21 +7,21 @@
 
 :root {
   /* Colors: light mode (OKLCH) */
-  --bg-base: oklch(0.96 0.010 260);
-  --bg-base-subtle: oklch(0.94 0.012 260);
+  --bg-base: oklch(0.98 0.001 260);
+  --bg-base-subtle: oklch(0.96 0.01 260);
   --bg-surface: oklch(0.99 0.005 260);
   --bg-surface-muted: oklch(0.975 0.007 260);
   --bg-tile: oklch(0.965 0.008 260);
   --border-subtle: oklch(0.88 0.012 260);
 
-  --text-heading-color: oklch(0.18 0.020 260);
-  --text-primary: oklch(0.22 0.020 260);
-  --text-secondary: oklch(0.35 0.015 260);
-  --text-muted: oklch(0.48 0.010 260);
+  --text-heading-color: oklch(0.18 0.050 260);
+  --text-primary: oklch(0.22 0.050 260);
+  --text-secondary: oklch(0.35 0.045 260);
+  --text-muted: oklch(0.48 0.040 260);
 
-  --accent-primary: oklch(0.60 0.14 260);
-  --accent-muted: oklch(0.68 0.14 260);
-  --accent-strong: oklch(0.52 0.16 260);
+  --accent-primary: oklch(0.40 0.14 260);
+  --accent-muted: oklch(0.48 0.14 260);
+  --accent-strong: oklch(0.30 0.16 260);
 
   /* Focus overlay */
   --focus-overlay: oklch(0.22 0.02 260 / 0.45);
@@ -40,7 +40,7 @@
   --a: 90deg;
 
   /* Typography tokens */
-  --font-family-base: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-base: Quicksand, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body-min: 0.95rem;
   --font-body-ideal: 1rem;
   --font-body-max: 1.05rem;
@@ -50,9 +50,9 @@
   --font-meta-min: 0.8rem;
   --font-meta-ideal: 0.875rem;
   --font-meta-max: 0.9rem;
-  --weight-regular: 400;
-  --weight-medium: 500;
-  --weight-semibold: 600;
+  --weight-regular: 300;
+  --weight-medium: 400;
+  --weight-semibold: 500;
   --line-body: 1.7;
   --line-heading: 1.4;
   --line-meta: 1.5;
@@ -71,6 +71,10 @@
   --space-md: 2rem;
   --space-lg: 3rem;
   --space-xl: 5rem;
+
+  /* reset */
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
 }
 
 .dark {
@@ -81,14 +85,14 @@
   --bg-tile: oklch(0.26 0.016 260);
   --border-subtle: oklch(0.30 0.016 260);
 
-  --text-heading-color: oklch(0.95 0.010 260);
-  --text-primary: oklch(0.92 0.010 260);
-  --text-secondary: oklch(0.84 0.012 260);
-  --text-muted: oklch(0.72 0.010 260);
+  --text-heading-color: oklch(0.95 0.050 260);
+  --text-primary: oklch(0.92 0.050 260);
+  --text-secondary: oklch(0.84 0.045 260);
+  --text-muted: oklch(0.72 0.040 260);
 
-  --accent-primary: oklch(0.60 0.14 260);
-  --accent-muted: oklch(0.68 0.14 260);
-  --accent-strong: oklch(0.52 0.16 260);
+  --accent-primary: oklch(0.40 0.14 260);
+  --accent-muted: oklch(0.48 0.14 260);
+  --accent-strong: oklch(0.30 0.16 260);
 
   --focus-overlay: oklch(0.16 0.02 260 / 0.65);
 
@@ -127,6 +131,49 @@
   }
 }
 
+/* Box sizing e herança de fontes */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remover listas */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Imagens e mídias responsivas */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Inputs e botões — reset simplificado */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+/* Inputs tipo button */
+button {
+  cursor: pointer;
+}
+
 html {
   background: var(--bg-base);
   color: var(--text-primary);
@@ -141,6 +188,13 @@ a {
 a:hover {
   color: var(--accent-muted);
   text-decoration: underline;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
 }
 
 .skip-link {
@@ -164,14 +218,53 @@ a:hover {
   outline-offset: 2px;
 }
 
-main, section {
+:focus {
+  outline: none;
+  /* Você pode preferir:
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  */
+}
+
+/* Tabelas básicas */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Elementos de formulário inline block */
+button,
+select,
+input,
+textarea {
+  line-height: inherit;
+}
+
+/* Texto */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+section {
   @apply mb-20;
+}
+
+section:last-child {
+  margin-bottom: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-heading-color);
   font-family: var(--font-family-base);
   scroll-margin-top: 6rem;
+  font-weight: var(--);
 }
 
 p, li {
@@ -313,8 +406,8 @@ p {
     color: var(--text-muted);
   }
 
-  .alien {
-  }
+  /* .alien {
+  } */
 
   .focus-layer {
     position: fixed;

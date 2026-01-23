@@ -54,7 +54,7 @@ export default function NoteDetailRoute() {
 
 	if (!MdxComponent || !note) {
 		return (
-			<main className="page">
+			<main>
 				<div
 					className="reading section stack-lg"
 					id="main-content"
@@ -72,7 +72,7 @@ export default function NoteDetailRoute() {
 	const NoteContent = MdxComponent as unknown as React.ComponentType;
 
 	return (
-		<main className="page">
+		<main>
 			<div className="reading section stack-lg" id="main-content" tabIndex={-1}>
 				<header className="stack-sm">
 					<h1 className="t-heading">{note.title}</h1>
@@ -83,10 +83,6 @@ export default function NoteDetailRoute() {
 				<article className="stack-lg">
 					<NoteContent />
 				</article>
-
-				<footer className="t-meta">
-					{t('footer', { year: new Date().getFullYear() })}
-				</footer>
 			</div>
 		</main>
 	);

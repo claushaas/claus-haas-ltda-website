@@ -126,20 +126,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					{JSON.stringify({ language })}
 				</script>
 			</head>
-			<body className="page m-auto h-fit space-y-16 px-4">
-				<GlobalStateProvider>
-					<SkipLink />
-					<header className="flex flex-col items-center gap-4 py-4">
-						<div className="flex flex-wrap items-center justify-center gap-3">
-							<LanguageSwitcher />
-							<ColorModeToggle />
-						</div>
-						<SiteNav />
-					</header>
-					<LoadStateSync />
-					<AppMdxProvider>{children}</AppMdxProvider>
+			<GlobalStateProvider>
+				<body className="page m-auto h-fit space-y-16 px-4 flex flex-col justify-between">
+					<div className="m-0">
+						<SkipLink />
+						<header className="flex flex-col items-center gap-4 py-4">
+							<div className="flex flex-wrap items-center justify-center gap-3">
+								<LanguageSwitcher />
+								<ColorModeToggle />
+							</div>
+							<SiteNav />
+						</header>
+						<LoadStateSync />
+						<AppMdxProvider>{children}</AppMdxProvider>
+					</div>
 					<footer
-						className="mb-0 border-slate-2 border-t-2 py-16 dark:border-slatedark-2"
+						className="mb-0 border-slate-2 border-t-2 pb-2 pt-16 dark:border-slatedark-2"
 						id="footer"
 					>
 						<p className="text-center">
@@ -149,8 +151,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					</footer>
 					<ScrollRestoration />
 					{isBot ? null : <Scripts />}
-				</GlobalStateProvider>
-			</body>
+				</body>
+			</GlobalStateProvider>
 		</html>
 	);
 }

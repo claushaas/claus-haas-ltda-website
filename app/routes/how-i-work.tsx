@@ -4,7 +4,7 @@ export default function HowIWorkRoute() {
 	const { t } = useTranslation('routes');
 
 	return (
-		<main className="page">
+		<main>
 			<div className="reading section stack-lg" id="main-content" tabIndex={-1}>
 				<header className="stack-sm">
 					<h1 className="t-heading">{t('howIWork.title')}</h1>
@@ -40,7 +40,6 @@ export default function HowIWorkRoute() {
 						<p className="t-meta">{t('howIWork.sections.disagreement.rule')}</p>
 					</section>
 				</article>
-				<footer className="t-meta">{t('footer')}</footer>
 			</div>
 		</main>
 	);

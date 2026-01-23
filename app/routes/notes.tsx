@@ -21,7 +21,7 @@ export default function NotesRoute() {
 	}, [notes.length, setLoadState]);
 
 	return (
-		<main className="page">
+		<main>
 			<div className="reading section stack-lg" id="main-content" tabIndex={-1}>
 				<header className="stack-sm">
 					<h1 className="t-heading">{t('notes.title')}</h1>
@@ -44,10 +44,6 @@ export default function NotesRoute() {
 						))
 					)}
 				</section>
-
-				<footer className="t-meta">
-					{t('footer', { year: new Date().getFullYear() })}
-				</footer>
 			</div>
 		</main>
 	);

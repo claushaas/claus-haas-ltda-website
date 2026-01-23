@@ -38,7 +38,7 @@ export default function Home() {
 	const { t } = useTranslation();
 
 	return (
-		<main className="page">
+		<main>
 			<section
 				className="mb-0 flex flex-col items-center justify-items-start max-w-4xl m-auto"
 				id="header"

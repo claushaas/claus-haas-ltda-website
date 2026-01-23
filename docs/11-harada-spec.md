@@ -316,7 +316,7 @@ export default function HaradaRoute({ loaderData }: Route.ComponentProps) {
   const { grid, goal, themes, meta } = loaderData;
   
   return (
-    <main className="page">
+    <main>
       <div className="reading section stack-lg">
         <header className="stack-sm">
           <h1 className="t-heading">Harada</h1>

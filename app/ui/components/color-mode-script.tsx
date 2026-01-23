@@ -1,25 +1,15 @@
-import { useMemo } from 'react';
-import { useGlobalState } from '~/state/global-state';
-
-export const ColorModeScript = () => {
-	const { colorModePreference } = useGlobalState();
-	const scriptContent = useMemo(() => {
-		const preference = colorModePreference ?? 'system';
-		return `(() => {
+const scriptContent = `(() => {
   try {
-    const preference = '${preference}';
     const stored = localStorage.getItem('color-mode-preference');
-    const resolved = stored === 'light' || stored === 'dark' || stored === 'system' ? stored : preference;
+    const preference = stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system';
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const mode = resolved === 'system' ? (prefersDark ? 'dark' : 'light') : resolved;
+    const mode = preference === 'system' ? (prefersDark ? 'dark' : 'light') : preference;
     document.documentElement.classList.toggle('dark', mode === 'dark');
   } catch {}
 })();`;
-	}, [colorModePreference]);
 
-	return (
-		<script id="color-mode-script" type="text/plain">
-			{scriptContent}
-		</script>
-	);
-};
+export const ColorModeScript = () => (
+	<script id="color-mode-script" type="text/plain">
+		{scriptContent}
+	</script>
+);

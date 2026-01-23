@@ -4,7 +4,7 @@ export default function PrinciplesRoute() {
 	const { t } = useTranslation('routes');
 
 	return (
-		<main className="page">
+		<main>
 			<div className="reading section stack-lg" id="main-content" tabIndex={-1}>
 				<header className="stack-sm">
 					<h1 className="t-heading">{t('principles.title')}</h1>
@@ -36,7 +36,6 @@ export default function PrinciplesRoute() {
 						</p>
 					</section>
 				</article>
-				<footer className="t-meta">{t('footer')}</footer>
 			</div>
 		</main>
 	);

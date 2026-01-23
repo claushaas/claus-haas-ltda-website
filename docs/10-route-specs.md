@@ -12,7 +12,7 @@ Todas as rotas seguem a mesma estrutura base. O `Layout` global ja inclui
 ```tsx
 export default function RouteName() {
   return (
-    <main className="page">
+    <main>
       <div className="reading section stack-lg" id="main-content">
         <header className="stack-sm">
           <h1 className="t-heading">Page Title</h1>
@@ -131,7 +131,7 @@ import { SiteNav } from "~/ui/components/site-nav";
 
 export default function HomeRoute() {
   return (
-    <main className="page">
+    <main>
       <div className="reading section stack-lg">
         <header className="stack-sm">
           <h1 className="t-heading">Systems. Clarity. Decisions.</h1>
@@ -185,7 +185,7 @@ import { SiteNav } from "~/ui/components/site-nav";
 
 export default function HowIWorkRoute() {
   return (
-    <main className="page">
+    <main>
       <div className="reading section stack-lg">
         <header className="stack-sm">
           <h1 className="t-heading">How I Work</h1>
@@ -257,7 +257,7 @@ import { SiteNav } from "~/ui/components/site-nav";
 
 export default function AboutRoute() {
   return (
-    <main className="page">
+    <main>
       <div className="reading section stack-lg">
         <header className="stack-sm">
           <h1 className="t-heading">About</h1>
@@ -313,7 +313,7 @@ import { SiteNav } from "~/ui/components/site-nav";
 
 export default function ProjectsRoute() {
   return (
-    <main className="page">
+    <main>
       <div className="reading section stack-lg">
         <header className="stack-sm">
           <h1 className="t-heading">Projects</h1>
@@ -356,7 +356,7 @@ import { SiteNav } from "~/ui/components/site-nav";
 
 export default function UsesRoute() {
   return (
-    <main className="page">
+    <main>
       <div className="reading section stack-lg">
         <header className="stack-sm">
           <h1 className="t-heading">Uses</h1>
@@ -399,7 +399,7 @@ import { SiteNav } from "~/ui/components/site-nav";
 
 export default function ContactRoute() {
   return (
-    <main className="page">
+    <main>
       <div className="reading section stack-lg">
         <header className="stack-sm">
           <h1 className="t-heading">Contact</h1>
@@ -444,7 +444,7 @@ import { SiteNav } from "~/ui/components/site-nav";
 
 export default function PrinciplesRoute() {
   return (
-    <main className="page">
+    <main>
       <div className="reading section stack-lg">
         <header className="stack-sm">
           <h1 className="t-heading">Principles</h1>
@@ -501,7 +501,7 @@ export default function NotesRoute({ params }: { params: { lang: "en" | "pt" } }
   const notes = params.lang === "pt" ? notesPt : notesEn;
 
   return (
-    <main className="page">
+    <main>
       <div className="reading section stack-lg">
         <header className="stack-sm">
           <h1 className="t-heading">Notes</h1>

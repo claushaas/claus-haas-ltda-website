@@ -4,7 +4,7 @@ export default function UsesRoute() {
 	const { t } = useTranslation('routes');
 
 	return (
-		<main className="page">
+		<main>
 			<div className="reading section stack-lg" id="main-content" tabIndex={-1}>
 				<header className="stack-sm">
 					<h1 className="t-heading">{t('uses.title')}</h1>
@@ -45,7 +45,6 @@ export default function UsesRoute() {
 						</ul>
 					</section>
 				</article>
-				<footer className="t-meta">{t('footer')}</footer>
 			</div>
 		</main>
 	);

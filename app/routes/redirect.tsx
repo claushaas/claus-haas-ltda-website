@@ -4,10 +4,21 @@ import type { Route } from './+types/redirect';
 
 export const loader = ({ request }: Route.LoaderArgs) => {
 	const url = new URL(request.url);
-	const pathname = url.pathname === '/' ? '' : url.pathname;
 	const lang = detectLanguage(request);
 
-	return redirect(`/${lang}${pathname}${url.search}`);
+	const segments = url.pathname.split('/').filter(Boolean);
+	const hasLangPrefix = segments[0] === 'en' || segments[0] === 'pt';
+	while (segments[0] === 'en' || segments[0] === 'pt') {
+		segments.shift();
+	}
+	const rest = segments.join('/');
+	const nextPath = `/${lang}${rest ? `/${rest}` : ''}`;
+
+	if (hasLangPrefix) {
+		return null;
+	}
+
+	return redirect(`${nextPath}${url.search}`);
 };
 
 export default function RedirectRoute() {
