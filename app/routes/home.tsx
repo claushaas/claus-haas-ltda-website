@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import type { LoaderFunctionArgs, MetaArgs } from 'react-router';
 import { detectLanguage } from '~/i18n/i18n';
 import Face from '~/ui/components/face';
-import { SiteNav } from '~/ui/components/site-nav';
 import { skills } from '../content/skills/skills';
 import { SkillBadge } from '../ui/components/skill-badge';
 import ProjectGallery from '../ui/layouts/projects-gallery';
@@ -68,7 +67,10 @@ export default function Home() {
 			<div className="m-auto max-w-4xl" id="main-content" tabIndex={-1}>
 				<section aria-labelledby="about-heading" id="about">
 					<div className="mb-10 sm:mb-20">
-						<h2 className="mt-10 mb-4 font-bold text-xl sm:mt-20 sm:mb-8 sm:text-3xl">
+						<h2
+							className="mt-10 mb-4 font-bold text-xl sm:mt-20 sm:mb-8 sm:text-3xl"
+							id="about-heading"
+						>
 							{t('home.aboutTitle')}
 						</h2>
 
@@ -111,10 +113,6 @@ export default function Home() {
 							<li>{t('home.when3')}</li>
 							<li>{t('home.when4')}</li>
 						</ul>
-					</div>
-
-					<div className="mb-10 sm:mb-20">
-						<SiteNav />
 					</div>
 
 					<div className="mb-10 sm:mb-20">

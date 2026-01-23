@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { notes as notesEn } from '~/content-index/notes.en';
 import { notes as notesPt } from '~/content-index/notes.pt';
-import { SiteNav } from '~/ui/components/site-nav';
 
 type LangParam = 'en' | 'pt';
 
@@ -20,7 +19,6 @@ export default function NotesRoute() {
 				<header className="stack-sm">
 					<h1 className="t-heading">{t('notes.title')}</h1>
 					<p className="t-body">{t('notes.description')}</p>
-					<SiteNav />
 				</header>
 
 				<section className="stack-sm">

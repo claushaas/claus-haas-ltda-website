@@ -16,13 +16,32 @@ export const useHashFocus = () => {
 			return;
 		}
 
-		if (!target.hasAttribute('tabindex')) {
-			target.setAttribute('tabindex', '-1');
+		let focusTarget: HTMLElement = target;
+		const labelledBy = target.getAttribute('aria-labelledby');
+
+		if (!target.matches('h1, h2, h3, h4, h5, h6')) {
+			if (labelledBy) {
+				const labelledTarget = document.getElementById(labelledBy);
+				if (labelledTarget) {
+					focusTarget = labelledTarget;
+				}
+			} else {
+				const heading = target.querySelector<HTMLElement>(
+					'h1, h2, h3, h4, h5, h6',
+				);
+				if (heading) {
+					focusTarget = heading;
+				}
+			}
+		}
+
+		if (!focusTarget.hasAttribute('tabindex')) {
+			focusTarget.setAttribute('tabindex', '-1');
 		}
 
 		requestAnimationFrame(() => {
-			target.scrollIntoView({ block: 'start' });
-			target.focus({ preventScroll: true });
+			focusTarget.scrollIntoView({ block: 'start' });
+			focusTarget.focus({ preventScroll: true });
 		});
 	}, [hash]);
 };

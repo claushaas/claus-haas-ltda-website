@@ -24,6 +24,20 @@
 	"principles": {
 		"description": "What does not change regardless of context.",
 		"placeholder": "Content coming soon.",
+		"sections": {
+			"boundaries": {
+				"description": "Content coming soon.",
+				"title": "Boundaries"
+			},
+			"decisions": {
+				"description": "Content coming soon.",
+				"title": "Decision anchors"
+			},
+			"invariants": {
+				"description": "Content coming soon.",
+				"title": "Invariants"
+			}
+		},
 		"title": "Principles"
 	},
 	"projects": {

@@ -6,24 +6,20 @@
 
 ## Estrutura Comum
 
-Todas as rotas seguem a mesma estrutura base:
+Todas as rotas seguem a mesma estrutura base. O `Layout` global ja inclui
+`SkipLink` e `SiteNav`, entao as rotas devem renderizar apenas o conteudo.
 
 ```tsx
-import { SiteNav } from "~/ui/components/site-nav";
-import { SkipLink } from "~/ui/components/skip-link";
-
 export default function RouteName() {
   return (
     <main className="page">
-      <SkipLink />
       <div className="reading section stack-lg" id="main-content">
         <header className="stack-sm">
           <h1 className="t-heading">Page Title</h1>
           <p className="t-body">Page description.</p>
-          <SiteNav />
         </header>
 
-        {/* conteúdo específico da rota */}
+        {/* conteudo especifico da rota */}
 
         <footer className="t-meta">
           © {new Date().getFullYear()} Claus Haas
@@ -34,7 +30,7 @@ export default function RouteName() {
 }
 ```
 
-> **Idiomas:** O site está disponível em inglês e português (PT-BR) e todas as strings de rotas vêm das traduções (`useTranslation`). Use os namespaces por rota para manter os textos sincronizados em `public/locales/en.json` e `public/locales/pt.json`, sempre com fallback para inglês quando a tradução em PT-BR faltar.
+> **Idiomas:** O site está disponível em inglês e português (PT-BR) e todas as strings de rotas vêm das traduções (`useTranslation`). Use namespaces por rota para manter os textos sincronizados em `public/locales/{lang}/*.json`, sempre com fallback para inglês quando a tradução em PT-BR faltar.
 
 ---
 

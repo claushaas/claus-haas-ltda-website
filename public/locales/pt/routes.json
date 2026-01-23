@@ -24,6 +24,20 @@
 	"principles": {
 		"description": "O que não muda independentemente do contexto.",
 		"placeholder": "Conteúdo em breve.",
+		"sections": {
+			"boundaries": {
+				"description": "Conteúdo em breve.",
+				"title": "Limites"
+			},
+			"decisions": {
+				"description": "Conteúdo em breve.",
+				"title": "Âncoras de decisão"
+			},
+			"invariants": {
+				"description": "Conteúdo em breve.",
+				"title": "Invariantes"
+			}
+		},
 		"title": "Princípios"
 	},
 	"projects": {

@@ -19,7 +19,7 @@ Regras:
 
 ## Idiomas e Traduções
 
-O site é bilingue: inglês e português (PT-BR). Todo texto visível deve vir de `react-i18next`, usando namespaces como `siteNav`, `pages.home`, etc., e os arquivos `public/locales/en.json` e `public/locales/pt.json` mantêm os pares de tradução.
+O site é bilingue: inglês e português (PT-BR). Todo texto visível deve vir de `react-i18next`, usando namespaces como `siteNav`, `pages.home`, etc., e os arquivos `public/locales/{lang}/*.json` mantêm os pares de tradução.
 
 As rotas são renderizadas no idioma indicado pela URL (e.g., `/pt/about` ou `?lng=pt`), com fallback para o inglês quando o recurso não existe.
 

@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { SiteNav } from '~/ui/components/site-nav';
 
 export default function UsesRoute() {
 	const { t } = useTranslation('routes');
@@ -10,7 +9,6 @@ export default function UsesRoute() {
 				<header className="stack-sm">
 					<h1 className="t-heading">{t('uses.title')}</h1>
 					<p className="t-body">{t('uses.description')}</p>
-					<SiteNav />
 				</header>
 				<article className="stack-lg">
 					<p className="t-body">{t('uses.placeholder')}</p>

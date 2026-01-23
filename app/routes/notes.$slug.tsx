@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { notes as notesEn } from '~/content-index/notes.en';
 import { notes as notesPt } from '~/content-index/notes.pt';
-import { SiteNav } from '~/ui/components/site-nav';
 
 const modules = import.meta.glob('../content/mdx/*/notes/*.mdx');
 
@@ -54,7 +53,6 @@ export default function NoteDetailRoute() {
 					<header className="stack-sm">
 						<h1 className="t-heading">{t('notes.title')}</h1>
 						<p className="t-body">{fallback ?? t('notes.notFound')}</p>
-						<SiteNav />
 					</header>
 				</div>
 			</main>
@@ -70,7 +68,6 @@ export default function NoteDetailRoute() {
 					<h1 className="t-heading">{note.title}</h1>
 					{note.summary ? <p className="t-body">{note.summary}</p> : null}
 					{note.date ? <p className="t-meta">{note.date}</p> : null}
-					<SiteNav />
 				</header>
 
 				<article className="stack-lg">

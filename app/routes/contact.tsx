@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { SiteNav } from '~/ui/components/site-nav';
 
 export default function ContactRoute() {
 	const { t } = useTranslation('routes');
@@ -10,7 +9,6 @@ export default function ContactRoute() {
 				<header className="stack-sm">
 					<h1 className="t-heading">{t('contact.title')}</h1>
 					<p className="t-body">{t('contact.description')}</p>
-					<SiteNav />
 				</header>
 				<section className="stack-lg">
 					<p className="t-body">{t('contact.placeholder')}</p>
