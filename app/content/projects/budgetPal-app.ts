@@ -15,7 +15,6 @@ export const project = {
 		'Supabase',
 		'Typescript',
 		'Biome',
-		'Radix Colors',
 		'Legend State',
 		'Zod',
 		'React Native Reanimated',

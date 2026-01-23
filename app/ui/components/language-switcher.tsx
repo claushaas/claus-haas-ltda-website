@@ -1,5 +1,5 @@
+import { Earth } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { FaGlobe } from 'react-icons/fa6';
 import { useChangeLanguage } from '~/hooks/use-change-language';
 
 /**
@@ -15,32 +15,35 @@ export const LanguageSwitcher = () => {
 	}[] = [
 		{
 			code: 'pt',
-			label: 'Português',
+			label: 'Pt',
 		},
 		{
 			code: 'en',
-			label: 'English',
+			label: 'En',
 		},
 	];
 
+	const otherLanguage: (typeof languages)[number] = languages.find(
+		(lang) => lang.code !== currentLanguage,
+	) ?? {
+		code: 'en',
+		label: 'En',
+	};
+
 	return (
-		<div className="flex items-center gap-2">
-			<FaGlobe
-				aria-label={t('idioma.label', 'Idioma')}
-				className="text-lg text-radix-slate-11 text-sky-11 dark:text-skydark-11"
-			/>
-			{languages.map(({ code, label }) => (
-				<button
-					aria-pressed={currentLanguage === code}
-					className={`rounded px-2 py-1 font-medium text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-radix-slate-7 ${currentLanguage === code ? 'cursor-default opacity-60' : 'cursor-pointer text-radix-slate-12 opacity-100 hover:bg-radix-slate-3'}`}
-					disabled={currentLanguage === code}
-					key={code}
-					onClick={() => changeLanguage(code)}
-					type="button"
-				>
-					<span className="text-sky-11 dark:text-skydark-11">{label}</span>
-				</button>
-			))}
+		<div className="flex items-center gap-1">
+			<Earth aria-label={t('idioma.label', 'Idioma')} className="text-md" />
+			<button
+				aria-pressed={currentLanguage === otherLanguage.code}
+				className="rounded px-2 py-1 font-medium text-sm transition-colors focus:outline-none focus:ring-2 cursor-pointer opacity-100"
+				key={otherLanguage.code}
+				onClick={() => changeLanguage(otherLanguage.code)}
+				type="button"
+			>
+				<span className="text-sky-11 dark:text-skydark-11">
+					{otherLanguage.label}
+				</span>
+			</button>
 		</div>
 	);
 };

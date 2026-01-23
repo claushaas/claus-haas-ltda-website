@@ -11,7 +11,6 @@ export const project = {
 		'React Router',
 		'Typescript',
 		'Biome',
-		'Radix Colors',
 		'Motion',
 		'Cloudflare Workers',
 	],

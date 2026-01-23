@@ -1,5 +1,4 @@
 @import "tailwindcss" source(".");
-@import "tailwindcss-radix-colors/dist/all.css";
 
 @theme {
   --font-default: var(--font-family-base);
