@@ -1,7 +1,6 @@
-import { redirect } from 'react-router';
+import { Outlet, redirect } from 'react-router';
 import { detectLanguage } from '~/i18n/i18n';
 import type { Route } from './+types/lang';
-import { Outlet } from 'react-router';
 
 const supportedLanguages = ['en', 'pt'];
 
