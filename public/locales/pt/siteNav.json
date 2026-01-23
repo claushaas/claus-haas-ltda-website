@@ -8,5 +8,11 @@
 	"principles": "Princípios",
 	"skipLink": {
 		"label": "Pular para o conteúdo"
+	},
+	"theme": {
+		"dark": "Escuro",
+		"label": "Tema",
+		"light": "Claro",
+		"system": "Sistema"
 	}
 }

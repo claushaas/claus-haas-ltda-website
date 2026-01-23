@@ -254,35 +254,35 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ## Fase 5 — Qualidade, Politicas e Resiliencia
 
-> **Status:** 🔲 Pendente
+> **Status:** 🔄 Em progresso
 
 ### 5.1 Acessibilidade e interacao
 
 - [ ] Navegacao por teclado em todas as rotas
-- [ ] Foco nao obscurecido (anchors e overlays)
+- [x] Foco nao obscurecido (anchors e overlays)
 - [ ] Ordem de headings valida
 
 ### 5.2 Focus Transfer e Engaged
 
-- [ ] Engaged nunca ocorre sem acao explicita
-- [ ] ESC e Back sempre fecham
-- [ ] Scroll lock consistente
+- [x] Engaged nunca ocorre sem acao explicita
+- [x] ESC e Back sempre fecham
+- [x] Scroll lock consistente
 
 ### 5.3 Motion
 
-- [ ] Reduced motion respeitado em todas as transicoes
-- [ ] Sem bounce/overshoot
+- [x] Reduced motion respeitado em todas as transicoes
+- [x] Sem bounce/overshoot
 
 ### 5.4 Aliens e fallback
 
-- [ ] Todos os aliens em `.surface` com `.alien`
-- [ ] Fallback textual para falhas
-- [ ] Captions consistentes
+- [x] Todos os aliens em `.surface` com `.alien`
+- [x] Fallback textual para falhas
+- [x] Captions consistentes
 
 ### 5.5 Resiliencia de carregamento
 
-- [ ] Estados Idle/Loading/Ready/Empty/Error implementados
-- [ ] Mensagens curtas e factuais
+- [x] Estados Idle/Loading/Ready/Empty/Error implementados
+- [x] Mensagens curtas e factuais
 
 ### 5.6 Print e export
 
@@ -297,14 +297,16 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ### 5.8 Dark Mode
 
-- [ ] Implementar toggle (decisao em [13-decisions.md](./13-decisions.md))
+- [x] Implementar toggle (decisao em [13-decisions.md](./13-decisions.md))
 - [ ] Testar todos os tokens em dark mode
 - [ ] Verificar contraste em dark mode
 
 ### 5.9 i18n
 
-- [ ] Garantir fallback para ingles
+- [x] Garantir fallback para ingles
 - [ ] Verificar textos traduzidos por rota
+
+**Pendencias manuais da Fase 5:** validar navegacao por teclado, ordem de headings, print/export, performance (LCP/CLS/FID, bundle), e contraste dark mode.
 
 ### Entregaveis Fase 5
 
@@ -382,7 +384,7 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 | 2 | Componentes Core | ✅ Completo |
 | 3 | Rotas Principais | ✅ Completo |
 | 4 | Harada | ✅ Completo |
-| 5 | Qualidade | 🔲 Pendente |
+| 5 | Qualidade | 🔄 Em progresso |
 | 6 | Conteudo | 🔲 Pendente |
 | 7 | Deploy e Launch | 🔲 Pendente |
 

@@ -4,7 +4,7 @@ export const SkipLink = () => {
 	const { t } = useTranslation('siteNav');
 
 	return (
-		<a className="t-meta" href="#main-content">
+		<a className="skip-link t-meta" href="#main-content">
 			{t('skipLink.label')}
 		</a>
 	);

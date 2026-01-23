@@ -10,6 +10,7 @@ import {
 import type {
 	AttentionState,
 	ColorMode,
+	ColorModePreference,
 	GlobalState,
 	InputMode,
 	LoadState,
@@ -22,11 +23,46 @@ type GlobalStateProviderProps = {
 
 const GlobalStateContext = createContext<GlobalState | null>(null);
 
-const getInitialColorMode = (): ColorMode => {
-	if (typeof document === 'undefined') {
+const colorModeStorageKey = 'color-mode-preference';
+
+const getStoredColorModePreference = (): ColorModePreference => {
+	if (typeof window === 'undefined') {
+		return 'system';
+	}
+
+	const stored = window.localStorage.getItem(colorModeStorageKey);
+	if (stored === 'light' || stored === 'dark' || stored === 'system') {
+		return stored;
+	}
+
+	return 'system';
+};
+
+const getSystemColorMode = (): ColorMode => {
+	if (typeof window === 'undefined') {
 		return 'light';
 	}
-	return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+	return window.matchMedia('(prefers-color-scheme: dark)').matches
+		? 'dark'
+		: 'light';
+};
+
+const resolveColorMode = (preference: ColorModePreference): ColorMode =>
+	preference === 'system' ? getSystemColorMode() : preference;
+
+const applyColorMode = (mode: ColorMode) => {
+	if (typeof document === 'undefined') {
+		return;
+	}
+	document.documentElement.classList.toggle('dark', mode === 'dark');
+};
+
+const getInitialColorMode = (): ColorMode => {
+	if (typeof window === 'undefined') {
+		return 'light';
+	}
+	const preference = getStoredColorModePreference();
+	return resolveColorMode(preference);
 };
 
 const getInitialMotionMode = (): MotionMode => {
@@ -40,6 +76,8 @@ const getInitialMotionMode = (): MotionMode => {
 
 export const GlobalStateProvider = ({ children }: GlobalStateProviderProps) => {
 	const [attention, setAttention] = useState<AttentionState>('ambient');
+	const [colorModePreference, setColorModePreferenceState] =
+		useState<ColorModePreference>(getStoredColorModePreference);
 	const [colorMode, setColorModeState] =
 		useState<ColorMode>(getInitialColorMode);
 	const [motionMode, setMotionMode] =
@@ -51,12 +89,47 @@ export const GlobalStateProvider = ({ children }: GlobalStateProviderProps) => {
 		setAttention(next);
 	}, []);
 
-	const setColorMode = useCallback((next: ColorMode) => {
-		setColorModeState(next);
-		if (typeof document !== 'undefined') {
-			document.documentElement.classList.toggle('dark', next === 'dark');
+	const setColorModePreference = useCallback((next: ColorModePreference) => {
+		setColorModePreferenceState(next);
+		if (typeof window !== 'undefined') {
+			window.localStorage.setItem(colorModeStorageKey, next);
 		}
+		setColorModeState(resolveColorMode(next));
 	}, []);
+
+	const setColorMode = useCallback(
+		(next: ColorMode) => {
+			setColorModePreference(next);
+		},
+		[setColorModePreference],
+	);
+
+	useEffect(() => {
+		applyColorMode(colorMode);
+	}, [colorMode]);
+
+	useEffect(() => {
+		if (typeof window === 'undefined') {
+			return;
+		}
+
+		const media = window.matchMedia('(prefers-color-scheme: dark)');
+		const handleChange = () => {
+			if (colorModePreference === 'system') {
+				setColorModeState(media.matches ? 'dark' : 'light');
+			}
+		};
+
+		media.addEventListener('change', handleChange);
+
+		if (colorModePreference === 'system') {
+			setColorModeState(media.matches ? 'dark' : 'light');
+		}
+
+		return () => {
+			media.removeEventListener('change', handleChange);
+		};
+	}, [colorModePreference]);
 
 	useEffect(() => {
 		if (typeof window === 'undefined') {
@@ -102,21 +175,25 @@ export const GlobalStateProvider = ({ children }: GlobalStateProviderProps) => {
 		() => ({
 			attention,
 			colorMode,
+			colorModePreference,
 			inputMode,
 			loadState,
 			motionMode,
 			setAttention: setAttentionState,
 			setColorMode,
+			setColorModePreference,
 			setLoadState,
 		}),
 		[
 			attention,
 			colorMode,
+			colorModePreference,
 			inputMode,
 			loadState,
 			motionMode,
 			setAttentionState,
 			setColorMode,
+			setColorModePreference,
 		],
 	);
 

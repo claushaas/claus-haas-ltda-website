@@ -1,8 +1,9 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { notes as notesEn } from '~/content-index/notes.en';
 import { notes as notesPt } from '~/content-index/notes.pt';
+import { useGlobalState } from '~/state/global-state';
 
 const modules = import.meta.glob('../content/mdx/*/notes/*.mdx');
 
@@ -26,6 +27,7 @@ export default function NoteDetailRoute() {
 	const noteSlug = slug ?? '';
 	const notes = getNotesByLang(resolvedLang);
 	const { t } = useTranslation('routes');
+	const { setLoadState } = useGlobalState();
 
 	const note = useMemo<NoteMeta | undefined>(
 		() => notes.find((entry) => entry.slug === noteSlug),
@@ -41,6 +43,14 @@ export default function NoteDetailRoute() {
 
 		return [loader, null] as const;
 	}, [noteSlug, resolvedLang, t]);
+
+	useEffect(() => {
+		if (!note || !MdxComponent) {
+			setLoadState('error');
+			return;
+		}
+		setLoadState('ready');
+	}, [MdxComponent, note, setLoadState]);
 
 	if (!MdxComponent || !note) {
 		return (

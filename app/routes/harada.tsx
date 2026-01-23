@@ -78,7 +78,7 @@ const haradaVersions = import.meta.glob('../content/harada/*.json', {
 
 const maxTextLength =
 	(typeof schema.layout.goal.maxLength === 'number' &&
-		schema.layout.goal.maxLength > 0
+	schema.layout.goal.maxLength > 0
 		? schema.layout.goal.maxLength
 		: 120) ?? 120;
 

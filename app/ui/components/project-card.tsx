@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
+import { useGlobalState } from '~/state/global-state';
 
 type Project = {
 	content?: string;
@@ -17,12 +18,19 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
 	const { t } = useTranslation();
+	const { motionMode } = useGlobalState();
+	const shouldReduceMotion = motionMode === 'reduced';
+
 	return (
 		<motion.li
 			className="max-w-[80%] flex-shrink-0 rounded-3xl bg-sky-2 p-6 shadow-slate-8 shadow-sm sm:w-98 sm:max-w-none dark:bg-skydark-2 dark:shadow-slatedark-8"
 			key={project.slug}
-			layout
-			transition={{ duration: 0.4, type: 'tween' }}
+			layout={!shouldReduceMotion}
+			transition={{
+				duration: shouldReduceMotion ? 0 : 0.24,
+				ease: 'easeInOut',
+				type: 'tween',
+			}}
 		>
 			{project.title && (
 				<h3 className="mt-0 mb-1 font-semibold text-xl sm:mt-0">

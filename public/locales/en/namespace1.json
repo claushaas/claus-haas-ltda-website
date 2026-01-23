@@ -48,6 +48,7 @@
 	"idioma.en": "English",
 	"idioma.label": "Language",
 	"idioma.pt": "Portuguese",
+	"media.loadError": "Unable to load this media.",
 	"project.seeMore": "See more",
 	"project.seeMoreAria": "See more about project {{title}}",
 	"projects": {

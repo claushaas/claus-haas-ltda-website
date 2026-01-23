@@ -115,7 +115,11 @@ export const initI18Next = async (i18next: typeof i18n, language?: string) => {
 		const siteNavResource = (
 			await import(`../../public/locales/${resolvedLanguage}/siteNav.json`)
 		).default;
+		const routesResource = (
+			await import(`../../public/locales/${resolvedLanguage}/routes.json`)
+		).default;
 		i18n.addResourceBundle(resolvedLanguage, 'namespace1', resource);
 		i18n.addResourceBundle(resolvedLanguage, 'siteNav', siteNavResource);
+		i18n.addResourceBundle(resolvedLanguage, 'routes', routesResource);
 	}
 };

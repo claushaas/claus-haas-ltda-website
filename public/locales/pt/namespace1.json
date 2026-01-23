@@ -48,6 +48,7 @@
 	"idioma.en": "Inglês",
 	"idioma.label": "Idioma",
 	"idioma.pt": "Português",
+	"media.loadError": "Não foi possível carregar esta mídia.",
 	"project.seeMore": "Ver mais",
 	"project.seeMoreAria": "Ver mais sobre o projeto {{title}}",
 	"projects": {

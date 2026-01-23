@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { notes as notesEn } from '~/content-index/notes.en';
 import { notes as notesPt } from '~/content-index/notes.pt';
+import { useGlobalState } from '~/state/global-state';
 
 type LangParam = 'en' | 'pt';
 
@@ -12,6 +14,11 @@ export default function NotesRoute() {
 	const resolvedLang = lang === 'pt' ? 'pt' : 'en';
 	const notes = getNotesByLang(resolvedLang);
 	const { t } = useTranslation('routes');
+	const { setLoadState } = useGlobalState();
+
+	useEffect(() => {
+		setLoadState(notes.length === 0 ? 'empty' : 'ready');
+	}, [notes.length, setLoadState]);
 
 	return (
 		<main className="page">

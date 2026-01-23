@@ -16,7 +16,10 @@ import { GlobalStateProvider } from '~/state/global-state';
 import { AppMdxProvider } from '~/ui/mdx/mdx-provider';
 import { useIsBot } from './hooks/use-is-bot';
 import { defaultLanguage, detectLanguage } from './i18n/i18n';
+import { ColorModeScript } from './ui/components/color-mode-script';
+import { ColorModeToggle } from './ui/components/color-mode-toggle';
 import { LanguageSwitcher } from './ui/components/language-switcher';
+import { LoadStateSync } from './ui/components/load-state-sync';
 import { SiteNav } from './ui/components/site-nav';
 import { SkipLink } from './ui/components/skip-link';
 
@@ -91,6 +94,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					media="(prefers-color-scheme: light)"
 					name="theme-color"
 				/>
+				<ColorModeScript />
 				{/* SEO & Accessibility */}
 				<meta content="Claus Haas Ltda." name="application-name" />
 				<meta content="Claus Haas Ltda." name="apple-mobile-web-app-title" />
@@ -123,25 +127,29 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				</script>
 			</head>
 			<body className="page m-auto h-fit space-y-16 px-4">
-				<SkipLink />
-				<header className="flex flex-col items-center gap-4 py-4">
-					<LanguageSwitcher />
-					<SiteNav />
-				</header>
 				<GlobalStateProvider>
+					<SkipLink />
+					<header className="flex flex-col items-center gap-4 py-4">
+						<div className="flex flex-wrap items-center justify-center gap-3">
+							<LanguageSwitcher />
+							<ColorModeToggle />
+						</div>
+						<SiteNav />
+					</header>
+					<LoadStateSync />
 					<AppMdxProvider>{children}</AppMdxProvider>
+					<footer
+						className="mb-0 border-slate-2 border-t-2 py-16 dark:border-slatedark-2"
+						id="footer"
+					>
+						<p className="text-center">
+							{t('home.footer', { year: new Date().getFullYear() })}
+							{!isBot && t('home.footerCnpj')}
+						</p>
+					</footer>
+					<ScrollRestoration />
+					{isBot ? null : <Scripts />}
 				</GlobalStateProvider>
-				<footer
-					className="mb-0 border-slate-2 border-t-2 py-16 dark:border-slatedark-2"
-					id="footer"
-				>
-					<p className="text-center">
-						{t('home.footer', { year: new Date().getFullYear() })}
-						{!isBot && t('home.footerCnpj')}
-					</p>
-				</footer>
-				<ScrollRestoration />
-				{isBot ? null : <Scripts />}
 			</body>
 		</html>
 	);

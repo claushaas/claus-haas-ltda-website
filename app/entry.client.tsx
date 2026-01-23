@@ -3,6 +3,7 @@ import { StrictMode, startTransition } from 'react';
 import { hydrateRoot } from 'react-dom/client';
 import { I18nextProvider } from 'react-i18next';
 import { HydratedRouter } from 'react-router/dom';
+import { useColorModeScript } from './hooks/use-color-mode-script';
 import { initI18Next } from './i18n/i18n';
 import { initElevation } from './lib/elevation';
 
@@ -28,6 +29,7 @@ async function main() {
 			document,
 			<StrictMode>
 				<I18nextProvider i18n={i18next}>
+					<ColorModeScriptRunner />
 					<HydratedRouter />
 				</I18nextProvider>
 			</StrictMode>,
@@ -38,3 +40,8 @@ async function main() {
 }
 
 main().catch((error) => console.error(error));
+
+function ColorModeScriptRunner() {
+	useColorModeScript();
+	return null;
+}
