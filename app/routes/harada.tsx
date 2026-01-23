@@ -76,10 +76,25 @@ const haradaVersions = import.meta.glob('../content/harada/*.json', {
 	eager: true,
 });
 
+const maxTextLength =
+	(typeof schema.layout.goal.maxLength === 'number' &&
+		schema.layout.goal.maxLength > 0
+		? schema.layout.goal.maxLength
+		: 120) ?? 120;
+
 const validateHarada = (data: HaradaContent) => {
 	const validateText = (text: LocalizedText, label: string) => {
 		if (!text || !assertString(text.en) || !assertString(text.pt)) {
 			throw new Error(`${label} deve conter chaves 'pt' e 'en'.`);
+		}
+
+		const tooLong = Object.entries(text).find(
+			([, value]) => value.length > maxTextLength,
+		);
+		if (tooLong) {
+			throw new Error(
+				`${label} excede ${maxTextLength} caracteres em ${tooLong[0]}.`,
+			);
 		}
 	};
 

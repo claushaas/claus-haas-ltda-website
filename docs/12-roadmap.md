@@ -177,7 +177,7 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ## Fase 3 — Rotas Principais (IA + Conteudo Base)
 
-> **Status:** 🔄 Em progresso
+> **Status:** ✅ Completo
 
 ### 3.1 Alinhamento de arquitetura
 
@@ -223,25 +223,25 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 
 ## Fase 4 — Harada (Refinamento)
 
-> **Status:** 🔄 Em progresso
+> **Status:** ✅ Completo
 
 ### 4.1 Verificacao de contrato
 
-- [ ] Carregar `index.json` e resolver versao
-- [ ] Validar schema e limites
-- [ ] Normalizar grid deterministico
+- [x] Carregar `index.json` e resolver versao
+- [x] Validar schema e limites
+- [x] Normalizar grid deterministico
 
 ### 4.2 UI e acessibilidade
 
-- [ ] Aplicar classes canonicas (`.surface`, `.tile`)
-- [ ] Tooltips acessiveis
-- [ ] Print-friendly para export
+- [x] Aplicar classes canonicas (`.surface`, `.tile`)
+- [x] Tooltips acessiveis
+- [x] Print-friendly para export
 
 ### 4.3 SEO
 
-- [ ] Meta `noindex, nofollow`
-- [ ] Header `X-Robots-Tag`
-- [ ] `robots.txt` bloqueando `/harada`
+- [x] Meta `noindex, nofollow`
+- [x] Header `X-Robots-Tag`
+- [x] `robots.txt` bloqueando `/harada`
 
 ### Entregaveis Fase 4
 
@@ -380,8 +380,8 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 | 0 | Fundacao | ✅ Completo |
 | 1 | Design System Base | ✅ Completo |
 | 2 | Componentes Core | ✅ Completo |
-| 3 | Rotas Principais | 🔄 Em progresso |
-| 4 | Harada | 🔄 Em progresso |
+| 3 | Rotas Principais | ✅ Completo |
+| 4 | Harada | ✅ Completo |
 | 5 | Qualidade | 🔲 Pendente |
 | 6 | Conteudo | 🔲 Pendente |
 | 7 | Deploy e Launch | 🔲 Pendente |
