@@ -144,10 +144,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 			<GlobalStateProvider>
 				<body className="page h-fit p-4 flex flex-col justify-between">
 					<SkipLink />
-					<header className="flex justify-center items-center gap-4 pb-4 w-full">
+					<header className="flex justify-between items-center gap-4 pb-4">
 						<SiteNav />
-						<ColorModeToggle />
-						<LanguageSwitcher />
+						<div className="flex gap-4">
+							<ColorModeToggle />
+							<LanguageSwitcher />
+						</div>
 					</header>
 					<ScrollbarVisibility />
 					<LoadStateSync />
