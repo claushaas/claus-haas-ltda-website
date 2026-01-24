@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router';
 
 const links = [
 	{ href: '/how-i-work', key: 'howIWork' },
@@ -19,9 +20,9 @@ export const SiteNav = () => {
 		<nav aria-label={t('label')} className="stack-xs">
 			<div className="nav-row">
 				{links.map((link) => (
-					<a href={`/${language}${link.href}`} key={link.key}>
+					<Link key={link.key} to={`/${language}${link.href}`}>
 						{t(link.key)}
-					</a>
+					</Link>
 				))}
 			</div>
 		</nav>

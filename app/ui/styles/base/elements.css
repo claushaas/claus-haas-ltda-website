@@ -2,6 +2,41 @@ html {
 	font-family: var(--font-family-base);
 	color: var(--text-primary);
 	background: var(--bg-base);
+	transition:
+		background-color var(--motion-medium) var(--ease-standard),
+		color var(--motion-medium) var(--ease-standard);
+	scrollbar-gutter: stable;
+	scrollbar-color: transparent transparent;
+}
+
+body,
+.page {
+	transition:
+		background-color var(--motion-medium) var(--ease-standard),
+		color var(--motion-medium) var(--ease-standard);
+}
+
+html::-webkit-scrollbar {
+	width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+	background: transparent;
+	border-radius: 999px;
+	border: 3px solid transparent;
+	background-clip: content-box;
+}
+
+html.scrolling {
+	scrollbar-color: var(--text-muted) transparent;
+}
+
+html.scrolling::-webkit-scrollbar-thumb {
+	background: var(--text-muted);
 }
 
 a {

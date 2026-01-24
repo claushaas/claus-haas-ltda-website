@@ -1,7 +1,6 @@
 @import "tailwindcss" source("../../");
 
 @import "./base/reset.css";
-@import "./tokens/system.css";
 @import "./layers/base.css";
 @import "./tokens/layout.css";
 

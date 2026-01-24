@@ -16,12 +16,13 @@ import { AppMdxProvider } from '~/ui/mdx/mdx-provider';
 import type { Route } from './+types/root';
 import { useIsBot } from './hooks/use-is-bot';
 import { defaultLanguage, detectLanguage } from './i18n/i18n';
-import { ColorModeScript } from './ui/components/color-mode-script';
 import { ColorModeToggle } from './ui/components/color-mode-toggle';
 import { LanguageSwitcher } from './ui/components/language-switcher';
 import { LoadStateSync } from './ui/components/load-state-sync';
+import { ScrollbarVisibility } from './ui/components/scrollbar-visibility';
 import { SiteNav } from './ui/components/site-nav';
 import { SkipLink } from './ui/components/skip-link';
+import { ColorModeScript } from './utils/color-mode-script';
 
 import './ui/styles/index.css';
 
@@ -67,8 +68,7 @@ export const loader = ({ request }: LoaderFunctionArgs) => {
 	const segments = url.pathname.split('/').filter(Boolean);
 	const [first] = segments;
 	const isLangPrefix = first === 'en' || first === 'pt';
-	const isWellKnown =
-		url.pathname.startsWith('/.well-known/appspecific/');
+	const isWellKnown = url.pathname.startsWith('/.well-known/appspecific/');
 
 	if (!isLangPrefix && !isWellKnown) {
 		const language = detectLanguage(request);
@@ -149,6 +149,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 						<ColorModeToggle />
 						<LanguageSwitcher />
 					</header>
+					<ScrollbarVisibility />
 					<LoadStateSync />
 					<AppMdxProvider>{children}</AppMdxProvider>
 					<footer
@@ -170,7 +171,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
 	useHashFocus();
-
 	return <Outlet />;
 }
 
