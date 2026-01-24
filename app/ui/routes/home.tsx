@@ -2,9 +2,9 @@ import { useTranslation } from 'react-i18next';
 import type { LoaderFunctionArgs, MetaArgs } from 'react-router';
 import { detectLanguage } from '~/i18n/i18n';
 import Face from '~/ui/components/face';
-import { skills } from '../content/skills/skills';
-import { SkillBadge } from '../ui/components/skill-badge';
-import ProjectGallery from '../ui/layouts/projects-gallery';
+import { skills } from '../../content/skills/skills';
+import { SkillBadge } from '../components/skill-badge';
+import ProjectGallery from '../layouts/projects-gallery';
 
 export const meta = ({ loaderData }: MetaArgs<typeof loader>) => {
 	const language = loaderData?.language;
