@@ -5,6 +5,7 @@ import {
 	type LoaderFunctionArgs,
 	Meta,
 	Outlet,
+	redirect,
 	Scripts,
 	ScrollRestoration,
 	useLoaderData,
@@ -62,6 +63,19 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export const loader = ({ request }: LoaderFunctionArgs) => {
+	const url = new URL(request.url);
+	const segments = url.pathname.split('/').filter(Boolean);
+	const [first] = segments;
+	const isLangPrefix = first === 'en' || first === 'pt';
+	const isWellKnown =
+		url.pathname.startsWith('/.well-known/appspecific/');
+
+	if (!isLangPrefix && !isWellKnown) {
+		const language = detectLanguage(request);
+		const nextPath = `/${language}${url.pathname === '/' ? '' : url.pathname}`;
+		throw redirect(`${nextPath}${url.search}`);
+	}
+
 	const language = detectLanguage(request);
 	const canonicalUrl = request.url;
 	return { canonicalUrl, language };
@@ -75,7 +89,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 	const { t } = useTranslation();
 
 	return (
-		<html lang={language}>
+		<html lang={language} suppressHydrationWarning>
 			<head>
 				<meta content="width=device-width, initial-scale=1" name="viewport" />
 				<meta charSet="utf-8" />
@@ -130,14 +144,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 			<GlobalStateProvider>
 				<body className="page h-fit p-4 flex flex-col justify-between">
 					<SkipLink />
-					<header className="flex justify-center items-center gap-4 pb-4">
+					<header className="flex justify-center items-center gap-4 pb-4 w-full">
 						<SiteNav />
 						<ColorModeToggle />
 						<LanguageSwitcher />
 					</header>
 					<LoadStateSync />
 					<AppMdxProvider>{children}</AppMdxProvider>
-					<div className="bg-pink-900 p-96 text-yellow-400">teste</div>
 					<footer
 						className="mb-0 border-slate-2 border-t-2 pb-2 pt-16 dark:border-slatedark-2"
 						id="footer"

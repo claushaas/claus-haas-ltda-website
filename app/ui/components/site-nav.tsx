@@ -17,7 +17,6 @@ export const SiteNav = () => {
 
 	return (
 		<nav aria-label={t('label')} className="stack-xs">
-			<div className="t-meta">{t('navigationMeta')}</div>
 			<div className="nav-row">
 				{links.map((link) => (
 					<a href={`/${language}${link.href}`} key={link.key}>

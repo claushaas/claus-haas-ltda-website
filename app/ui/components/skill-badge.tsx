@@ -11,7 +11,7 @@ export function SkillBadge({ skill }: SkillBadgeProps) {
 
 	return (
 		<motion.span
-			className="cursor-grab rounded-md bg-sky-3 px-3 py-1 font-medium text-sky-12 text-sm shadow-slate-8 shadow-xs transition-colors active:cursor-grabbing hover:bg-sky-4 dark:bg-skydark-3 dark:text-skydark-12 dark:shadow-slate-8 dark:hover:bg-skydark-4"
+			className="cursor-grab rounded-md px-3 py-1 weight-medium text-sky-12 text-sm active:cursor-grabbing"
 			transition={{
 				duration: shouldReduceMotion ? 0 : 0.18,
 				ease: 'easeInOut',

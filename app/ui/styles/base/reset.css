@@ -5,6 +5,10 @@
 	box-sizing: border-box;
 }
 
+@theme {
+	--color-*: initial;
+}
+
 /* Remover listas */
 ul,
 ol {

@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/security/noDangerouslySetInnerHtml: <.> */
 const scriptContent = `(() => {
   try {
     const stored = localStorage.getItem('color-mode-preference');
@@ -9,7 +10,8 @@ const scriptContent = `(() => {
 })();`;
 
 export const ColorModeScript = () => (
-	<script id="color-mode-script" type="text/plain">
-		{scriptContent}
-	</script>
+	<script
+		dangerouslySetInnerHTML={{ __html: scriptContent }}
+		id="color-mode-script"
+	/>
 );

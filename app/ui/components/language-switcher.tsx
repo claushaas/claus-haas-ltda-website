@@ -22,19 +22,21 @@ export const LanguageSwitcher = () => {
 	) ?? { code: 'en', label: 'En' };
 
 	return (
-		<div className="flex items-center gap-1">
+		<div className="flex items-center">
 			<Earth
 				aria-label={t('idioma.label', 'Idioma')}
 				className="text-primary icon"
 			/>
 			<button
 				aria-pressed={currentLanguage === otherLanguage.code}
-				className="rounded px-2 py-1 font-medium text-sm transition-colors focus:outline-none focus:ring-2 cursor-pointer opacity-100"
+				className="rounded px-2 py-1 weight-medium text-xs cursor-pointer"
 				key={otherLanguage.code}
 				onClick={() => changeLanguage(otherLanguage.code)}
 				type="button"
 			>
-				<span className="text-primary">{otherLanguage.label}</span>
+				<span className="text-primary font-extralight">
+					{otherLanguage.label}
+				</span>
 			</button>
 		</div>
 	);
