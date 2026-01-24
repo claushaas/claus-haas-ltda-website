@@ -1,0 +1,24 @@
+@layer base {
+	.text-heading-color {
+		color: var(--text-heading-color);
+	}
+	.text-primary {
+		color: var(--text-primary);
+	}
+	.text-secondary {
+		color: var(--text-secondary);
+	}
+	.text-muted {
+		color: var(--text-muted);
+	}
+
+	.accent-primary {
+		color: var(--accent-primary);
+	}
+	.accent-muted {
+		color: var(--accent-muted);
+	}
+	.accent-strong {
+		color: var(--accent-strong);
+	}
+}

@@ -1,0 +1,54 @@
+/* Box sizing e herança de fontes */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remover listas */
+ul,
+ol {
+	list-style: none;
+}
+
+/* Imagens e mídias responsivas */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/* Inputs e botões — reset simplificado */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+	color: inherit;
+	outline: none;
+	background: transparent;
+	border: none;
+}
+
+/* Inputs tipo button */
+button {
+	cursor: pointer;
+}
+
+/* Tabelas básicas */
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+/* Elementos de formulário inline block */
+button,
+select,
+input,
+textarea {
+	line-height: inherit;
+}

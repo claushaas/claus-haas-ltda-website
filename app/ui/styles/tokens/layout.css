@@ -1,0 +1,9 @@
+:root {
+	/* Reading width + adaptive padding */
+	--reading-min: 45ch;
+	--reading-ideal: 68ch;
+	--reading-max: 78ch;
+	--pad-min: 1rem;
+	--pad-ideal: 2rem;
+	--pad-max: 3rem;
+}

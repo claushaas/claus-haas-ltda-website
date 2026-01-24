@@ -1,0 +1,14 @@
+:root {
+	/* Elevation fallbacks */
+	--radius-surface: 6px;
+	--hi: 0.18;
+	--ao: 0.15;
+	--sh: 0.08;
+	--a: 90deg;
+}
+
+.dark {
+	--hi: 0.1;
+	--ao: 0.08;
+	--sh: 0.04;
+}

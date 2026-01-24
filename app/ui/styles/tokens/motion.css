@@ -1,0 +1,15 @@
+:root {
+	/* Motion tokens */
+	--motion-fast: 120ms;
+	--motion-medium: 180ms;
+	--motion-slow: 240ms;
+	--ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--motion-fast: 1ms;
+		--motion-medium: 1ms;
+		--motion-slow: 1ms;
+	}
+}

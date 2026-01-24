@@ -1,0 +1,29 @@
+.skip-link {
+	position: absolute;
+	top: 1rem;
+	left: -9999px;
+	z-index: 60;
+	padding: 0.5rem 0.75rem;
+	color: var(--text-primary);
+	background: var(--bg-surface);
+	border: 1px solid var(--border-subtle);
+	border-radius: var(--radius-surface);
+}
+
+.skip-link:focus {
+	left: 1rem;
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent-primary);
+	outline-offset: 2px;
+}
+
+:focus {
+	outline: none;
+	/* Você pode preferir:
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  */
+}

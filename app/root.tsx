@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
 	isRouteErrorResponse,
 	Links,
@@ -8,12 +9,10 @@ import {
 	ScrollRestoration,
 	useLoaderData,
 } from 'react-router';
-import type { Route } from './+types/root';
-import './ui/styles/app.css';
-import { useTranslation } from 'react-i18next';
 import { useHashFocus } from '~/hooks/use-hash-focus';
 import { GlobalStateProvider } from '~/state/global-state';
 import { AppMdxProvider } from '~/ui/mdx/mdx-provider';
+import type { Route } from './+types/root';
 import { useIsBot } from './hooks/use-is-bot';
 import { defaultLanguage, detectLanguage } from './i18n/i18n';
 import { ColorModeScript } from './ui/components/color-mode-script';
@@ -22,6 +21,8 @@ import { LanguageSwitcher } from './ui/components/language-switcher';
 import { LoadStateSync } from './ui/components/load-state-sync';
 import { SiteNav } from './ui/components/site-nav';
 import { SkipLink } from './ui/components/skip-link';
+
+import './ui/styles/index.css';
 
 export const links: Route.LinksFunction = () => [
 	{

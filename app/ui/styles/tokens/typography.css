@@ -1,0 +1,24 @@
+@theme {
+	--font-default: var(--font-family-base);
+}
+
+:root {
+	/* Typography tokens */
+	--font-family-base:
+		Quicksand, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+	--font-body-min: 0.95rem;
+	--font-body-ideal: 1rem;
+	--font-body-max: 1.05rem;
+	--font-heading-min: 1.25rem;
+	--font-heading-ideal: 1.375rem;
+	--font-heading-max: 1.5rem;
+	--font-meta-min: 0.8rem;
+	--font-meta-ideal: 0.875rem;
+	--font-meta-max: 0.9rem;
+	--weight-regular: 300;
+	--weight-medium: 400;
+	--weight-semibold: 500;
+	--line-body: 1.7;
+	--line-heading: 1.4;
+	--line-meta: 1.5;
+}

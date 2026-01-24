@@ -1,0 +1,58 @@
+html {
+	font-family: var(--font-family-base);
+	color: var(--text-primary);
+	background: var(--bg-base);
+}
+
+a {
+	color: var(--accent-primary);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--accent-muted);
+	text-decoration: underline;
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	@apply py-10;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-family-base);
+	font-weight: var(--weight-semibold);
+	color: var(--text-heading-color);
+	overflow-wrap: break-word;
+	scroll-margin-top: 6rem;
+	@apply mb-3 mt-2;
+}
+
+p,
+li {
+	font-family: var(--font-family-base);
+	color: var(--text-secondary);
+	overflow-wrap: break-word;
+}
+
+p {
+	@apply mb-4;
+}
+
+section {
+	@apply mb-20;
+}
+
+section:first-child {
+	@apply mt-10;
+}
+
+section:last-child {
+	@apply mb-10;
+}

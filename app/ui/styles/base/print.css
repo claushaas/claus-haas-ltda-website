@@ -1,0 +1,21 @@
+@media print {
+	html {
+		color: #000;
+		background: #fff;
+	}
+
+	.page {
+		background: #fff;
+	}
+
+	.surface {
+		background: transparent;
+		border: 1px solid #ccc;
+		box-shadow: none;
+	}
+
+	.nav-row,
+	nav {
+		display: none;
+	}
+}
