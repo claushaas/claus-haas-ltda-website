@@ -268,6 +268,17 @@ section:last-child {
   */
 }
 
+@layer base {
+  .text-heading-color {color: var(--text-heading-color)}
+  .text-primary {color: var(--text-primary)}
+  .text-secondary {color: var(--text-secondary)}
+  .text-muted {color: var(--text-muted)}
+
+  .accent-primary {color: var(--accent-primary)}
+  .accent-muted {color: var(--accent-muted)}
+  .accent-strong {color: var(--accent-strong)}
+}
+
 @layer components {
   .page {
     min-height: 100dvh;
@@ -325,6 +336,14 @@ section:last-child {
       "Liberation Mono", "Courier New", monospace;
     font-size: 0.9rem;
     line-height: 1.6;
+  }
+
+  .icon {
+    width: 1em;
+    height: 1em;
+    stroke-width: 1.25;
+    flex-shrink: 0;
+    vertical-align: -0.125em;
   }
 
   .nav-row {

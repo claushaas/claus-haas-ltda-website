@@ -13,26 +13,20 @@ export const LanguageSwitcher = () => {
 		code: import('~/i18n/i18n').SupportedLanguage;
 		label: string;
 	}[] = [
-		{
-			code: 'pt',
-			label: 'Pt',
-		},
-		{
-			code: 'en',
-			label: 'En',
-		},
+		{ code: 'pt', label: 'Pt' },
+		{ code: 'en', label: 'En' },
 	];
 
 	const otherLanguage: (typeof languages)[number] = languages.find(
 		(lang) => lang.code !== currentLanguage,
-	) ?? {
-		code: 'en',
-		label: 'En',
-	};
+	) ?? { code: 'en', label: 'En' };
 
 	return (
 		<div className="flex items-center gap-1">
-			<Earth aria-label={t('idioma.label', 'Idioma')} className="text-md" />
+			<Earth
+				aria-label={t('idioma.label', 'Idioma')}
+				className="text-primary icon"
+			/>
 			<button
 				aria-pressed={currentLanguage === otherLanguage.code}
 				className="rounded px-2 py-1 font-medium text-sm transition-colors focus:outline-none focus:ring-2 cursor-pointer opacity-100"
@@ -40,9 +34,7 @@ export const LanguageSwitcher = () => {
 				onClick={() => changeLanguage(otherLanguage.code)}
 				type="button"
 			>
-				<span className="text-sky-11 dark:text-skydark-11">
-					{otherLanguage.label}
-				</span>
+				<span className="text-primary">{otherLanguage.label}</span>
 			</button>
 		</div>
 	);

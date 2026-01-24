@@ -9,7 +9,7 @@ import {
 	useLoaderData,
 } from 'react-router';
 import type { Route } from './+types/root';
-import './app.css';
+import './ui/styles/app.css';
 import { useTranslation } from 'react-i18next';
 import { useHashFocus } from '~/hooks/use-hash-focus';
 import { GlobalStateProvider } from '~/state/global-state';
@@ -136,6 +136,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					</header>
 					<LoadStateSync />
 					<AppMdxProvider>{children}</AppMdxProvider>
+					<div className="bg-pink-900 p-96 text-yellow-400">teste</div>
 					<footer
 						className="mb-0 border-slate-2 border-t-2 pb-2 pt-16 dark:border-slatedark-2"
 						id="footer"

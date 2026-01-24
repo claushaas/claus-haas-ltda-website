@@ -21,7 +21,6 @@
 			"**/*.html",
 			"**/*.json",
 			"**/*.md",
-			"!**/app.css",
 			"!**/node_modules",
 			"!**/dist",
 			"!**/build",

@@ -11,24 +11,24 @@ export const ColorModeToggle = () => {
 			<div className="flex overflow-hidden rounded-full border border-slate-4 bg-slate-1 dark:border-slatedark-4 dark:bg-slatedark-1">
 				{options.map((option) => {
 					const isActive = colorModePreference === option;
+					console.log('isActive', isActive);
+
 					return (
 						<button
 							aria-pressed={isActive}
 							className={`px-3 py-1 text-xs font-semibold uppercase tracking-wide transition-colors ${
-								isActive
-									? 'bg-slate-12 text-slate-1 dark:bg-slatedark-12 dark:text-slatedark-1'
-									: 'text-slate-11 hover:bg-slate-3 dark:text-slatedark-11 dark:hover:bg-slatedark-3'
+								isActive ? 'text-muted' : 'text-primary'
 							}`}
 							key={option}
 							onClick={() => setColorModePreference(option)}
 							type="button"
 						>
 							{option === 'light' ? (
-								<Sun className="inline-block h-4 w-4" />
+								<Sun className="icon" />
 							) : option === 'dark' ? (
-								<Moon className="inline-block h-4 w-4" />
+								<Moon className="icon" />
 							) : option === 'system' ? (
-								<SunMoon className="inline-block h-4 w-4" />
+								<SunMoon className="icon" />
 							) : null}
 						</button>
 					);
