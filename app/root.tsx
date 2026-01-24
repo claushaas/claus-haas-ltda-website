@@ -154,10 +154,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					<ScrollbarVisibility />
 					<LoadStateSync />
 					<AppMdxProvider>{children}</AppMdxProvider>
-					<footer
-						className="mb-0 border-slate-2 border-t-2 pb-2 pt-16 dark:border-slatedark-2"
-						id="footer"
-					>
+					<footer className="mb-0 border-t-2 pb-2 pt-16" id="footer">
 						<p className="text-center">
 							{t('home.footer', { year: new Date().getFullYear() })}
 							{!isBot && t('home.footerCnpj')}

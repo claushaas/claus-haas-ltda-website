@@ -21,7 +21,7 @@ export default function ProjectsRoute() {
 						</ul>
 						<p className="t-meta">
 							<a
-								className="text-sky-8 underline underline-offset-2 hover:opacity-80 dark:text-skydark-8"
+								className="underline underline-offset-2 hover:opacity-80"
 								href={t('projects.featured.linkUrl')}
 								rel="noopener noreferrer"
 								target="_blank"

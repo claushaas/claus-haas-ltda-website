@@ -16,7 +16,7 @@ export default function ContactRoute() {
 					<p className="t-body">
 						{t('contact.emailLabel')}{' '}
 						<a
-							className="text-sky-8 underline underline-offset-2 hover:opacity-80 dark:text-skydark-8"
+							className="underline underline-offset-2 hover:opacity-80"
 							href={`mailto:${t('contact.email')}`}
 						>
 							{t('contact.email')}
