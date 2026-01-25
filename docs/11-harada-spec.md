@@ -66,7 +66,7 @@ app/
     "language": "pt",
     "updatedAt": "2026-01-20"
   },
-  "goal": "Objetivo central (<=120 chars)",
+  "goal": "Objetivo central",
   "themes": ["... x8"],
   "actions": [["... x8"], ["... x8"], ...] // 8 arrays de 8 strings
 }
@@ -79,7 +79,6 @@ app/
 | Themes | `themes.length === 8` |
 | Actions | `actions.length === 8` |
 | Actions por tema | `actions[i].length === 8` |
-| Tamanho de string | Goal, theme, action ≤ 120 caracteres |
 
 ### 4.3 Ordem dos Temas (Contrato Fixo)
 
@@ -211,7 +210,7 @@ A rota **não deve ser indexada**.
 
 ### 8.2 Interação
 
-- Cada célula tem texto até 120 chars
+- Cada célula tem texto
 - Tooltip com conteúdo completo (hover e foco)
 - Acessível via teclado
 

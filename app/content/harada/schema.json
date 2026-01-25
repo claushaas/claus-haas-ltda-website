@@ -25,13 +25,11 @@
 				],
 				"size": "3x3"
 			},
-			"description": "Cada tema possui exatamente 8 ações, posicionadas no bloco 3x3 correspondente, exceto a célula central.",
-			"maxLength": 120
+			"description": "Cada tema possui exatamente 8 ações, posicionadas no bloco 3x3 correspondente, exceto a célula central."
 		},
 
 		"goal": {
 			"lang": ["pt", "en"],
-			"maxLength": 120,
 			"position": { "col": 4, "row": 4 },
 			"role": "goal"
 		},
