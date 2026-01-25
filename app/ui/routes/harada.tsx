@@ -371,7 +371,7 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 				<button
 					aria-describedby={tooltipId}
 					aria-label={cellToRender.text}
-					className={`surface gap-2 flex h-full w-full flex-col items-center rounded-lg px-3 pb-3 pt-3 text-center text-[11px] leading-snug transition-all duration-150 focus-visible:outline sm:text-xs md:text-sm ${styles.cell}`}
+					className={`surface gap-2 flex h-full w-full flex-col items-center rounded-lg px-3 pb-3 pt-3 text-center text-[11px] leading-snug transition-colors duration-150 focus-visible:outline sm:text-xs md:text-sm ${styles.cell}`}
 					type="button"
 				>
 					<div className="flex w-full justify-start">

@@ -93,6 +93,7 @@
 		inset: 0;
 		pointer-events: none;
 		content: "";
+		opacity: 0;
 		background: linear-gradient(
 			var(--a, 90deg),
 			rgba(255, 255, 255, calc(var(--sh, 0.06) * 1.2)),
@@ -107,6 +108,7 @@
 		inset: 0;
 		pointer-events: none;
 		content: "";
+		opacity: 0;
 		background:
 			linear-gradient(
 				var(--a, 90deg),
@@ -117,8 +119,14 @@
 				calc(var(--a, 90deg) + 180deg),
 				rgba(0, 0, 0, var(--ao, 0.1)),
 				rgba(0, 0, 0, 0) 22%
-			);
+		);
 		border-radius: inherit;
+	}
+
+	html[data-elevation-ready] .surface::before,
+	html[data-elevation-ready] .surface::after {
+		opacity: 1;
+		transition: opacity var(--motion-fast) var(--ease-standard);
 	}
 
 	.tile {

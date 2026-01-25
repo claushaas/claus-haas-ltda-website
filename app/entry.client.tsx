@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import { StrictMode, startTransition } from 'react';
+import { StrictMode, startTransition, useLayoutEffect } from 'react';
 import { hydrateRoot } from 'react-dom/client';
 import { I18nextProvider } from 'react-i18next';
 import { HydratedRouter } from 'react-router/dom';
@@ -30,12 +30,12 @@ async function main() {
 			<StrictMode>
 				<I18nextProvider i18n={i18next}>
 					<ColorModeScriptRunner />
+					<ElevationRunner />
 					<HydratedRouter />
 				</I18nextProvider>
 			</StrictMode>,
 		);
 
-		initElevation();
 	});
 }
 
@@ -43,5 +43,10 @@ main().catch((error) => console.error(error));
 
 function ColorModeScriptRunner() {
 	useColorModeScript();
+	return null;
+}
+
+function ElevationRunner() {
+	useLayoutEffect(() => initElevation(), []);
 	return null;
 }

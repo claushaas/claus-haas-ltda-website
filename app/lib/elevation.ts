@@ -37,6 +37,7 @@ const updateAllElevated = () => {
 	LIGHT.x = viewportWidth / 2;
 	LIGHT.y = -viewportHeight * 12;
 	document.querySelectorAll('.surface').forEach(updateElevatedElement);
+	document.documentElement.dataset.elevationReady = 'true';
 };
 
 export const initElevation = () => {

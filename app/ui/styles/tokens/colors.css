@@ -2,7 +2,7 @@
 	/* Colors: light mode (OKLCH) */
 	--bg-base: oklch(0.98 0.001 260);
 	--bg-base-subtle: oklch(0.96 0.01 260);
-	--bg-surface: oklch(0.99 0.005 260);
+	--bg-surface: oklch(0.95 0.001 260);
 	--bg-surface-muted: oklch(0.975 0.007 260);
 	--bg-tile: oklch(0.965 0.008 260);
 	--border-subtle: oklch(0.88 0.012 260);
