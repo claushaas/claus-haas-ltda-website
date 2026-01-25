@@ -33,7 +33,6 @@
 			"!**/.git",
 			"!**/.vscode",
 			"!**/.react-router",
-			"!**/.wrangler",
 			"!**/worker-configuration.d.ts",
 			"!**/*.d.ts",
 			"!**/*.spec.ts"
