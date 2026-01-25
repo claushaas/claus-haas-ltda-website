@@ -342,7 +342,7 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 			return (
 				<div
 					aria-hidden
-					className="h-full w-full rounded-lg bg-linear-to-br"
+					className="h-full w-full rounded-lg"
 					key={`empty-${rowIndex}-${colIndex}`}
 				/>
 			);
@@ -364,11 +364,11 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 				: 'top-full mt-3 translate-y-3';
 
 		return (
-			<div key={`${cellToRender.row}-${cellToRender.col}`}>
+			<div className="surface" key={`${cellToRender.row}-${cellToRender.col}`}>
 				<button
 					aria-describedby={tooltipId}
 					aria-label={cellToRender.text}
-					className={`group relative gap-2 flex h-full w-full flex-col items-center rounded-lg border px-3 pb-3 pt-3 text-center text-[11px] leading-snug transition-all duration-150 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-8 sm:text-xs md:text-sm ${styles.cell}`}
+					className={`group relative gap-2 flex h-full w-full flex-col items-center rounded-lg px-3 pb-3 pt-3 text-center text-[11px] leading-snug transition-all duration-150 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-8 sm:text-xs md:text-sm ${styles.cell}`}
 					type="button"
 				>
 					<div className="flex w-full justify-start">
@@ -457,7 +457,7 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 					<h2 className="text-lg font-semibold">{t('harada.gridTitle')}</h2>
 					<p className="text-xs">{t('harada.gridHint')}</p>
 				</div>
-				<div className="overflow-hidden rounded-2xl border bg-linear-to-br p-3">
+				<div className="overflow-hidden rounded-2xl p-3">
 					<div className="grid aspect-square w-full grid-cols-9 gap-1 sm:gap-1.5 md:gap-2">
 						{grid.flatMap((row: (GridCell | null)[], rowIndex: number) =>
 							row.map((cell: GridCell | null, colIndex: number) =>
