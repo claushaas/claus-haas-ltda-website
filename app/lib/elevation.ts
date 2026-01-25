@@ -1,8 +1,8 @@
 const LIGHT = { x: 0, y: 0 };
-const RANGE = 10;
+const RANGE = 800;
 
-const BASE = { ao: 0.4, hi: 0.06, sh: 0.03 };
-const MAX = { ao: 0.9, hi: 0.64, sh: 0.88 };
+const BASE = { ao: 0.1, hi: 0.12, sh: 0.06 };
+const MAX = { ao: 0.3, hi: 0.34, sh: 0.16 };
 
 const updateElevatedElement = (element: Element) => {
 	if (!(element instanceof HTMLElement)) {
@@ -31,8 +31,10 @@ const updateElevatedElement = (element: Element) => {
 };
 
 const updateAllElevated = () => {
-	LIGHT.x = window.innerWidth / 2;
-	LIGHT.y = 0;
+	const viewportWidth = window.innerWidth;
+	const viewportHeight = window.innerHeight;
+	LIGHT.x = viewportWidth / 2;
+	LIGHT.y = -viewportHeight * 12;
 	document.querySelectorAll('.surface').forEach(updateElevatedElement);
 };
 
