@@ -23,20 +23,15 @@ export const LanguageSwitcher = () => {
 
 	return (
 		<div className="flex items-center">
-			<Earth
-				aria-label={t('idioma.label', 'Idioma')}
-				className="text-primary icon"
-			/>
+			<Earth aria-label={t('idioma.label', 'Idioma')} className="icon" />
 			<button
 				aria-pressed={currentLanguage === otherLanguage.code}
-				className="rounded px-2 py-1 weight-medium text-xs cursor-pointer"
+				className="rounded px-2 py-1 weight-medium cursor-pointer"
 				key={otherLanguage.code}
 				onClick={() => changeLanguage(otherLanguage.code)}
 				type="button"
 			>
-				<span className="text-primary font-extralight">
-					{otherLanguage.label}
-				</span>
+				<span>{otherLanguage.label}</span>
 			</button>
 		</div>
 	);

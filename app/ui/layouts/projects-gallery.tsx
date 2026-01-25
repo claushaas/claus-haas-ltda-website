@@ -19,7 +19,7 @@ export default function ProjetosSection() {
 
 	return (
 		<section aria-labelledby="projetos-heading">
-			<h2 className="mb-8 font-bold text-xl sm:text-3xl" id="projetos-heading">
+			<h2 className="mb-8" id="projetos-heading">
 				{t('projects.title')}
 			</h2>
 			<div className="relative flex items-center">

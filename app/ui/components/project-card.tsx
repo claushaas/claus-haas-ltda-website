@@ -33,29 +33,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 			}}
 		>
 			{project.title && (
-				<h3 className="mt-0 mb-1 font-semibold text-xl sm:mt-0">
-					{t(project.title)}
-				</h3>
+				<h3 className="mt-0 mb-1 sm:mt-0">{t(project.title)}</h3>
 			)}
-			{project.description && (
-				<p className="mb-2 text-sky-11 dark:text-skydark-11">
-					{t(project.description)}
-				</p>
-			)}
+			{project.description && <p className="mb-2">{t(project.description)}</p>}
 			{project.technologies && project.technologies.length > 0 && (
 				<div className="mb-2 flex flex-wrap gap-2">
 					{project.technologies.map((tec) => (
-						<span
-							className="rounded bg-sky-3 px-2 py-0.5 text-sky-12 text-xs dark:bg-skydark-3 dark:text-skydark-12"
-							key={tec}
-						>
+						<span className="px-2 py-0.5" key={tec}>
 							{tec}
 						</span>
 					))}
 				</div>
 			)}
 			{project.highlights && project.highlights.length > 0 && (
-				<ul className="mb-2 list-disc pl-5 text-sky-11 dark:text-skydark-11">
+				<ul className="mb-2 list-disc pl-5">
 					{project.highlights.map((highlight) => (
 						<li key={highlight}>{t(highlight)}</li>
 					))}
@@ -66,7 +57,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 					aria-label={t('project.seeMoreAria', {
 						title: t(project.title ?? ''),
 					})}
-					className="text-sky-10 underline hover:opacity-80"
+					className="underline hover:opacity-80"
 					href={project.link}
 					rel="noopener noreferrer"
 					target="_blank"
@@ -74,7 +65,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 					{t('project.seeMore')}
 				</a>
 			) : (
-				<span className="cursor-not-allowed text-sky-10 underline opacity-60">
+				<span className="cursor-not-allowed underline opacity-60">
 					{t('project.seeMore')}
 				</span>
 			)}

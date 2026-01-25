@@ -91,6 +91,7 @@ h6 {
 p,
 li {
 	font-family: var(--font-family-base);
+	font-weight: var(--weight-regular);
 	color: var(--text-secondary);
 	overflow-wrap: break-word;
 }

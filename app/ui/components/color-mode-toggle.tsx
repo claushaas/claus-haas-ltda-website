@@ -24,9 +24,7 @@ export const ColorModeToggle = () => {
 				return (
 					<button
 						aria-pressed={isActive}
-						className={`p-1 text-xs font-semibold uppercase tracking-wide transition-colors ${
-							isActive ? 'text-muted' : 'text-primary'
-						}`}
+						className="p-1 uppercase tracking-wide transition-colors"
 						key={option}
 						onClick={() => setColorModePreference(option)}
 						type="button"
