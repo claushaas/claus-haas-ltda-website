@@ -1,9 +1,9 @@
 :root {
 	/* Elevation fallbacks */
 	--radius-surface: 6px;
-	--hi: 0.18;
-	--ao: 0.15;
-	--sh: 0.08;
+	--hi: 0.12;
+	--ao: 0.1;
+	--sh: 0.06;
 	--a: 90deg;
 }
 

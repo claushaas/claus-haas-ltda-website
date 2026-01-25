@@ -364,11 +364,14 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 				: 'top-full mt-3 translate-y-3';
 
 		return (
-			<div className="surface" key={`${cellToRender.row}-${cellToRender.col}`}>
+			<div
+				className="group relative h-full w-full"
+				key={`${cellToRender.row}-${cellToRender.col}`}
+			>
 				<button
 					aria-describedby={tooltipId}
 					aria-label={cellToRender.text}
-					className={`group relative gap-2 flex h-full w-full flex-col items-center rounded-lg px-3 pb-3 pt-3 text-center text-[11px] leading-snug transition-all duration-150 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-8 sm:text-xs md:text-sm ${styles.cell}`}
+					className={`surface gap-2 flex h-full w-full flex-col items-center rounded-lg px-3 pb-3 pt-3 text-center text-[11px] leading-snug transition-all duration-150 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-8 sm:text-xs md:text-sm ${styles.cell}`}
 					type="button"
 				>
 					<div className="flex w-full justify-start">
@@ -386,24 +389,24 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 						className="sr-only"
 						id={tooltipId}
 					>{`${styles.label}: ${cellToRender.text}`}</span>
-					<div
-						className={`pointer-events-none absolute z-30 w-64 rounded-lg border px-3 py-2 text-left text-xs opacity-0 shadow-2xl transition-all duration-150 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 ${horizontalTooltipClass} ${verticalTooltipClass}`}
-					>
-						<div className="mb-1 flex items-center gap-2">
-							<span
-								className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${styles.badge}`}
-							>
-								{styles.label}
-							</span>
-							{cellToRender.direction && (
-								<span className="text-[11px] uppercase">
-									{cellToRender.direction}
-								</span>
-							)}
-						</div>
-						<p className="text-sm leading-snug">{cellToRender.text}</p>
-					</div>
 				</button>
+				<div
+					className={`pointer-events-none absolute z-30 w-64 rounded-lg border px-3 py-2 text-left text-xs opacity-0 shadow-2xl transition-all duration-150 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 ${horizontalTooltipClass} ${verticalTooltipClass}`}
+				>
+					<div className="mb-1 flex items-center gap-2">
+						<span
+							className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${styles.badge}`}
+						>
+							{styles.label}
+						</span>
+						{cellToRender.direction && (
+							<span className="text-[11px] uppercase">
+								{cellToRender.direction}
+							</span>
+						)}
+					</div>
+					<p className="text-sm leading-snug">{cellToRender.text}</p>
+				</div>
 			</div>
 		);
 	};
@@ -457,7 +460,7 @@ export default function Harada({ loaderData }: Route.ComponentProps) {
 					<h2 className="text-lg font-semibold">{t('harada.gridTitle')}</h2>
 					<p className="text-xs">{t('harada.gridHint')}</p>
 				</div>
-				<div className="overflow-hidden rounded-2xl p-3">
+				<div className="rounded-2xl p-3">
 					<div className="grid aspect-square w-full grid-cols-9 gap-1 sm:gap-1.5 md:gap-2">
 						{grid.flatMap((row: (GridCell | null)[], rowIndex: number) =>
 							row.map((cell: GridCell | null, colIndex: number) =>

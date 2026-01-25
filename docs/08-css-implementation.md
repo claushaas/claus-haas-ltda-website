@@ -67,9 +67,9 @@ O CSS segue a abordagem **CSS-first** do Tailwind v4:
   --radius-surface: 6px;
   
   /* Fallbacks estáticos para quando JS não estiver disponível */
-  --hi: 0.18;  /* highlight (rim light) */
-  --ao: 0.15;  /* oclusão */
-  --sh: 0.08;  /* shading */
+  --hi: 0.12;  /* highlight (rim light) */
+  --ao: 0.10;  /* oclusão */
+  --sh: 0.06;  /* shading */
   --a: 90deg;  /* ângulo da luz (topo-centro) */
 
   /* --- Tipografia --- */
@@ -219,24 +219,44 @@ a:hover {
    * As variáveis --a, --hi, --ao, --sh são injetadas por JavaScript.
    */
   .surface {
+    position: relative;
     background: var(--bg-surface);
     border-radius: var(--radius-surface);
-    
-    /* Highlight (rim light) - borda interna iluminada */
-    box-shadow: 
-      inset 0 0 0 1px rgba(255, 255, 255, var(--hi, 0.18));
-    
-    /* Gradientes internos para oclusão e shading */
-    background-image: 
-      linear-gradient(
-        calc(var(--a, 90deg) + 180deg),
-        rgba(0, 0, 0, var(--ao, 0.15)) 0%,
-        transparent 40%
-      ),
+    overflow: clip;
+  }
+
+  .surface::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+
+    background: linear-gradient(
+      var(--a, 90deg),
+      rgba(255,255,255, calc(var(--sh, 0.06) * 1.2)),
+      rgba(255,255,255, 0.02) 35%,
+      rgba(0,0,0, var(--sh, 0.06)) 100%
+    );
+  }
+
+  .surface::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+
+    background:
       linear-gradient(
         var(--a, 90deg),
-        rgba(255, 255, 255, var(--sh, 0.08)) 0%,
-        transparent 30%
+        rgba(255,255,255, var(--hi, 0.12)),
+        rgba(255,255,255, 0) 16%
+      ),
+      linear-gradient(
+        calc(var(--a, 90deg) + 180deg),
+        rgba(0,0,0, var(--ao, 0.10)),
+        rgba(0,0,0, 0) 22%
       );
   }
 
