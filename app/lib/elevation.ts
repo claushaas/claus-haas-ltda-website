@@ -1,8 +1,16 @@
 const LIGHT = { x: 0, y: 0 };
 const RANGE = 800;
 
-const BASE = { ao: 0.025, hi: 0.025, sh: 0.0025 };
-const MAX = { ao: 0.02, hi: 0.02, sh: 0.1 };
+// const BASE = { ao: 0.025, hi: 0.025, sh: 0.0025 };
+// const MAX = { ao: 0.02, hi: 0.02, sh: 0.1 };
+
+const BASE = { ao: 0.025, hi: 0.05, sh: 0.0025 };
+const MAX = { ao: 0.3, hi: 0.18, sh: 0.12 };
+// const BASE_DARK = { ao: 0.0004, hi: 0.002, sh: 0.00008 };
+// const MAX_DARK = { ao: 0.012, hi: 0.008, sh: 0.003 };
+
+const BASE_DARK = { ao: 0.0017, hi: 0.01, sh: 0.0005 };
+const MAX_DARK = { ao: 0.027, hi: 0.02, sh: 0.008 };
 
 const updateElevatedElement = (element: Element) => {
 	if (!(element instanceof HTMLElement)) {
@@ -21,9 +29,13 @@ const updateElevatedElement = (element: Element) => {
 	const cssAngle = angle - 90;
 	const falloff = 1 / (1 + distance / RANGE);
 
-	const hi = BASE.hi + (MAX.hi - BASE.hi) * falloff;
-	const ao = BASE.ao + (MAX.ao - BASE.ao) * falloff;
-	const sh = BASE.sh + (MAX.sh - BASE.sh) * falloff;
+	const isDark = document.documentElement.classList.contains('dark');
+	const base = isDark ? BASE_DARK : BASE;
+	const max = isDark ? MAX_DARK : MAX;
+
+	const hi = base.hi + (max.hi - base.hi) * falloff;
+	const ao = base.ao + (max.ao - base.ao) * falloff;
+	const sh = base.sh + (max.sh - base.sh) * falloff;
 
 	element.style.setProperty('--a', `${cssAngle}deg`);
 	element.style.setProperty('--hi', hi.toFixed(3));
@@ -46,6 +58,7 @@ export const initElevation = () => {
 	}
 
 	let rafId: number | null = null;
+	let observer: MutationObserver | null = null;
 	const scheduleUpdate = () => {
 		if (rafId !== null) {
 			return;
@@ -62,9 +75,18 @@ export const initElevation = () => {
 	window.addEventListener('scroll', handleUpdate, { passive: true });
 	scheduleUpdate();
 
+	observer = new MutationObserver(() => scheduleUpdate());
+	observer.observe(document.documentElement, {
+		attributeFilter: ['class'],
+		attributes: true,
+	});
+
 	return () => {
 		window.removeEventListener('resize', handleUpdate);
 		window.removeEventListener('scroll', handleUpdate);
+		if (observer) {
+			observer.disconnect();
+		}
 		if (rafId !== null) {
 			window.cancelAnimationFrame(rafId);
 		}

@@ -17,7 +17,7 @@ export const ColorModeToggle = () => {
 	}
 
 	return (
-		<div className="flex overflow-hidden rounded-full">
+		<div className="flex overflow-hidden">
 			{options.map((option) => {
 				const isActive = colorModePreference === option;
 

@@ -1,6 +1,5 @@
 :root {
 	/* Elevation fallbacks */
-	--radius-surface: 6px;
 	--hi: 0.12;
 	--ao: 0.1;
 	--sh: 0.06;
@@ -8,7 +7,7 @@
 }
 
 .dark {
-	--hi: 0.1;
-	--ao: 0.08;
-	--sh: 0.04;
+	--hi: 0.06;
+	--ao: 0.05;
+	--sh: 0.025;
 }

@@ -12,8 +12,8 @@
 @import "./base/print.css";
 @import "./tokens/typography.css";
 @import "./tokens/spacing.css";
-@import "./tokens/elevation.css";
 
 @import "./base/elements.css";
 
 @import "./components/structure.css";
+@import "./tokens/elevation.css";

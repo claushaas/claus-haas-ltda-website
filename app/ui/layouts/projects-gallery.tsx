@@ -35,7 +35,7 @@ export default function ProjetosSection() {
 				</ul>
 				<button
 					aria-label={t('projects.nextAria')}
-					className="-translate-y-1/2 absolute top-1/2 right-0 z-20 rounded-full bg-sky-3 px-2 py-1"
+					className="-translate-y-1/2 absolute top-1/2 right-0 z-20 px-2 py-1"
 					onClick={next}
 					type="button"
 				>
