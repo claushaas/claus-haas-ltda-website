@@ -72,7 +72,7 @@ const assertString = (value: unknown): value is string =>
 const resolveText = (text: LocalizedText, language: SupportedLanguage) =>
 	text[language] ?? text.en ?? text.pt;
 
-const haradaVersions = import.meta.glob('../content/harada/*.json', {
+const haradaVersions = import.meta.glob('../../content/harada/*.json', {
 	eager: true,
 });
 
