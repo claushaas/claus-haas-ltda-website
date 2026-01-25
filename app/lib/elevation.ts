@@ -1,8 +1,8 @@
 const LIGHT = { x: 0, y: 0 };
 const RANGE = 800;
 
-const BASE = { ao: 0.1, hi: 0.12, sh: 0.06 };
-const MAX = { ao: 0.3, hi: 0.34, sh: 0.16 };
+const BASE = { ao: 0.025, hi: 0.025, sh: 0.0025 };
+const MAX = { ao: 0.02, hi: 0.02, sh: 0.1 };
 
 const updateElevatedElement = (element: Element) => {
 	if (!(element instanceof HTMLElement)) {
