@@ -18,13 +18,14 @@ const updateElevatedElement = (element: Element) => {
 
 	const distance = Math.hypot(dx, dy);
 	const angle = (Math.atan2(dy, dx) * 180) / Math.PI;
+	const cssAngle = angle - 90;
 	const falloff = 1 / (1 + distance / RANGE);
 
 	const hi = BASE.hi + (MAX.hi - BASE.hi) * falloff;
 	const ao = BASE.ao + (MAX.ao - BASE.ao) * falloff;
 	const sh = BASE.sh + (MAX.sh - BASE.sh) * falloff;
 
-	element.style.setProperty('--a', `${angle}deg`);
+	element.style.setProperty('--a', `${cssAngle}deg`);
 	element.style.setProperty('--hi', hi.toFixed(3));
 	element.style.setProperty('--ao', ao.toFixed(3));
 	element.style.setProperty('--sh', sh.toFixed(3));
