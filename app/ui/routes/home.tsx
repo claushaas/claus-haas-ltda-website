@@ -49,13 +49,13 @@ export default function Home() {
 					</div>
 					<div className="m-auto flex h-full w-fit flex-col justify-between">
 						<div className="flex flex-col items-end">
-							<h1 className="text-right font-default text-5xl sm:text-8xl">
+							<h1 className="text-right">
 								Claus
 								<span className="sm:block"> Haas</span>
 							</h1>
 						</div>
 						<div className="flex flex-col items-end">
-							<p className="text-nowrap text-right text-lg sm:text-xl">
+							<p className="text-nowrap text-right">
 								{t('home.role1')}
 								<span className="block">{t('home.role2')}</span>
 								<span className="block">{t('home.role3')}</span>
@@ -67,10 +67,7 @@ export default function Home() {
 			<div className="m-auto max-w-4xl" id="main-content" tabIndex={-1}>
 				<section aria-labelledby="about-heading" id="about">
 					<div className="mb-10 sm:mb-20">
-						<h2
-							className="mt-10 mb-4 font-bold text-xl sm:mt-20 sm:mb-8 sm:text-3xl"
-							id="about-heading"
-						>
+						<h2 className="mt-10 mb-4 sm:mt-20 sm:mb-8" id="about-heading">
 							{t('home.aboutTitle')}
 						</h2>
 
@@ -84,9 +81,7 @@ export default function Home() {
 					</div>
 
 					<div className="mb-10 sm:mb-20">
-						<h3 className="mb-4 font-semibold text-lg sm:mb-8 sm:text-2xl">
-							{t('home.whatIDoTitle')}
-						</h3>
+						<h3 className="mb-4 sm:mb-8">{t('home.whatIDoTitle')}</h3>
 						<ul className="list-inside list-disc">
 							<li>{t('home.whatIDo1')}</li>
 							<li>{t('home.whatIDo2')}</li>
@@ -97,16 +92,12 @@ export default function Home() {
 					</div>
 
 					<div className="mb-10 sm:mb-20">
-						<h3 className="mb-4 font-semibold text-lg sm:mb-8 sm:text-2xl">
-							{t('home.experienceTitle')}
-						</h3>
+						<h3 className="mb-4 sm:mb-8">{t('home.experienceTitle')}</h3>
 						<p>{t('home.experience')}</p>
 					</div>
 
 					<div className="mb-10 sm:mb-20">
-						<h3 className="mb-4 font-semibold text-lg sm:mb-8 sm:text-2xl">
-							{t('home.whenTitle')}
-						</h3>
+						<h3 className="mb-4 sm:mb-8">{t('home.whenTitle')}</h3>
 						<ul className="list-inside list-disc">
 							<li>{t('home.when1')}</li>
 							<li>{t('home.when2')}</li>
@@ -116,9 +107,7 @@ export default function Home() {
 					</div>
 
 					<div className="mb-10 sm:mb-20">
-						<h3 className="mb-4 font-semibold text-lg sm:mb-8 sm:text-2xl">
-							{t('home.motivationTitle')}
-						</h3>
+						<h3 className="mb-4 sm:mb-8">{t('home.motivationTitle')}</h3>
 						<ul className="list-inside list-disc">
 							<li>{t('home.motivation1')}</li>
 							<li>{t('home.motivation2')}</li>
@@ -127,20 +116,18 @@ export default function Home() {
 					</div>
 
 					<div className="mb-10 sm:mb-20">
-						<h3 className="mb-4 font-semibold text-lg sm:mb-8 sm:text-2xl">
-							{t('home.techRightTitle')}
-						</h3>
+						<h3 className="mb-4 sm:mb-8">{t('home.techRightTitle')}</h3>
 						<p>{t('home.techRight1')}</p>
 
 						<p>{t('home.techRight2')}</p>
 					</div>
 
 					<div className="mb-10 sm:mb-20">
-						<p className="font-semibold text-lg">
+						<p>
 							{t('home.letsTalk')}
 							<a
 								aria-label={t('home.emailAria')}
-								className="ml-2 text-sky-8 underline underline-offset-2 hover:opacity-80 dark:text-skydark-8"
+								className="ml-2 underline underline-offset-2 hover:opacity-80"
 								href="mailto:contact@claushaas.dev"
 							>
 								contact@claushaas.dev
@@ -151,10 +138,7 @@ export default function Home() {
 
 				{/* Skills & Tecnologias */}
 				<section aria-labelledby="skills-heading" id="skills">
-					<h2
-						className="mb-8 font-bold text-xl sm:text-3xl"
-						id="skills-heading"
-					>
+					<h2 className="mb-8" id="skills-heading">
 						{t('home.skillsTitle')}
 					</h2>
 					<div className="flex flex-wrap gap-4">

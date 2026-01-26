@@ -1,11 +1,11 @@
 import i18next from 'i18next';
-import { StrictMode, startTransition } from 'react';
+import { StrictMode, startTransition, useLayoutEffect } from 'react';
 import { hydrateRoot } from 'react-dom/client';
 import { I18nextProvider } from 'react-i18next';
 import { HydratedRouter } from 'react-router/dom';
 import { useColorModeScript } from './hooks/use-color-mode-script';
 import { initI18Next } from './i18n/i18n';
-import { initElevation } from './lib/elevation';
+import { initElevation } from './utils/elevation';
 
 function getInitialLanguage() {
 	const script = document.getElementById('initial-i18n-language');
@@ -30,12 +30,11 @@ async function main() {
 			<StrictMode>
 				<I18nextProvider i18n={i18next}>
 					<ColorModeScriptRunner />
+					<ElevationRunner />
 					<HydratedRouter />
 				</I18nextProvider>
 			</StrictMode>,
 		);
-
-		initElevation();
 	});
 }
 
@@ -43,5 +42,10 @@ main().catch((error) => console.error(error));
 
 function ColorModeScriptRunner() {
 	useColorModeScript();
+	return null;
+}
+
+function ElevationRunner() {
+	useLayoutEffect(() => initElevation(), []);
 	return null;
 }

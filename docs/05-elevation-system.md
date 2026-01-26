@@ -356,25 +356,44 @@ O CSS consome as variáveis sem saber da geometria:
 
 ```css
 .surface {
-  /* Background base */
+  position: relative;
   background: var(--bg-surface);
   border-radius: var(--radius-surface);
-  
-  /* Highlight (rim light) - borda interna iluminada */
-  box-shadow: 
-    inset 0 0 0 1px rgba(255, 255, 255, var(--hi, 0.12));
-  
-  /* Gradiente interno para oclusão e shading */
-  background-image: 
+  overflow: clip;
+}
+
+.surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background: linear-gradient(
+    var(--a, 90deg),
+    rgba(255,255,255, calc(var(--sh, 0.06) * 1.2)),
+    rgba(255,255,255, 0.02) 35%,
+    rgba(0,0,0, var(--sh, 0.06)) 100%
+  );
+}
+
+.surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background:
     linear-gradient(
-      calc(var(--a, 0deg) + 180deg),
-      rgba(0, 0, 0, var(--ao, 0.10)) 0%,
-      transparent 40%
+      var(--a, 90deg),
+      rgba(255,255,255, var(--hi, 0.12)),
+      rgba(255,255,255, 0) 16%
     ),
     linear-gradient(
-      var(--a, 0deg),
-      rgba(255, 255, 255, var(--sh, 0.06)) 0%,
-      transparent 30%
+      calc(var(--a, 90deg) + 180deg),
+      rgba(0,0,0, var(--ao, 0.10)),
+      rgba(0,0,0, 0) 22%
     );
 }
 ```
@@ -433,9 +452,9 @@ Para quando JS não estiver disponível ou como valores iniciais:
   --radius-surface: 6px;
   
   /* Fallback estáticos (sem JS) */
-  --hi: 0.18;
-  --ao: 0.15;
-  --sh: 0.08;
+  --hi: 0.12;
+  --ao: 0.10;
+  --sh: 0.06;
   --a: 90deg;
 }
 ```

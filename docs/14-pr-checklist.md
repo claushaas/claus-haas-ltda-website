@@ -24,7 +24,7 @@ Este checklist garante que cada mudança no código mantém a integridade do sis
 
 ### 2. Sombras e Bordas
 
-- [ ] Não introduziu shadows fora de `--shadow-surface`
+- [ ] Não introduziu drop-shadow/box-shadow tradicional (usar apenas iluminação global)
 - [ ] Não introduziu radius fora de `--radius-surface`
 - [ ] Não adicionou bordas decorativas
 

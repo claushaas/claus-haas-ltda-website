@@ -115,6 +115,7 @@ Verificado em 2026-01-21: itens conferidos no repositorio (React Router v7, Vite
 - [x] Criar `app/lib/elevation.ts`
 - [x] Injetar `--a`, `--hi`, `--ao`, `--sh` via JS
 - [x] Validar ausencia de drop-shadow tradicional
+- [x] Alinhar CSS e tokens ao 27-spec-global-lightning-system (pseudo-elements + fallbacks)
 
 ### 1.6 MDX base
 

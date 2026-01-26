@@ -82,20 +82,51 @@
 	}
 
 	.surface {
+		position: relative;
+		overflow: clip;
 		background: var(--bg-surface);
-		background-image:
-			linear-gradient(
-				calc(var(--a, 90deg) + 180deg),
-				rgba(0, 0, 0, var(--ao, 0.15)) 0%,
-				transparent 40%
-			),
+		border-radius: var(--radius-surface);
+	}
+
+	.surface::before {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		content: "";
+		background: linear-gradient(
+			var(--a, 90deg),
+			rgba(255, 255, 255, calc(var(--sh, 0.06) * 1.2)),
+			rgba(255, 255, 255, 0.02) 35%,
+			rgba(0, 0, 0, var(--sh, 0.06)) 100%
+		);
+		border-radius: inherit;
+		opacity: 0;
+	}
+
+	.surface::after {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		content: "";
+		background:
 			linear-gradient(
 				var(--a, 90deg),
-				rgba(255, 255, 255, var(--sh, 0.08)) 0%,
-				transparent 30%
+				rgba(255, 255, 255, var(--hi, 0.12)),
+				rgba(255, 255, 255, 0) 16%
+			),
+			linear-gradient(
+				calc(var(--a, 90deg) + 180deg),
+				rgba(0, 0, 0, var(--ao, 0.1)),
+				rgba(0, 0, 0, 0) 22%
 			);
-		border-radius: var(--radius-surface);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, var(--hi, 0.18));
+		border-radius: inherit;
+		opacity: 0;
+	}
+
+	html[data-elevation-ready] .surface::before,
+	html[data-elevation-ready] .surface::after {
+		opacity: 1;
+		transition: opacity var(--motion-medium) var(--ease-standard);
 	}
 
 	.tile {

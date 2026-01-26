@@ -200,9 +200,9 @@ O efeito de elevação é alcançado por **iluminação global**, não por sombr
 
 ```css
 /* Light Mode */
---hi: 0.18;
---ao: 0.15;
---sh: 0.08;
+--hi: 0.12;
+--ao: 0.10;
+--sh: 0.06;
 --a: 90deg;
 
 /* Dark Mode */
@@ -356,7 +356,7 @@ Nunca adicione um valor "só dessa vez".
 ### Superfície Elevada
 
 - background: `--bg-surface`
-- shadow: `--shadow-surface`
+- iluminação global: `--a`, `--hi`, `--ao`, `--sh`
 - padding: `--space-md`
 - border-radius: `--radius-surface`
 
