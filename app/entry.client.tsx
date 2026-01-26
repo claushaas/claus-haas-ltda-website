@@ -5,7 +5,7 @@ import { I18nextProvider } from 'react-i18next';
 import { HydratedRouter } from 'react-router/dom';
 import { useColorModeScript } from './hooks/use-color-mode-script';
 import { initI18Next } from './i18n/i18n';
-import { initElevation } from './lib/elevation';
+import { initElevation } from './utils/elevation';
 
 function getInitialLanguage() {
 	const script = document.getElementById('initial-i18n-language');
@@ -35,7 +35,6 @@ async function main() {
 				</I18nextProvider>
 			</StrictMode>,
 		);
-
 	});
 }
 
